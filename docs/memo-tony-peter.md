@@ -9,8 +9,8 @@ I have a first running cut of the Fall keynote demo, "One Control Plane, Every D
 
 **What it is.** The next version of the Dallas AOMC demo. Instead of introducing the supervision plane, it shows the plane operating across all three working-group domains as one control plane. Seven beats, fear then greed:
 
-1. A routine model pull from a public hub carries a payload. No plane. Blast radius.
-2. Same pull with the plane online. Rogue detection, audit journal, kill switch in six seconds. The "you are here" moment for anyone who saw Dallas.
+1. A company doing everything right (managed registry, scans, SBOM, CVE checks, a cooling-off hold) pulls a model that passes all of it and still carries a novel payload. No plane. Blast radius.
+2. Same artifact, one governance change: new artifacts run in a sandbox under the plane. Caught by behavior in six seconds, never exposed to the network. The "you are here" moment for anyone who saw Dallas.
 3. One plane, three working groups.
 4. Battleground 1, autonomous infrastructure. An agent runs the fabric; every write hits the verify gate. One write is rejected on blast radius and escalated to a human.
 5. Battleground 2, the AI-enabled SOC. The same exploit escalates. Five signals across three domains correlated in seconds. Containment hits the same gate, and "wipe host" is refused by an evidence hold.
@@ -27,6 +27,8 @@ cd Fall26Demo/web-demo && npm install && npm run dev
 ```
 
 Open localhost:3000, press F for fullscreen, Space to advance, 1 through 7 to jump to a beat. Everything you need is in the repo: `docs/handover.md` for the state of things, `docs/presenter-guide.md` for the run of show, and `docs/narration-script.md` if you would rather read the script than sit through it.
+
+Mick Currey's feedback from this morning is already in: Beat 1 now shows best practices in place and still not enough, and Beat 2 catches it in the sandbox. The log of who said what and what changed is in `docs/review-feedback.md`.
 
 **What I already know is wrong.**
 

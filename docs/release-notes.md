@@ -1,5 +1,15 @@
 # Release Notes
 
+## v0.2.0 — Practitioner feedback: best practices weren't enough (September 10, 2026)
+
+Incorporates Mick Currey's (Fidelity) review of the arc. Full log in `docs/review-feedback.md`.
+
+- **Beat 1 reframed.** The company now follows best practices: a Managed Registry node is the only source, developers and agents cannot download directly, and a new step (*T-7d: Best practices, working as designed*) shows the registry scan clean, generate an SBOM, find zero CVEs, hold for seven days, and release. The payload is novel and frontier-model-crafted with no scanner signature. The violation card is now "Best practices weren't enough." Pause lines updated to Mick's.
+- **Beat 2 reframed** around one governance change: every new artifact runs in a sandbox under the plane before release. The registry hands v3.2 to a sandboxed instance; production stays on v3.1. Runtime monitoring catches the drift inside the sandbox; the kill switch quarantines it there. "Never exposed to the company network."
+- **Topology:** new `managed-registry` node in the infrastructure lane and `poisoned-sandbox` node next to the sandbox; SOC row nudged up so the registry pull edge clears it.
+- **Beats 4 and 5** now refer to the sandbox instance's identity and to the supply chain as the entry point.
+- Step count 34 → 35. Narration regenerated for the changed steps only.
+
 ## v0.1.1 — QA pass (September 10, 2026)
 
 - **Fixed:** the threat actor and C2 mirror nodes were shown in Beat 1, wiped by the Beat 2 rewind, and never shown again, so the attacker's probe edge in Beat 4 and the beacon and token-replay edges in Beat 5 silently failed to render. They now appear when the story needs them and the C2 node carries PROBING → SECOND STAGE → BLOCKED AT EDGE labels.

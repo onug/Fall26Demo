@@ -16,7 +16,7 @@ export const LANE_BY_KEY: Record<LaneKey, LaneInfo> = Object.fromEntries(
 // ─── Control plane capabilities ───────────────────────
 export const CONTROLS: ControlInfo[] = [
   { key: 'identity_attestation', number: 1, lane: 'control_plane', name: 'Identity Attestation', detail: 'Cryptographic non-human identity · mutual auth' },
-  { key: 'artifact_provenance', number: 2, lane: 'control_plane', name: 'Artifact Provenance', detail: 'Signed models · SBOM · publisher policy' },
+  { key: 'artifact_provenance', number: 2, lane: 'control_plane', name: 'Artifact Provenance', detail: 'Approved source · SBOM · new artifacts run sandboxed first' },
   { key: 'runtime_monitoring', number: 3, lane: 'control_plane', name: 'Runtime Monitoring', detail: 'Behavior measured from outside the agent' },
   { key: 'audit_journal', number: 4, lane: 'control_plane', name: 'Immutable Audit Journal', detail: 'Append-only · hash-chained · agent has no access' },
   { key: 'kill_switch', number: 5, lane: 'control_plane', name: 'Kill Switch', detail: 'Quarantine at machine speed' },
@@ -84,15 +84,17 @@ export const BASE_NODES: TopologyNode[] = [
   { id: 'edge-routers', type: 'device', label: 'Edge Routers', domain: 'infra', x: 290, y: 340, visible: true },
   { id: 'telemetry-store', type: 'datastore', label: 'Telemetry', domain: 'infra', x: 290, y: 480, visible: true },
   { id: 'config-repo', type: 'datastore', label: 'Config Repo', domain: 'infra', x: 118, y: 480, visible: true },
-  { id: 'verify-gate', type: 'gate', label: 'VERIFY GATE', domain: 'infra', x: 204, y: 270, visible: false },
+  { id: 'managed-registry', type: 'datastore', label: 'Managed Registry', domain: 'infra', x: 204, y: 480, visible: true },
+  { id: 'verify-gate', type: 'gate', label: 'VERIFY GATE', domain: 'infra', x: 198, y: 270, visible: false },
   { id: 'poisoned-model', type: 'rogue', label: 'poisoned:v3.2', domain: 'infra', x: 50, y: 268, visible: false },
 
   // AI-enabled SOC — WG3
-  { id: 'agent-soc-analyst', type: 'agent', label: 'SOC Analyst Agent', domain: 'soc', x: 460, y: 240, visible: true },
-  { id: 'siem', type: 'datastore', label: 'SIEM / Data Lake', domain: 'soc', x: 625, y: 240, visible: true },
+  { id: 'agent-soc-analyst', type: 'agent', label: 'SOC Analyst Agent', domain: 'soc', x: 460, y: 232, visible: true },
+  { id: 'siem', type: 'datastore', label: 'SIEM / Data Lake', domain: 'soc', x: 625, y: 232, visible: true },
   { id: 'evidence-vault', type: 'datastore', label: 'Evidence Vault', domain: 'soc', x: 625, y: 390, visible: true },
   { id: 'containment-tool', type: 'tool', label: 'isolate_segment', domain: 'soc', x: 460, y: 390, visible: false },
-  { id: 'sandbox', type: 'device', label: 'Artifact Sandbox', domain: 'soc', x: 545, y: 320, visible: false },
+  { id: 'sandbox', type: 'device', label: 'Artifact Sandbox', domain: 'soc', x: 560, y: 300, visible: false },
+  { id: 'poisoned-sandbox', type: 'rogue', label: 'v3.2 in sandbox', domain: 'soc', x: 640, y: 300, visible: false },
 
   // External
   { id: 'public-model-hub', type: 'datastore', label: 'Public Model Hub', domain: 'external', x: 850, y: 200, visible: true },

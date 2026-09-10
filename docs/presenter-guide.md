@@ -16,60 +16,62 @@ Two presenters: Nick plus one co-presenter. The demo narrates itself. You advanc
 | # | Step | What the room sees | Pause? |
 |---|------|--------------------|--------|
 | 1 | Title | One Control Plane, Every Domain. WG1/WG2/WG3 named. | |
-| 2 | Beat 1 title | The Poisoned Pull | |
-| 3 | T+00:00 A routine model refresh | Fabric agent pulls a model from a public hub. Looks normal. "NO SUPERVISION PLANE" ghosted at the top. | |
-| 4 | T+00:04 The artifact loads | Payload fires. Agent still reports HEALTHY. | **Pause 1** — "It looks like an agent doing its job." |
-| 5 | T+00:19 The agent goes to work | Routes poisoned, ACL opened, telemetry dark, topology exfiltrated. Counters climb. | |
-| 6 | NO SUPERVISION PLANE | Red flash. The failure named. | |
-| 7 | T+03:51 Nobody knows yet | Low-priority ticket. Threat actor appears. 11-day dwell. | |
-| 8 | Blast radius | Seven red bullets. | **Pause 2** — the "if you don't have these controls" branch |
-| 9 | Beat 2 title: You Are Here | Rewind. Dallas → 25 requirements. | |
-| 10 | AOMC Control Plane online | Orange band appears above the lanes. Five WG1 controls light up. | |
-| 11 | T+00:00 The same routine pull | Provenance tags the artifact TAINTED, stages it to a sandbox. | |
-| 12 | T+00:04 Artifact loads, agent self-attests | Runtime ignores self-attestation. Drift 97/100. | |
-| 13 | ROGUE DETECTED — KILL SWITCH | Green shield. Writes blocked before device. Agent quarantined. Journal. | |
-| 14 | AOMC sits outside the agents | Principle card. 6 seconds, 0 writes. | **Pause 3** — connect to Dallas |
-| 15 | Beat 3 title: One Plane, Three WGs | | |
-| 16 | The plane, wired across every domain | WG2 and WG3 lanes light up. Verify gate node appears. | |
-| 17 | Beat 4 title: Battleground 1 | | |
-| 18 | T+00:41 Detect | NOC agent at autonomy level 0 sees route flaps from the attacker's AS. | |
-| 19 | T+00:47 Diagnose → Recommend | Level 1. Four proposed writes. | |
-| 20 | Verify gate, writes 1–3 | Four checks pass in sequence. APPROVED. Level 2. | |
-| 21 | Verify gate, write 4 | Blast radius 100% of pods. REJECTED → ESCALATED to a human. | |
-| 22 | T+00:52 Execute, journal, bounded auto-act | Flaps clear. Level 3 only inside the low-risk envelope. | |
-| 23 | Safe autonomy — WG2 | Six green bullets. | **Pause 4** — "Nothing executes blindly." |
-| 24 | Beat 5 title: Battleground 2 | | |
-| 25 | T+00:58 The exploit escalates | Sandbox beacons to C2. Threat actor replays a token toward the NOC agent. | |
-| 26 | T+01:02 Detect → Decide in 4.2s | Five signals, three domains, one incident. Token replay dead on arrival (identity revoked at T+6). | |
-| 27 | Same plane, same gate | Containment plan hits the gate. "Wipe host" REJECTED by evidence hold. | |
-| 28 | CONTAINED — EVIDENCE PRESERVED | Green shield. Segment isolated, C2 blocked, sandbox snapshotted to the vault. | |
-| 29 | Same plane, second battleground | Green bullets plus the full audit journal. | **Pause 5** — "That's what makes it a control plane, not three demos." |
-| 30 | Beat 6 title: From Seatbelt to Accelerator | The pivot. | |
-| 31 | Business units build on the plane | Four BU agents plug into the plane: claims, surveillance, supply chain, care. 6 weeks → 4 days. | |
-| 32 | This is already happening | EY Canvas · Cisco · Salesforce Agentforce at Reddit. Governance-board footnote. | **Pause 6** — greed, "don't be left behind" |
-| 33 | Beat 7: The Vendor Challenge | Three lanes. Pick one. Submit an MP4. Best in Show per lane. | |
-| 34 | Finale | Fear / plane / accelerator in three lines. Go watch, go vote. | |
+| 2 | Beat 1 title | The Poisoned Pull. A company doing everything right. | |
+| 3 | T-7d Best practices, working as designed | Managed Registry pulls v3.2 from the public hub. Scan clean, SBOM, 0 CVEs, 7-day hold, released. | |
+| 4 | T+00:00 A routine model refresh | Fabric agent pulls v3.2 from the managed registry, not the hub. "NO SUPERVISION PLANE" ghosted at the top. | |
+| 5 | T+00:04 The artifact loads | Novel payload fires. No scanner has a signature. Agent still reports HEALTHY. Registry marked PASSED EVERY SCAN. | **Pause 1** — "Every best practice passed. It still got in." |
+| 6 | T+00:19 The agent goes to work | Routes poisoned, ACL opened, telemetry dark, topology exfiltrated. Counters climb. | |
+| 7 | BEST PRACTICES WEREN'T ENOUGH | Red flash. The failure named. | |
+| 8 | T+03:51 Nobody knows yet | Low-priority ticket. Threat actor appears. 11-day dwell. Scanner signature ships on day 11. | |
+| 9 | Blast radius | Eight red bullets, the first one: every best practice passed. | **Pause 2** — "The best practices in place today are still not good enough." |
+| 10 | Beat 2 title: You Are Here | Rewind. Dallas → 25 requirements. One governance change: new artifacts run sandboxed first. | |
+| 11 | AOMC Control Plane online | Orange band appears above the lanes. Five WG1 controls light up. | |
+| 12 | T+00:00 Same artifact, new policy | Registry releases v3.2; provenance routes it to the sandbox. Production stays on v3.1. | |
+| 13 | T+00:04 Loads in the sandbox, self-attests healthy | Payload fires inside the sandbox. Runtime ignores self-attestation. Drift 97/100. | |
+| 14 | CAUGHT IN THE SANDBOX — KILL SWITCH | Green shield. Writes never leave the sandbox. Identity revoked, artifact quarantined, production untouched. | |
+| 15 | AOMC sits outside the agents | Principle card. Best practices inspect the artifact; the plane watches the behavior. 6 seconds, 0 writes. | **Pause 3** — connect to Dallas |
+| 16 | Beat 3 title: One Plane, Three WGs | | |
+| 17 | The plane, wired across every domain | WG2 and WG3 lanes light up. Verify gate node appears. | |
+| 18 | Beat 4 title: Battleground 1 | | |
+| 19 | T+00:41 Detect | NOC agent at autonomy level 0 sees route flaps from the attacker's AS. | |
+| 20 | T+00:47 Diagnose → Recommend | Level 1. Four proposed writes. | |
+| 21 | Verify gate, writes 1–3 | Four checks pass in sequence. APPROVED. Level 2. | |
+| 22 | Verify gate, write 4 | Blast radius 100% of pods. REJECTED → ESCALATED to a human. | |
+| 23 | T+00:52 Execute, journal, bounded auto-act | Flaps clear. Level 3 only inside the low-risk envelope. | |
+| 24 | Safe autonomy — WG2 | Six green bullets. | **Pause 4** — "Nothing executes blindly." |
+| 25 | Beat 5 title: Battleground 2 | | |
+| 26 | T+00:58 The exploit escalates | Sandbox beacons to C2. Threat actor replays a token toward the NOC agent. | |
+| 27 | T+01:02 Detect → Decide in 4.2s | Five signals, three domains, one incident. Token replay dead on arrival (identity revoked at T+6). | |
+| 28 | Same plane, same gate | Containment plan hits the gate. "Wipe host" REJECTED by evidence hold. | |
+| 29 | CONTAINED — EVIDENCE PRESERVED | Green shield. Segment isolated, C2 blocked, sandbox snapshotted to the vault. | |
+| 30 | Same plane, second battleground | Green bullets plus the full audit journal. | **Pause 5** — "That's what makes it a control plane, not three demos." |
+| 31 | Beat 6 title: From Seatbelt to Accelerator | The pivot. | |
+| 32 | Business units build on the plane | Four BU agents plug into the plane: claims, surveillance, supply chain, care. 6 weeks → 4 days. | |
+| 33 | This is already happening | EY Canvas · Cisco · Salesforce Agentforce at Reddit. Governance-board footnote. | **Pause 6** — greed, "don't be left behind" |
+| 34 | Beat 7: The Vendor Challenge | Three lanes. Pick one. Submit an MP4. Best in Show per lane. | |
+| 35 | Finale | Fear / plane / accelerator in three lines. Go watch, go vote. | |
 
 ## Talking points at each pause
 
-**Pause 1 (step 4).** Nothing on screen announced itself as an attack. The pull succeeded, the job said SUCCESS, the agent says HEALTHY. Ask the room: who in your organization checks a weights file?
+**Pause 1 (step 5).** This company did everything right: one managed registry, no direct downloads, scans, SBOM, CVE checks, a seven-day hold. The artifact passed all of it, because the payload was written after the scanners were. Ask the room: which of these controls do you have? Then: which of them watches what the agent does after it loads?
 
-**Pause 2 (step 8).** This entered through networking. It landed in the infrastructure before anyone knew it was a threat. Eleven days is the industry mean; the ticket said "review Monday."
+**Pause 2 (step 9).** Mick Currey's line: show them their worst fear. The best practices in place today are still not good enough. Scanners are a snapshot of what is already known; frontier models will write malware nobody has a signature for. Eleven days is the industry mean; the ticket said "review Monday."
 
-**Pause 3 (step 14).** Bridge to Dallas. The six controls became twenty-five requirements. The one principle worth repeating: the plane sits outside the agents. Agents cannot vouch for themselves.
+**Pause 3 (step 15).** Bridge to Dallas. The six controls became twenty-five requirements. The one principle: the plane sits outside the agents; agents cannot vouch for themselves. Best practices inspect the artifact, the plane watches the behavior. Mick's other option, if asked: even if an artifact slips past the sandbox, the plane sits outside every agent, so the first environment it lands in is the blast radius, not the enterprise. That is exactly what Beat 5 shows when the second stage tries to break out.
 
-**Pause 4 (step 23).** The infrastructure question: can I let an agent touch the fabric? Yes, when every write is mediated. Point at write #4: the gate said no, handed a human the homework, and the agent could not argue.
+**Pause 4 (step 24).** The infrastructure question: can I let an agent touch the fabric? Yes, when every write is mediated. Point at write #4: the gate said no, handed a human the homework, and the agent could not argue.
 
-**Pause 5 (step 29).** Containment is a write too, so it hit the same gate. Same plane, same governance model, different fight. The evidence hold is the detail security leaders will remember.
+**Pause 5 (step 30).** Containment is a write too, so it hit the same gate. Same plane, same governance model, different fight. The evidence hold is the detail security leaders will remember.
 
-**Pause 6 (step 32).** The pivot from fear to greed. The plane is the enablement layer. Keep Cisco framed around ambition. Mark Salesforce as vendor-reported. Land the footnote: prove the controls and your own governance board moves faster.
+**Pause 6 (step 33).** The pivot from fear to greed. The plane is the enablement layer. Keep Cisco framed around ambition. Mark Salesforce as vendor-reported. Land the footnote: prove the controls and your own governance board moves faster.
 
 ## Numbers used on screen
 
 | Figure | Where | Status |
 |--------|-------|--------|
+| 7-day cooling-off hold, 214 SBOM components, 0 CVEs | Beat 1 | Illustrative; "X days" per Mick Currey, adjust to a co-chair's real hold |
 | 1,214 devices, 3,708 routes, $180M+, 11 days | Beat 1 | Illustrative, synthetic enterprise |
-| 6 seconds to quarantine, 0 writes reached a device | Beat 2 | Demo-defined |
+| 6 seconds to quarantine, 0 writes reached the network, production on v3.1 | Beat 2 | Demo-defined |
 | 0.8% blast radius (approved), 100% of pods (rejected) | Beat 4 | Demo-defined |
 | 4.2 seconds detect-to-decide, 5 signals, 3 domains | Beat 5 | Demo-defined |
 | 6 weeks → 4 days approval cycle | Beat 6 | Illustrative |

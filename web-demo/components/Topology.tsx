@@ -22,7 +22,7 @@ const LANES = [
   { id: 'external', laneKey: null, wg: '', label: 'External · Public Internet', x: 720, y: 115, w: 260, h: 530, color: '#ef4444' },
 ];
 
-const GOOD_BADGE = ['NOMINAL', 'ISOLATED', 'SNAPSHOTTED', 'FILTERED', 'PRESERVED'];
+const GOOD_BADGE = ['NOMINAL', 'ISOLATED', 'SNAPSHOTTED', 'FILTERED', 'PRESERVED', 'CLEAN'];
 
 function nodeStroke(type: string): string {
   switch (type) {

@@ -20,13 +20,14 @@ This is the next version of the Spring 2026 Dallas [AOMC demo](https://github.co
 | [docs/narration-script.md](docs/narration-script.md) | are reviewing the script (generated from code; word counts and audio durations per step) |
 | [docs/vendor-guide.md](docs/vendor-guide.md) | are a vendor picking a lane (draft) |
 | [docs/qa-report.md](docs/qa-report.md) | want to see what was checked and what was fixed |
+| [docs/review-feedback.md](docs/review-feedback.md) | want to see what the practitioners said and what changed because of it |
 | [docs/ONUG_Fall_2026_Keynote_Demo_Arc.docx](docs/ONUG_Fall_2026_Keynote_Demo_Arc.docx) | want the source narrative arc |
 | [CLAUDE.md](CLAUDE.md) | are editing the code (architecture, common tasks, verification) |
 
 ## The seven beats
 
-1. **The Poisoned Pull** (fear) — a routine model pull from a public hub carries a payload. No plane. Blast radius.
-2. **The AOMC Catch** ("you are here") — same pull, plane online. Runtime detection, journal, kill switch in 6 seconds.
+1. **The Poisoned Pull** (fear) — a company doing everything right: managed registry, scans, SBOM, CVE checks, a cooling-off hold. A novel payload passes all of it. No plane. Blast radius.
+2. **The AOMC Catch** ("you are here") — same artifact, one governance change: new artifacts run in a sandbox under the plane. Caught by behavior in 6 seconds, never exposed to the network.
 3. **One Plane, Three Working Groups** — the plane extends into the WG2 and WG3 lanes.
 4. **Battleground 1: Autonomous Infrastructure** — detect, diagnose, propose; every write hits the verify gate. One write rejected by blast radius.
 5. **Battleground 2: The AI-Enabled SOC** — the exploit escalates. Five signals across three domains correlated in 4.2 seconds. Containment hits the same gate. "Wipe host" rejected by evidence hold.
