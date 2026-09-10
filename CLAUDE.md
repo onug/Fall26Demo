@@ -31,6 +31,9 @@ web-demo/
 │   ├── data.ts          LANES, CONTROLS (9 capabilities), BASE_NODES/BASE_EDGES, BU_AGENTS, PROOF_POINTS, VENDOR_LANES
 │   ├── steps.ts         THE SCRIPT — every step of the seven beats, with narration and pause markers
 │   └── audio.ts         Narration: /narration/<step-id>.mp3 first, browser TTS fallback
+├── scripts/             export-script.mjs (steps.ts → narration/script.json), generate-narration.py (ElevenLabs)
+├── narration/script.json  Exported narration script, one segment per step
+├── public/narration/    Generated MP3s, one per step id
 └── components/
     ├── DemoStage.tsx    Orchestrator: useReducer, state replay, keyboard, layout switch by phase
     ├── Topology.tsx     SVG: control-plane band (WG1), infra lane (WG2), SOC lane (WG3), external
@@ -56,7 +59,7 @@ web-demo/
 - **Change narration or add a step**: edit `web-demo/lib/steps.ts`. Each step's `id` doubles as the audio filename.
 - **Move a node / add a node**: `BASE_NODES` in `web-demo/lib/data.ts`. The SVG viewBox is 1000×660: plane band y 28–98, infra lane x 20–350, SOC lane x 370–700, external x 720–980. Check that new straight-line edges don't pass through other nodes.
 - **Change proof points, BU agents, vendor lanes**: the arrays at the bottom of `web-demo/lib/data.ts`.
-- **Add recorded narration**: drop `web-demo/public/narration/<step-id>.mp3`. No code change.
+- **Regenerate narration**: `npm run narration:generate` in `web-demo/` (ElevenLabs; key from env `ELEVENLABS_API_KEY` or keychain item `elevenlabs`). After editing a step's text, regenerate just that step with `python3 scripts/generate-narration.py --force --only <step-id>`. Script export is `scripts/export-script.mjs`, which transpiles `lib/steps.ts` with the bundled TypeScript compiler.
 - **Adjust animations**: keyframes in `web-demo/app/globals.css`; Framer transitions inline in components.
 
 ## Design decisions

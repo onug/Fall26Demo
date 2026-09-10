@@ -46,7 +46,19 @@ The demo never auto-advances. Each step's animations play, the narration reads, 
 
 ### Narration
 
-Every step carries its narration text. Playback tries a recorded file at `web-demo/public/narration/<step-id>.mp3` first and falls back to the browser's speech synthesis, so the demo is fully narrated during development and production can drop in recorded audio without touching code. Step ids are the `id` fields in `web-demo/lib/steps.ts` (for example `b1-pull`, `b4-gate-fail`).
+Every step carries its narration text. Playback tries a recorded file at `web-demo/public/narration/<step-id>.mp3` first and falls back to the browser's speech synthesis. Step ids are the `id` fields in `web-demo/lib/steps.ts` (for example `b1-pull`, `b4-gate-fail`).
+
+Recorded narration is generated with ElevenLabs using the cloned **Nick Lippis** voice on the ONUG account:
+
+```bash
+cd web-demo
+npm run narration:generate          # exports the script, then generates missing MP3s
+python3 scripts/generate-narration.py --force --only b1-pull   # regenerate one step after editing its text
+python3 scripts/generate-narration.py --list-voices             # voices on the account
+python3 scripts/generate-narration.py --voice EXAVITQu4vr4xnSDxMaL   # use "Sarah" (the Dallas voice) instead
+```
+
+The API key is read from `ELEVENLABS_API_KEY` or from the macOS keychain item labelled `elevenlabs`; it is never written to the repo. `web-demo/narration/script.json` is the exported script (id, text, word count per step) and is what production and reviewers should read.
 
 ### Static build
 

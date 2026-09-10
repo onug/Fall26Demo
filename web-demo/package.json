@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "narration:export": "node scripts/export-script.mjs",
+    "narration:generate": "node scripts/export-script.mjs && python3 scripts/generate-narration.py",
+    "narration:voices": "python3 scripts/generate-narration.py --list-voices"
   },
   "dependencies": {
     "framer-motion": "^12.34.3",
