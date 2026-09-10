@@ -67,6 +67,7 @@ cd web-demo
 npm run narration:generate          # exports the script, then generates missing MP3s
 python3 scripts/generate-narration.py --force --only b1-pull   # regenerate one step after editing its text
 python3 scripts/generate-narration.py --list-voices             # voices on the account
+python3 scripts/generate-narration.py --force --speed 1.0        # slower delivery (default is 1.2, the ElevenLabs max)
 python3 scripts/generate-narration.py --voice EXAVITQu4vr4xnSDxMaL   # use "Sarah" (the Dallas voice) instead
 ```
 

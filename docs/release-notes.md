@@ -1,5 +1,9 @@
 # Release Notes
 
+## v0.2.1 — Narration speed 1.2 (September 10, 2026)
+
+- All 35 segments regenerated with ElevenLabs `speed: 1.2` (the API maximum) at Nick's request. Speed is now a generator default and a `--speed` flag, recorded in `script.json` metadata.
+
 ## v0.2.0 — Practitioner feedback: best practices weren't enough (September 10, 2026)
 
 Incorporates Mick Currey's (Fidelity) review of the arc. Full log in `docs/review-feedback.md`.

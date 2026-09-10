@@ -78,7 +78,10 @@ def list_voices(key: str) -> None:
         print(f"{v['voice_id']:<24} {v['name']:<20} {v.get('category', '')}")
 
 
-def synthesize(key: str, voice_id: str, model_id: str, text: str) -> bytes:
+DEFAULT_SPEED = 1.2  # ElevenLabs range 0.7–1.2; Nick asked for 1.2
+
+
+def synthesize(key: str, voice_id: str, model_id: str, text: str, speed: float = DEFAULT_SPEED) -> bytes:
     body = {
         "text": text,
         "model_id": model_id,
@@ -87,6 +90,7 @@ def synthesize(key: str, voice_id: str, model_id: str, text: str) -> bytes:
             "similarity_boost": 0.75,
             "style": 0.15,
             "use_speaker_boost": True,
+            "speed": speed,
         },
     }
     return request(
@@ -100,6 +104,7 @@ def main() -> None:
     p = argparse.ArgumentParser(description="Generate ElevenLabs narration for the keynote demo")
     p.add_argument("--voice", help="ElevenLabs voice_id (default: from script.json metadata)")
     p.add_argument("--model", help="ElevenLabs model_id (default: from script.json metadata)")
+    p.add_argument("--speed", type=float, default=None, help="Speaking speed 0.7–1.2 (default: script.json metadata, else 1.2)")
     p.add_argument("--only", nargs="*", help="Only these step ids")
     p.add_argument("--force", action="store_true", help="Regenerate files that already exist")
     p.add_argument("--dry-run", action="store_true", help="Print what would be generated")
@@ -120,13 +125,17 @@ def main() -> None:
     meta = script["metadata"]
     voice_id = args.voice or meta["voice_id"]
     model_id = args.model or meta.get("model_id", "eleven_multilingual_v2")
+    speed = args.speed if args.speed is not None else float(meta.get("speed", DEFAULT_SPEED))
+    if not 0.7 <= speed <= 1.2:
+        print(f"speed {speed} out of ElevenLabs range 0.7–1.2")
+        sys.exit(2)
     segments = script["segments"]
     if args.only:
         wanted = set(args.only)
         segments = [s for s in segments if s["id"] in wanted]
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    print(f"Voice {voice_id} ({meta.get('voice_name', '?')}) · model {model_id} · {len(segments)} segments → {OUT_DIR}")
+    print(f"Voice {voice_id} ({meta.get('voice_name', '?')}) · model {model_id} · speed {speed} · {len(segments)} segments → {OUT_DIR}")
 
     done = skipped = failed = 0
     total_chars = 0
@@ -142,7 +151,7 @@ def main() -> None:
             continue
         print(f"{label} generating…", end=" ", flush=True)
         try:
-            audio = synthesize(key, voice_id, model_id, seg["text"])
+            audio = synthesize(key, voice_id, model_id, seg["text"], speed)
             out.write_bytes(audio)
             total_chars += len(seg["text"])
             print(f"✓ {len(audio)//1024} KB")

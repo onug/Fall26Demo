@@ -22,6 +22,7 @@ const ts = require('typescript');
 const VOICE_ID = '16VamcPQIJBvVLoE1Zss';
 const VOICE_NAME = 'Nick Lippis (cloned)';
 const MODEL_ID = 'eleven_multilingual_v2';
+const SPEED = 1.2; // ElevenLabs max; Nick's preference
 
 function loadTsModule(file, registry) {
   const src = readFileSync(file, 'utf8');
@@ -78,6 +79,7 @@ const out = {
     voice_id: VOICE_ID,
     voice_name: VOICE_NAME,
     model_id: MODEL_ID,
+    speed: SPEED,
     notes: 'Segment ids match Step.id in lib/steps.ts; audio is served from public/narration/<id>.mp3',
     segments: segments.length,
     total_words: totalWords,
@@ -99,7 +101,7 @@ md += `| | |\n|---|---|\n`;
 md += `| Steps with narration | ${segments.length} |\n`;
 md += `| Words | ${totalWords} (~${out.metadata.estimated_minutes} min at 150 wpm) |\n`;
 md += `| Recorded audio | ${totalAudio ? `${out.metadata.recorded_minutes} min` : 'not generated'} |\n`;
-md += `| Voice | ${VOICE_NAME} · ElevenLabs \`${VOICE_ID}\` · ${MODEL_ID} |\n`;
+md += `| Voice | ${VOICE_NAME} · ElevenLabs \`${VOICE_ID}\` · ${MODEL_ID} · speed ${SPEED} |\n`;
 md += `| Presenter pauses | ${segments.filter(s => s.pause).length} |\n\n`;
 md += `The arc targets roughly five minutes of pre-produced content plus live pauses. Trim from the longest segments first.\n\n`;
 
