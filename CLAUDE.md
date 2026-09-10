@@ -19,6 +19,7 @@ npm run dev              # http://localhost:3000, press F for fullscreen
 npm run build            # static export to web-demo/out/
 npm run narration:export # steps.ts → narration/script.json + docs/narration-script.md
 npm run narration:generate   # export, then ElevenLabs MP3s for steps without audio
+npm run qa               # script integrity check + type-check
 ```
 
 Keys: `Space`/`→` next, `←` back, `1`–`7` jump to beat, `F` fullscreen, `N` mute voice, `T` toggle text, `R` reset.
@@ -39,6 +40,7 @@ web-demo/
 │   └── audio.ts           Narration playback: /narration/<step-id>.mp3 first, browser TTS fallback
 ├── scripts/
 │   ├── export-script.mjs  Transpiles steps.ts with the bundled TypeScript compiler, writes script.json + docs/narration-script.md
+│   ├── qa.mjs             Script integrity check (npm run qa): replays steps, validates references, audio, export freshness
 │   └── generate-narration.py  ElevenLabs TTS via urllib; key from env ELEVENLABS_API_KEY or keychain item "elevenlabs"
 ├── narration/script.json  Exported narration script (generated)
 ├── public/narration/      34 MP3s, one per step id (generated, committed)
@@ -74,7 +76,7 @@ web-demo/
 
 ## Verifying a change
 
-1. `npx tsc --noEmit` in `web-demo`.
+1. `npm run qa` in `web-demo`: replays every step and checks ids, node/edge references, hidden-endpoint edges, audio files, and that `script.json` matches the narration text; then type-checks. Must be 0 failures; treat warnings as bugs unless deliberate.
 2. `npm run build` (static export must succeed; it is what production will serve).
 3. Walk the affected beat in the browser at 1920×1080. Note: in a hidden browser tab, Framer Motion entrance animations do not run, so screenshots taken from a background tab can look blank or dim. Read the DOM (computed opacity) or front the tab before judging.
 4. If narration text changed, regenerate that step's audio and confirm the file is served (`curl -I http://localhost:3000/narration/<id>.mp3`).

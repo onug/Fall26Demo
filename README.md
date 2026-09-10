@@ -19,6 +19,7 @@ This is the next version of the Spring 2026 Dallas [AOMC demo](https://github.co
 | [docs/presenter-guide.md](docs/presenter-guide.md) | are presenting: run of show, talking points at each pause, every number on screen |
 | [docs/narration-script.md](docs/narration-script.md) | are reviewing the script (generated from code; word counts and audio durations per step) |
 | [docs/vendor-guide.md](docs/vendor-guide.md) | are a vendor picking a lane (draft) |
+| [docs/qa-report.md](docs/qa-report.md) | want to see what was checked and what was fixed |
 | [docs/ONUG_Fall_2026_Keynote_Demo_Arc.docx](docs/ONUG_Fall_2026_Keynote_Demo_Arc.docx) | want the source narrative arc |
 | [CLAUDE.md](CLAUDE.md) | are editing the code (architecture, common tasks, verification) |
 

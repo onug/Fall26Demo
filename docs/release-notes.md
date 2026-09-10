@@ -1,5 +1,12 @@
 # Release Notes
 
+## v0.1.1 — QA pass (September 10, 2026)
+
+- **Fixed:** the threat actor and C2 mirror nodes were shown in Beat 1, wiped by the Beat 2 rewind, and never shown again, so the attacker's probe edge in Beat 4 and the beacon and token-replay edges in Beat 5 silently failed to render. They now appear when the story needs them and the C2 node carries PROBING → SECOND STAGE → BLOCKED AT EDGE labels.
+- **Fixed:** the containment step tried to block an edge that no longer existed after the rewind; the threat-actor → C2 edge is now re-created in Beat 5 and blocked on containment.
+- **Added:** `npm run qa` (`web-demo/scripts/qa.mjs`), a script-integrity check that replays every step the way the demo does and validates ids, node and edge references, edges with hidden endpoints, audio files, and export freshness. It caught both bugs above.
+- **Verified:** full QA report in `docs/qa-report.md`.
+
 ## v0.1.0 — First working cut (September 10, 2026)
 
 First end-to-end build of the ONUG Fall 2026 keynote demo, "One Control Plane, Every Domain". This is a review cut for the co-chairs, not the locked stage version. The narrative arc it implements is a working draft; expect the script to change after practitioner review.

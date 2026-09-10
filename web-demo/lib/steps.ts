@@ -374,9 +374,13 @@ export const STEPS: Step[] = [
       ev('log', 'Autonomy level: 0 OBSERVE — read-only telemetry'),
     ],
     topologyChanges: [
+      SHOW('c2-server'),
       MAL('e-c2-edge', 'c2-server', 'edge-routers', 'prefix probe'),
     ],
-    compromiseNodes: [{ nodeId: 'edge-routers', label: 'ROUTE FLAPS' }],
+    compromiseNodes: [
+      { nodeId: 'c2-server', label: 'PROBING' },
+      { nodeId: 'edge-routers', label: 'ROUTE FLAPS' },
+    ],
     autonomyLevel: 0,
   },
   {
@@ -531,10 +535,15 @@ export const STEPS: Step[] = [
       ev('log', 'Attack surface now spans: external → SOC sandbox → infrastructure agents'),
     ],
     topologyChanges: [
+      SHOW('threat-actor'),
       MAL('e-sandbox-c2', 'sandbox', 'c2-server', 'beacon'),
+      MAL('e-actor-c2', 'threat-actor', 'c2-server'),
       MAL('e-actor-noc', 'threat-actor', NOC, 'token replay'),
     ],
-    compromiseNodes: [{ nodeId: 'sandbox', label: 'BEACONING' }],
+    compromiseNodes: [
+      { nodeId: 'sandbox', label: 'BEACONING' },
+      { nodeId: 'c2-server', label: 'SECOND STAGE' },
+    ],
   },
   {
     id: 'b5-detect',
@@ -611,10 +620,13 @@ export const STEPS: Step[] = [
       GATED('e-gate-contain', 'verify-gate', 'containment-tool', 'mediated'),
       GATED('e-contain-sandbox', 'containment-tool', 'sandbox', 'isolate'),
       GATED('e-sandbox-vault', 'sandbox', 'evidence-vault', 'snapshot'),
-      { action: 'updateEdge', edgeId: 'e-actor-c2', props: { type: 'blocked', animated: false } },
+      BLOCK('e-actor-c2'),
     ],
     quarantineNodes: ['sandbox'],
-    compromiseNodes: [{ nodeId: 'sandbox', label: 'ISOLATED · SNAPSHOTTED' }],
+    compromiseNodes: [
+      { nodeId: 'sandbox', label: 'ISOLATED · SNAPSHOTTED' },
+      { nodeId: 'c2-server', label: 'BLOCKED AT EDGE' },
+    ],
     auditEntries: [
       au('01:03.001', SOC, 'exec:isolate sandbox segment', 'ALLOWED'),
       au('01:03.004', SOC, 'exec:block AS64512 @edge', 'ALLOWED'),

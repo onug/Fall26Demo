@@ -8,7 +8,8 @@
     "start": "next start",
     "narration:export": "node scripts/export-script.mjs",
     "narration:generate": "node scripts/export-script.mjs && python3 scripts/generate-narration.py",
-    "narration:voices": "python3 scripts/generate-narration.py --list-voices"
+    "narration:voices": "python3 scripts/generate-narration.py --list-voices",
+    "qa": "node scripts/qa.mjs && npx tsc --noEmit"
   },
   "dependencies": {
     "framer-motion": "^12.34.3",
