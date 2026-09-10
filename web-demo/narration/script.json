@@ -8,280 +8,383 @@
     "notes": "Segment ids match Step.id in lib/steps.ts; audio is served from public/narration/<id>.mp3",
     "segments": 34,
     "total_words": 1656,
-    "estimated_minutes": 11
+    "estimated_minutes": 11,
+    "recorded_minutes": 11.4
   },
   "segments": [
     {
       "id": "title",
       "step": 1,
       "beat": 0,
+      "phase": "title",
       "title": "ONE CONTROL PLANE, EVERY DOMAIN",
+      "pause": null,
       "text": "Welcome to New York. In Dallas this spring we showed you what happens when a rogue agent meets an enterprise with no supervision plane. That demo spawned three working groups. Today we show you the same plane, operating across all three of their domains, as one control plane. Fear first. Then the art of the possible.",
-      "words": 56
+      "words": 56,
+      "audio_seconds": 21.159184
     },
     {
       "id": "b1-title",
       "step": 2,
       "beat": 1,
+      "phase": "title",
       "title": "THE POISONED PULL",
+      "pause": null,
       "text": "Beat one. A routine event on the infrastructure fabric. Nothing announces itself as an attack. That is what makes it dangerous.",
-      "words": 21
+      "words": 21,
+      "audio_seconds": 7.366531
     },
     {
       "id": "b1-pull",
       "step": 3,
       "beat": 1,
+      "phase": "action",
       "title": "T+00:00 — A routine model refresh",
+      "pause": null,
       "text": "Time zero. The fabric optimizer agent runs its weekly model refresh. It pulls net-anomaly-detector version 3.2 from a public model hub. Two thousand downloads, uploaded six days ago, looks great. No signature check. No software bill of materials. No provenance policy. Because who checks a weights file?",
-      "words": 47
+      "words": 47,
+      "audio_seconds": 22.569796
     },
     {
       "id": "b1-load",
       "step": 4,
       "beat": 1,
+      "phase": "action",
       "title": "T+00:04 — The artifact loads",
+      "pause": "Pause 1 · \"It looks like an agent doing its job.\"",
       "text": "Four seconds in. The weights deserialize. Buried in the artifact is a payload that rewrites the agent's objective. And here is the part that should scare you: the agent still reports healthy. Status green. Objective: optimize fabric. It is telling the truth as it understands it. Nothing outside the agent is checking.",
-      "words": 52
+      "words": 52,
+      "audio_seconds": 20.427755
     },
     {
       "id": "b1-work",
       "step": 5,
       "beat": 1,
+      "phase": "action",
       "title": "T+00:19 — The agent goes to work (for someone else)",
+      "pause": null,
       "text": "Nineteen seconds. The agent does what it was built to do: it writes to the fabric. Except now it announces a mirror prefix that pulls traffic through an attacker-controlled autonomous system. It opens an access control list. It quietly disables the telemetry stream. And it exports the full fabric topology to the mirror. Every write goes straight to the device. There is no gate.",
-      "words": 64
+      "words": 64,
+      "audio_seconds": 24.137143
     },
     {
       "id": "b1-violation",
       "step": 6,
       "beat": 1,
+      "phase": "violation",
       "title": "NO SUPERVISION PLANE",
+      "pause": null,
       "text": "This is the failure. Not the pull. Not even the payload. The failure is that the only thing checking the agent's health was the agent. And the only thing between the agent and the fabric was nothing.",
-      "words": 37
+      "words": 37,
+      "audio_seconds": 12.486531
     },
     {
       "id": "b1-dwell",
       "step": 7,
       "beat": 1,
+      "phase": "action",
       "title": "T+03:51 — Nobody knows yet",
+      "pause": null,
       "text": "Three minutes, fifty-one seconds. A dashboard shows no data. It looks like a collector bug. The NOC opens a low-priority ticket. Meanwhile the attacker holds your topology, your management plane, and three thousand seven hundred routes. Industry mean time to detect a supply-chain compromise: eleven days.",
-      "words": 46
+      "words": 46,
+      "audio_seconds": 20.793469
     },
     {
       "id": "b1-blast",
       "step": 8,
       "beat": 1,
+      "phase": "summary",
       "title": "BLAST RADIUS — ONE ROUTINE PULL",
+      "pause": "Pause 2 · The \"if you don't have these controls\" branch",
       "text": "That is the blast radius of one routine pull. Twelve hundred devices reconfigured. Thirty-seven hundred routes through an attacker's network. Telemetry blind. Topology gone. Eleven days of dwell time. This entered through networking. It landed in the infrastructure before anyone knew it was a threat. Now let's rewind, and add the plane.",
-      "words": 52
+      "words": 52,
+      "audio_seconds": 19.957551
     },
     {
       "id": "b2-title",
       "step": 9,
       "beat": 2,
+      "phase": "title",
       "title": "YOU ARE HERE",
+      "pause": null,
       "text": "You are here. This is where Dallas left off: the AOMC supervision plane. Six mandatory controls then, twenty-five requirements now, being standardized by the Agentic Control Plane working group. Same pull. Same poisoned artifact. This time the plane is online.",
-      "words": 40
+      "words": 40,
+      "audio_seconds": 18.155102
     },
     {
       "id": "b2-enable",
       "step": 10,
       "beat": 2,
+      "phase": "enable",
       "title": "AOMC CONTROL PLANE ONLINE",
+      "pause": null,
       "text": "The control plane comes online. Identity attestation. Artifact provenance. Runtime monitoring. An immutable audit journal. And a kill switch. Notice where it sits: outside the agents. Above them. The agents cannot see it, cannot write to it, and cannot vouch for themselves to it.",
-      "words": 44
+      "words": 44,
+      "audio_seconds": 17.632653
     },
     {
       "id": "b2-pull",
       "step": 11,
       "beat": 2,
+      "phase": "action",
       "title": "T+00:00 — The same routine pull",
+      "pause": null,
       "text": "Same pull. But now provenance runs. Unsigned. Publisher unverified. No SBOM. The plane doesn't block it outright, because plenty of legitimate artifacts look exactly like this. Instead it tags the artifact as tainted, stages it in a sandbox, and journals the decision. The tag follows the artifact everywhere it goes.",
-      "words": 50
+      "words": 50,
+      "audio_seconds": 20.062041
     },
     {
       "id": "b2-load",
       "step": 12,
       "beat": 2,
+      "phase": "action",
       "title": "T+00:04 — Artifact loads · agent self-attests healthy",
+      "pause": null,
       "text": "Four seconds. The payload fires, exactly as before. The agent reports healthy, exactly as before. But this time nobody is asking the agent. Runtime monitoring measures behavior from outside: declared objective, optimize fabric. Observed intent: modify BGP, disable telemetry, export topology. Objective drift ninety-seven out of a hundred. On a tainted artifact.",
-      "words": 52
+      "words": 52,
+      "audio_seconds": 25.756735
     },
     {
       "id": "b2-blocked",
       "step": 13,
       "beat": 2,
+      "phase": "blocked",
       "title": "ROGUE DETECTED — KILL SWITCH",
+      "pause": null,
       "text": "Six seconds. Kill switch. The first write is intercepted before it reaches a device. The agent's identity is revoked. The artifact is quarantined in the sandbox. And every one of those decisions is in the journal, hash-chained, in a store the agent has never been able to read or alter. This is the moment Dallas recognized. Rogue detection. Audit trail. Kill switch.",
-      "words": 62
+      "words": 62,
+      "audio_seconds": 23.536327
     },
     {
       "id": "b2-principle",
       "step": 14,
       "beat": 2,
+      "phase": "title",
       "title": "AOMC SITS OUTSIDE THE AGENTS IT SUPERVISES",
+      "pause": "Pause 3 · Connect to Dallas — \"this is what the plane is\"",
       "text": "One principle. The plane sits outside the agents it supervises. Agents cannot self-attest. Behavior is measured from outside, journaled immutably, and the plane holds the kill switch. Six seconds to quarantine. Zero writes reached a device. Now, let's widen out.",
-      "words": 40
+      "words": 40,
+      "audio_seconds": 18.520816
     },
     {
       "id": "b3-title",
       "step": 15,
       "beat": 3,
+      "phase": "title",
       "title": "ONE PLANE, THREE WORKING GROUPS",
+      "pause": null,
       "text": "That supervision plane is what working group one, the Agentic Control Plane, is standardizing. But a plane has to prove itself in a fight. Two battlegrounds. Autonomous infrastructure, working group two. The AI-enabled SOC, working group three. Same plane. Same governance model. Two very different fights.",
-      "words": 46
+      "words": 46,
+      "audio_seconds": 19.722449
     },
     {
       "id": "b3-wire",
       "step": 16,
       "beat": 3,
+      "phase": "enable",
       "title": "The plane, wired across every domain",
+      "pause": null,
       "text": "Watch it extend. Into the infrastructure lane: a verify gate on every write, and declared autonomy levels per agent. Into the SOC lane: cross-domain detect-to-decide, and containment that preserves evidence. One plane. Every domain.",
-      "words": 34
+      "words": 34,
+      "audio_seconds": 15.229388
     },
     {
       "id": "b4-title",
       "step": 17,
       "beat": 4,
+      "phase": "title",
       "title": "BATTLEGROUND 1 · AUTONOMOUS INFRASTRUCTURE",
+      "pause": null,
       "text": "Battleground one. Autonomous infrastructure. The question every infrastructure leader in this room is asking: can I let an agent touch the fabric? The answer is yes, if every write is mediated. Let's watch one.",
-      "words": 34
+      "words": 34,
+      "audio_seconds": 13.557551
     },
     {
       "id": "b4-detect",
       "step": 18,
       "beat": 4,
+      "phase": "action",
       "title": "T+00:41 — Detect",
+      "pause": null,
       "text": "Forty-one seconds. The poisoned agent is quarantined, but the attacker's mirror is still out there, and it starts probing. Edge routers see route flaps from AS64512. The NOC responder agent, at autonomy level zero, observe, picks it up. Latency on pod seven up three hundred forty percent.",
-      "words": 47
+      "words": 47,
+      "audio_seconds": 20.192653
     },
     {
       "id": "b4-diagnose",
       "step": 19,
       "beat": 4,
+      "phase": "action",
       "title": "T+00:47 — Diagnose → Recommend",
+      "pause": null,
       "text": "Six seconds later it has a root cause: rogue prefix announcements from the same autonomous system the quarantined artifact was talking to. It moves to level one, recommend, and proposes a change set. Four writes. Filter the prefix. Withdraw three routes. Re-enable telemetry. And restart BGP on the core to clear stale state.",
-      "words": 53
+      "words": 53,
+      "audio_seconds": 24.685714
     },
     {
       "id": "b4-gate-pass",
       "step": 20,
       "beat": 4,
+      "phase": "gate",
       "title": "The Verify Gate — writes #1–#3",
+      "pause": null,
       "text": "Every write hits the gate. Change-stop: no freeze window active. Dry-run: simulated against the digital twin, zero unintended path changes. Blast radius: two devices, fourteen prefixes, well under the five percent threshold. Rollback: configuration snapshotted, automatic revert in one hundred twenty seconds if the SLO regresses. Approved. Level two, gated act.",
-      "words": 51
+      "words": 51,
+      "audio_seconds": 26.357551
     },
     {
       "id": "b4-gate-fail",
       "step": 21,
       "beat": 4,
+      "phase": "gate",
       "title": "The Verify Gate — write #4",
+      "pause": null,
       "text": "Write four. Restart BGP on the core fabric. Change-stop clear. Dry-run passes. Blast radius: one hundred percent of pods, forty seconds of convergence. Rejected. Escalated to a human with the full proposal, the dry-run result, and the rollback plan attached. The agent doesn't argue. It can't. The gate is the guarantee.",
-      "words": 51
+      "words": 51,
+      "audio_seconds": 22.700408
     },
     {
       "id": "b4-execute",
       "step": 22,
       "beat": 4,
+      "phase": "action",
       "title": "T+00:52 — Execute · Journal · Bounded auto-act",
+      "pause": null,
       "text": "Fifty-two seconds. Three mediated writes execute. Flaps stop. Telemetry is back. Every write, every check, every verdict is in the journal, append-only, hash-chained, and the agent has no path to it. And for the low-risk envelope, re-enabling telemetry, the policy allows level three: bounded auto-act, with automatic revert. That is safe autonomy.",
-      "words": 52
+      "words": 52,
+      "audio_seconds": 22.151837
     },
     {
       "id": "b4-summary",
       "step": 23,
       "beat": 4,
+      "phase": "summary",
       "title": "SAFE AUTONOMY — WG2",
+      "pause": "Pause 4 · \"Nothing executes blindly.\"",
       "text": "Safe autonomy. Four proposed writes. Three executed, all mediated. One rejected by blast radius and handed to a human with the homework already done. Rollback armed. Immutable journal. The agent ran the fabric. The gate ran the agent.",
-      "words": 38
+      "words": 38,
+      "audio_seconds": 16.195918
     },
     {
       "id": "b5-title",
       "step": 24,
       "beat": 5,
+      "phase": "title",
       "title": "BATTLEGROUND 2 · THE AI-ENABLED SOC",
+      "pause": null,
       "text": "Battleground two. The AI-enabled SOC. The exploit that came in through the fabric is the thread that stitches these battlegrounds together. It's about to escalate. Same plane. Second fight.",
-      "words": 29
+      "words": 29,
+      "audio_seconds": 13.923265
     },
     {
       "id": "b5-escalate",
       "step": 25,
       "beat": 5,
+      "phase": "action",
       "title": "T+00:58 — The exploit escalates",
+      "pause": null,
       "text": "Fifty-eight seconds. The quarantined artifact has a second stage. From inside the sandbox it beacons to the C2 mirror. The threat actor answers, and tries to pivot: reuse the fabric optimizer's cached token to reach the NOC responder, the agent that just fixed the fabric. Three domains. One exploit.",
-      "words": 49
+      "words": 49,
+      "audio_seconds": 20.244898
     },
     {
       "id": "b5-detect",
       "step": 26,
       "beat": 5,
+      "phase": "action",
       "title": "T+01:02 — Detect → Decide in 4.2 seconds",
+      "pause": null,
       "text": "Four point two seconds. The SOC analyst agent doesn't start from a SIEM alert. It starts from the plane. Provenance tagged the artifact. Runtime quarantined the agent. The verify gate rejected a write that matched the same autonomous system. Now a beacon and a token replay. Five signals across three domains, correlated into one incident, with a containment plan. That used to take a shift.",
-      "words": 65
+      "words": 65,
+      "audio_seconds": 25.338776
     },
     {
       "id": "b5-gate",
       "step": 27,
       "beat": 5,
+      "phase": "gate",
       "title": "Same plane, same gate — containment is a write too",
+      "pause": null,
       "text": "Containment is a write. So it hits the same gate. Isolate the sandbox segment: blast radius one host, approved. Block the attacker's autonomous system at the edge: approved. Revoke the token: approved. Wipe the sandbox host: rejected. Evidence hold. You do not destroy the one machine that holds the artifact, the beacon, and the second stage. Snapshot first.",
-      "words": 58
+      "words": 58,
+      "audio_seconds": 22.987755
     },
     {
       "id": "b5-contained",
       "step": 28,
       "beat": 5,
+      "phase": "blocked",
       "title": "CONTAINED — EVIDENCE PRESERVED",
+      "pause": null,
       "text": "Contained. The segment is isolated. The C2 mirror is blocked at the edge. Tokens revoked. And the sandbox, artifact, memory, and beacon capture, is snapshotted into the evidence vault with a chain of custody the journal can prove. Detect to decide in seconds. Containment deliberate. Evidence intact. Same plane. Second battleground.",
-      "words": 51
+      "words": 51,
+      "audio_seconds": 23.170612
     },
     {
       "id": "b5-summary",
       "step": 29,
       "beat": 5,
+      "phase": "summary",
       "title": "SAME PLANE, SECOND BATTLEGROUND",
+      "pause": "Pause 5 · \"That's what makes it a control plane, not three demos.\"",
       "text": "Two battlegrounds, one plane. That is what makes this a control plane and not three disconnected demos. Now, the pivot.",
-      "words": 20
+      "words": 20,
+      "audio_seconds": 7.47102
     },
     {
       "id": "b6-title",
       "step": 30,
       "beat": 6,
+      "phase": "title",
       "title": "FROM SEATBELT TO ACCELERATOR",
+      "pause": null,
       "text": "Here is the pivot. Everything so far was the seatbelt. But once the plane exists, something else happens. Business units stop asking permission. They start building their own agentic systems on top of it, safely. And the infrastructure and security team stops being the department of no. You become the enabler that lets the company win in the AI era.",
-      "words": 60
+      "words": 60,
+      "audio_seconds": 22.83102
     },
     {
       "id": "b6-build",
       "step": 31,
       "beat": 6,
+      "phase": "accelerator",
       "title": "BUSINESS UNITS BUILD ON THE PLANE",
+      "pause": null,
       "text": "Watch them plug in. Claims triage, in insurance. Trade surveillance, in capital markets. A supply chain planner. Customer care. Each one gets an identity from the plane, a declared autonomy level, a gate on the writes that matter, and a journal. Nobody had to build governance from scratch. They inherited it. Onboarding an agent went from six weeks of review to four days.",
-      "words": 63
+      "words": 63,
+      "audio_seconds": 20.976327
     },
     {
       "id": "b6-proof",
       "step": 32,
       "beat": 6,
+      "phase": "proof",
       "title": "THIS IS ALREADY HAPPENING",
+      "pause": "Pause 6 · Greed — \"don't be left behind\"",
       "text": "This is not a forecast. EY Canvas: roughly one point four trillion lines of audit data a year, across a hundred sixty thousand engagements, governed federally for a hundred thirty thousand professionals. Cisco: a personalized agent for every one of ninety thousand employees, starting this fiscal year. Not a pilot. Salesforce Agentforce at Reddit: vendor-reported, but eighty-four percent faster resolution and nine figures in savings. The through-line: the wins come when building, governing, and running agents live in one governed environment. That is the control plane, told as an enabler.",
-      "words": 90
+      "words": 90,
+      "audio_seconds": 36.597551
     },
     {
       "id": "b7-lanes",
       "step": 33,
       "beat": 7,
+      "phase": "lanes",
       "title": "THE VENDOR CHALLENGE — THREE LANES",
+      "pause": null,
       "text": "To the vendor community. The reference implementation is in Git, evolving the Dallas fork model. Three lanes, matching the working groups. Pick your lane. Nobody is expected to cover all three. Specialize where you're strong. Submit a playable video. Attending members vote Best in Show, per lane, in this room.",
-      "words": 50
+      "words": 50,
+      "audio_seconds": 19.826939
     },
     {
       "id": "finale",
       "step": 34,
       "beat": 7,
+      "phase": "title",
       "title": "ONE CONTROL PLANE, EVERY DOMAIN",
+      "pause": null,
       "text": "One control plane, every domain. The fear is real: one routine pull. The plane is real: six seconds. And the upside is real: business units building on it today. The working group sessions have the depth, and their demos and challenges are up for awards too. Go watch. Go vote. Thank you.",
-      "words": 52
+      "words": 52,
+      "audio_seconds": 17.998367
     }
   ]
 }

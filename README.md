@@ -10,7 +10,17 @@ This is the next version of the Spring 2026 Dallas [AOMC demo](https://github.co
 | WG2 | Autonomous Infrastructure | Battleground 1: an agent runs the fabric, every write passes the verify gate |
 | WG3 | AI-Enabled SOC | Battleground 2: detect-to-decide in seconds, containment that preserves evidence |
 
-The narrative arc is in [docs/ONUG_Fall_2026_Keynote_Demo_Arc.docx](docs/ONUG_Fall_2026_Keynote_Demo_Arc.docx). The presenter walkthrough is in [docs/presenter-guide.md](docs/presenter-guide.md).
+## Documentation
+
+| Document | Read it if you… |
+|----------|-----------------|
+| [docs/handover.md](docs/handover.md) | are picking this up: state of the project, the edit loop, accounts, what's next |
+| [docs/release-notes.md](docs/release-notes.md) | want to know what's in v0.1.0 and what's open |
+| [docs/presenter-guide.md](docs/presenter-guide.md) | are presenting: run of show, talking points at each pause, every number on screen |
+| [docs/narration-script.md](docs/narration-script.md) | are reviewing the script (generated from code; word counts and audio durations per step) |
+| [docs/vendor-guide.md](docs/vendor-guide.md) | are a vendor picking a lane (draft) |
+| [docs/ONUG_Fall_2026_Keynote_Demo_Arc.docx](docs/ONUG_Fall_2026_Keynote_Demo_Arc.docx) | want the source narrative arc |
+| [CLAUDE.md](CLAUDE.md) | are editing the code (architecture, common tasks, verification) |
 
 ## The seven beats
 
@@ -78,7 +88,7 @@ web-demo/      Next.js 16 + TypeScript + Tailwind v4 + Framer Motion presentatio
   components/  DemoStage (orchestrator), Topology (SVG), panels, overlays, full-screen views
 ```
 
-See [CLAUDE.md](CLAUDE.md) for the architecture notes and common editing tasks.
+See [CLAUDE.md](CLAUDE.md) for the architecture notes and common editing tasks, and [docs/handover.md](docs/handover.md) for the state of the project.
 
 ## Vendor challenge
 
