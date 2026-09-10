@@ -2,6 +2,14 @@
 
 Practitioner and co-chair input on the keynote arc, and what the demo did with it. Newest first.
 
+## Peter Campbell, ONUG — September 10, 2026 (pending)
+
+Reviewed the v0.2 demo app: "pretty amazing." One gap so far: **agent personas** should be covered. Peter is going through it again and will send full notes.
+
+**Status: on hold by Nick's decision.** Nick agrees on agent personas, but no new version until all of Peter's thoughts are in, so the next cut is one pass rather than several. Nothing in the demo has been changed for this yet.
+
+Working note on what "agent personas" likely means for the demo, to be confirmed against Peter's notes: today every agent on screen is a role label (Fabric Optimizer, NOC Responder, SOC Analyst Agent) with no declared persona behind it. The plane's identity and autonomy controls would be stronger if each agent carried a persona: who it acts for, what it is allowed to want, its declared objective and autonomy envelope, and what a drift from that persona looks like. Beat 2's "declared objective vs. observed behavior" already leans on this idea without naming it.
+
 ## Mick Currey, Fidelity — September 10, 2026
 
 Source: reply to "Fall keynote demo — your input to make it real-world". Mick liked the approach and proposed two adjustments to the story.
