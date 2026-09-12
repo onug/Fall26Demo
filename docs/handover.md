@@ -70,8 +70,8 @@ After the cut: regenerate all audio with `--force`, re-export, and update the pr
 
 ## Where members watch it
 
-The demo is inside collaborative.onug.net at `/keynote`, behind the portal's login, on every
-member's rail (collaborative repo, AD-122). The portal holds a vendored copy of the build; this
+The demo is inside collaborative.onug.net at `/keynote`, behind the portal's login, reached from
+the first card on the Demos tab (collaborative repo, AD-122). Live since 12 September 2026 with v0.2.1. The portal holds a vendored copy of the build; this
 repository stays private. To ship a new version there:
 
 1. Here: `cd web-demo && npm run build:portal` (builds with `NEXT_PUBLIC_BASE_PATH=/keynote/app`,
