@@ -68,6 +68,22 @@ The arc says roughly five minutes pre-produced. The recorded narration is 11.4 m
 
 After the cut: regenerate all audio with `--force`, re-export, and update the presenter guide's timing.
 
+## Where members watch it
+
+The demo is inside collaborative.onug.net at `/keynote`, behind the portal's login, on every
+member's rail (collaborative repo, AD-122). The portal holds a vendored copy of the build; this
+repository stays private. To ship a new version there:
+
+1. Here: `cd web-demo && npm run build:portal` (builds with `NEXT_PUBLIC_BASE_PATH=/keynote/app`,
+   which the asset paths and the narration player both follow).
+2. In the collaborative repo: `bin/import_keynote.py /path/to/Fall26Demo/web-demo/out --version vX.Y.Z`,
+   then set `version` and `updated` in `config/keynote.toml`, add any new "what changed because
+   somebody said so" entries, run the suite, commit, deploy.
+
+Member feedback from that page arrives by email to staff with the beat and version attached.
+Log it in `docs/review-feedback.md` here and mirror the outcome into `config/keynote.toml`
+there, so the page shows people their note changed something.
+
 ## Things that are deliberately not done
 
 - **Vendor overrides.** Dallas let a vendor swap its product name and logo into the "enable" and "blocked" steps via `vendor-config.ts`. The Fall equivalent is per-lane overrides. Not built; waiting on the arc lock and the challenge mechanics (submission format, voting, deadlines).

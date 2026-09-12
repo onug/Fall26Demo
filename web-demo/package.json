@@ -9,7 +9,8 @@
     "narration:export": "node scripts/export-script.mjs",
     "narration:generate": "node scripts/export-script.mjs && python3 scripts/generate-narration.py",
     "narration:voices": "python3 scripts/generate-narration.py --list-voices",
-    "qa": "node scripts/qa.mjs && npx tsc --noEmit"
+    "qa": "node scripts/qa.mjs && npx tsc --noEmit",
+    "build:portal": "NEXT_PUBLIC_BASE_PATH=/keynote/app next build"
   },
   "dependencies": {
     "framer-motion": "^12.34.3",

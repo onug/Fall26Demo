@@ -4,7 +4,7 @@
 // If a file exists for the step it is played; otherwise we fall back to the
 // browser's speech synthesis so the demo is fully narrated during development.
 
-const AUDIO_BASE_PATH = '/narration';
+const AUDIO_BASE_PATH = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/narration`;
 
 let currentAudio: HTMLAudioElement | null = null;
 let currentUtterance: SpeechSynthesisUtterance | null = null;
