@@ -2,6 +2,34 @@
 
 Practitioner and co-chair input on the keynote arc, and what the demo did with it. Newest first.
 
+## Mick Currey, Fidelity — September 14, 2026 (pending, for the v0.3 pass)
+
+Source: reply to "Watch the keynote demo draft before Tuesday." Mick watched v0.2.1 on the portal: *"I love it, we can make it scarier."* Three items, all held for the same pass as Peter's notes per Nick's rule of one version per round of feedback.
+
+### 1. Beat 1 should end in a CISO's worst nightmare: ransomware
+
+Today Beat 1 ends at "nobody knows yet," with the attacker holding the topology and 3,708 routes and an 11-day dwell. Mick's ask: push the timeline out to day 5 or 6 and show the attacker in control. Admin IDs have new passwords the attacker set. Service accounts have new passwords. Disks are encrypted and unreachable. The whole infrastructure and every application go down, and no admin can log in to see what is happening. Then the company hears from the attacker: pay so many crypto coins to get it back.
+
+His own caveat: *"is the above too scary? people may think it could never happen to me."*
+
+**Proposed handling.** Add one step after "Nobody knows yet," at roughly T+6d, titled for the ransom note, with the four escalations above as damage events and a new impact line for the ransom demand; move the blast-radius summary after it. Keep it credible rather than cinematic: real incidents in the news have followed exactly this sequence, and the narration can say so in one line to answer the "never happen to me" reflex. Nick decides on tone.
+
+### 2. Beat 5's sandbox escape is wrong as written, and there is a better version
+
+As written, the quarantined artifact beacons from the sandbox to the C2 mirror on the internet. Mick: sandboxes by design have no internet access and no path to the internal network. They are isolated islands, and a CISO watching will say "that can't happen" and stop believing the rest.
+
+His fix, in his words: say a smart agent, one with its own small language model or some new advanced ability, was the malware, and it found an unknown weakness to get out of the sandbox. Think the Hugging Face attack. By design they cannot get out; in real life these agents are sometimes smarter than us, and the impossible has already happened.
+
+**Proposed handling.** Rewrite the escalate step so the second stage is an agent, not a script: it probes the sandbox boundary, finds a weakness nobody knew about, and gets out. One narration line reminds the room of the Hugging Face incident. The topology edge from sandbox to C2 stays but is labelled as an escape, and the event feed shows the sandbox's own controls being defeated, which makes the SOC beat stronger, not weaker: the plane catches what the sandbox could not.
+
+### 3. Beat 5: "That used to take a shift" is too vague
+
+Replace with something specific. Candidates: "That used to take an analyst most of a shift," or a number, "four to eight hours across three teams." Nick's pick.
+
+### Not changed yet
+
+Nothing in the demo has been touched for any of the above. All three are queued with Peter's agent-personas note for one v0.3 pass once Peter's full notes are in.
+
 ## Peter Campbell, ONUG — September 10, 2026 (pending)
 
 Reviewed the v0.2 demo app: "pretty amazing." One gap so far: **agent personas** should be covered. Peter is going through it again and will send full notes.
