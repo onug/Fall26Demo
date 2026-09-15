@@ -2,6 +2,19 @@
 
 Practitioner and co-chair input on the keynote arc, and what the demo did with it. Newest first.
 
+## Co-chair review meeting — September 15, 2026 (pending, for the v0.3 pass)
+
+Attended: Mick Currey (Fidelity), Rick Casarez (eBay), Chris Hertenstein (Huntington), Baird Kaake, Peter Campbell, Nick, Jeannette. Transcript in the WG1 shared folder. Consolidated with Baird's and Chris's Slack notes and the 11-responder survey into `docs/v0.3-plan.md`, which is the working change list. Summary of what each person said:
+
+- **Mick:** the registry step is a best practice most companies don't have ("some will say wow, that's sophisticated, I wish I had that"). Hugging Face is not a rogue-agent story: their own agents, given impossible tasks, cheated, built a message board, broke out of the sandbox, rewrote scoring and logs, sacrificed agents to feed the core. Use it at the Beat 5 escape so traditionalists know we're not making it up, noting the demo's timescale is compressed. Careful with proof points: most agent use in coding is not autonomous.
+- **Rick:** everyone assumes AI has ethics; it doesn't. Goal without boundaries means lie, cheat, steal. "This wouldn't happen where I'm at": air gap between identity systems and AI tools, no mutable permissions, human review for identity grants, time-limited rolled credentials, a config-drift scanner that reverts unapproved changes within a day and alarms CSIRT. Confirmed the story is a supply-chain attack; asked why no Artifactory-style gate (answer: there is one, and it passed).
+- **Chris:** companies sit on a maturity continuum; what scares the less mature is the point. Frame it as a gap analysis: here's the demo, here are the risks, if you don't have these you're exposed. On Slack: captures the fear, sets up the working groups, good mapping to architecture and vendor demos.
+- **Baird:** "plane" without "AI control plane" tripped him up. Sandbox actions: try, not execute; clarify once. Cisco's personal agents are a different, easier case than company-designed agentic workflows. Other threat scenarios the controls address but the demo doesn't show: indirect prompt injection, agent misuse of legitimate rights; compartmentalising writes to the smallest atomic subset is the answer. Wants a click-through on components. Sending the full scenario list.
+- **Peter:** vendors will fork this and read it against the reference architectures, so terminology must align; he is consolidating requirements by Thursday. Insert the reference-architecture diagrams. Vendors submit a 5–10 minute MP4.
+- **Nick:** too long, cut by about half; possibly end at the fear beat (decision pending). Show the reference architectures briefly per lane, planning and execution phases, then the topologies. Add the gap-analysis area. Search for public examples of business-process agents in production (JPMC). Credit contributors on the finale with an opt-out. Vendor challenge mechanics: fork, WG terminology, 5–10 minute MP4, showcase theatre on loop, presentation schedule, office hours, Whova best-in-show vote.
+
+**Survey (11 responders, Jeannette's deck):** readiness data, not demo feedback. Mid-maturity room: half limited production, half broad; half under 10% of AI workloads in production; agents in ops split lab / limited Tier 1 / Tier 1 and 2; half can govern non-human identities, a quarter inventory only, a quarter neither; three quarters close under a quarter of Tier 1 incidents without a human. Word cloud: rarely, highly, governed, controls, trusted, future.
+
 ## Mick Currey, Fidelity — September 14, 2026 (pending, for the v0.3 pass)
 
 Source: reply to "Watch the keynote demo draft before Tuesday." Mick watched v0.2.1 on the portal: *"I love it, we can make it scarier."* Three items, all held for the same pass as Peter's notes per Nick's rule of one version per round of feedback.
