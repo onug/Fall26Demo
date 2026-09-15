@@ -22,6 +22,9 @@ import NarrationPanel from './NarrationPanel';
 import AcceleratorView from './AcceleratorView';
 import ProofPoints from './ProofPoints';
 import VendorLanes from './VendorLanes';
+import RACard from './RACard';
+import GapCard from './GapCard';
+import ThreatCard from './ThreatCard';
 
 // ─── State replay ──────────────────────────────────────
 type Action =
@@ -188,7 +191,8 @@ export default function DemoStage() {
 
   const step = STEPS[state.currentStep];
   const phase = step?.phase;
-  const isFullScreenCard = phase === 'title' || phase === 'accelerator' || phase === 'proof' || phase === 'lanes';
+  const isFullScreenCard = phase === 'title' || phase === 'accelerator' || phase === 'proof' || phase === 'lanes'
+    || phase === 'ra' || phase === 'gap' || phase === 'threats';
 
   const goToStep = useCallback((n: number) => {
     if (overlayTimerRef.current) clearTimeout(overlayTimerRef.current);
@@ -314,9 +318,14 @@ export default function DemoStage() {
               subtitle={step.subtitle}
               beat={step.beat}
               contributors={step.contributors}
+              logos={step.logos}
+              credits={step.credits}
               visible={true}
             />
           )}
+          {phase === 'ra' && step.ra && <RACard ra={step.ra} title={step.title} />}
+          {phase === 'gap' && <GapCard title={step.title} />}
+          {phase === 'threats' && <ThreatCard title={step.title} />}
           {phase === 'accelerator' && <AcceleratorView title={step.title} metrics={state.metrics} />}
           {phase === 'proof' && <ProofPoints title={step.title} />}
           {phase === 'lanes' && <VendorLanes title={step.title} />}

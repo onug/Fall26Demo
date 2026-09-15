@@ -2,12 +2,16 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { Beat } from '@/lib/types';
+import { REVIEWERS } from '@/lib/data';
+import LogoWall from './LogoWall';
 
 interface TitleSlideProps {
   title: string;
   subtitle?: string;
   beat: Beat;
   contributors?: boolean;
+  logos?: 'strip' | 'wall';
+  credits?: boolean;
   visible: boolean;
 }
 
@@ -24,7 +28,7 @@ function beatStyle(beat: Beat): { text: string; glow: string; divider: string; k
   }
 }
 
-export default function TitleSlide({ title, subtitle, beat, contributors, visible }: TitleSlideProps) {
+export default function TitleSlide({ title, subtitle, beat, contributors, logos, credits, visible }: TitleSlideProps) {
   const s = beatStyle(beat);
 
   return (
@@ -37,7 +41,7 @@ export default function TitleSlide({ title, subtitle, beat, contributors, visibl
           transition={{ duration: 0.6 }}
           className="flex-1 flex items-center justify-center"
         >
-          <div className="text-center max-w-5xl px-8">
+          <div className={`text-center px-8 ${logos === 'wall' ? 'max-w-7xl' : 'max-w-5xl'}`}>
             {s.kicker && (
               <motion.p
                 initial={{ opacity: 0 }}
@@ -49,8 +53,8 @@ export default function TitleSlide({ title, subtitle, beat, contributors, visibl
               </motion.p>
             )}
             <motion.div initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2, duration: 0.5 }}>
-              <h1 className={`text-5xl font-bold ${s.text} mb-6 tracking-tight leading-tight`}>{title}</h1>
-              <div className={`w-32 h-1 mx-auto mb-8 rounded-full ${s.glow}`} style={{ backgroundColor: s.divider }} />
+              <h1 className={`${logos === 'wall' ? 'text-4xl mb-4' : 'text-5xl mb-6'} font-bold ${s.text} tracking-tight leading-tight`}>{title}</h1>
+              <div className={`w-32 h-1 mx-auto ${logos === 'wall' ? 'mb-5' : 'mb-8'} rounded-full ${s.glow}`} style={{ backgroundColor: s.divider }} />
             </motion.div>
 
             {subtitle && (
@@ -58,10 +62,35 @@ export default function TitleSlide({ title, subtitle, beat, contributors, visibl
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
-                className="text-xl text-gray-300 leading-relaxed whitespace-pre-line mb-8"
+                className={`${logos === 'wall' ? 'text-lg mb-5' : 'text-xl mb-8'} text-gray-300 leading-relaxed whitespace-pre-line`}
               >
                 {subtitle}
               </motion.div>
+            )}
+
+            {logos && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.7, duration: 0.5 }}
+                className={logos === 'wall' ? 'mb-5' : 'mb-6'}
+              >
+                <LogoWall mode={logos} delay={0.8} />
+              </motion.div>
+            )}
+
+            {credits && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2.4, duration: 0.5 }}
+                className="text-sm text-gray-400 mb-4"
+              >
+                <span className="uppercase tracking-widest text-gray-500 text-[11px] mr-2">Reviewed by</span>
+                {REVIEWERS.map((r, i) => (
+                  <span key={r.name}>{i > 0 && <span className="text-gray-600"> · </span>}{r.name} <span className="text-gray-500">({r.org})</span></span>
+                ))}
+              </motion.p>
             )}
 
             {contributors && (
@@ -87,7 +116,7 @@ export default function TitleSlide({ title, subtitle, beat, contributors, visibl
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.2, duration: 0.5 }}
-              className="mt-12 text-sm text-gray-600 font-mono"
+              className={`${logos === 'wall' ? 'mt-4' : 'mt-12'} text-sm text-gray-600 font-mono`}
             >
               Press SPACE or &rarr; to continue
             </motion.p>

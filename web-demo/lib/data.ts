@@ -87,6 +87,9 @@ export const BASE_NODES: TopologyNode[] = [
   { id: 'managed-registry', type: 'datastore', label: 'Managed Registry', domain: 'infra', x: 204, y: 480, visible: true },
   { id: 'verify-gate', type: 'gate', label: 'VERIFY GATE', domain: 'infra', x: 198, y: 270, visible: false },
   { id: 'poisoned-model', type: 'rogue', label: 'poisoned:v3.2', domain: 'infra', x: 50, y: 268, visible: false },
+  // Beat 1 ransomware endgame (Mick Currey): what the attacker reaches on day six
+  { id: 'identity-provider', type: 'datastore', label: 'Identity · IdP', domain: 'infra', x: 60, y: 400, visible: false },
+  { id: 'backups', type: 'datastore', label: 'Backups', domain: 'infra', x: 60, y: 560, visible: false },
 
   // AI-enabled SOC — WG3
   { id: 'agent-soc-analyst', type: 'agent', label: 'SOC Analyst Agent', domain: 'soc', x: 460, y: 232, visible: true },
@@ -168,7 +171,7 @@ export const PROOF_POINTS: ProofPoint[] = [
     product: 'Personalized AI agent for every employee',
     headline: '~90,000 employees, starting FY27',
     detail: 'Not a pilot. A structural, Fortune-500-scale deployment from day one of the fiscal year.',
-    framing: 'Frame around the ambition: every employee gets an agent, under one governance model.',
+    framing: 'Personal agents: one per person, easy to interrupt with a circuit breaker. The easier case.',
     color: '#38bdf8',
   },
   {
@@ -177,7 +180,7 @@ export const PROOF_POINTS: ProofPoint[] = [
     product: 'Agentforce at Reddit',
     headline: '84% faster case resolution',
     detail: '$100M+ in reported annual operational savings',
-    framing: 'Vendor-reported — but directionally the size of the prize when agents run the business.',
+    framing: 'Vendor-reported — but a business process run by an agent, which is the harder case the plane exists for.',
     color: '#818cf8',
   },
 ];
@@ -216,4 +219,179 @@ export const VENDOR_LANES: VendorLane[] = [
     proveIt: ['Cross-domain correlation: fabric + plane + SOC', 'Deliberate, gated containment', 'Evidence preserved with chain of custody'],
     color: '#06b6d4',
   },
+];
+
+// ─── Reference architectures (public/ra/*.svg, lifted from the WG drawings) ───
+export interface RaCard {
+  key: 'map' | 'wg1' | 'wg2' | 'wg3';
+  file: string;
+  wg: string;
+  color: string;
+  kicker: string;
+  title: string;
+  version: string;
+  planning: string;
+  execution: string;
+  gate: string;
+  lines: string[];
+}
+
+export const RA_CARDS: Record<RaCard['key'], RaCard> = {
+  map: {
+    key: 'map', file: '/ra/map.svg', wg: 'WG1 · WG2 · WG3', color: '#f97316',
+    kicker: 'HOW THE REFERENCE ARCHITECTURES CONNECT',
+    title: 'One Control Plane, Every Domain — Unified Architecture Map',
+    version: 'Draft v0.2 · 6 August 2026 · composite of WG1 v0.2, WG2 v0.6, WG3 v0.6',
+    planning: 'Every domain defines a persona: autonomy · models · estate',
+    execution: 'Every persona runs its ops loop on the same enforcement layer',
+    gate: 'Cross-domain cooperation goes through the plane, never around it',
+    lines: [
+      'NOC and SOC are the first two personas. Cloud ops, DevOps, data, OT: same template.',
+      'The plane is the shared Access Enforcement & Audit layer beneath all of them.',
+      'Build the enforcement machinery once; reuse it everywhere.',
+    ],
+  },
+  wg1: {
+    key: 'wg1', file: '/ra/wg1.svg', wg: 'WG1', color: '#f97316',
+    kicker: 'WORKING GROUP 1 · AGENTIC CONTROL PLANE',
+    title: 'Agentic Control Plane — Reference Architecture',
+    version: 'Draft v0.2 · ratified at the 28 July session',
+    planning: 'Human oversight & governance on top (AOMC-6)',
+    execution: 'Four components, six controls, outside the agents',
+    gate: 'Identity air gap: agents receive identity from the plane, never reach into it',
+    lines: [
+      'Agent Trust Fabric: non-human identity, per-step scoped tokens, deprovisioning first.',
+      'Registry, Personas & Agent BOM: who / what / why for every agent.',
+      'Runtime Supervision: policy on every message, injection filtered, immutable audit.',
+      'Private Open Router: every model call routed by cost, risk, sovereignty.',
+    ],
+  },
+  wg2: {
+    key: 'wg2', file: '/ra/wg2.svg', wg: 'WG2', color: '#3b82f6',
+    kicker: 'WORKING GROUP 2 · AUTONOMOUS INFRASTRUCTURE',
+    title: 'Autonomous Infrastructure — Reference Architecture',
+    version: 'Draft v0.6 · 6 August 2026',
+    planning: 'Agent persona creation: autonomy level · models & model location · estate under management',
+    execution: 'Agent operations loop 1–6: detect · diagnose · propose · verify · execute · validate',
+    gate: 'Step 4 = the Verify Gate: change-stop · dry-run · blast radius · rollback',
+    lines: [
+      'Two access patterns, both valid: direct agent-to-agent, or an orchestrator that is itself governed.',
+      'Access Enforcement & Audit sits outside agent control and influence.',
+      'Only one box in the loop can mutate state, and it is visually unmistakable.',
+    ],
+  },
+  wg3: {
+    key: 'wg3', file: '/ra/wg3.svg', wg: 'WG3', color: '#06b6d4',
+    kicker: 'WORKING GROUP 3 · AI-ENABLED SOC',
+    title: 'Agentic-Enabled SOC — Reference Architecture',
+    version: 'Draft v0.6 · 6 August 2026 · same skeleton as WG2',
+    planning: 'Agent persona creation: conservative autonomy ceiling · models · estate under watch',
+    execution: 'Agent operations loop 1–6: detect · investigate · propose · decide · respond · validate',
+    gate: 'Step 4 = the Decide Gate: contain now, or observe & trace',
+    lines: [
+      'L3 auto-act exists only for corroborated known-bad signatures.',
+      'Responses stage monitor → flag → block, never blanket.',
+      'The immutable audit journal doubles as the evidence trail: chain of custody, forensic replay.',
+    ],
+  },
+};
+
+// ─── Beat 1 gap analysis (Chris Hertenstein's framing) ───
+export interface GapRow {
+  happened: string;
+  control: string;
+  hadIt: boolean;
+  note?: string;
+}
+
+export const GAP_ROWS: GapRow[] = [
+  { happened: 'Artifact pulled from a public hub', control: 'Managed registry: scan · SBOM · CVE check · cooling-off hold', hadIt: true, note: 'most companies do not' },
+  { happened: 'Payload fired after every scan passed', control: 'New artifacts run sandboxed first, with no network path, watched from outside', hadIt: false },
+  { happened: 'Agent wrote straight to the fabric', control: 'Verify gate on every write: change-stop · dry-run · blast radius · rollback', hadIt: false },
+  { happened: 'Routes and telemetry changed, unnoticed', control: 'Config-drift scanner that reverts within a day and alarms the CSIRT', hadIt: false },
+  { happened: 'Poisoned agent reached the identity system', control: 'Identity air gap: agents receive identity from the plane, never reach into it · time-limited checked-out credentials', hadIt: false },
+  { happened: 'Backups deleted, disks encrypted', control: 'Immutable backups · a journal the agent cannot touch · kill switch', hadIt: false },
+];
+
+// ─── The other threat scenarios the same controls address (Baird Kaake) ───
+export interface ThreatScenario {
+  id: string;
+  name: string;
+  what: string;
+  control: string;
+}
+
+export const THREAT_SCENARIOS: ThreatScenario[] = [
+  {
+    id: 'injection',
+    name: 'Indirect prompt injection · payload poisoning',
+    what: 'An agent that gathers web content on a structured, ongoing basis will eventually ingest instructions or a payload planted for it.',
+    control: 'Runtime supervision from outside the agent: declared persona vs observed behaviour · verify gate on every write. An injected instruction can change what the agent wants, not what it is allowed to do.',
+  },
+  {
+    id: 'misuse',
+    name: 'Agent misuse of legitimate rights',
+    what: 'The agent is tricked into using rights it already holds: its prompt altered, or the content it decides on altered, so it changes data it can write, or reads and shares content it should not — outbound or internally.',
+    control: 'Identity with a declared persona and approved task set · per-step scoped tokens · immutable audit journal the agent cannot see.',
+  },
+  {
+    id: 'writes',
+    name: 'Over-broad write access',
+    what: 'Agents in production typically hold read and write across large databases, which is what makes misuse easy.',
+    control: 'Compartmentalise writes to the smallest atomic subset a step needs — the WG1 objective that answers this scenario.',
+  },
+];
+
+// ─── Members on the wall (public/logos/, copied from the collaborative portal) ───
+export interface MemberMark {
+  name: string;
+  file?: string;   // absent: render the name as a wordmark
+}
+
+export const FOUNDING_MEMBERS: MemberMark[] = [
+  { name: 'Aviatrix', file: 'aviatrix.svg' },
+  { name: 'BlueCat', file: 'bluecat.svg' },
+  { name: 'Bonfy', file: 'bonfy.png' },
+  { name: 'Cigna', file: 'cigna.png' },
+  { name: 'Cisco', file: 'cisco.svg' },
+  { name: 'CodiLime', file: 'codilime.png' },
+  { name: 'Connectbase', file: 'connectbase.png' },
+  { name: 'cPacket', file: 'cpacket.png' },
+  { name: 'FedEx', file: 'fedex.png' },
+  { name: 'Gluware', file: 'gluware.png' },
+  { name: 'Google Cloud', file: 'google-cloud.png' },
+  { name: 'HSBC', file: 'hsbc.png' },
+  { name: 'Lumen', file: 'lumen.svg' },
+  { name: 'Memorial Sloan Kettering', file: 'memorial-sloan-kettering.png' },
+  { name: 'NetBrain', file: 'netbrain.svg' },
+  { name: 'PalC Networks', file: 'palc-networks.svg' },
+  { name: 'RTX', file: 'rtx.png' },
+  { name: 'TrueFoundry', file: 'truefoundry.svg' },
+  { name: 'Zentera', file: 'zentera.svg' },
+];
+
+// Practitioner member companies not on the founding wall. No mark on file yet:
+// they render as wordmarks until the company supplies one (drop <file> in public/logos/).
+export const PRACTITIONER_MEMBERS: MemberMark[] = [
+  { name: 'Citi' },
+  { name: 'eBay' },
+  { name: 'Fidelity' },
+  { name: 'Goldman Sachs' },
+  { name: 'Huntington' },
+  { name: 'NBCUniversal' },
+];
+
+export const REVIEWERS: { name: string; org: string }[] = [
+  { name: 'Mick Currey', org: 'Fidelity' },
+  { name: 'Rick Casarez', org: 'eBay' },
+  { name: 'Chris Hertenstein', org: 'Huntington' },
+  { name: 'Baird Kaake', org: 'Cigna' },
+  { name: 'Peter Campbell', org: 'ONUG' },
+];
+
+export const VENDOR_MECHANICS = [
+  { k: '1', t: 'Fork the reference', d: 'github.com/onug/Fall26Demo · use the working-group terminology' },
+  { k: '2', t: 'Pick your lane', d: 'one lane is the structure, not a concession' },
+  { k: '3', t: 'Submit a 5–10 minute MP4', d: 'screen capture · on loop in the showcase theatre · presentation schedule · office hours' },
+  { k: '4', t: 'Best in Show, per lane', d: 'attending members vote in the Whova app' },
 ];

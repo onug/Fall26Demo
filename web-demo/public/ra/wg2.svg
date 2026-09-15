@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1140 880" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif"><rect width="100%" height="100%" fill="#ffffff"/>
+    <defs>
+      <marker id="dn" viewBox="0 0 10 10" refX="5" refY="9" markerWidth="9" markerHeight="9" orient="auto"><path d="M0,0 L10,0 L5,10 z" fill="#5a6375"/></marker>
+      <marker id="rt" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5d7fa8"/></marker>
+    </defs>
+
+    <!-- build-order guide -->
+    <text x="70" y="34" text-anchor="middle" font-size="9.5" font-weight="700" fill="#5a6375">PLAN</text>
+    <line x1="70" y1="44" x2="70" y2="252" stroke="#8a93a5" stroke-width="2" marker-end="url(#dn)"/>
+    <text x="70" y="270" text-anchor="middle" font-size="9" fill="#8a93a5">then</text>
+    <text x="70" y="282" text-anchor="middle" font-size="9" fill="#8a93a5">build</text>
+
+    <!-- PERSONA CREATION WRAPPER -->
+    <rect x="120" y="22" width="980" height="230" rx="14" fill="#eee8f7" stroke="#a292c8" stroke-width="1.8"/>
+    <text x="610" y="44" text-anchor="middle" font-size="13.5" font-weight="800" fill="#5b4a80">Agent Persona Creation — requirements &amp; planning for the agent</text>
+    <text x="610" y="59" text-anchor="middle" font-size="9.5" fill="#7a6c9a" font-style="italic">"you can't do anything below unless you know what you're going to allow up here"</text>
+
+    <rect x="140" y="70" width="940" height="52" rx="10" fill="#fde8d2" stroke="#d69b5e" stroke-width="1.3"/>
+    <text x="610" y="90" text-anchor="middle" font-size="12.5" font-weight="700">Agent Autonomy Level</text>
+    <text x="610" y="107" text-anchor="middle" font-size="10" fill="#5a6375">L0 observe · L1 recommend · L2 gated act · L3 bounded auto-act — decides whether loop steps 4–6 ever fire · risk-tolerance dependent, earned by track record</text>
+
+    <rect x="140" y="130" width="940" height="52" rx="10" fill="#dce8ea" stroke="#8fb3ba" stroke-width="1.3"/>
+    <text x="610" y="150" text-anchor="middle" font-size="12.5" font-weight="700">Models &amp; Model Location</text>
+    <text x="610" y="167" text-anchor="middle" font-size="10" fill="#5a6375">on-prem vs frontier is a risk decision: off-prem calls can fail (design for retries) · public pretraining brings contamination · certified, version-pinned, rollback on regression</text>
+
+    <rect x="140" y="190" width="940" height="48" rx="10" fill="#ddefe0" stroke="#84b790" stroke-width="1.3"/>
+    <text x="610" y="209" text-anchor="middle" font-size="12.5" font-weight="700">Estate Under Management</text>
+    <text x="610" y="226" text-anchor="middle" font-size="10" fill="#5a6375">the scope this persona may see and touch — DC fabric · public cloud · WAN/branch (control gradient per domain) — pluggable: network, server, SOC, any domain</text>
+
+    <!-- ACCESS ENFORCEMENT & AUDIT WRAPPER -->
+    <rect x="120" y="286" width="980" height="404" rx="16" fill="#fbe4e4" stroke="#c98484" stroke-width="1.8"/>
+    <text x="610" y="310" text-anchor="middle" font-size="13.5" font-weight="800" fill="#8c3b3b">Access Enforcement &amp; Audit — outside agent control and influence</text>
+
+    <!-- Pattern A -->
+    <rect x="138" y="324" width="462" height="152" rx="10" fill="#fff" stroke="#c98484" stroke-width="1" stroke-dasharray="5 4"/>
+    <text x="369" y="344" text-anchor="middle" font-size="11.5" font-weight="700" fill="#8c3b3b">Pattern A — Direct (agent ⇄ agent)</text>
+    <g>
+      <rect x="166" y="362" width="180" height="34" rx="7" fill="#fdf3cf" stroke="#c9b45e"/>
+      <rect x="160" y="356" width="180" height="34" rx="7" fill="#fdf6dd" stroke="#c9b45e" stroke-width="1.2"/>
+      <text x="250" y="377" text-anchor="middle" font-size="10.5" font-weight="700">Telemetry / Logs</text>
+      <rect x="398" y="362" width="180" height="34" rx="7" fill="#fdf3cf" stroke="#c9b45e"/>
+      <rect x="392" y="356" width="180" height="34" rx="7" fill="#fdf6dd" stroke="#c9b45e" stroke-width="1.2"/>
+      <text x="482" y="377" text-anchor="middle" font-size="10.5" font-weight="700">Sources of Truth</text>
+      <rect x="166" y="410" width="180" height="34" rx="7" fill="#fdf3cf" stroke="#c9b45e"/>
+      <rect x="160" y="404" width="180" height="34" rx="7" fill="#fdf6dd" stroke="#c9b45e" stroke-width="1.2"/>
+      <text x="250" y="425" text-anchor="middle" font-size="10.5" font-weight="700">Rulesets</text>
+      <rect x="398" y="410" width="180" height="34" rx="7" fill="#fdf3cf" stroke="#c9b45e"/>
+      <rect x="392" y="404" width="180" height="34" rx="7" fill="#fdf6dd" stroke="#c9b45e" stroke-width="1.2"/>
+      <text x="482" y="425" text-anchor="middle" font-size="10.5" font-weight="700">Agents / MCPs</text>
+    </g>
+    <text x="369" y="462" text-anchor="middle" font-size="9" font-style="italic" fill="#8a5c5c">agents reach each resource directly — every agent-to-agent call carries the same enforcement</text>
+
+    <!-- Pattern B -->
+    <rect x="620" y="324" width="462" height="152" rx="10" fill="#fff" stroke="#c98484" stroke-width="1" stroke-dasharray="5 4"/>
+    <text x="851" y="344" text-anchor="middle" font-size="11.5" font-weight="700" fill="#8c3b3b">Pattern B — Orchestrated</text>
+    <rect x="642" y="360" width="418" height="58" rx="8" fill="#fdf6dd" stroke="#c9b45e" stroke-width="1.3"/>
+    <text x="851" y="382" text-anchor="middle" font-size="11" font-weight="700">Orchestrator / AI Gateway</text>
+    <text x="851" y="398" text-anchor="middle" font-size="9.5" fill="#5a6375">fronts Sources of Truth · Telemetry/Logs · Rulesets · Agents/MCPs</text>
+    <text x="851" y="440" text-anchor="middle" font-size="9" font-style="italic" fill="#8a5c5c">the orchestrator is itself governed — it sits inside enforcement and</text>
+    <text x="851" y="452" text-anchor="middle" font-size="9" font-style="italic" fill="#8a5c5c">references policy to allow or deny every agent request</text>
+
+    <!-- shared loop -->
+    <rect x="138" y="490" width="944" height="134" rx="10" fill="#dbe6f5" stroke="#7d9ac8" stroke-width="1.5"/>
+    <text x="610" y="508" text-anchor="middle" font-size="12" font-weight="700">Agent Operations Loop 1–6 (common to both patterns)</text>
+
+    <rect x="164" y="520" width="132" height="78" rx="8" fill="#ddefe0" stroke="#84b790" stroke-width="1.3"/>
+    <g transform="translate(276,528) scale(0.5)" fill="none" stroke="#256b45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 18h6"/>
+      <path d="M10 22h4"/>
+      <path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/>
+    </g>
+    <text x="230" y="540" text-anchor="middle" font-size="10" font-weight="700" fill="#256b45">1 · Detect</text>
+    <text x="230" y="558" text-anchor="middle" font-size="8" fill="#3a4254">signal</text>
+    <text x="230" y="569" text-anchor="middle" font-size="8" fill="#3a4254">surfaces</text>
+
+    <line x1="298" y1="559" x2="314" y2="559" stroke="#5d7fa8" stroke-width="1.5" marker-end="url(#rt)"/>
+
+    <rect x="316" y="520" width="132" height="78" rx="8" fill="#ddefe0" stroke="#84b790" stroke-width="1.3"/>
+    <g transform="translate(428,528) scale(0.5)" fill="none" stroke="#256b45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 18h6"/>
+      <path d="M10 22h4"/>
+      <path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/>
+    </g>
+    <text x="382" y="540" text-anchor="middle" font-size="10" font-weight="700" fill="#256b45">2 · Diagnose</text>
+    <text x="382" y="558" text-anchor="middle" font-size="8" fill="#3a4254">root cause</text>
+    <text x="382" y="569" text-anchor="middle" font-size="8" fill="#3a4254">&amp; scope</text>
+
+    <line x1="450" y1="559" x2="466" y2="559" stroke="#5d7fa8" stroke-width="1.5" marker-end="url(#rt)"/>
+
+    <rect x="468" y="520" width="132" height="78" rx="8" fill="#ddefe0" stroke="#84b790" stroke-width="1.3"/>
+    <g transform="translate(580,528) scale(0.5)" fill="none" stroke="#256b45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 18h6"/>
+      <path d="M10 22h4"/>
+      <path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/>
+    </g>
+    <text x="534" y="540" text-anchor="middle" font-size="10" font-weight="700" fill="#256b45">3 · Propose</text>
+    <text x="534" y="558" text-anchor="middle" font-size="8" fill="#3a4254">candidate</text>
+    <text x="534" y="569" text-anchor="middle" font-size="8" fill="#3a4254">fix</text>
+
+    <line x1="602" y1="559" x2="618" y2="559" stroke="#5d7fa8" stroke-width="1.5" marker-end="url(#rt)"/>
+
+    <rect x="620" y="520" width="132" height="78" rx="8" fill="#fde8d2" stroke="#d69b5e" stroke-width="1.6"/>
+    <g transform="translate(732,528) scale(0.5)" fill="none" stroke="#8a5a12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+      <circle cx="12" cy="12" r="3"/>
+    </g>
+    <text x="686" y="538" text-anchor="middle" font-size="10" font-weight="700" fill="#8a5a12">4 · Verify</text>
+    <text x="686" y="550" text-anchor="middle" font-size="7.5" font-weight="700" fill="#8a5a12">— Verify Gate —</text>
+    <text x="686" y="564" text-anchor="middle" font-size="8" fill="#3a4254">change-stop · dry-run ·</text>
+    <text x="686" y="574" text-anchor="middle" font-size="8" fill="#3a4254">blast radius · rollback</text>
+
+    <line x1="754" y1="559" x2="770" y2="559" stroke="#5d7fa8" stroke-width="1.5" marker-end="url(#rt)"/>
+
+    <rect x="772" y="520" width="132" height="78" rx="8" fill="#fde8d2" stroke="#d69b5e" stroke-width="1.3"/>
+    <g transform="translate(884,528) scale(0.5)" fill="none" stroke="#8a5a12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
+    </g>
+    <text x="838" y="540" text-anchor="middle" font-size="10" font-weight="700" fill="#8a5a12">5 · Execute</text>
+    <text x="838" y="558" text-anchor="middle" font-size="8" fill="#3a4254">mediated,</text>
+    <text x="838" y="569" text-anchor="middle" font-size="8" fill="#3a4254">ticketed</text>
+
+    <line x1="906" y1="559" x2="922" y2="559" stroke="#5d7fa8" stroke-width="1.5" marker-end="url(#rt)"/>
+
+    <rect x="924" y="520" width="132" height="78" rx="8" fill="#fde8d2" stroke="#d69b5e" stroke-width="1.3"/>
+    <g transform="translate(1036,528) scale(0.5)" fill="none" stroke="#8a5a12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M8 12l3 3 5-6"/>
+    </g>
+    <text x="990" y="540" text-anchor="middle" font-size="10" font-weight="700" fill="#8a5a12">6 · Validate</text>
+    <text x="990" y="558" text-anchor="middle" font-size="8" fill="#3a4254">confirm</text>
+    <text x="990" y="569" text-anchor="middle" font-size="8" fill="#3a4254">outcome</text>
+
+    <text x="610" y="614" text-anchor="middle" font-size="9" fill="#5a6375" font-style="italic">the autonomy level chosen above decides whether steps 4–6 ever fire</text>
+
+    <text x="610" y="646" text-anchor="middle" font-size="10" fill="#8c3b3b">identity air-gap (no self-promotion) · scoped service accounts · mediated writes only · governed agent/MCP reachability · change-stop honored by all automation</text>
+    <text x="610" y="662" text-anchor="middle" font-size="10" fill="#8c3b3b">immutable, timestamped audit journal of every action — the agent has no access to it, so it can never cover its tracks · no mutable action without a change case</text>
+    <text x="610" y="678" text-anchor="middle" font-size="9" font-style="italic" fill="#8a5c5c">"enforcement" means any access control — identity, certificates, zero trust — not just firewalls and ACLs</text>
+
+    <!-- legend -->
+    <rect x="120" y="702" width="980" height="80" rx="10" fill="#fbfcfe" stroke="#e2e5ec"/>
+    <text x="136" y="722" font-size="10.5" font-weight="700">Legend — what the colors mean</text>
+    <g font-size="10" fill="#3a4254">
+      <rect x="136" y="732" width="14" height="14" rx="3" fill="#eee8f7" stroke="#a292c8"/>
+      <text x="156" y="743">Persona creation — planning &amp; requirements</text>
+      <rect x="412" y="732" width="14" height="14" rx="3" fill="#fde8d2" stroke="#d69b5e"/>
+      <text x="432" y="743">Autonomy decision — humans, first</text>
+      <rect x="662" y="732" width="14" height="14" rx="3" fill="#dce8ea" stroke="#8fb3ba"/>
+      <text x="682" y="743">Model layer</text>
+      <rect x="792" y="732" width="14" height="14" rx="3" fill="#ddefe0" stroke="#84b790"/>
+      <text x="812" y="743">Scope — the estate</text>
+      <rect x="136" y="756" width="14" height="14" rx="3" fill="#fdf6dd" stroke="#c9b45e"/>
+      <text x="156" y="767">Governed resources — reachable only as policy allows (stacked = many; incl. other agents/MCPs)</text>
+      <rect x="662" y="756" width="14" height="14" rx="3" fill="#dbe6f5" stroke="#7d9ac8"/>
+      <text x="682" y="767">Agent execution — the loop</text>
+      <rect x="882" y="756" width="14" height="14" rx="3" fill="#fbe4e4" stroke="#c98484"/>
+      <text x="902" y="767">Enforcement &amp; audit</text>
+    </g>
+
+    <text x="120" y="810" font-size="10" fill="#8a93a5">One generic template, pluggable per domain (network, server, WAN, SOC). Cross-silo correlation happens through governed agent/MCP access — "we've automated the silos" is the problem this box exists to fix.</text>
+    <text x="120" y="826" font-size="10" fill="#8a93a5">Companion drill-downs to follow: persona creation · enforcement &amp; audit detail · orchestrator vs direct comparison · NOC + SOC personas sharing one enforcement layer (sketch in progress).</text>
+    <text x="120" y="846" font-size="10" fill="#b0894a" font-style="italic">Draft v0.6 · Per the 7/28 WG2 session and Rick Casarez's revised drawings · Supersedes v0.5 · Sources: WG2 sessions 7/14, 7/21, 7/28.</text>
+  </svg>

@@ -144,7 +144,13 @@ export type StepPhase =
   | 'summary'     // blast radius / outcome list
   | 'accelerator' // beat 6: business units build on the plane
   | 'proof'       // beat 6: public proof points
+  | 'ra'          // a working group's reference architecture, one card
+  | 'gap'         // beat 1: gap analysis — what happened, the control that stops it
+  | 'threats'     // beat 7: the other threat scenarios the same controls address
   | 'lanes';      // beat 7: vendor challenge lanes
+
+// The four reference-architecture drawings under public/ra/
+export type RaKey = 'map' | 'wg1' | 'wg2' | 'wg3';
 
 export interface Step {
   id: string;
@@ -167,7 +173,10 @@ export interface Step {
   compromiseNodes?: { nodeId: string; label: string }[];
   quarantineNodes?: string[];
   activeLanes?: LaneKey[];        // which lanes are lit in the topology
-  contributors?: boolean;
+  contributors?: boolean;         // title cards: the three working groups line
+  logos?: 'strip' | 'wall';       // title cards: member marks, small strip or the full wall
+  credits?: boolean;              // title cards: the practitioners who reviewed the demo
+  ra?: RaKey;                     // phase 'ra': which drawing
   resetState?: boolean;           // wipe accumulated state at this step (rewind)
 }
 
