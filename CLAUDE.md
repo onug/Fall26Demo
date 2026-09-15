@@ -36,14 +36,17 @@ web-demo/
 ├── lib/
 │   ├── types.ts           Step, DemoState, ControlKey, LaneKey, GateProposal, Metrics, ...
 │   ├── data.ts            LANES, CONTROLS (9 capabilities), BASE_NODES/BASE_EDGES, BU_AGENTS, PROOF_POINTS, VENDOR_LANES
-│   ├── steps.ts           THE SCRIPT — 34 steps across seven beats, with narration and pause markers
-│   └── audio.ts           Narration playback: /narration/<step-id>.mp3 first, browser TTS fallback
+│   ├── steps.ts           THE SCRIPT — 42 steps across seven beats, with narration and pause markers
+│   ├── audio.ts           Narration playback: /narration/<step-id>.mp3 first, browser TTS fallback
+│   └── assets.ts          asset(path): prefixes NEXT_PUBLIC_BASE_PATH for images under public/
 ├── scripts/
 │   ├── export-script.mjs  Transpiles steps.ts with the bundled TypeScript compiler, writes script.json + docs/narration-script.md
 │   ├── qa.mjs             Script integrity check (npm run qa): replays steps, validates references, audio, export freshness
 │   └── generate-narration.py  ElevenLabs TTS via urllib; key from env ELEVENLABS_API_KEY or keychain item "elevenlabs"
 ├── narration/script.json  Exported narration script (generated)
-├── public/narration/      34 MP3s, one per step id (generated, committed)
+├── public/narration/      42 MP3s, one per step id (generated, committed)
+├── public/ra/             The four reference-architecture drawings as SVG (lifted from the WG1 shared folder HTML)
+├── public/logos/          Member marks, copied from the collaborative portal's app/static/founding/
 └── components/
     ├── DemoStage.tsx      Orchestrator: useReducer, state replay, keyboard, layout switch by phase
     ├── Topology.tsx       SVG: control-plane band (WG1), infra lane (WG2), SOC lane (WG3), external
@@ -53,6 +56,10 @@ web-demo/
     ├── AuditJournal.tsx   Immutable, hash-chained journal table
     ├── EventFeed.tsx, NarrationPanel.tsx, StepIndicator.tsx, TitleSlide.tsx
     ├── ViolationOverlay.tsx, BlockedOverlay.tsx
+    ├── RACard.tsx         phase 'ra': a reference-architecture drawing on a white panel, three takeaways beside it
+    ├── GapCard.tsx        Beat 1: what happened / the control / HAD IT or MISSING
+    ├── ThreatCard.tsx     Beat 7: the other threat scenarios the same controls stop
+    ├── LogoWall.tsx       Title strip and finale wall of member marks (wordmark when no file)
     ├── AcceleratorView.tsx    Beat 6: business units plug into the plane
     ├── ProofPoints.tsx    Beat 6: EY / Cisco / Salesforce cards
     └── VendorLanes.tsx    Beat 7: the three-lane challenge
@@ -60,7 +67,7 @@ web-demo/
 
 **State replay.** `buildStateForStep(n)` in `DemoStage.tsx` rebuilds state from step 0 to n on every navigation, so backward navigation is always correct. A step with `resetState: true` (Beat 2's "You are here") wipes accumulated state, which is how the demo "rewinds" the poisoned pull.
 
-**Step phases** drive layout: `title`, `accelerator`, `proof`, `lanes` are full-screen cards; everything else is the dashboard (event feed, topology, control plane, impact). `violation` and `blocked` phases also fire the red/green overlays. `gate` phases show the verify-gate panel under the topology; `showAudit: true` shows the journal.
+**Step phases** drive layout: `title`, `accelerator`, `proof`, `lanes`, `ra`, `gap`, `threats` are full-screen cards; everything else is the dashboard (event feed, topology, control plane, impact). `violation` and `blocked` phases also fire the red/green overlays. `gate` phases show the verify-gate panel under the topology; `showAudit: true` shows the journal.
 
 **Controls.** Nine capabilities, not the Dallas six. WG1: identity, artifact provenance, runtime monitoring, audit journal, kill switch. WG2: verify gate, autonomy levels. WG3: detect→decide, deliberate containment. The demo never enumerates the 25 WG1 requirements on stage; AOMC is the vehicle, not the checklist.
 
@@ -71,6 +78,8 @@ web-demo/
 - **Change narration or add a step**: edit `web-demo/lib/steps.ts`, then `npm run narration:export` and regenerate the audio for that step (`python3 scripts/generate-narration.py --force --only <step-id>`). Commit the MP3 with the text change.
 - **Move a node / add a node**: `BASE_NODES` in `web-demo/lib/data.ts`. The SVG viewBox is 1000×660: plane band y 28–98, infra lane x 20–350, SOC lane x 370–700, external x 720–980. Edges are straight lines; check new ones don't pass through other nodes (the model-pull edge from the hub at y=200 was moved above the SOC row for this reason).
 - **Change proof points, BU agents, vendor lanes**: the arrays at the bottom of `web-demo/lib/data.ts`.
+- **Replace a reference-architecture drawing**: the SVGs in `public/ra/` are the `<svg>` element cut out of the WG drawing's HTML (Drive, synced under `~/Library/CloudStorage/GoogleDrive-nick@onug.net/Shared drives/AI Sales Tool/Sales Knowledge Base/07 - Collab Working Groups/`) with a white background rect prepended; `RA_CARDS` in `data.ts` carries the version string and the takeaways. Update both.
+- **Add a member mark**: drop the file in `public/logos/` and add it to `FOUNDING_MEMBERS` or `PRACTITIONER_MEMBERS` in `data.ts`. Marks must read on a white tile.
 - **Change the voice**: `VOICE_ID` in `scripts/export-script.mjs` (the cloned Nick Lippis voice is the default; Sarah was Dallas), then regenerate with `--force`.
 - **Adjust animations**: keyframes in `web-demo/app/globals.css`; Framer transitions inline in components.
 
@@ -81,14 +90,15 @@ web-demo/
 3. Walk the affected beat in the browser at 1920×1080. Note: in a hidden browser tab, Framer Motion entrance animations do not run, so screenshots taken from a background tab can look blank or dim. Read the DOM (computed opacity) or front the tab before judging.
 4. If narration text changed, regenerate that step's audio and confirm the file is served (`curl -I http://localhost:3000/narration/<id>.mp3`).
 
-There are no automated tests, consistent with the Dallas demo. Do not add a test framework for presentation code.
+`next dev` can hang at "Starting..." on this Mac because Watchpack fails to watch `~/Desktop` (EINTR, a cloud-synced folder); when that happens, `npm run build` and serve `out/` with `python3 -m http.server 3100` instead. A server started inside the sandboxed Bash tool is unreachable from the browser; start it outside the sandbox. There are no automated tests, consistent with the Dallas demo. Do not add a test framework for presentation code.
 
 ## Design decisions
 
 - **Presenter-controlled.** Nothing auto-advances. Presenter pause points are data (`pausePoint` on a step) and render as a header badge.
 - **Fear then greed.** Beat 1 is red, Beats 2–5 are orange/blue/cyan (the plane and its two battlegrounds), Beat 6 is purple, Beat 7 green. `TitleSlide` and `StepIndicator` key colors off the beat.
 - **Proof points are framed, not just quoted.** Cisco is framed around ambition (not the headcount debate); Salesforce numbers are marked vendor-reported. Keep that framing if the copy changes. The figures themselves are unverified until the arc locks.
-- **Illustrative numbers.** Device counts, dollar exposure, dwell time, detect-to-decide seconds are demo-defined. Keep them consistent across `steps.ts`, the presenter guide, and the release notes when changing one.
+- **Ten minutes of audio.** Nick's target (15 Sep 2026). `npm run narration:export` reports recorded minutes; keep it near 10.
+- **Illustrative numbers.** Device counts, dollar exposure, dwell time, ransom figures, detect-to-decide seconds are demo-defined. Keep them consistent across `steps.ts`, the presenter guide, and the release notes when changing one.
 - **Presentation-first code.** Readability during a live demo beats production patterns.
 
 ## Working agreements

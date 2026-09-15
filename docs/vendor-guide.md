@@ -18,8 +18,8 @@ The keynote shows one control plane operating across three working-group domains
 
 1. **Fork** `github.com/onug/Fall26Demo` (once public).
 2. **Pick a lane** and show your product doing that lane's job inside the keynote's story. The poisoned pull, the verify gate, the containment sequence are the shared narrative; your product is what makes the catch, gates the write, or preserves the evidence.
-3. **Submit a playable video** (MP4) of your version. ONUG shows submissions at various places and times throughout the conference.
-4. **Best in Show, per lane.** Attending members vote in the room.
+3. **Submit a 5–10 minute screen capture** (MP4) of your version, using the working groups' terminology. Submissions play on loop in the showcase theatre and in the Collaborative Center, with a presentation schedule and office hours.
+4. **Best in Show, per lane.** Attending members vote in the Whova app.
 
 The working groups' own demos and challenges are also up for awards; the keynote points the audience toward them.
 

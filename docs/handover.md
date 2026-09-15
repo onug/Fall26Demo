@@ -58,7 +58,7 @@ The step id is the `id` field on the step object, for example `b1-pull` or `b4-g
 - A full regeneration bills about 10,400 characters at the current script length. Use `--only` for single steps.
 - Playback order in the demo: if `public/narration/<id>.mp3` exists it plays; otherwise the browser's speech synthesis reads the same text. So a missing file degrades gracefully, it does not break the demo.
 
-## The first job: cut the script in half
+## The first job was the cut; it is done (v0.3.0, 10½ minutes)
 
 The arc says roughly five minutes pre-produced. The recorded narration is 11.4 minutes. Each step's narration should come down to about 20 to 30 words. The longest are listed at the bottom of `docs/narration-script.md`. Suggested approach:
 

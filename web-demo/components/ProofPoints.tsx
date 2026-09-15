@@ -45,11 +45,12 @@ export default function ProofPoints({ title }: ProofPointsProps) {
         className="text-center max-w-4xl space-y-3"
       >
         <p className="text-lg text-gray-200">
-          The through-line: wins come when <span className="text-orange-300 font-bold">building, governing, and running agents</span> live in one governed environment.
+          An employee&apos;s <span className="text-sky-300 font-bold">personal agent</span> is easy to interrupt: one circuit breaker.
+          A company&apos;s <span className="text-orange-300 font-bold">agentic workflow</span>, with its own identity, rights and data, is what the plane exists to govern.
         </p>
         <p className="text-sm text-gray-500">
-          Footnote: every large regulated organization now has an AI governance board, and the human review is the biggest time lag.
-          Prove the controls are in place and your own approval pipeline gets faster. The controls aren&apos;t just protection — they unclog it.
+          Every large regulated organization now has an AI governance board, and the human review is the biggest time lag.
+          Prove the controls are in place and your own approval pipeline gets faster.
         </p>
       </motion.div>
     </motion.div>

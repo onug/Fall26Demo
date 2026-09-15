@@ -103,7 +103,7 @@ md += `| Words | ${totalWords} (~${out.metadata.estimated_minutes} min at 150 wp
 md += `| Recorded audio | ${totalAudio ? `${out.metadata.recorded_minutes} min` : 'not generated'} |\n`;
 md += `| Voice | ${VOICE_NAME} · ElevenLabs \`${VOICE_ID}\` · ${MODEL_ID} · speed ${SPEED} |\n`;
 md += `| Presenter pauses | ${segments.filter(s => s.pause).length} |\n\n`;
-md += `The arc targets roughly five minutes of pre-produced content plus live pauses. Trim from the longest segments first.\n\n`;
+md += `The target is ten minutes of recorded narration plus live pauses (Nick, 15 September 2026). Trim from the longest segments first.\n\n`;
 
 let currentBeat = -1;
 for (const s of segments) {

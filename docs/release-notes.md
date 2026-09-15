@@ -1,5 +1,25 @@
 # Release Notes
 
+## v0.3.0 — Everyone's input, one pass (September 15, 2026)
+
+Built from `docs/v0.3-plan.md`: the 15 September co-chair review (Mick Currey, Rick Casarez, Chris Hertenstein, Baird Kaake, Peter Campbell), Mick's 14 September email, Baird's and Chris's Slack notes, and Nick's decisions of 15 September (ransomware ending, ten-minute target, close on the community message). Full log in `docs/review-feedback.md`.
+
+- **Beat 1 ends in ransomware.** New step *Day 6 — Everything is down*: admin and service identities rotated by the attacker, backups deleted, disks encrypted, nobody can log in, then the note. Two new topology nodes (Identity · IdP, Backups) appear only for this step. The dwell step now says why the attacker doesn't touch routes on day one (Rick's drift scanner). The blast radius summary follows the ransom note. [Mick, Rick]
+- **Beat 1 closes on a gap analysis.** New full-screen card *Which of these do you have?*: six rows, what happened / the control that stops it / whether this company had it. The room is asked which column it is in. Pause 2 moves here. [Chris, Rick, Mick, Nick]
+- **The write path is explained once.** The fabric optimizer was provisioned with write rights because that is its job; whatever it loads inherits them. Beat 4 pays it off at the gate. [Rick]
+- **The registry step is named as ahead of most companies.** [Mick]
+- **Agent personas.** Every agent enrolls with a declared persona (who it acts for, what it may want, its autonomy envelope); three personas are registered when the plane comes online, runtime monitoring measures drift against the declared persona, and the business-unit cards in Beat 6 say persona + identity. [Peter]
+- **"Agentic control plane", named.** The band, the panel and each beat's first mention say agentic control plane rather than "the plane" alone. [Baird]
+- **The sandbox runs the artifact for real.** One line in Beat 2: its writes are intercepted before any device. [Baird]
+- **The reference architectures, one card each.** New `ra` phase and `RACard` component showing the ratified drawings unaltered on a white panel (lifted as inline SVG from the WG1 shared folder into `web-demo/public/ra/`), with planning phase, execution phase and the gate named beside them: the unified map and the WG1 control plane in Beat 3, WG2 v0.6 at the Beat 4 title, WG3 v0.6 at the Beat 5 title. Loop step names in Beats 4 and 5 now follow the drawings (detect · diagnose · propose · verify · execute · validate; detect · investigate · propose · decide · respond · validate). Beat 5's gate is the Decide Gate. [Nick, Peter]
+- **Beat 5's escape rewritten.** The second stage is an agent, not a script: it probes the sandbox boundary, finds a weakness nobody knew about, and gets out. Narration cites the Hugging Face incident and Rick's line on agents and ethics. "That used to take a shift" is now "four to eight hours across three teams". [Mick, Rick]
+- **Proof points.** Kept all three; the card and narration now draw the line between an employee's personal agent and a company's agentic workflow. [Baird, Mick, Nick's decision 3, option b]
+- **What else the same controls stop.** New `threats` card before the vendor challenge: indirect prompt injection, agent misuse of legitimate rights, over-broad write access, each mapped to the control. Built from the three Baird gave in the meeting; grows when his list arrives. [Baird]
+- **Vendor challenge mechanics on the card.** Fork, working-group terminology, 5–10 minute MP4, showcase theatre on loop, presentation schedule, office hours, Whova vote per lane. [Nick, Peter]
+- **The close.** The finale is now the message to the community: the vendor demos play in the networking areas and the Collaborative Center; go watch, vote Best in Show per lane in Whova. The logo wall (founding members with their marks, practitioner members as wordmarks until their marks arrive) and the reviewers' names sit on it. The title card carries a strip of founding-member marks. [Nick]
+- **Narration cut to the ten-minute target.** Every existing narration trimmed; 41 of 42 segments regenerated (cloned Nick voice, speed 1.2). Recorded audio: 10.5 minutes across 42 steps (was 9.3 across 35). The presenter pauses are outside that budget.
+- **Assets:** `public/ra/` (four SVGs), `public/logos/` (twenty marks, copied from the collaborative portal's founding wall; RTX converted to PNG for the portal's media-type list), `lib/assets.ts` for the base-path prefix.
+
 ## v0.2.1 — Narration speed 1.2 (September 10, 2026)
 
 - All 35 segments regenerated with ElevenLabs `speed: 1.2` (the API maximum) at Nick's request. Speed is now a generator default and a `--speed` flag, recorded in `script.json` metadata.

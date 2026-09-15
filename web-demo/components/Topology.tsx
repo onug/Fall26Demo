@@ -258,8 +258,8 @@ export default function Topology({ topology, planeOnline, quarantined, compromis
               />
               <rect x={30} y={36} width={40} height={16} rx={4} fill="#f97316" />
               <text x={50} y={48} textAnchor="middle" fill="#fff" fontSize={10} fontWeight="bold">WG1</text>
-              <text x={78} y={48} fill="#fdba74" fontSize={12} fontWeight="bold">AOMC AGENTIC CONTROL PLANE</text>
-              <text x={78} y={62} fill="#9a3412" fontSize={9} fontFamily="var(--font-mono)">sits OUTSIDE the agents · no self-attestation</text>
+              <text x={78} y={48} fill="#fdba74" fontSize={12} fontWeight="bold">AGENTIC CONTROL PLANE · AOMC</text>
+              <text x={78} y={62} fill="#9a3412" fontSize={9} fontFamily="var(--font-mono)">sits OUTSIDE the agents · declared personas · no self-attestation</text>
             </motion.g>
           ) : beat === 1 ? (
             <motion.g key="noplane" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>

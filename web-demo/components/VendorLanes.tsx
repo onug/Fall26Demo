@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { VENDOR_LANES } from '@/lib/data';
+import { VENDOR_LANES, VENDOR_MECHANICS } from '@/lib/data';
 
 interface VendorLanesProps {
   title: string;
@@ -54,12 +54,7 @@ export default function VendorLanes({ title }: VendorLanesProps) {
         transition={{ delay: 1.5 }}
         className="grid grid-cols-4 gap-4 w-full max-w-5xl"
       >
-        {[
-          { k: '1', t: 'Fork the reference', d: 'github.com/onug/Fall26Demo' },
-          { k: '2', t: 'Pick your lane', d: 'one lane is the structure, not a concession' },
-          { k: '3', t: 'Submit a playable MP4', d: 'shown throughout the conference' },
-          { k: '4', t: 'Best in Show, per lane', d: 'voted by attending members, in the room' },
-        ].map(s => (
+        {VENDOR_MECHANICS.map(s => (
           <div key={s.k} className="rounded-lg border border-gray-800 bg-gray-900/50 p-3 text-center">
             <div className="text-xs font-bold text-green-400 font-mono mb-1">{s.k}</div>
             <div className="text-sm font-bold text-gray-200">{s.t}</div>

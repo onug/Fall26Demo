@@ -30,7 +30,7 @@ export default function AcceleratorView({ title, metrics }: AcceleratorViewProps
       >
         <div className="flex items-center gap-3 mb-3">
           <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-orange-500 text-white">WG1</span>
-          <span className="text-sm font-bold text-orange-300 tracking-wide">AOMC AGENTIC CONTROL PLANE</span>
+          <span className="text-sm font-bold text-orange-300 tracking-wide">AGENTIC CONTROL PLANE · AOMC</span>
           <span className="text-[11px] text-orange-200/60 font-mono">governance every business unit inherits, none of it built by them</span>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -68,7 +68,7 @@ export default function AcceleratorView({ title, metrics }: AcceleratorViewProps
               <div className="text-[10px] uppercase tracking-widest text-purple-400/80 mb-1">{bu.unit}</div>
               <div className="text-lg font-bold text-gray-100 mb-3">{bu.agent}</div>
               <div className="space-y-1.5 text-[11px] font-mono">
-                <div className="flex items-center gap-2"><span className="text-green-400">✓</span><span className="text-gray-400">identity issued by plane</span></div>
+                <div className="flex items-center gap-2"><span className="text-green-400">✓</span><span className="text-gray-400">persona + identity from the plane</span></div>
                 <div className="flex items-center gap-2"><span className="text-green-400">✓</span><span className="text-gray-400">autonomy: <span className="text-blue-300">{bu.autonomy}</span></span></div>
                 <div className="flex items-center gap-2"><span className="text-green-400">✓</span><span className="text-gray-400">gate: <span className="text-orange-300">{bu.gate}</span></span></div>
                 <div className="flex items-center gap-2"><span className="text-green-400">✓</span><span className="text-gray-400">journaled · kill switch armed</span></div>
