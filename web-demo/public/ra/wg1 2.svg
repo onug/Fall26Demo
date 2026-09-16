@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1240 800" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif"><rect width="100%" height="100%" fill="#ffffff"/>
+    <defs>
+      <marker id="aK" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f3542"/></marker>
+      <marker id="aB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2b6cb0"/></marker>
+      <marker id="aG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9a6700"/></marker>
+    </defs>
+
+    <rect x="40" y="14" width="1160" height="60" rx="10" fill="#eef3fb" stroke="#2b4c9b" stroke-width="1.4"/>
+    <text x="620" y="38" text-anchor="middle" font-size="13.5" font-weight="700">Human Oversight &amp; Governance — AOMC-6</text>
+    <text x="620" y="56" text-anchor="middle" font-size="11" fill="#3a4254">Decision rights &amp; RACI · approval of agent task sets · human-in-the-loop for material actions · emergency stop / kill authority</text>
+
+    <text x="620" y="98" text-anchor="middle" font-size="11" font-weight="700" fill="#5a6375" letter-spacing=".08em">AGENTS LIVE IN MANY TRUST DOMAINS — MULTI-VENDOR, MULTI-TENANT</text>
+
+    <rect x="40" y="110" width="368" height="140" rx="10" fill="#f3f6fb" stroke="#aebad2" stroke-width="1.3"/>
+    <text x="224" y="132" text-anchor="middle" font-size="12" font-weight="700">Enterprise Functions Domain</text>
+    <text x="224" y="147" text-anchor="middle" font-size="9.5" fill="#5a6375" font-style="italic">structured corporate-process agents</text>
+    <circle cx="130" cy="196" r="34" fill="#fff" stroke="#2f3542" stroke-width="1.1"/>
+    <text x="130" y="192" text-anchor="middle" font-size="9.5" font-weight="700">SecOps ·</text>
+    <text x="130" y="204" text-anchor="middle" font-size="9.5" font-weight="700">NetOps</text>
+    <circle cx="224" cy="196" r="34" fill="#fff" stroke="#2f3542" stroke-width="1.1"/>
+    <text x="224" y="192" text-anchor="middle" font-size="9.5" font-weight="700">Dev ·</text>
+    <text x="224" y="204" text-anchor="middle" font-size="9.5" font-weight="700">Business</text>
+    <circle cx="318" cy="196" r="34" fill="#fff" stroke="#7a8398" stroke-width="1" stroke-dasharray="4 3"/>
+    <text x="318" y="192" text-anchor="middle" font-size="9.5" fill="#5a6375">multi-agent</text>
+    <text x="318" y="204" text-anchor="middle" font-size="9.5" fill="#5a6375">systems</text>
+
+    <rect x="436" y="110" width="368" height="140" rx="10" fill="#f2f8f4" stroke="#a9cdb9" stroke-width="1.3"/>
+    <text x="620" y="132" text-anchor="middle" font-size="12" font-weight="700">Workforce Domain</text>
+    <text x="620" y="147" text-anchor="middle" font-size="9.5" fill="#5a6375" font-style="italic">person-bound assistants — inherit a scoped slice of the user's authority</text>
+    <circle cx="526" cy="196" r="34" fill="#fff" stroke="#2f3542" stroke-width="1.1"/>
+    <text x="526" y="192" text-anchor="middle" font-size="9.5" font-weight="700">research /</text>
+    <text x="526" y="204" text-anchor="middle" font-size="9.5" font-weight="700">copilot</text>
+    <circle cx="620" cy="196" r="34" fill="#fff" stroke="#2f3542" stroke-width="1.1"/>
+    <text x="620" y="192" text-anchor="middle" font-size="9.5" font-weight="700">workflow</text>
+    <text x="620" y="204" text-anchor="middle" font-size="9.5" font-weight="700">agents</text>
+    <circle cx="714" cy="196" r="34" fill="#fff" stroke="#7a8398" stroke-width="1" stroke-dasharray="4 3"/>
+    <text x="714" y="192" text-anchor="middle" font-size="9.5" fill="#5a6375">browser-</text>
+    <text x="714" y="204" text-anchor="middle" font-size="9.5" fill="#5a6375">delegated</text>
+
+    <rect x="832" y="110" width="368" height="140" rx="10" fill="#f8f4fb" stroke="#c3b3d6" stroke-width="1.3"/>
+    <text x="1016" y="132" text-anchor="middle" font-size="12" font-weight="700">External Trust Domains</text>
+    <text x="1016" y="147" text-anchor="middle" font-size="9.5" fill="#5a6375" font-style="italic">partners · SaaS · vendor agent ecosystems</text>
+    <circle cx="922" cy="196" r="34" fill="#fff" stroke="#2f3542" stroke-width="1.1"/>
+    <text x="922" y="192" text-anchor="middle" font-size="9.5" font-weight="700">partner</text>
+    <text x="922" y="204" text-anchor="middle" font-size="9.5" font-weight="700">agents</text>
+    <circle cx="1016" cy="196" r="34" fill="#fff" stroke="#7a8398" stroke-width="1" stroke-dasharray="4 3"/>
+    <text x="1016" y="192" text-anchor="middle" font-size="9.5" fill="#5a6375">vendor</text>
+    <text x="1016" y="204" text-anchor="middle" font-size="9.5" fill="#5a6375">enclaves</text>
+    <circle cx="1110" cy="196" r="34" fill="#fff" stroke="#7a8398" stroke-width="1" stroke-dasharray="4 3"/>
+    <text x="1110" y="192" text-anchor="middle" font-size="9.5" fill="#5a6375">external</text>
+    <text x="1110" y="204" text-anchor="middle" font-size="9.5" fill="#5a6375">MCP svcs</text>
+
+    <line x1="408" y1="180" x2="436" y2="180" stroke="#2f3542" stroke-width="1.6" marker-end="url(#aK)" marker-start="url(#aK)"/>
+    <line x1="804" y1="180" x2="832" y2="180" stroke="#2f3542" stroke-width="1.6" marker-end="url(#aK)" marker-start="url(#aK)"/>
+    <text x="422" y="170" text-anchor="middle" font-size="8.5" fill="#2f3542" font-weight="600">A2A</text>
+    <text x="818" y="170" text-anchor="middle" font-size="8.5" fill="#2f3542" font-weight="600">A2A</text>
+
+    <line x1="224" y1="250" x2="224" y2="292" stroke="#9a6700" stroke-width="1.4" stroke-dasharray="6 4" marker-end="url(#aG)"/>
+    <line x1="620" y1="250" x2="620" y2="292" stroke="#9a6700" stroke-width="1.4" stroke-dasharray="6 4" marker-end="url(#aG)"/>
+    <line x1="1016" y1="250" x2="1016" y2="292" stroke="#9a6700" stroke-width="1.4" stroke-dasharray="6 4" marker-end="url(#aG)"/>
+    <text x="620" y="272" text-anchor="middle" font-size="9.5" fill="#7a5300" stroke="#f6f7f9" stroke-width="3" paint-order="stroke" font-style="italic">every agent enrolls here — every message, tool call, and action is mediated here · every hop mutually authenticated</text>
+
+    <rect x="40" y="298" width="1160" height="216" rx="12" fill="#fdf8ec" stroke="#9a6700" stroke-width="2"/>
+    <text x="620" y="322" text-anchor="middle" font-size="14" font-weight="800" fill="#7a5300">THE AGENTIC CONTROL PLANE</text>
+    <text x="620" y="337" text-anchor="middle" font-size="10" fill="#7a5300" font-style="italic">federated by design — many control planes feeding up, no über-controller · goal: risk reduction in the agent flow, not deterministic output</text>
+
+    <rect x="56" y="350" width="274" height="148" rx="9" fill="#e7f5ee" stroke="#1a7f4e" stroke-width="1.8"/>
+    <text x="193" y="370" text-anchor="middle" font-size="11.5" font-weight="700" fill="#135f3b">Agent Trust Fabric ★</text>
+    <text x="193" y="383" text-anchor="middle" font-size="9" fill="#135f3b">AOMC-1 · AOMC-4 — October focus candidate</text>
+    <g font-size="9.5" fill="#1f5138">
+      <text x="68" y="400">• Non-human identity per agent · attestation</text>
+      <text x="68" y="414">• Agents never touch credentials — the</text>
+      <text x="76" y="426">gateway authenticates on their behalf</text>
+      <text x="68" y="440">• Per-step minimum-necessary scoped tokens ·</text>
+      <text x="76" y="452">adaptive permissions · micro least-privilege</text>
+      <text x="68" y="466">• Mutual auth on every agent-to-next-hop</text>
+      <text x="68" y="480">• Lifecycle: deprovisioning is rule #1 · kill-on-drift</text>
+    </g>
+
+    <rect x="342" y="350" width="274" height="148" rx="9" fill="#fff" stroke="#c9a86a" stroke-width="1.2"/>
+    <text x="479" y="370" text-anchor="middle" font-size="11.5" font-weight="700" fill="#7a5300">Registry, Personas &amp; Agent BOM</text>
+    <text x="479" y="383" text-anchor="middle" font-size="9" fill="#9a8455">who / what / why for every agent</text>
+    <g font-size="9.5" fill="#3a4254">
+      <text x="354" y="400">• Persona type: person-bound vs corporate</text>
+      <text x="362" y="412">function — identity behaves differently</text>
+      <text x="354" y="426">• Purpose, capabilities, approved task set</text>
+      <text x="354" y="440">• Data classification each step may touch</text>
+      <text x="354" y="454">• Agent bill of materials: intended purpose &amp;</text>
+      <text x="362" y="466">connections per agentic step</text>
+      <text x="354" y="480">• Rights &amp; normal-behavior spec — open gap,</text>
+      <text x="362" y="492">no standard exists (vendor challenge)</text>
+    </g>
+
+    <rect x="628" y="350" width="274" height="148" rx="9" fill="#fff" stroke="#c9a86a" stroke-width="1.2"/>
+    <text x="765" y="370" text-anchor="middle" font-size="11.5" font-weight="700" fill="#7a5300">Runtime Supervision</text>
+    <text x="765" y="383" text-anchor="middle" font-size="9" fill="#9a8455">AOMC-2 · AOMC-3 · AOMC-5 — outside the agents</text>
+    <g font-size="9.5" fill="#3a4254">
+      <text x="640" y="400">• Policy check on every message &amp; tool call</text>
+      <text x="640" y="414">• Intent inspection — prompt, inferred &amp; hidden-</text>
+      <text x="648" y="426">instruction injection filtered like SQLi</text>
+      <text x="640" y="440">• Composite-authority detection — flag toxic</text>
+      <text x="648" y="452">permission combinations across steps</text>
+      <text x="640" y="466">• Data guardrails · rogue detection → quarantine</text>
+      <text x="640" y="480">• Immutable audit — who spoke, who did what</text>
+    </g>
+
+    <rect x="914" y="350" width="274" height="148" rx="9" fill="#fff" stroke="#c9a86a" stroke-width="1.2"/>
+    <text x="1051" y="370" text-anchor="middle" font-size="11.5" font-weight="700" fill="#7a5300">Private Open Router ★</text>
+    <text x="1051" y="383" text-anchor="middle" font-size="9" fill="#9a8455">second focus candidate — the FinOps lever</text>
+    <g font-size="9.5" fill="#3a4254">
+      <text x="926" y="400">• Route each prompt by: cost / tokenomics ·</text>
+      <text x="934" y="412">risk score · sovereignty &amp; national origin</text>
+      <text x="926" y="426">• Only certified, onboarded models — guardrails</text>
+      <text x="934" y="438">verified before a model joins the pool</text>
+      <text x="926" y="452">• IP &amp; data-leak protection point</text>
+      <text x="926" y="466">• Right-size the model per task (no over-</text>
+      <text x="934" y="478">clubbing) · spend caps · usage attribution</text>
+    </g>
+
+    <line x1="1051" y1="514" x2="1051" y2="544" stroke="#2b6cb0" stroke-width="1.5" marker-end="url(#aB)"/>
+    <line x1="765" y1="514" x2="765" y2="544" stroke="#2b6cb0" stroke-width="1.5" marker-end="url(#aB)"/>
+    <line x1="193" y1="514" x2="193" y2="544" stroke="#2b6cb0" stroke-width="1.5" marker-end="url(#aB)"/>
+
+    <rect x="914" y="548" width="286" height="120" rx="10" fill="#f3f6fb" stroke="#aebad2" stroke-width="1.2"/>
+    <text x="1057" y="570" text-anchor="middle" font-size="11.5" font-weight="700">Model Estate — hybrid by design</text>
+    <g font-size="9.5" fill="#5a6375">
+      <text x="1057" y="590" text-anchor="middle">Frontier (closed) · open-weight · private on-prem</text>
+      <text x="1057" y="606" text-anchor="middle">"good models think &amp; orchestrate,</text>
+      <text x="1057" y="618" text-anchor="middle">cheap models do the grunt work"</text>
+      <text x="1057" y="636" text-anchor="middle">model registry · version pinning ·</text>
+      <text x="1057" y="648" text-anchor="middle">certification before use · enterprise data terms</text>
+    </g>
+
+    <rect x="482" y="548" width="404" height="120" rx="10" fill="#f3f6fb" stroke="#aebad2" stroke-width="1.2"/>
+    <text x="684" y="570" text-anchor="middle" font-size="11.5" font-weight="700">Tools &amp; Enterprise Data — via governed MCP gateways</text>
+    <g font-size="9.5" fill="#5a6375">
+      <text x="684" y="590" text-anchor="middle">APIs · automations · SaaS connections · data stores (classified: public / private / regulated)</text>
+      <text x="684" y="608" text-anchor="middle">agents never touch tools or data except through a gateway the control plane authorizes —</text>
+      <text x="684" y="620" text-anchor="middle">no agent-to-gateway path escapes supervision (the non-malicious-breach lesson)</text>
+      <text x="684" y="640" text-anchor="middle" font-style="italic">secrets never live in agents — issued just-in-time by the Trust Fabric</text>
+    </g>
+
+    <rect x="54" y="548" width="404" height="120" rx="10" fill="#fbe9e7" stroke="#b3261e" stroke-width="1.2"/>
+    <text x="256" y="570" text-anchor="middle" font-size="11.5" font-weight="700" fill="#8c1d17">Enterprise Identity Systems — air-gapped from agents</text>
+    <g font-size="9.5" fill="#8c1d17">
+      <text x="256" y="590" text-anchor="middle">IdP / IAM / HR systems remain human-governed — agents receive identity</text>
+      <text x="256" y="602" text-anchor="middle">FROM the Trust Fabric; they can never reach in to promote, escalate,</text>
+      <text x="256" y="614" text-anchor="middle">or mint authority for themselves or others</text>
+      <text x="256" y="636" text-anchor="middle" font-style="italic">red-team the whole plane before rollout: "try to get yourself promoted"</text>
+    </g>
+
+    <g font-size="10" fill="#3a4254">
+      <line x1="54" y1="700" x2="94" y2="700" stroke="#2f3542" stroke-width="1.6" marker-end="url(#aK)"/>
+      <text x="102" y="704">Agent-to-agent (A2A / MCP) across trust boundaries — always mediated, mutually authenticated</text>
+      <line x1="54" y1="722" x2="94" y2="722" stroke="#9a6700" stroke-width="1.4" stroke-dasharray="6 4" marker-end="url(#aG)"/>
+      <text x="102" y="726">Enrollment &amp; supervision — the control plane sits outside the agents</text>
+      <line x1="620" y1="700" x2="660" y2="700" stroke="#2b6cb0" stroke-width="1.5" marker-end="url(#aB)"/>
+      <text x="668" y="704">Governed access to models, tools &amp; data — no direct paths</text>
+      <circle cx="634" cy="722" r="7" fill="#fff" stroke="#7a8398" stroke-dasharray="4 3"/>
+      <text x="668" y="726">Vendor / external agents — interoperate via common identity &amp; protocols, no lock-in</text>
+    </g>
+    <text x="54" y="760" font-size="10" fill="#8a93a5">Draft v0.2 · Ratified 7/28 · ★ Focus candidates: Agent Trust Fabric + Private Open Router (formal close pending) · Vendor package: architecture + requirements + two use cases (tokenomics, security) + two demos</text>
+    <text x="54" y="774" font-size="10" fill="#8a93a5">showing what happens without the controls · This plane IS the machinery inside the NOC/SOC architectures' "Access Enforcement &amp; Audit" boundary · Sources: AOMC six (Dallas), WG1 sessions 7/14, 7/21, 7/28.</text>
+  </svg>
