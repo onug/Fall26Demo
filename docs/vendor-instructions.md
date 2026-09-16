@@ -23,7 +23,7 @@ Pick the lane where you are strongest. Nobody is expected to cover all three. A 
 | Date | Milestone | Who |
 |------|-----------|-----|
 | ▲ Mon 28 Sep | Call opens. Repository made public, these instructions sent to all sponsoring and member vendors. | Nick, Peter |
-| ▲ Fri 2 Oct | **Intent to enter** due: company, lane(s), whether you want a theatre presentation slot. | Vendor → Bill and Jesi |
+| ▲ Fri 2 Oct | **Intent to enter** due: company, lane(s), booth number, whether you want a theatre presentation slot, and who will be at the booth during the Challenge Walks. | Vendor → Bill and Jesi |
 | ▲ Wed 7 Oct | Office hours 1: the repository, the reference architectures, the terminology, Q&A. Recorded. | Peter, Nick |
 | ▲ Wed 14 Oct | Optional checkpoint: send a rough cut for feedback on fit and terminology. | Vendor → Bill and Jesi |
 | ▲ Fri 16 Oct | Office hours 2: final Q&A, submission mechanics, voting walkthrough. Recorded. | Peter, Nick |
@@ -45,6 +45,7 @@ Nine days between the deadline and the Summit is what Bill needs to load the loo
 8. **Length: five to ten minutes.** Over ten will not be loaded. Under five is fine if it does the job.
 9. **You own it; ONUG may play it.** You keep the rights. By entering you allow ONUG to play the video on loop at the Summit, in the Whova app, on collaborative.onug.net and on onug.net afterwards, and to use stills from it in Summit coverage. Clear any music, fonts and stock footage for that use.
 10. **The keynote's narration is Nick's voice and stays in the keynote.** Record your own narration. Do not reuse the keynote's audio files.
+11. **Be at your booth for the Challenge Walks.** During each scheduled walk your submission plays at your booth and a person who built it is there to talk it through. That is where members decide how to vote.
 
 ## 4. Format
 
@@ -103,7 +104,7 @@ and the one contact for questions.
 
 Bill and Jesi confirm receipt within two business days. No confirmation means it did not arrive.
 
-**Intent to enter** is the same email on 2 October with the subject `Fall26 demo intent — <Company>`, listing the lane or lanes, whether you want a theatre presentation slot, and who your technical contact is for office hours.
+**Intent to enter** is the same email on 2 October with the subject `Fall26 demo intent — <Company>`, listing the lane or lanes, your booth number, whether you want a theatre presentation slot, who will be at the booth during the Challenge Walks, and who your technical contact is for office hours.
 
 ## 6. Glossary — the words to use
 
@@ -128,7 +129,8 @@ These are the working groups' terms as the keynote uses them. The reference-arch
 - **The loops.** Every accepted video plays in rotation in the Collaborative Center theatre and on screens in the networking areas, grouped by lane. If a lane draws many entries it gets its own screen.
 - **Presentations.** Companies that asked for a slot present in the theatre: ten minutes, your video or a live walk-through, five minutes of questions. Slots are assigned in order of intent-to-enter and published on 23 October.
 - **Office hours.** Working-group co-chairs hold office hours in the same space for members and vendors, on the published schedule.
-- **Voting.** Attending members vote in the Whova app, one ballot per lane, one vote per attendee per lane. Voting opens after the keynote and closes before the closing session. ▲ Whether attendees from vendor companies vote is Nick's call; the draft assumes they do not.
+- **The Challenge Walks.** ▲ Two scheduled sixty-minute windows, one after the keynote on day one and one mid-morning on day two, listed in Whova as sessions. The theatre goes quiet, the loops keep running, and attendees are pointed at the entrants' booths. Every entrant's booth carries a lane sign in the lane colour, "Fall 2026 Challenge · WG2", and each Whova ballot entry carries the company's booth number, so a member can see the submission and the people behind it before voting.
+- **Voting.** Attending members vote in the Whova app, one ballot per lane, one vote per attendee per lane. Voting opens after the keynote and closes after the second Challenge Walk, before the closing session. ▲ Whether attendees from vendor companies vote is Nick's call; the draft assumes they do not.
 - **Best in Show, per lane.** Three awards, announced at the close, with the video played once more on the main screen.
 
 ## 8. Questions
