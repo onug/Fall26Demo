@@ -300,17 +300,15 @@ export const RA_CARDS: Record<RaCard['key'], RaCard> = {
 export interface GapRow {
   happened: string;
   control: string;
-  hadIt: boolean;
-  note?: string;
 }
 
 export const GAP_ROWS: GapRow[] = [
-  { happened: 'Artifact pulled from a public hub', control: 'Managed registry: scan · SBOM · CVE check · cooling-off hold', hadIt: true, note: 'most companies do not' },
-  { happened: 'Payload fired after every scan passed', control: 'New artifacts run sandboxed first, with no network path, watched from outside', hadIt: false },
-  { happened: 'Agent wrote straight to the fabric', control: 'Verify gate on every write: change-stop · dry-run · blast radius · rollback', hadIt: false },
-  { happened: 'Routes and telemetry changed, unnoticed', control: 'Config-drift scanner that reverts within a day and alarms the CSIRT', hadIt: false },
-  { happened: 'Poisoned agent reached the identity system', control: 'Identity air gap: agents receive identity from the plane, never reach into it · time-limited checked-out credentials', hadIt: false },
-  { happened: 'Backups deleted, disks encrypted', control: 'Immutable backups · a journal the agent cannot touch · kill switch', hadIt: false },
+  { happened: 'Artifact pulled from a public hub', control: 'Managed registry: scan · SBOM · CVE check · cooling-off hold' },
+  { happened: 'Payload fired after every scan passed', control: 'New artifacts run sandboxed first, with no network path, watched from outside' },
+  { happened: 'Agent wrote straight to the fabric', control: 'Verify gate on every write: change-stop · dry-run · blast radius · rollback' },
+  { happened: 'Routes and telemetry changed, unnoticed', control: 'Config-drift scanner that reverts within a day and alarms the CSIRT' },
+  { happened: 'Poisoned agent reached the identity system', control: 'Identity air gap: agents receive identity from the plane, never reach into it · time-limited checked-out credentials' },
+  { happened: 'Backups deleted, disks encrypted', control: 'Immutable backups · a journal the agent cannot touch · kill switch' },
 ];
 
 // ─── The other threat scenarios the same controls address (Baird Kaake) ───
@@ -348,37 +346,34 @@ export interface MemberMark {
   file?: string;   // absent: render the name as a wordmark
 }
 
+// Founding technology members (vendors), marks from Jeannette's Collaborative Logos
+// and Jesi's Sponsor Logos folders via the portal's founding wall.
 export const FOUNDING_MEMBERS: MemberMark[] = [
   { name: 'Aviatrix', file: 'aviatrix.svg' },
   { name: 'BlueCat', file: 'bluecat.svg' },
   { name: 'Bonfy', file: 'bonfy.png' },
-  { name: 'Cigna', file: 'cigna.png' },
   { name: 'Cisco', file: 'cisco.svg' },
   { name: 'CodiLime', file: 'codilime.png' },
   { name: 'Connectbase', file: 'connectbase.png' },
   { name: 'cPacket', file: 'cpacket.png' },
-  { name: 'FedEx', file: 'fedex.png' },
   { name: 'Gluware', file: 'gluware.png' },
   { name: 'Google Cloud', file: 'google-cloud.png' },
-  { name: 'HSBC', file: 'hsbc.png' },
   { name: 'Lumen', file: 'lumen.svg' },
-  { name: 'Memorial Sloan Kettering', file: 'memorial-sloan-kettering.png' },
   { name: 'NetBrain', file: 'netbrain.svg' },
   { name: 'PalC Networks', file: 'palc-networks.svg' },
-  { name: 'RTX', file: 'rtx.png' },
   { name: 'TrueFoundry', file: 'truefoundry.svg' },
   { name: 'Zentera', file: 'zentera.svg' },
 ];
 
-// Practitioner member companies not on the founding wall. No mark on file yet:
-// they render as wordmarks until the company supplies one (drop <file> in public/logos/).
+// Practitioner (consumer) member companies, marks from the Consumer Logos folder.
+// A company with no mark on file is not shown: their name on a keynote screen needs
+// their permission, not ours.
 export const PRACTITIONER_MEMBERS: MemberMark[] = [
-  { name: 'Citi' },
-  { name: 'eBay' },
-  { name: 'Fidelity' },
-  { name: 'Goldman Sachs' },
-  { name: 'Huntington' },
-  { name: 'NBCUniversal' },
+  { name: 'Cigna', file: 'cigna.png' },
+  { name: 'FedEx', file: 'fedex.png' },
+  { name: 'HSBC', file: 'hsbc.png' },
+  { name: 'Memorial Sloan Kettering', file: 'memorial-sloan-kettering.png' },
+  { name: 'RTX', file: 'rtx.png' },
 ];
 
 export const REVIEWERS: { name: string; org: string }[] = [

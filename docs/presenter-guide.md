@@ -15,7 +15,7 @@ Two presenters: Nick plus one co-presenter. The demo narrates itself. You advanc
 
 | # | Step | What the room sees | Pause? |
 |---|------|--------------------|--------|
-| 1 | ONE CONTROL PLANE, EVERY DOMAIN | Title with a strip of founding-member and practitioner-member marks. WG1/WG2/WG3 named. |  |
+| 1 | ONE CONTROL PLANE, EVERY DOMAIN | Title with a strip of practitioner-member and founding-member marks. WG1/WG2/WG3 named. |  |
 | 2 | THE POISONED PULL | The Poisoned Pull. A company doing everything right, and ahead of most. |  |
 | 3 | T-7d — Best practices, working as designed | Managed Registry pulls v3.2, scans clean, SBOM, 0 CVEs, 7-day hold, released. |  |
 | 4 | T+00:00 — A routine model refresh | Fabric agent pulls v3.2 from the registry. Persona line: it holds write rights by design. |  |
@@ -25,7 +25,7 @@ Two presenters: Nick plus one co-presenter. The demo narrates itself. You advanc
 | 8 | Day 1 — Nobody knows yet | Day 1. Collector-bug ticket. Attacker skips the routes (drift scanner) and goes for identities and backups. |  |
 | 9 | DAY 6 — EVERYTHING IS DOWN | DAY 6 — EVERYTHING IS DOWN. Red flash. IdP and Backups nodes appear; admins locked out, backups deleted, disks encrypted, ransom note. |  |
 | 10 | BLAST RADIUS — ONE ROUTINE PULL | Blast radius: seven red bullets, ending on the ransom note. |  |
-| 11 | WHICH OF THESE DO YOU HAVE? | Gap analysis card: what happened / the control / HAD IT or MISSING. "Which of these do you have?" | **Pause 2** — ask the room which column they are in |
+| 11 | WHICH OF THESE DO YOU HAVE? | Gap analysis card: what happened / the control that stops it. No company named. "Which of these do you have?" | **Pause 2** — ask the room which column they are in |
 | 12 | YOU ARE HERE | Rewind. Dallas → 25 requirements. One governance change: sandbox first. |  |
 | 13 | AGENTIC CONTROL PLANE ONLINE | Agentic control plane online. Five WG1 controls. Three personas registered. |  |
 | 14 | T+00:00 — Same artifact, new policy | Provenance routes v3.2 to the sandbox. Sandbox runs it for real; writes intercepted. |  |
@@ -56,7 +56,7 @@ Two presenters: Nick plus one co-presenter. The demo narrates itself. You advanc
 | 39 | THIS IS ALREADY HAPPENING | EY · Cisco · Salesforce. Personal agent vs company agentic workflow. | **Pause 6** — greed, "don't be left behind" |
 | 40 | ONE PATH SHOWN. THE SAME CONTROLS STOP THESE. | Threat card: injection, misuse, over-broad writes → the control that stops each. |  |
 | 41 | THE VENDOR CHALLENGE — THREE LANES | Three lanes. Fork · terminology · 5–10 min MP4 · showcase theatre · Whova vote. |  |
-| 42 | GO WATCH. GO VOTE. | GO WATCH. GO VOTE. Logo wall: founding members and practitioner members. Reviewers named. |  |
+| 42 | GO WATCH. GO VOTE. | GO WATCH. GO VOTE. Logo wall: practitioner members and founding members. Reviewers named. |  |
 
 ## Talking points at each pause
 
