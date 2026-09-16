@@ -35,10 +35,14 @@ function Tile({ m, size, i, delay }: { m: MemberMark; size: 'sm' | 'lg'; i: numb
 export default function LogoWall({ mode, delay = 0.8 }: LogoWallProps) {
   if (mode === 'strip') {
     return (
-      <div className="space-y-2">
+      <div className="space-y-2.5">
         <p className="text-[10px] uppercase tracking-[0.3em] text-gray-500">ONUG Collaborative · founding members</p>
         <div className="flex flex-wrap items-center justify-center gap-2 max-w-6xl mx-auto">
           {FOUNDING_MEMBERS.map((m, i) => <Tile key={m.name} m={m} size="sm" i={i} delay={delay} />)}
+        </div>
+        <p className="text-[10px] uppercase tracking-[0.3em] text-gray-500 pt-1">practitioner members</p>
+        <div className="flex flex-wrap items-center justify-center gap-2 max-w-6xl mx-auto">
+          {PRACTITIONER_MEMBERS.map((m, i) => <Tile key={m.name} m={m} size="sm" i={i} delay={delay + FOUNDING_MEMBERS.length * 0.06} />)}
         </div>
       </div>
     );
