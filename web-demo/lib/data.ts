@@ -376,11 +376,13 @@ export const PRACTITIONER_MEMBERS: MemberMark[] = [
   { name: 'RTX', file: 'rtx.png' },
 ];
 
-// The practitioners who reviewed the demo, with their company's mark. Fidelity, eBay
-// and Huntington have no mark in the ONUG Drive folders; theirs are the public marks
-// from Wikimedia Commons, to be swapped for company-supplied artwork when it arrives.
+// The practitioners who reviewed the demo, with their company's mark. Fidelity
+// Investments, eBay and Huntington have no mark in the ONUG Drive folders: Fidelity's
+// is the mark from fidelity.com (the Commons file is Fidelity International's, a
+// different company), eBay's and Huntington's are from Wikimedia Commons. Swap for
+// company-supplied artwork when it arrives.
 export const REVIEWERS: { name: string; org: string; file: string }[] = [
-  { name: 'Mick Currey', org: 'Fidelity', file: 'fidelity.svg' },
+  { name: 'Mick Currey', org: 'Fidelity Investments', file: 'fidelity.png' },
   { name: 'Rick Casarez', org: 'eBay', file: 'ebay.svg' },
   { name: 'Chris Hertenstein', org: 'Huntington', file: 'huntington.svg' },
   { name: 'Baird Kaake', org: 'Cigna', file: 'cigna.png' },
