@@ -257,7 +257,7 @@ export const STEPS: Step[] = [
     phase: 'gap',
     title: 'WHICH OF THESE DO YOU HAVE?',
     pausePoint: 'Pause 2 · "The best practices in place today are still not good enough." Ask the room.',
-    narration: "Before we rewind: a gap analysis. Here is what happened, and the control that would have stopped each step. Some of you have most of these. Some of you have none. The question for the room is which of these you actually have.",
+    narration: "Before we rewind: a gap analysis. Here is what happened, and the control that would have stopped each step. The question for the room is which of these you actually have.",
     events: [],
     topologyChanges: [],
   },

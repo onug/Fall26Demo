@@ -5,7 +5,7 @@ _Generated from `web-demo/lib/steps.ts` by `scripts/export-script.mjs`. Do not e
 | | |
 |---|---|
 | Steps with narration | 42 |
-| Words | 1872 (~12.5 min at 150 wpm) |
+| Words | 1860 (~12.4 min at 150 wpm) |
 | Recorded audio | 10.5 min |
 | Voice | Nick Lippis (cloned) · ElevenLabs `16VamcPQIJBvVLoE1Zss` · eleven_multilingual_v2 · speed 1.2 |
 | Presenter pauses | 6 |
@@ -80,9 +80,9 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 11. WHICH OF THESE DO YOU HAVE?
 
-`b1-gap` · gap · 43 words · audio 10s · **⏸ Pause 2 · "The best practices in place today are still not good enough." Ask the room.**
+`b1-gap` · gap · 31 words · audio 8s · **⏸ Pause 2 · "The best practices in place today are still not good enough." Ask the room.**
 
-> Before we rewind: a gap analysis. Here is what happened, and the control that would have stopped each step. Some of you have most of these. Some of you have none. The question for the room is which of these you actually have.
+> Before we rewind: a gap analysis. Here is what happened, and the control that would have stopped each step. The question for the room is which of these you actually have.
 
 
 ## BEAT 2 · THE AOMC CATCH

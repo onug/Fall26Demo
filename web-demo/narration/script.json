@@ -8,8 +8,8 @@
     "speed": 1.2,
     "notes": "Segment ids match Step.id in lib/steps.ts; audio is served from public/narration/<id>.mp3",
     "segments": 42,
-    "total_words": 1872,
-    "estimated_minutes": 12.5,
+    "total_words": 1860,
+    "estimated_minutes": 12.4,
     "recorded_minutes": 10.5
   },
   "segments": [
@@ -130,9 +130,9 @@
       "phase": "gap",
       "title": "WHICH OF THESE DO YOU HAVE?",
       "pause": "Pause 2 · \"The best practices in place today are still not good enough.\" Ask the room.",
-      "text": "Before we rewind: a gap analysis. Here is what happened, and the control that would have stopped each step. Some of you have most of these. Some of you have none. The question for the room is which of these you actually have.",
-      "words": 43,
-      "audio_seconds": 10.292245
+      "text": "Before we rewind: a gap analysis. Here is what happened, and the control that would have stopped each step. The question for the room is which of these you actually have.",
+      "words": 31,
+      "audio_seconds": 8.437551
     },
     {
       "id": "b2-title",
