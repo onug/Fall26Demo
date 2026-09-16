@@ -55,6 +55,7 @@ export const STEPS: Step[] = [
     topologyChanges: [],
     contributors: true,
     logos: 'strip',
+    credits: true,
   },
 
   // ═══════════════════════════════════════════════════════════
