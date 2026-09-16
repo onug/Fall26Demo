@@ -1,6 +1,6 @@
 # Vendor Guide — The Three-Lane Challenge
 
-**Status: draft.** The challenge mechanics (submission deadline, video format, voting) are being finalized by ONUG. This page describes the structure and how to work with the reference implementation. It will be updated when the mechanics are locked and the repository is made public.
+**Status: draft.** The rules, timeline, format, naming and submission mechanics are in [vendor-instructions.md](vendor-instructions.md); the call-for-entries email is [vendor-call-email.md](vendor-call-email.md). This page is the technical companion: how to work with the reference implementation.
 
 ## The structure
 
