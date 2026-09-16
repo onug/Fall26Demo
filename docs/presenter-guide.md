@@ -15,7 +15,7 @@ Two presenters: Nick plus one co-presenter. The demo narrates itself. You advanc
 
 | # | Step | What the room sees | Pause? |
 |---|------|--------------------|--------|
-| 1 | ONE CONTROL PLANE, EVERY DOMAIN | Title with a strip of founding-member marks. WG1/WG2/WG3 named. |  |
+| 1 | ONE CONTROL PLANE, EVERY DOMAIN | Title with a strip of founding-member and practitioner-member marks. WG1/WG2/WG3 named. |  |
 | 2 | THE POISONED PULL | The Poisoned Pull. A company doing everything right, and ahead of most. |  |
 | 3 | T-7d — Best practices, working as designed | Managed Registry pulls v3.2, scans clean, SBOM, 0 CVEs, 7-day hold, released. |  |
 | 4 | T+00:00 — A routine model refresh | Fabric agent pulls v3.2 from the registry. Persona line: it holds write rights by design. |  |
