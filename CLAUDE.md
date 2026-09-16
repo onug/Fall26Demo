@@ -104,6 +104,7 @@ web-demo/
 ## Working agreements
 
 - Commit MP3s alongside the script change that produced them.
+- This checkout lives in a cloud-synced folder, and the sync drops `name 2.ext` duplicate files next to files that were recreated. Before `git add -A` or a portal import, run `find . -name "* 2.*" -not -path "*/node_modules/*"` and delete what it finds; they have reached both repositories once already (15 Sep) and broke the portal's manifest-size test.
 - Never write the ElevenLabs key anywhere in the repo, including scripts, `.env` files, or docs. The generator reads it at run time.
 - Repo administration (adding collaborators, changing visibility) via `gh api` is blocked for Claude in auto mode unless `.claude/settings.json` allows `Bash(gh api:*)`. Hand the command to the user otherwise.
 - Nick's collaborators: Tony Farinacci is `tfarinacci` (org admin); Peter is `securitysonar` (outside collaborator, add per repo).
