@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Beat } from '@/lib/types';
 import { REVIEWERS } from '@/lib/data';
 import LogoWall from './LogoWall';
+import { asset } from '@/lib/assets';
 
 interface TitleSlideProps {
   title: string;
@@ -80,35 +81,27 @@ export default function TitleSlide({ title, subtitle, beat, contributors, logos,
             )}
 
             {credits && (
-              <motion.p
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 2.4, duration: 0.5 }}
-                className="text-sm text-gray-400 mb-4"
+                transition={{ delay: logos === 'wall' ? 2.4 : 1.6, duration: 0.5 }}
+                className={logos === 'wall' ? 'mb-4' : 'mb-6'}
               >
-                <span className="uppercase tracking-widest text-gray-500 text-[11px] mr-2">Reviewed by</span>
-                {REVIEWERS.map((r, i) => (
-                  <span key={r.name}>{i > 0 && <span className="text-gray-600"> · </span>}{r.name} <span className="text-gray-500">({r.org})</span></span>
-                ))}
-              </motion.p>
-            )}
-
-            {contributors && (
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.8, duration: 0.5 }}
-                className="space-y-3 text-gray-400"
-              >
-                <p className="text-sm uppercase tracking-widest text-gray-500">ONUG Collaborative · Agentic AI Working Groups</p>
-                <div className="flex items-center justify-center gap-6 text-sm">
-                  <span><span className="text-orange-400 font-bold">WG1</span> Agentic Control Plane</span>
-                  <span><span className="text-blue-400 font-bold">WG2</span> Autonomous Infrastructure</span>
-                  <span><span className="text-cyan-400 font-bold">WG3</span> AI-Enabled SOC</span>
+                <p className="text-[10px] uppercase tracking-[0.3em] text-gray-500 mb-2">Reviewed by the practitioners</p>
+                <div className="flex flex-wrap items-center justify-center gap-3">
+                  {REVIEWERS.map(r => (
+                    <div key={r.name} className="flex items-center gap-2.5 rounded-md border border-gray-800 bg-gray-900/60 pl-1.5 pr-3 py-1.5">
+                      <span className="h-8 px-2 rounded bg-white flex items-center justify-center">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={asset(`/logos/${r.file}`)} alt={r.org} className="h-5 w-auto max-w-[84px] object-contain" />
+                      </span>
+                      <span className="text-left leading-tight">
+                        <span className="block text-sm text-gray-200">{r.name}</span>
+                        <span className="block text-[10px] uppercase tracking-wider text-gray-500">{r.org}</span>
+                      </span>
+                    </div>
+                  ))}
                 </div>
-                <p className="text-sm text-gray-500">
-                  Reference implementation: github.com/onug/Fall26Demo · evolving the Dallas AOMC-demo fork model
-                </p>
               </motion.div>
             )}
 
