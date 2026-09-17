@@ -1,5 +1,12 @@
 # Release Notes
 
+## v0.3.2 — 24 requirements, secure baseline, and "the control plane" every time (September 17, 2026)
+
+- **24 requirements, not 25.** The Beat 2 "You are here" card and narration, and the Beat 3 title card, now say 24; so do the presenter guide and CLAUDE.md. [Peter, 16 Sep, through the portal form: "there are actually 24 requirements going back to the original list provided by Mick and enhanced by Carlos and Baird"]
+- **"But secure baseline says: new runs in the sandbox first."** The Beat 2 sandbox-first narration, as Peter asked. The control keeps its name, Artifact Provenance, on the panel and in the gate tag, because that is what the WG1 requirements and Peter's reference architecture call it; his wider suggestion to substitute "baseline" for "provenance" was not taken as a rename. [Peter, 16 Sep; Nick, 17 Sep]
+- **"The control plane", never "the plane".** Baird said the bare word tripped him up several times. Every title, subtitle, event line, card and narration line now says "the control plane"; the Beat 2 enable step still introduces it in full as the agentic control plane. Fifteen narration clips regenerated. Beat 1's "management plane" is the network's and is unchanged. [Baird, 17 Sep]
+- Baird's crediting stays as in v0.3.1 (name and WG1 only) until he tells Peter how he wants to appear. No step added or removed: 41 steps.
+
 ## v0.3.1 — Peter's reference-architecture drawings, one control-plane card (September 17, 2026)
 
 - **The reference architectures are now Peter Campbell's redraws** in ONUG's design language, from his "Agentic Control Plane requirements and architecture pack" (16–17 September), pinned to the ratified versions: WG1 v0.2, WG2 v0.6, WG3 v0.6. They replace the hand-drawn originals lifted from the WG1 shared folder. [Peter, 17 Sep: "artifacts are up on the google drive… pinned to the same version, .2 for WG1 and .6 for WG2/3"]

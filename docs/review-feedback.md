@@ -2,6 +2,17 @@
 
 Practitioner and co-chair input on the keynote arc, and what the demo did with it. Newest first.
 
+## Peter Campbell and Baird Kaake — September 16–17, 2026 (incorporated in v0.3.2)
+
+Peter sent five notes through the portal's feedback form on the evening of 16 September (against v0.3.0); they reached Nick on 17 September, forwarded by Jeannette. Baird's note came by email.
+
+1. **24 requirements, not 25.** "Even though we have been using the number 25 there are actually 24 requirements going back to the original list provided by Mick and enhanced by Carlos and Baird." Sent twice, once against the whole demo and once against Beat 2. **Incorporated:** the Beat 2 "You are here" card and narration, the Beat 3 title card, the presenter guide and CLAUDE.md now say 24.
+2. **"Baseline" for "provenance"** (Beat 2). "It may be easier to understand and it reads better." **Not incorporated as a rename:** Artifact Provenance is the control's name in the WG1 requirements and in Peter's own reference architecture, and the demo follows that terminology source. Nick, 17 Sep.
+3. **"But provenance says" → "but secure baseline says"** (Beat 2, the sandbox-first step). **Incorporated** as the narration line, regenerated. The on-screen PROVENANCE gate tag keeps the control's name.
+4. **Baird's listing** (Beat 7). "I will check with Baird to see how he wants to be listed, he may not be able to represent Cigna." Already the case since v0.3.1: Baird is credited by name and WG1 only. Nothing further until Baird says.
+
+Baird Kaake: the word "plane" on its own, "mentioned many times without 'AI Control Plane'", tripped him up a few times. **Incorporated:** every bare "the plane" in titles, subtitles, event lines, card text and narration now reads "the control plane" (the beat's first mention still gives the full name, the agentic control plane). Fifteen clips regenerated. "Management plane" in Beat 1 is the network's management plane and is unchanged.
+
 ## Peter Campbell, ONUG — September 17, 2026 (incorporated in v0.3.1)
 
 Two email threads. On the reference architectures: the trust-domains version of the Agentic Control Plane drawing "is something I lost track of, the personas slide has really taken its place"; use one slide, not two, for the control plane, "One control plane, many domains"; the artifacts are his redraws in ONUG's design language, pinned to WG1 v0.2 and WG2/WG3 v0.6; "everything else looks good." On the code: he reviewed `data.ts` against the requirements crosswalk and sent a report tying the three-lane challenge to the numbered requirements; the nine controls map cleanly (TF-1/5, REG-2/5, RS-2/3/4, LOOP-4/5/6, PER-1, RES-4).

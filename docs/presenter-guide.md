@@ -26,15 +26,15 @@ Two presenters: Nick plus one co-presenter. The demo narrates itself. You advanc
 | 9 | DAY 6 — EVERYTHING IS DOWN | DAY 6 — EVERYTHING IS DOWN. Red flash. IdP and Backups nodes; admins locked out, backups deleted, disks encrypted, ransom note. |  |
 | 10 | BLAST RADIUS — ONE ROUTINE PULL | Blast radius: seven red bullets, ending on the ransom note. |  |
 | 11 | WHICH OF THESE DO YOU HAVE? | Gap analysis card: what happened / the control that stops it. No company named. "Which of these do you have?" | **Pause 2** — ask the room which column they are in |
-| 12 | YOU ARE HERE | Rewind. Dallas → 25 requirements. One governance change: sandbox first. |  |
+| 12 | YOU ARE HERE | Rewind. Dallas → 24 requirements. One governance change: sandbox first. |  |
 | 13 | AGENTIC CONTROL PLANE ONLINE | Agentic control plane online. Five WG1 controls. Three personas registered. |  |
 | 14 | T+00:00 — Same artifact, new policy | Provenance routes v3.2 to the sandbox. Sandbox runs it for real; writes intercepted. |  |
 | 15 | T+00:04 — Loads in the sandbox · self-attests healthy | Payload fires in the sandbox. Drift 97/100 against the declared persona. |  |
 | 16 | CAUGHT IN THE SANDBOX — KILL SWITCH | CAUGHT IN THE SANDBOX — KILL SWITCH. Green shield. |  |
-| 17 | THE PLANE SITS OUTSIDE THE AGENTS IT SUPERVISES | Principle card. 6 seconds, 0 writes. | **Pause 3** — connect to Dallas |
-| 18 | ONE PLANE, THREE WORKING GROUPS | One plane, three WGs. |  |
+| 17 | THE CONTROL PLANE SITS OUTSIDE THE AGENTS IT SUPERVISES | Principle card. 6 seconds, 0 writes. | **Pause 3** — connect to Dallas |
+| 18 | ONE CONTROL PLANE, THREE WORKING GROUPS | One control plane, three WGs. |  |
 | 19 | WG1 · ONE CONTROL PLANE, EVERY DOMAIN | Reference-architecture card: WG1 v0.2, the personas view (Peter's redraw). Personas on top, four plane components, governed access below. |  |
-| 20 | The plane, wired across every domain | WG2 and WG3 lanes light up. Verify gate node appears. |  |
+| 20 | The control plane, wired across every domain | WG2 and WG3 lanes light up. Verify gate node appears. |  |
 | 21 | BATTLEGROUND 1 · AUTONOMOUS INFRASTRUCTURE | Battleground 1. |  |
 | 22 | WG2 · THE AUTONOMOUS INFRASTRUCTURE ARCHITECTURE | Reference-architecture card: WG2 v0.6 (Peter's redraw). Planning above, execution loop below, Verify Gate at step 4. |  |
 | 23 | T+00:41 — 1 · Detect | 1 · Detect. Route flaps from AS64512 at level 0. |  |
@@ -51,7 +51,7 @@ Two presenters: Nick plus one co-presenter. The demo narrates itself. You advanc
 | 34 | 5 · RESPOND — CONTAINED, EVIDENCE PRESERVED | 5 · Respond. CONTAINED — EVIDENCE PRESERVED. Green shield. |  |
 | 35 | SAME PLANE, SECOND BATTLEGROUND | Green bullets plus the full audit journal. | **Pause 5** — "That's what makes it a control plane, not three demos." |
 | 36 | FROM SEATBELT TO ACCELERATOR | The pivot. |  |
-| 37 | BUSINESS UNITS BUILD ON THE PLANE | Four BU agents plug in with persona + identity. 6 weeks → 4 days. |  |
+| 37 | BUSINESS UNITS BUILD ON THE CONTROL PLANE | Four BU agents plug in with persona + identity. 6 weeks → 4 days. |  |
 | 38 | THIS IS ALREADY HAPPENING | EY · Cisco · Salesforce. Personal agent vs company agentic workflow. | **Pause 6** — greed, "don't be left behind" |
 | 39 | ONE PATH SHOWN. THE SAME CONTROLS STOP THESE. | Threat card: injection, misuse, over-broad writes → the control that stops each. |  |
 | 40 | THE VENDOR CHALLENGE — THREE LANES | Three lanes. Fork · terminology · 5–10 min MP4 · showcase theatre · Whova vote. |  |
@@ -63,13 +63,13 @@ Two presenters: Nick plus one co-presenter. The demo narrates itself. You advanc
 
 **Pause 2 (step 11, the gap card).** Mick Currey's line: show them their worst fear. The best practices in place today are still not good enough. Then Chris Hertenstein's framing: the room is a maturity continuum. Read the six rows and ask which column they are in. Rick Casarez's shop has the identity air gap, the checked-out credentials and the drift scanner; say so if he is in the room, and say that most are not there. Do not claim the ransom sequence is exotic: real incidents have run it exactly.
 
-**Pause 3 (step 17).** Bridge to Dallas. The six controls became twenty-five requirements. The one principle: the plane sits outside the agents; agents cannot vouch for themselves. Best practices inspect the artifact, the plane watches the behavior. Mick's other option, if asked: even if an artifact slips past the sandbox, the plane sits outside every agent, so the first environment it lands in is the blast radius, not the enterprise. That is exactly what Beat 5 shows when the second stage tries to break out.
+**Pause 3 (step 17).** Bridge to Dallas. The six controls became twenty-four requirements (Peter: 24, not 25). The one principle: the control plane sits outside the agents; agents cannot vouch for themselves. Best practices inspect the artifact, the control plane watches the behavior. Mick's other option, if asked: even if an artifact slips past the sandbox, the control plane sits outside every agent, so the first environment it lands in is the blast radius, not the enterprise. That is exactly what Beat 5 shows when the second stage tries to break out.
 
 **Pause 4 (step 28).** The infrastructure question: can I let an agent touch the fabric? Yes, when every write is mediated. Point at write #4: the gate said no, handed a human the homework, and the agent could not argue.
 
-**Pause 5 (step 35).** Containment is a write too, so it hit the same gate. Same plane, same governance model, different fight. The evidence hold is the detail security leaders will remember.
+**Pause 5 (step 35).** Containment is a write too, so it hit the same gate. Same control plane, same governance model, different fight. The evidence hold is the detail security leaders will remember.
 
-**Pause 6 (step 38).** The pivot from fear to greed. The plane is the enablement layer. Cisco is personal agents, the easier case; Salesforce is a business process run by an agent, vendor-reported. Mick's caution: most agent use in coding is not autonomous, so do not overclaim. Land the line: a company's agentic workflow with its own identity, rights and data is what the plane exists to govern.
+**Pause 6 (step 38).** The pivot from fear to greed. The control plane is the enablement layer. Cisco is personal agents, the easier case; Salesforce is a business process run by an agent, vendor-reported. Mick's caution: most agent use in coding is not autonomous, so do not overclaim. Land the line: a company's agentic workflow with its own identity, rights and data is what the control plane exists to govern.
 
 ## Numbers used on screen
 
