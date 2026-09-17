@@ -1,0 +1,17 @@
+# ONUG team meeting, 16 September 2026 — what it decided about the challenge and the Summit
+
+From Jeannette's transcript (emailed 16 Sep). Only the parts that touch the keynote demo, the vendor challenge and the Summit plan; registration and campaign numbers are Joann's weekly report.
+
+**Six weeks out.** 566 registered (9 paid, 557 comp), about 75% above New York 2025 and 4% above Dallas 2026. Early bird closed 16 Sep. Biggest audience bucket is data, AI and engineering, then network engineering and architecture at about a quarter.
+
+**The challenge is open to every sponsor.** Joann: the sponsor webinar the day before told all sponsors it is open to them; it always has been. Founding members get it first (they had the demo and the instructions on Thursday 17 Sep) and their marks in the Collaborative Center. Nick: the keynote demo is the challenge, delivered by Nick and Peter on the main stage; it is meant to "scare everybody" and set the vendors up as the heroes.
+
+**Best in Show has four categories, aligned to the conference tracks**, as last year: AI infrastructure, security, networking, automation. Three of them are the Collaborative lanes (agentic control plane, AI-enabled SOC, autonomous infrastructure); the Agentic AI Overlay award goes away. Open: whether a sponsor may enter a track with a product instead of a challenge video, which drags back the judged process nobody wants. Bill leads; Tony joins when back (week of 21 Sep).
+
+**Voting.** User's choice in Whova. Bill expects about 200 voters. One or two sentences of guidance on the ballot, nothing to read on a phone: how well does it meet the challenge Nick and Peter presented. Vendor attendees are screened out of the count with the AI tools. Voting closes at the end of lunch on day two (12:20–1:00), not much past 2:00, so results are ready for 4:15.
+
+**The Challenge Walk (Nick's "trail").** Bill's constraint: nothing runs against the sponsored main-stage keynotes, which is how they are sold. So the walks sit in exhibit-floor time: day one 11:45–12:30 (Cigna's keynote follows at 12:30) with the 5:00–6:30 reception as a second chance; day two lunch plus the 1:00 Cisco slot gives about an hour and ten minutes. Nick gave Bill agency to place it; the agenda straw man is reviewed on the Monday 21 Sep call. Brand it, list the entrants, point people at those booths. No beer at 11:45.
+
+**Collaborative Center location.** Not on the Industry Leaders footprint (Bill, on Nick's drawing: "you actually blew out the walls"). Bill's spot: bottom middle of the floor plan, to the right of the Magenta Theater on the main walkway in and out of the main stage, the teal area with two tables, two banners and a podium set up like a Triple T, next to the morning coffee. Must not block the exit door about five feet to its right.
+
+**Sponsor one-on-one meetings (reverse trip report).** Nick demoed the Backstage loop: a reverse trip report goes to a registrant with a signed link; they book booth meetings from the sponsors' open slots; each sponsor sees only its own bookings on a private page and calendar feed; post-event it becomes proof of value in the sponsor report. Scott: too many sponsors to onboard in five weeks, run it as a labelled pilot. Options on the table: industry leaders only (6), industry plus thought leaders (16), a sample across tiers (Scott), or the Best in Show entrants (Bill: "schedule your appointment"). Decision by poll the next day. Open items Nick noted: sponsors pre-populating availability, session-overlap guardrail, Whova reminders (Paul).
