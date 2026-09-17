@@ -2,7 +2,7 @@
 
 ONUG Fall AI Networking Summit · New York City · 28 October 2026
 
-**Status: draft for Nick, Peter, Bill and Jesi, 16 September 2026.** Shareable copy: [Google Doc, draft v3](https://docs.google.com/document/d/1KDyeDqI8n6YTuc7Bws-hm7LALFy6LNeFzsEayd2RuNg/edit) in Nick's *Demo Fall 26* Drive folder (v1 and v2 are renamed as superseded; v3 adds the controls-to-requirements table; keep the Doc in step with this file). Dates marked ▲ are proposals that need a yes before this goes to vendors. Everything else follows what was agreed at the 15 September co-chair review and the 16 September team meeting (the challenge is open to every sponsor, not only Collaborative members; founding members had the demo and these instructions first and carry their marks in the Collaborative Center).
+**Status: draft for Nick, Peter, Bill and Jesi, 16 September 2026.** Shareable copy: [Google Doc, draft v3](https://docs.google.com/document/d/15qbvUx6v6O8ZEzRj6owaeaxLsGbGupmShl2HVfFEnGo/edit) in Nick's *Demo Fall 26* Drive folder (v1 and v2 are renamed as superseded; v3 adds the controls-to-requirements table; keep the Doc in step with this file). Dates marked ▲ are proposals that need a yes before this goes to vendors. Everything else follows what was agreed at the 15 September co-chair review and the 16 September team meeting (the challenge is open to every sponsor, not only Collaborative members; founding members had the demo and these instructions first and carry their marks in the Collaborative Center).
 
 ## 1. What this is
 
@@ -34,11 +34,14 @@ The demo's Beat 7 card shows the same numbers per lane. Your one-page summary sh
 
 Pick the lane where you are strongest. Nobody is expected to cover all three. A company may enter more than one lane, with a separate video for each.
 
+**Collaborative members first.** Members of the ONUG Collaborative receive the demo, the repository and these instructions on 17 September, eleven days before the call opens to every other sponsor on 28 September. That is deliberate: the members wrote the reference architectures the challenge is judged against, and the head start is part of what membership buys. Founding members also carry their marks in the Collaborative Center, where the videos play.
+
 ## 2. Timeline
 
 | Date | Milestone | Who |
 |------|-----------|-----|
-| ▲ Mon 28 Sep | Call opens. Repository made public, these instructions sent to all sponsoring and member vendors. | Nick, Peter |
+| Thu 17 Sep | **Members first.** Collaborative members get the demo on collaborative.onug.net, the private repository and these instructions. | Nick |
+| ▲ Mon 28 Sep | Call opens to every sponsor. Repository made public, these instructions sent to all sponsoring vendors. | Nick, Peter |
 | ▲ Fri 2 Oct | **Intent to enter** due: company, lane(s), booth number, whether you want a theatre presentation slot, and who will be at the booth during the Challenge Walks. | Vendor → Bill and Jesi |
 | ▲ Wed 7 Oct | Office hours 1: the repository, the reference architectures, the terminology, Q&A. Recorded. | Peter, Nick |
 | ▲ Wed 14 Oct | Optional checkpoint: send a rough cut for feedback on fit and terminology. | Vendor → Bill and Jesi |

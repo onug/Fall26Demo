@@ -38,6 +38,6 @@ The keynote ends by pointing the room at you. **The challenge is to show how you
 
 **Questions.** Office hours, GitHub Discussions on the repository, or peter@onug.net for anything about the working groups and their architectures.
 
-Fifty-five companies are on the floor this year, the most we have had. The members will be watching, and voting. Show them a choice.
+Members of the ONUG Collaborative have had the demo and these instructions since 17 September; if you are one, you are eleven days ahead already. Fifty-five companies are on the floor this year, the most we have had. The members will be watching, and voting. Show them a choice.
 
 Nick
