@@ -7,10 +7,10 @@
     "model_id": "eleven_multilingual_v2",
     "speed": 1.2,
     "notes": "Segment ids match Step.id in lib/steps.ts; audio is served from public/narration/<id>.mp3",
-    "segments": 42,
-    "total_words": 1860,
-    "estimated_minutes": 12.4,
-    "recorded_minutes": 10.5
+    "segments": 41,
+    "total_words": 1820,
+    "estimated_minutes": 12.1,
+    "recorded_minutes": 10.3
   },
   "segments": [
     {
@@ -212,30 +212,19 @@
       "audio_seconds": 15.46449
     },
     {
-      "id": "b3-ra-map",
+      "id": "b3-ra-wg1",
       "step": 19,
       "beat": 3,
       "phase": "ra",
-      "title": "HOW THE THREE ARCHITECTURES CONNECT",
+      "title": "WG1 · ONE CONTROL PLANE, EVERY DOMAIN",
       "pause": null,
-      "text": "Here is how the three architectures connect. Every domain, NOC, SOC, and the ones that come next, defines a persona and plugs into the same control plane. Cross-domain cooperation goes through the plane, never around it. Build the enforcement machinery once; reuse it everywhere.",
-      "words": 44,
-      "audio_seconds": 13.818776
-    },
-    {
-      "id": "b3-ra-wg1",
-      "step": 20,
-      "beat": 3,
-      "phase": "ra",
-      "title": "WG1 · THE AGENTIC CONTROL PLANE",
-      "pause": null,
-      "text": "Working group one's reference architecture, ratified in July. Four components. The agent trust fabric issues identity and per-step scoped tokens. The registry holds each agent's persona and bill of materials. Runtime supervision checks every message and writes the audit. The private open router governs every model call.",
-      "words": 47,
-      "audio_seconds": 16.013061
+      "text": "Working group one's reference architecture: one control plane, every domain. Every domain defines a persona, NOC and SOC first, and plugs into the same plane. Four components: the agent trust fabric, the registry of personas, runtime supervision, and the private open router. Cross-domain cooperation goes through the plane, never around it.",
+      "words": 51,
+      "audio_seconds": 19.252245
     },
     {
       "id": "b3-wire",
-      "step": 21,
+      "step": 20,
       "beat": 3,
       "phase": "enable",
       "title": "The plane, wired across every domain",
@@ -246,7 +235,7 @@
     },
     {
       "id": "b4-title",
-      "step": 22,
+      "step": 21,
       "beat": 4,
       "phase": "title",
       "title": "BATTLEGROUND 1 · AUTONOMOUS INFRASTRUCTURE",
@@ -257,7 +246,7 @@
     },
     {
       "id": "b4-ra",
-      "step": 23,
+      "step": 22,
       "beat": 4,
       "phase": "ra",
       "title": "WG2 · THE AUTONOMOUS INFRASTRUCTURE ARCHITECTURE",
@@ -268,7 +257,7 @@
     },
     {
       "id": "b4-detect",
-      "step": 24,
+      "step": 23,
       "beat": 4,
       "phase": "action",
       "title": "T+00:41 — 1 · Detect",
@@ -279,7 +268,7 @@
     },
     {
       "id": "b4-diagnose",
-      "step": 25,
+      "step": 24,
       "beat": 4,
       "phase": "action",
       "title": "T+00:47 — 2 · Diagnose → 3 · Propose",
@@ -290,7 +279,7 @@
     },
     {
       "id": "b4-gate-pass",
-      "step": 26,
+      "step": 25,
       "beat": 4,
       "phase": "gate",
       "title": "4 · Verify — the Verify Gate, writes #1–#3",
@@ -301,7 +290,7 @@
     },
     {
       "id": "b4-gate-fail",
-      "step": 27,
+      "step": 26,
       "beat": 4,
       "phase": "gate",
       "title": "4 · Verify — the Verify Gate, write #4",
@@ -312,7 +301,7 @@
     },
     {
       "id": "b4-execute",
-      "step": 28,
+      "step": 27,
       "beat": 4,
       "phase": "action",
       "title": "T+00:52 — 5 · Execute → 6 · Validate · journaled",
@@ -323,7 +312,7 @@
     },
     {
       "id": "b4-summary",
-      "step": 29,
+      "step": 28,
       "beat": 4,
       "phase": "summary",
       "title": "SAFE AUTONOMY — WG2",
@@ -334,7 +323,7 @@
     },
     {
       "id": "b5-title",
-      "step": 30,
+      "step": 29,
       "beat": 5,
       "phase": "title",
       "title": "BATTLEGROUND 2 · THE AI-ENABLED SOC",
@@ -345,7 +334,7 @@
     },
     {
       "id": "b5-ra",
-      "step": 31,
+      "step": 30,
       "beat": 5,
       "phase": "ra",
       "title": "WG3 · THE AI-ENABLED SOC ARCHITECTURE",
@@ -356,7 +345,7 @@
     },
     {
       "id": "b5-escalate",
-      "step": 32,
+      "step": 31,
       "beat": 5,
       "phase": "action",
       "title": "T+00:58 — The second stage is an agent. It gets out.",
@@ -367,7 +356,7 @@
     },
     {
       "id": "b5-detect",
-      "step": 33,
+      "step": 32,
       "beat": 5,
       "phase": "action",
       "title": "T+01:02 — 1 · Detect → 2 · Investigate → 3 · Propose, in 4.2 seconds",
@@ -378,7 +367,7 @@
     },
     {
       "id": "b5-gate",
-      "step": 34,
+      "step": 33,
       "beat": 5,
       "phase": "gate",
       "title": "4 · Decide — the Decide Gate: containment is a write too",
@@ -389,7 +378,7 @@
     },
     {
       "id": "b5-contained",
-      "step": 35,
+      "step": 34,
       "beat": 5,
       "phase": "blocked",
       "title": "5 · RESPOND — CONTAINED, EVIDENCE PRESERVED",
@@ -400,7 +389,7 @@
     },
     {
       "id": "b5-summary",
-      "step": 36,
+      "step": 35,
       "beat": 5,
       "phase": "summary",
       "title": "SAME PLANE, SECOND BATTLEGROUND",
@@ -411,7 +400,7 @@
     },
     {
       "id": "b6-title",
-      "step": 37,
+      "step": 36,
       "beat": 6,
       "phase": "title",
       "title": "FROM SEATBELT TO ACCELERATOR",
@@ -422,7 +411,7 @@
     },
     {
       "id": "b6-build",
-      "step": 38,
+      "step": 37,
       "beat": 6,
       "phase": "accelerator",
       "title": "BUSINESS UNITS BUILD ON THE PLANE",
@@ -433,7 +422,7 @@
     },
     {
       "id": "b6-proof",
-      "step": 39,
+      "step": 38,
       "beat": 6,
       "phase": "proof",
       "title": "THIS IS ALREADY HAPPENING",
@@ -444,7 +433,7 @@
     },
     {
       "id": "b7-threats",
-      "step": 40,
+      "step": 39,
       "beat": 7,
       "phase": "threats",
       "title": "ONE PATH SHOWN. THE SAME CONTROLS STOP THESE.",
@@ -455,7 +444,7 @@
     },
     {
       "id": "b7-lanes",
-      "step": 41,
+      "step": 40,
       "beat": 7,
       "phase": "lanes",
       "title": "THE VENDOR CHALLENGE — THREE LANES",
@@ -466,7 +455,7 @@
     },
     {
       "id": "finale",
-      "step": 42,
+      "step": 41,
       "beat": 7,
       "phase": "title",
       "title": "GO WATCH. GO VOTE.",

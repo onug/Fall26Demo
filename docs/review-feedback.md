@@ -2,6 +2,12 @@
 
 Practitioner and co-chair input on the keynote arc, and what the demo did with it. Newest first.
 
+## Peter Campbell, ONUG — September 17, 2026 (incorporated in v0.3.1)
+
+Two email threads. On the reference architectures: the trust-domains version of the Agentic Control Plane drawing "is something I lost track of, the personas slide has really taken its place"; use one slide, not two, for the control plane, "One control plane, many domains"; the artifacts are his redraws in ONUG's design language, pinned to WG1 v0.2 and WG2/WG3 v0.6; "everything else looks good." On the code: he reviewed `data.ts` against the requirements crosswalk and sent a report tying the three-lane challenge to the numbered requirements; the nine controls map cleanly (TF-1/5, REG-2/5, RS-2/3/4, LOOP-4/5/6, PER-1, RES-4).
+
+**Incorporated in v0.3.1:** Beat 3 shows one control-plane card, the personas view, from Peter's pack; WG2 and WG3 cards use his redraws too; the unified-map card and the trust-domains drawing are gone. No control names changed. Also applied from the same thread: Mick is credited by name and ONUG role only, and Baird without an employer, until each says otherwise.
+
 ## Co-chair review meeting — September 15, 2026 (incorporated in v0.3.0)
 
 Attended: Mick Currey (Fidelity), Rick Casarez (eBay), Chris Hertenstein (Huntington), Baird Kaake (Cigna), Peter Campbell, Nick, Jeannette. Transcript in the WG1 shared folder. Consolidated with Baird's and Chris's Slack notes and the 11-responder survey into `docs/v0.3-plan.md`, which is the working change list. Summary of what each person said:

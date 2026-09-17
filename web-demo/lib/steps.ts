@@ -398,7 +398,7 @@ export const STEPS: Step[] = [
 
   // ═══════════════════════════════════════════════════════════
   // BEAT 3 — WIDEN OUT: ONE PLANE, THREE WORKING GROUPS
-  // The reference architectures, one card each (Nick and Peter, 15 Sep).
+  // The reference architecture, one card (Peter, 17 Sep: the personas version, one slide).
   // ═══════════════════════════════════════════════════════════
   {
     id: 'b3-title',
@@ -411,22 +411,12 @@ export const STEPS: Step[] = [
     topologyChanges: [],
   },
   {
-    id: 'b3-ra-map',
-    beat: 3,
-    phase: 'ra',
-    ra: 'map',
-    title: 'HOW THE THREE ARCHITECTURES CONNECT',
-    narration: "Here is how the three architectures connect. Every domain, NOC, SOC, and the ones that come next, defines a persona and plugs into the same control plane. Cross-domain cooperation goes through the plane, never around it. Build the enforcement machinery once; reuse it everywhere.",
-    events: [],
-    topologyChanges: [],
-  },
-  {
     id: 'b3-ra-wg1',
     beat: 3,
     phase: 'ra',
     ra: 'wg1',
-    title: 'WG1 · THE AGENTIC CONTROL PLANE',
-    narration: "Working group one's reference architecture, ratified in July. Four components. The agent trust fabric issues identity and per-step scoped tokens. The registry holds each agent's persona and bill of materials. Runtime supervision checks every message and writes the audit. The private open router governs every model call.",
+    title: 'WG1 · ONE CONTROL PLANE, EVERY DOMAIN',
+    narration: "Working group one's reference architecture: one control plane, every domain. Every domain defines a persona, NOC and SOC first, and plugs into the same plane. Four components: the agent trust fabric, the registry of personas, runtime supervision, and the private open router. Cross-domain cooperation goes through the plane, never around it.",
     events: [],
     topologyChanges: [],
   },

@@ -1,6 +1,6 @@
 # Presenter Guide — "One Control Plane, Every Domain"
 
-ONUG Fall AI Networking Summit · New York City · October 28, 2026 · Keynote demo, about 10½ minutes of recorded narration plus the six pauses.
+ONUG Fall AI Networking Summit · New York City · October 28, 2026 · Keynote demo, about 10⅓ minutes of recorded narration plus the six pauses.
 
 Two presenters: Nick plus one co-presenter. The demo narrates itself. You advance it with `Space` and stop at the six marked pause points to talk to the room. Nothing auto-advances.
 
@@ -15,15 +15,15 @@ Two presenters: Nick plus one co-presenter. The demo narrates itself. You advanc
 
 | # | Step | What the room sees | Pause? |
 |---|------|--------------------|--------|
-| 1 | ONE CONTROL PLANE, EVERY DOMAIN | Title with a strip of practitioner-member and founding-member marks, and the five reviewers credited with their company marks. WG1/WG2/WG3 named. |  |
+| 1 | ONE CONTROL PLANE, EVERY DOMAIN | Title with a strip of practitioner-member and founding-member marks, and the five reviewers credited. |  |
 | 2 | THE POISONED PULL | The Poisoned Pull. A company doing everything right, and ahead of most. |  |
 | 3 | T-7d — Best practices, working as designed | Managed Registry pulls v3.2, scans clean, SBOM, 0 CVEs, 7-day hold, released. |  |
 | 4 | T+00:00 — A routine model refresh | Fabric agent pulls v3.2 from the registry. Persona line: it holds write rights by design. |  |
 | 5 | T+00:04 — The artifact loads | Novel payload fires. Agent still reports HEALTHY. | **Pause 1** — "Every best practice passed. It still got in." |
 | 6 | T+00:19 — The agent goes to work (for someone else) | Routes poisoned, ACL opened, telemetry dark, topology exfiltrated. |  |
 | 7 | BEST PRACTICES WEREN'T ENOUGH | BEST PRACTICES WEREN'T ENOUGH. Red flash. |  |
-| 8 | Day 1 — Nobody knows yet | Day 1. Collector-bug ticket. Attacker skips the routes (drift scanner) and goes for identities and backups. |  |
-| 9 | DAY 6 — EVERYTHING IS DOWN | DAY 6 — EVERYTHING IS DOWN. Red flash. IdP and Backups nodes appear; admins locked out, backups deleted, disks encrypted, ransom note. |  |
+| 8 | Day 1 — Nobody knows yet | Day 1. Collector-bug ticket. Attacker goes for identities and backups. |  |
+| 9 | DAY 6 — EVERYTHING IS DOWN | DAY 6 — EVERYTHING IS DOWN. Red flash. IdP and Backups nodes; admins locked out, backups deleted, disks encrypted, ransom note. |  |
 | 10 | BLAST RADIUS — ONE ROUTINE PULL | Blast radius: seven red bullets, ending on the ransom note. |  |
 | 11 | WHICH OF THESE DO YOU HAVE? | Gap analysis card: what happened / the control that stops it. No company named. "Which of these do you have?" | **Pause 2** — ask the room which column they are in |
 | 12 | YOU ARE HERE | Rewind. Dallas → 25 requirements. One governance change: sandbox first. |  |
@@ -33,30 +33,29 @@ Two presenters: Nick plus one co-presenter. The demo narrates itself. You advanc
 | 16 | CAUGHT IN THE SANDBOX — KILL SWITCH | CAUGHT IN THE SANDBOX — KILL SWITCH. Green shield. |  |
 | 17 | THE PLANE SITS OUTSIDE THE AGENTS IT SUPERVISES | Principle card. 6 seconds, 0 writes. | **Pause 3** — connect to Dallas |
 | 18 | ONE PLANE, THREE WORKING GROUPS | One plane, three WGs. |  |
-| 19 | HOW THE THREE ARCHITECTURES CONNECT | Reference-architecture card: the unified map v0.2. |  |
-| 20 | WG1 · THE AGENTIC CONTROL PLANE | Reference-architecture card: WG1 Agentic Control Plane v0.2 (ratified 7/28). |  |
-| 21 | The plane, wired across every domain | WG2 and WG3 lanes light up. Verify gate node appears. |  |
-| 22 | BATTLEGROUND 1 · AUTONOMOUS INFRASTRUCTURE | Battleground 1. |  |
-| 23 | WG2 · THE AUTONOMOUS INFRASTRUCTURE ARCHITECTURE | Reference-architecture card: WG2 v0.6. Planning above, execution loop below, Verify Gate at step 4. |  |
-| 24 | T+00:41 — 1 · Detect | 1 · Detect. Route flaps from AS64512 at level 0. |  |
-| 25 | T+00:47 — 2 · Diagnose → 3 · Propose | 2 · Diagnose → 3 · Propose. Four writes at level 1. |  |
-| 26 | 4 · Verify — the Verify Gate, writes #1–#3 | 4 · Verify. Writes 1–3 pass all four checks. Level 2. |  |
-| 27 | 4 · Verify — the Verify Gate, write #4 | 4 · Verify. Write 4 fails blast radius → ESCALATED. |  |
-| 28 | T+00:52 — 5 · Execute → 6 · Validate · journaled | 5 · Execute → 6 · Validate. Flaps clear. Level 3 in the envelope only. |  |
-| 29 | SAFE AUTONOMY — WG2 | Safe autonomy. Six green bullets. | **Pause 4** — "Nothing executes blindly." |
-| 30 | BATTLEGROUND 2 · THE AI-ENABLED SOC | Battleground 2. |  |
-| 31 | WG3 · THE AI-ENABLED SOC ARCHITECTURE | Reference-architecture card: WG3 v0.6. Same skeleton, Decide Gate at step 4. |  |
-| 32 | T+00:58 — The second stage is an agent. It gets out. | The second stage is an agent. Probes the boundary, finds an unknown weakness, escapes, beacons, replays a token. Hugging Face line. |  |
-| 33 | T+01:02 — 1 · Detect → 2 · Investigate → 3 · Propose, in 4.2 seconds | 1–3 in 4.2 s. Five signals, three domains. Token replay dead on arrival. |  |
-| 34 | 4 · Decide — the Decide Gate: containment is a write too | 4 · Decide Gate. "Wipe host" REJECTED by evidence hold. |  |
-| 35 | 5 · RESPOND — CONTAINED, EVIDENCE PRESERVED | 5 · Respond. CONTAINED — EVIDENCE PRESERVED. Green shield. Validate line in the feed. |  |
-| 36 | SAME PLANE, SECOND BATTLEGROUND | Green bullets plus the full audit journal. | **Pause 5** — "That's what makes it a control plane, not three demos." |
-| 37 | FROM SEATBELT TO ACCELERATOR | The pivot. |  |
-| 38 | BUSINESS UNITS BUILD ON THE PLANE | Four BU agents plug in with persona + identity. 6 weeks → 4 days. |  |
-| 39 | THIS IS ALREADY HAPPENING | EY · Cisco · Salesforce. Personal agent vs company agentic workflow. | **Pause 6** — greed, "don't be left behind" |
-| 40 | ONE PATH SHOWN. THE SAME CONTROLS STOP THESE. | Threat card: injection, misuse, over-broad writes → the control that stops each. |  |
-| 41 | THE VENDOR CHALLENGE — THREE LANES | Three lanes. Fork · terminology · 5–10 min MP4 · showcase theatre · Whova vote. |  |
-| 42 | GO WATCH. GO VOTE. | GO WATCH. GO VOTE. Logo wall: practitioner members and founding members. Reviewers credited with their company marks. |  |
+| 19 | WG1 · ONE CONTROL PLANE, EVERY DOMAIN | Reference-architecture card: WG1 v0.2, the personas view (Peter's redraw). Personas on top, four plane components, governed access below. |  |
+| 20 | The plane, wired across every domain | WG2 and WG3 lanes light up. Verify gate node appears. |  |
+| 21 | BATTLEGROUND 1 · AUTONOMOUS INFRASTRUCTURE | Battleground 1. |  |
+| 22 | WG2 · THE AUTONOMOUS INFRASTRUCTURE ARCHITECTURE | Reference-architecture card: WG2 v0.6 (Peter's redraw). Planning above, execution loop below, Verify Gate at step 4. |  |
+| 23 | T+00:41 — 1 · Detect | 1 · Detect. Route flaps from AS64512 at level 0. |  |
+| 24 | T+00:47 — 2 · Diagnose → 3 · Propose | 2 · Diagnose → 3 · Propose. Four writes at level 1. |  |
+| 25 | 4 · Verify — the Verify Gate, writes #1–#3 | 4 · Verify. Writes 1–3 pass all four checks. Level 2. |  |
+| 26 | 4 · Verify — the Verify Gate, write #4 | 4 · Verify. Write 4 fails blast radius → ESCALATED. |  |
+| 27 | T+00:52 — 5 · Execute → 6 · Validate · journaled | 5 · Execute → 6 · Validate. Flaps clear. Level 3 in the envelope only. |  |
+| 28 | SAFE AUTONOMY — WG2 | Safe autonomy. Six green bullets. | **Pause 4** — "Nothing executes blindly." |
+| 29 | BATTLEGROUND 2 · THE AI-ENABLED SOC | Battleground 2. |  |
+| 30 | WG3 · THE AI-ENABLED SOC ARCHITECTURE | Reference-architecture card: WG3 v0.6 (Peter's redraw). Same skeleton, Decide Gate at step 4. |  |
+| 31 | T+00:58 — The second stage is an agent. It gets out. | The second stage is an agent. Probes the boundary, finds an unknown weakness, escapes, beacons, replays a token. Hugging Face line. |  |
+| 32 | T+01:02 — 1 · Detect → 2 · Investigate → 3 · Propose, in 4.2 seconds | 1–3 in 4.2 s. Five signals, three domains. Token replay dead on arrival. |  |
+| 33 | 4 · Decide — the Decide Gate: containment is a write too | 4 · Decide Gate. "Wipe host" REJECTED by evidence hold. |  |
+| 34 | 5 · RESPOND — CONTAINED, EVIDENCE PRESERVED | 5 · Respond. CONTAINED — EVIDENCE PRESERVED. Green shield. |  |
+| 35 | SAME PLANE, SECOND BATTLEGROUND | Green bullets plus the full audit journal. | **Pause 5** — "That's what makes it a control plane, not three demos." |
+| 36 | FROM SEATBELT TO ACCELERATOR | The pivot. |  |
+| 37 | BUSINESS UNITS BUILD ON THE PLANE | Four BU agents plug in with persona + identity. 6 weeks → 4 days. |  |
+| 38 | THIS IS ALREADY HAPPENING | EY · Cisco · Salesforce. Personal agent vs company agentic workflow. | **Pause 6** — greed, "don't be left behind" |
+| 39 | ONE PATH SHOWN. THE SAME CONTROLS STOP THESE. | Threat card: injection, misuse, over-broad writes → the control that stops each. |  |
+| 40 | THE VENDOR CHALLENGE — THREE LANES | Three lanes. Fork · terminology · 5–10 min MP4 · showcase theatre · Whova vote. |  |
+| 41 | GO WATCH. GO VOTE. | GO WATCH. GO VOTE. Logo wall: practitioner members and founding members. Reviewers credited with marks. |  |
 
 ## Talking points at each pause
 
@@ -66,11 +65,11 @@ Two presenters: Nick plus one co-presenter. The demo narrates itself. You advanc
 
 **Pause 3 (step 17).** Bridge to Dallas. The six controls became twenty-five requirements. The one principle: the plane sits outside the agents; agents cannot vouch for themselves. Best practices inspect the artifact, the plane watches the behavior. Mick's other option, if asked: even if an artifact slips past the sandbox, the plane sits outside every agent, so the first environment it lands in is the blast radius, not the enterprise. That is exactly what Beat 5 shows when the second stage tries to break out.
 
-**Pause 4 (step 29).** The infrastructure question: can I let an agent touch the fabric? Yes, when every write is mediated. Point at write #4: the gate said no, handed a human the homework, and the agent could not argue.
+**Pause 4 (step 28).** The infrastructure question: can I let an agent touch the fabric? Yes, when every write is mediated. Point at write #4: the gate said no, handed a human the homework, and the agent could not argue.
 
-**Pause 5 (step 36).** Containment is a write too, so it hit the same gate. Same plane, same governance model, different fight. The evidence hold is the detail security leaders will remember.
+**Pause 5 (step 35).** Containment is a write too, so it hit the same gate. Same plane, same governance model, different fight. The evidence hold is the detail security leaders will remember.
 
-**Pause 6 (step 39).** The pivot from fear to greed. The plane is the enablement layer. Cisco is personal agents, the easier case; Salesforce is a business process run by an agent, vendor-reported. Mick's caution: most agent use in coding is not autonomous, so do not overclaim. Land the line: a company's agentic workflow with its own identity, rights and data is what the plane exists to govern.
+**Pause 6 (step 38).** The pivot from fear to greed. The plane is the enablement layer. Cisco is personal agents, the easier case; Salesforce is a business process run by an agent, vendor-reported. Mick's caution: most agent use in coding is not autonomous, so do not overclaim. Land the line: a company's agentic workflow with its own identity, rights and data is what the plane exists to govern.
 
 ## Numbers used on screen
 
