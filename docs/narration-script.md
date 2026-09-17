@@ -5,8 +5,8 @@ _Generated from `web-demo/lib/steps.ts` by `scripts/export-script.mjs`. Do not e
 | | |
 |---|---|
 | Steps with narration | 41 |
-| Words | 1820 (~12.1 min at 150 wpm) |
-| Recorded audio | 10.3 min |
+| Words | 1838 (~12.3 min at 150 wpm) |
+| Recorded audio | 10.5 min |
 | Voice | Nick Lippis (cloned) · ElevenLabs `16VamcPQIJBvVLoE1Zss` · eleven_multilingual_v2 · speed 1.2 |
 | Presenter pauses | 6 |
 
@@ -89,21 +89,21 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 12. YOU ARE HERE
 
-`b2-title` · title · 41 words · audio 13s
+`b2-title` · title · 42 words · audio 16s
 
-> You are here. This is where Dallas left off: the AOMC supervision plane, six controls then, twenty-five requirements now. Same company, same artifact, one governance change: every new artifact runs in a sandbox, under the plane, before it touches the network.
+> You are here. This is where Dallas left off: the AOMC supervision plane, six controls then, twenty-four requirements now. Same company, same artifact, one governance change: every new artifact runs in a sandbox, under the control plane, before it touches the network.
 
 ### 13. AGENTIC CONTROL PLANE ONLINE
 
-`b2-enable` · enable · 59 words · audio 17s
+`b2-enable` · enable · 60 words · audio 18s
 
-> The agentic control plane comes online. Identity attestation. Artifact provenance. Runtime monitoring. An immutable audit journal. A kill switch. And every agent enrolls with a declared persona: who it acts for, what it may want, how much autonomy it holds. The plane sits outside the agents. They cannot see it, write to it, or vouch for themselves to it.
+> The agentic control plane comes online. Identity attestation. Artifact provenance. Runtime monitoring. An immutable audit journal. A kill switch. And every agent enrolls with a declared persona: who it acts for, what it may want, how much autonomy it holds. The control plane sits outside the agents. They cannot see it, write to it, or vouch for themselves to it.
 
 ### 14. T+00:00 — Same artifact, new policy
 
-`b2-pull` · action · 35 words · audio 12s
+`b2-pull` · action · 36 words · audio 13s
 
-> Same registry, same clean scan, same approved artifact. But provenance says: new runs in the sandbox first. The sandbox runs the artifact for real; its writes are intercepted before any device. Production keeps running 3.1.
+> Same registry, same clean scan, same approved artifact. But secure baseline says: new runs in the sandbox first. The sandbox runs the artifact for real; its writes are intercepted before any device. Production keeps running 3.1.
 
 ### 15. T+00:04 — Loads in the sandbox · self-attests healthy
 
@@ -113,36 +113,36 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 16. CAUGHT IN THE SANDBOX — KILL SWITCH
 
-`b2-blocked` · blocked · 44 words · audio 16s
+`b2-blocked` · blocked · 45 words · audio 18s
 
-> Six seconds. Kill switch. The writes never leave the sandbox. Identity revoked, artifact quarantined, production untouched on 3.1. Every decision is in the journal, hash-chained, in a store no agent can read or alter. Best practices scanned the artifact. The plane watched the behavior.
+> Six seconds. Kill switch. The writes never leave the sandbox. Identity revoked, artifact quarantined, production untouched on 3.1. Every decision is in the journal, hash-chained, in a store no agent can read or alter. Best practices scanned the artifact. The control plane watched the behavior.
 
-### 17. THE PLANE SITS OUTSIDE THE AGENTS IT SUPERVISES
+### 17. THE CONTROL PLANE SITS OUTSIDE THE AGENTS IT SUPERVISES
 
-`b2-principle` · title · 32 words · audio 10s · **⏸ Pause 3 · Connect to Dallas — "scanners see what is known; the plane sees what is new"**
+`b2-principle` · title · 34 words · audio 12s · **⏸ Pause 3 · Connect to Dallas — "scanners see what is known; the control plane sees what is new"**
 
-> One principle. The plane sits outside the agents it supervises. Best practices inspect the artifact; the plane watches the behavior. Six seconds to quarantine. Zero writes reached the network. Now, widen out.
+> One principle. The control plane sits outside the agents it supervises. Best practices inspect the artifact; the control plane watches the behavior. Six seconds to quarantine. Zero writes reached the network. Now, widen out.
 
 
-## BEAT 3 · ONE PLANE, THREE WGs
+## BEAT 3 · ONE CONTROL PLANE, THREE WGs
 
-### 18. ONE PLANE, THREE WORKING GROUPS
+### 18. ONE CONTROL PLANE, THREE WORKING GROUPS
 
-`b3-title` · title · 43 words · audio 15s
+`b3-title` · title · 45 words · audio 17s
 
-> That supervision plane is what working group one, the Agentic Control Plane, is standardizing. But a plane has to prove itself in a fight. Two battlegrounds: autonomous infrastructure, working group two, and the AI-enabled SOC, working group three. Same plane, two different fights.
+> That supervision plane is what working group one, the Agentic Control Plane, is standardizing. But a control plane has to prove itself in a fight. Two battlegrounds: autonomous infrastructure, working group two, and the AI-enabled SOC, working group three. Same control plane, two different fights.
 
 ### 19. WG1 · ONE CONTROL PLANE, EVERY DOMAIN
 
-`b3-ra-wg1` · ra · 51 words · audio 19s
+`b3-ra-wg1` · ra · 53 words · audio 18s
 
-> Working group one's reference architecture: one control plane, every domain. Every domain defines a persona, NOC and SOC first, and plugs into the same plane. Four components: the agent trust fabric, the registry of personas, runtime supervision, and the private open router. Cross-domain cooperation goes through the plane, never around it.
+> Working group one's reference architecture: one control plane, every domain. Every domain defines a persona, NOC and SOC first, and plugs into the same control plane. Four components: the agent trust fabric, the registry of personas, runtime supervision, and the private open router. Cross-domain cooperation goes through the control plane, never around it.
 
-### 20. The plane, wired across every domain
+### 20. The control plane, wired across every domain
 
-`b3-wire` · enable · 32 words · audio 12s
+`b3-wire` · enable · 33 words · audio 12s
 
-> Watch it extend. Into the infrastructure lane: a verify gate on every write, and declared autonomy levels. Into the SOC lane: cross-domain detect-to-decide, and containment that preserves evidence. One plane. Every domain.
+> Watch it extend. Into the infrastructure lane: a verify gate on every write, and declared autonomy levels. Into the SOC lane: cross-domain detect-to-decide, and containment that preserves evidence. One control plane. Every domain.
 
 
 ## BEAT 4 · AUTONOMOUS INFRA
@@ -200,9 +200,9 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 29. BATTLEGROUND 2 · THE AI-ENABLED SOC
 
-`b5-title` · title · 30 words · audio 9s
+`b5-title` · title · 31 words · audio 10s
 
-> Battleground two. The AI-enabled SOC. The exploit that came in through the supply chain is the thread that stitches these together. It is about to escalate. Same plane. Second fight.
+> Battleground two. The AI-enabled SOC. The exploit that came in through the supply chain is the thread that stitches these together. It is about to escalate. Same control plane. Second fight.
 
 ### 30. WG3 · THE AI-ENABLED SOC ARCHITECTURE
 
@@ -218,9 +218,9 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 32. T+01:02 — 1 · Detect → 2 · Investigate → 3 · Propose, in 4.2 seconds
 
-`b5-detect` · action · 65 words · audio 20s
+`b5-detect` · action · 66 words · audio 19s
 
-> Four point two seconds. The SOC analyst agent doesn't start from a SIEM alert. It starts from the plane: provenance tagged the artifact, runtime quarantined it, the verify gate rejected a write from the same autonomous system. Now a beacon and a token replay. Five signals, three domains, one incident, with a containment plan. That used to take four to eight hours across three teams.
+> Four point two seconds. The SOC analyst agent doesn't start from a SIEM alert. It starts from the control plane: provenance tagged the artifact, runtime quarantined it, the verify gate rejected a write from the same autonomous system. Now a beacon and a token replay. Five signals, three domains, one incident, with a containment plan. That used to take four to eight hours across three teams.
 
 ### 33. 4 · Decide — the Decide Gate: containment is a write too
 
@@ -230,36 +230,36 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 34. 5 · RESPOND — CONTAINED, EVIDENCE PRESERVED
 
-`b5-contained` · blocked · 42 words · audio 14s
+`b5-contained` · blocked · 43 words · audio 16s
 
-> Contained. Segment isolated. Mirror blocked at the edge. Tokens revoked. The sandbox, artifact, memory and beacon capture, snapshotted into the evidence vault with a chain of custody the journal can prove. The sandbox could not hold it. The plane caught it anyway.
+> Contained. Segment isolated. Mirror blocked at the edge. Tokens revoked. The sandbox, artifact, memory and beacon capture, snapshotted into the evidence vault with a chain of custody the journal can prove. The sandbox could not hold it. The control plane caught it anyway.
 
-### 35. SAME PLANE, SECOND BATTLEGROUND
+### 35. SAME CONTROL PLANE, SECOND BATTLEGROUND
 
-`b5-summary` · summary · 20 words · audio 6s · **⏸ Pause 5 · "That's what makes it a control plane, not three demos."**
+`b5-summary` · summary · 21 words · audio 6s · **⏸ Pause 5 · "That's what makes it a control plane, not three demos."**
 
-> Two battlegrounds, one plane. That is what makes this a control plane and not three disconnected demos. Now, the pivot.
+> Two battlegrounds, one control plane. That is what makes it a control plane and not three disconnected demos. Now, the pivot.
 
 
 ## BEAT 6 · THE ACCELERATOR
 
 ### 36. FROM SEATBELT TO ACCELERATOR
 
-`b6-title` · title · 37 words · audio 12s
+`b6-title` · title · 38 words · audio 13s
 
-> The pivot. Everything so far was the seatbelt. Once the plane exists, business units stop asking permission and start building their own agentic systems on top of it, safely. The infrastructure and security team becomes the enabler.
+> The pivot. Everything so far was the seatbelt. Once the control plane exists, business units stop asking permission and start building their own agentic systems on top of it, safely. The infrastructure and security team becomes the enabler.
 
-### 37. BUSINESS UNITS BUILD ON THE PLANE
+### 37. BUSINESS UNITS BUILD ON THE CONTROL PLANE
 
-`b6-build` · accelerator · 54 words · audio 16s
+`b6-build` · accelerator · 55 words · audio 16s
 
-> Watch them plug in. Claims triage. Trade surveillance. A supply chain planner. Customer care. Each one gets a persona and identity from the plane, a declared autonomy level, a gate on the writes that matter, and a journal. Nobody built governance from scratch; they inherited it. Onboarding went from six weeks to four days.
+> Watch them plug in. Claims triage. Trade surveillance. A supply chain planner. Customer care. Each one gets a persona and identity from the control plane, a declared autonomy level, a gate on the writes that matter, and a journal. Nobody built governance from scratch; they inherited it. Onboarding went from six weeks to four days.
 
 ### 38. THIS IS ALREADY HAPPENING
 
-`b6-proof` · proof · 74 words · audio 26s · **⏸ Pause 6 · Greed — "don't be left behind"**
+`b6-proof` · proof · 75 words · audio 25s · **⏸ Pause 6 · Greed — "don't be left behind"**
 
-> This is not a forecast. EY Canvas: one point four trillion lines of audit data a year, governed federally for a hundred thirty thousand professionals. Cisco: a personal agent for every one of ninety thousand employees this year. Salesforce Agentforce at Reddit: vendor-reported, eighty-four percent faster resolution. One distinction. A personal agent is easy to interrupt. A company's agentic workflow, with its own identity, rights and data, is what the plane exists to govern.
+> This is not a forecast. EY Canvas: one point four trillion lines of audit data a year, governed federally for a hundred thirty thousand professionals. Cisco: a personal agent for every one of ninety thousand employees this year. Salesforce Agentforce at Reddit: vendor-reported, eighty-four percent faster resolution. One distinction. A personal agent is easy to interrupt. A company's agentic workflow, with its own identity, rights and data, is what the control plane exists to govern.
 
 
 ## BEAT 7 · THE CHALLENGE
@@ -287,11 +287,11 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 | Step | Words | Audio |
 |---|---:|---:|
-| 38. THIS IS ALREADY HAPPENING (`b6-proof`) | 74 | 26s |
+| 38. THIS IS ALREADY HAPPENING (`b6-proof`) | 75 | 25s |
 | 31. T+00:58 — The second stage is an agent. It gets out. (`b5-escalate`) | 78 | 22s |
 | 39. ONE PATH SHOWN. THE SAME CONTROLS STOP THESE. (`b7-threats`) | 62 | 21s |
-| 32. T+01:02 — 1 · Detect → 2 · Investigate → 3 · Propose, in 4.2 seconds (`b5-detect`) | 65 | 20s |
-| 19. WG1 · ONE CONTROL PLANE, EVERY DOMAIN (`b3-ra-wg1`) | 51 | 19s |
 | 15. T+00:04 — Loads in the sandbox · self-attests healthy (`b2-load`) | 44 | 19s |
 | 33. 4 · Decide — the Decide Gate: containment is a write too (`b5-gate`) | 51 | 19s |
+| 32. T+01:02 — 1 · Detect → 2 · Investigate → 3 · Propose, in 4.2 seconds (`b5-detect`) | 66 | 19s |
 | 25. 4 · Verify — the Verify Gate, writes #1–#3 (`b4-gate-pass`) | 45 | 19s |
+| 30. WG3 · THE AI-ENABLED SOC ARCHITECTURE (`b5-ra`) | 47 | 18s |

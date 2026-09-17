@@ -180,7 +180,7 @@ export const PROOF_POINTS: ProofPoint[] = [
     product: 'Agentforce at Reddit',
     headline: '84% faster case resolution',
     detail: '$100M+ in reported annual operational savings',
-    framing: 'Vendor-reported — but a business process run by an agent, which is the harder case the plane exists for.',
+    framing: 'Vendor-reported — but a business process run by an agent, which is the harder case the control plane exists for.',
     color: '#818cf8',
   },
 ];
@@ -216,7 +216,7 @@ export const VENDOR_LANES: VendorLane[] = [
     wg: 'WG3',
     name: 'AI-Enabled SOC',
     challenge: 'Compress detect-to-decide to seconds — without destroying evidence.',
-    proveIt: ['Cross-domain correlation: fabric + plane + SOC', 'Deliberate, gated containment', 'Evidence preserved with chain of custody'],
+    proveIt: ['Cross-domain correlation: fabric + control plane + SOC', 'Deliberate, gated containment', 'Evidence preserved with chain of custody'],
     color: '#06b6d4',
   },
 ];
@@ -246,12 +246,12 @@ export const RA_CARDS: Record<RaCard['key'], RaCard> = {
     kicker: 'WORKING GROUP 1 · AGENTIC CONTROL PLANE',
     title: 'One Control Plane, Every Domain — the personas view',
     version: 'WG1 v0.2 · composite with WG2 v0.6 and WG3 v0.6 · redrawn in ONUG design language, 15 Sep 2026',
-    planning: 'Domain personas: NOC and SOC first; any domain plugs in the same way (persona → loop → plane)',
-    execution: 'The plane: Agent Trust Fabric · Registry, Personas & BOM · Runtime Supervision · Private Open Router',
-    gate: 'Enrollment and mediation: every persona, every action, through the plane, never around it',
+    planning: 'Domain personas: NOC and SOC first; any domain plugs in the same way (persona → loop → control plane)',
+    execution: 'The control plane: Agent Trust Fabric · Registry, Personas & BOM · Runtime Supervision · Private Open Router',
+    gate: 'Enrollment and mediation: every persona, every action, through the control plane, never around it',
     lines: [
       'Human oversight sets the risk appetite: decision rights, approval of personas and task sets, change-stop authority.',
-      'Governed access below the plane: identity systems air-gapped from agents, sources of truth read-only, tools and data only via governed gateways, a certified model estate.',
+      'Governed access below the control plane: identity systems air-gapped from agents, sources of truth read-only, tools and data only via governed gateways, a certified model estate.',
       'Build the enforcement machinery once; every domain inherits identity, enforcement, audit and model routing.',
     ],
   },
@@ -296,7 +296,7 @@ export const GAP_ROWS: GapRow[] = [
   { happened: 'Payload fired after every scan passed', control: 'New artifacts run sandboxed first, with no network path, watched from outside' },
   { happened: 'Agent wrote straight to the fabric', control: 'Verify gate on every write: change-stop · dry-run · blast radius · rollback' },
   { happened: 'Routes and telemetry changed, unnoticed', control: 'Config-drift scanner that reverts within a day and alarms the CSIRT' },
-  { happened: 'Poisoned agent reached the identity system', control: 'Identity air gap: agents receive identity from the plane, never reach into it · time-limited checked-out credentials' },
+  { happened: 'Poisoned agent reached the identity system', control: 'Identity air gap: agents receive identity from the control plane, never reach into it · time-limited checked-out credentials' },
   { happened: 'Backups deleted, disks encrypted', control: 'Immutable backups · a journal the agent cannot touch · kill switch' },
 ];
 

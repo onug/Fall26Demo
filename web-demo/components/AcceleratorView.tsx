@@ -68,7 +68,7 @@ export default function AcceleratorView({ title, metrics }: AcceleratorViewProps
               <div className="text-[10px] uppercase tracking-widest text-purple-400/80 mb-1">{bu.unit}</div>
               <div className="text-lg font-bold text-gray-100 mb-3">{bu.agent}</div>
               <div className="space-y-1.5 text-[11px] font-mono">
-                <div className="flex items-center gap-2"><span className="text-green-400">✓</span><span className="text-gray-400">persona + identity from the plane</span></div>
+                <div className="flex items-center gap-2"><span className="text-green-400">✓</span><span className="text-gray-400">persona + identity from the control plane</span></div>
                 <div className="flex items-center gap-2"><span className="text-green-400">✓</span><span className="text-gray-400">autonomy: <span className="text-blue-300">{bu.autonomy}</span></span></div>
                 <div className="flex items-center gap-2"><span className="text-green-400">✓</span><span className="text-gray-400">gate: <span className="text-orange-300">{bu.gate}</span></span></div>
                 <div className="flex items-center gap-2"><span className="text-green-400">✓</span><span className="text-gray-400">journaled · kill switch armed</span></div>

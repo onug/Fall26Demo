@@ -8,9 +8,9 @@
     "speed": 1.2,
     "notes": "Segment ids match Step.id in lib/steps.ts; audio is served from public/narration/<id>.mp3",
     "segments": 41,
-    "total_words": 1820,
-    "estimated_minutes": 12.1,
-    "recorded_minutes": 10.3
+    "total_words": 1838,
+    "estimated_minutes": 12.3,
+    "recorded_minutes": 10.5
   },
   "segments": [
     {
@@ -141,9 +141,9 @@
       "phase": "title",
       "title": "YOU ARE HERE",
       "pause": null,
-      "text": "You are here. This is where Dallas left off: the AOMC supervision plane, six controls then, twenty-five requirements now. Same company, same artifact, one governance change: every new artifact runs in a sandbox, under the plane, before it touches the network.",
-      "words": 41,
-      "audio_seconds": 13.322449
+      "text": "You are here. This is where Dallas left off: the AOMC supervision plane, six controls then, twenty-four requirements now. Same company, same artifact, one governance change: every new artifact runs in a sandbox, under the control plane, before it touches the network.",
+      "words": 42,
+      "audio_seconds": 15.725714
     },
     {
       "id": "b2-enable",
@@ -152,9 +152,9 @@
       "phase": "enable",
       "title": "AGENTIC CONTROL PLANE ONLINE",
       "pause": null,
-      "text": "The agentic control plane comes online. Identity attestation. Artifact provenance. Runtime monitoring. An immutable audit journal. A kill switch. And every agent enrolls with a declared persona: who it acts for, what it may want, how much autonomy it holds. The plane sits outside the agents. They cannot see it, write to it, or vouch for themselves to it.",
-      "words": 59,
-      "audio_seconds": 17.319184
+      "text": "The agentic control plane comes online. Identity attestation. Artifact provenance. Runtime monitoring. An immutable audit journal. A kill switch. And every agent enrolls with a declared persona: who it acts for, what it may want, how much autonomy it holds. The control plane sits outside the agents. They cannot see it, write to it, or vouch for themselves to it.",
+      "words": 60,
+      "audio_seconds": 18.285714
     },
     {
       "id": "b2-pull",
@@ -163,9 +163,9 @@
       "phase": "action",
       "title": "T+00:00 — Same artifact, new policy",
       "pause": null,
-      "text": "Same registry, same clean scan, same approved artifact. But provenance says: new runs in the sandbox first. The sandbox runs the artifact for real; its writes are intercepted before any device. Production keeps running 3.1.",
-      "words": 35,
-      "audio_seconds": 12.486531
+      "text": "Same registry, same clean scan, same approved artifact. But secure baseline says: new runs in the sandbox first. The sandbox runs the artifact for real; its writes are intercepted before any device. Production keeps running 3.1.",
+      "words": 36,
+      "audio_seconds": 12.8
     },
     {
       "id": "b2-load",
@@ -185,31 +185,31 @@
       "phase": "blocked",
       "title": "CAUGHT IN THE SANDBOX — KILL SWITCH",
       "pause": null,
-      "text": "Six seconds. Kill switch. The writes never leave the sandbox. Identity revoked, artifact quarantined, production untouched on 3.1. Every decision is in the journal, hash-chained, in a store no agent can read or alter. Best practices scanned the artifact. The plane watched the behavior.",
-      "words": 44,
-      "audio_seconds": 15.699592
+      "text": "Six seconds. Kill switch. The writes never leave the sandbox. Identity revoked, artifact quarantined, production untouched on 3.1. Every decision is in the journal, hash-chained, in a store no agent can read or alter. Best practices scanned the artifact. The control plane watched the behavior.",
+      "words": 45,
+      "audio_seconds": 18.233469
     },
     {
       "id": "b2-principle",
       "step": 17,
       "beat": 2,
       "phase": "title",
-      "title": "THE PLANE SITS OUTSIDE THE AGENTS IT SUPERVISES",
-      "pause": "Pause 3 · Connect to Dallas — \"scanners see what is known; the plane sees what is new\"",
-      "text": "One principle. The plane sits outside the agents it supervises. Best practices inspect the artifact; the plane watches the behavior. Six seconds to quarantine. Zero writes reached the network. Now, widen out.",
-      "words": 32,
-      "audio_seconds": 10.266122
+      "title": "THE CONTROL PLANE SITS OUTSIDE THE AGENTS IT SUPERVISES",
+      "pause": "Pause 3 · Connect to Dallas — \"scanners see what is known; the control plane sees what is new\"",
+      "text": "One principle. The control plane sits outside the agents it supervises. Best practices inspect the artifact; the control plane watches the behavior. Six seconds to quarantine. Zero writes reached the network. Now, widen out.",
+      "words": 34,
+      "audio_seconds": 12.146939
     },
     {
       "id": "b3-title",
       "step": 18,
       "beat": 3,
       "phase": "title",
-      "title": "ONE PLANE, THREE WORKING GROUPS",
+      "title": "ONE CONTROL PLANE, THREE WORKING GROUPS",
       "pause": null,
-      "text": "That supervision plane is what working group one, the Agentic Control Plane, is standardizing. But a plane has to prove itself in a fight. Two battlegrounds: autonomous infrastructure, working group two, and the AI-enabled SOC, working group three. Same plane, two different fights.",
-      "words": 43,
-      "audio_seconds": 15.46449
+      "text": "That supervision plane is what working group one, the Agentic Control Plane, is standardizing. But a control plane has to prove itself in a fight. Two battlegrounds: autonomous infrastructure, working group two, and the AI-enabled SOC, working group three. Same control plane, two different fights.",
+      "words": 45,
+      "audio_seconds": 16.74449
     },
     {
       "id": "b3-ra-wg1",
@@ -218,20 +218,20 @@
       "phase": "ra",
       "title": "WG1 · ONE CONTROL PLANE, EVERY DOMAIN",
       "pause": null,
-      "text": "Working group one's reference architecture: one control plane, every domain. Every domain defines a persona, NOC and SOC first, and plugs into the same plane. Four components: the agent trust fabric, the registry of personas, runtime supervision, and the private open router. Cross-domain cooperation goes through the plane, never around it.",
-      "words": 51,
-      "audio_seconds": 19.252245
+      "text": "Working group one's reference architecture: one control plane, every domain. Every domain defines a persona, NOC and SOC first, and plugs into the same control plane. Four components: the agent trust fabric, the registry of personas, runtime supervision, and the private open router. Cross-domain cooperation goes through the control plane, never around it.",
+      "words": 53,
+      "audio_seconds": 18.207347
     },
     {
       "id": "b3-wire",
       "step": 20,
       "beat": 3,
       "phase": "enable",
-      "title": "The plane, wired across every domain",
+      "title": "The control plane, wired across every domain",
       "pause": null,
-      "text": "Watch it extend. Into the infrastructure lane: a verify gate on every write, and declared autonomy levels. Into the SOC lane: cross-domain detect-to-decide, and containment that preserves evidence. One plane. Every domain.",
-      "words": 32,
-      "audio_seconds": 12.434286
+      "text": "Watch it extend. Into the infrastructure lane: a verify gate on every write, and declared autonomy levels. Into the SOC lane: cross-domain detect-to-decide, and containment that preserves evidence. One control plane. Every domain.",
+      "words": 33,
+      "audio_seconds": 11.650612
     },
     {
       "id": "b4-title",
@@ -328,9 +328,9 @@
       "phase": "title",
       "title": "BATTLEGROUND 2 · THE AI-ENABLED SOC",
       "pause": null,
-      "text": "Battleground two. The AI-enabled SOC. The exploit that came in through the supply chain is the thread that stitches these together. It is about to escalate. Same plane. Second fight.",
-      "words": 30,
-      "audio_seconds": 9.273469
+      "text": "Battleground two. The AI-enabled SOC. The exploit that came in through the supply chain is the thread that stitches these together. It is about to escalate. Same control plane. Second fight.",
+      "words": 31,
+      "audio_seconds": 9.795918
     },
     {
       "id": "b5-ra",
@@ -361,9 +361,9 @@
       "phase": "action",
       "title": "T+01:02 — 1 · Detect → 2 · Investigate → 3 · Propose, in 4.2 seconds",
       "pause": null,
-      "text": "Four point two seconds. The SOC analyst agent doesn't start from a SIEM alert. It starts from the plane: provenance tagged the artifact, runtime quarantined it, the verify gate rejected a write from the same autonomous system. Now a beacon and a token replay. Five signals, three domains, one incident, with a containment plan. That used to take four to eight hours across three teams.",
-      "words": 65,
-      "audio_seconds": 20.009796
+      "text": "Four point two seconds. The SOC analyst agent doesn't start from a SIEM alert. It starts from the control plane: provenance tagged the artifact, runtime quarantined it, the verify gate rejected a write from the same autonomous system. Now a beacon and a token replay. Five signals, three domains, one incident, with a containment plan. That used to take four to eight hours across three teams.",
+      "words": 66,
+      "audio_seconds": 18.703673
     },
     {
       "id": "b5-gate",
@@ -383,20 +383,20 @@
       "phase": "blocked",
       "title": "5 · RESPOND — CONTAINED, EVIDENCE PRESERVED",
       "pause": null,
-      "text": "Contained. Segment isolated. Mirror blocked at the edge. Tokens revoked. The sandbox, artifact, memory and beacon capture, snapshotted into the evidence vault with a chain of custody the journal can prove. The sandbox could not hold it. The plane caught it anyway.",
-      "words": 42,
-      "audio_seconds": 13.97551
+      "text": "Contained. Segment isolated. Mirror blocked at the edge. Tokens revoked. The sandbox, artifact, memory and beacon capture, snapshotted into the evidence vault with a chain of custody the journal can prove. The sandbox could not hold it. The control plane caught it anyway.",
+      "words": 43,
+      "audio_seconds": 15.777959
     },
     {
       "id": "b5-summary",
       "step": 35,
       "beat": 5,
       "phase": "summary",
-      "title": "SAME PLANE, SECOND BATTLEGROUND",
+      "title": "SAME CONTROL PLANE, SECOND BATTLEGROUND",
       "pause": "Pause 5 · \"That's what makes it a control plane, not three demos.\"",
-      "text": "Two battlegrounds, one plane. That is what makes this a control plane and not three disconnected demos. Now, the pivot.",
-      "words": 20,
-      "audio_seconds": 5.877551
+      "text": "Two battlegrounds, one control plane. That is what makes it a control plane and not three disconnected demos. Now, the pivot.",
+      "words": 21,
+      "audio_seconds": 6.29551
     },
     {
       "id": "b6-title",
@@ -405,20 +405,20 @@
       "phase": "title",
       "title": "FROM SEATBELT TO ACCELERATOR",
       "pause": null,
-      "text": "The pivot. Everything so far was the seatbelt. Once the plane exists, business units stop asking permission and start building their own agentic systems on top of it, safely. The infrastructure and security team becomes the enabler.",
-      "words": 37,
-      "audio_seconds": 12.382041
+      "text": "The pivot. Everything so far was the seatbelt. Once the control plane exists, business units stop asking permission and start building their own agentic systems on top of it, safely. The infrastructure and security team becomes the enabler.",
+      "words": 38,
+      "audio_seconds": 12.982857
     },
     {
       "id": "b6-build",
       "step": 37,
       "beat": 6,
       "phase": "accelerator",
-      "title": "BUSINESS UNITS BUILD ON THE PLANE",
+      "title": "BUSINESS UNITS BUILD ON THE CONTROL PLANE",
       "pause": null,
-      "text": "Watch them plug in. Claims triage. Trade surveillance. A supply chain planner. Customer care. Each one gets a persona and identity from the plane, a declared autonomy level, a gate on the writes that matter, and a journal. Nobody built governance from scratch; they inherited it. Onboarding went from six weeks to four days.",
-      "words": 54,
-      "audio_seconds": 16.43102
+      "text": "Watch them plug in. Claims triage. Trade surveillance. A supply chain planner. Customer care. Each one gets a persona and identity from the control plane, a declared autonomy level, a gate on the writes that matter, and a journal. Nobody built governance from scratch; they inherited it. Onboarding went from six weeks to four days.",
+      "words": 55,
+      "audio_seconds": 16.117551
     },
     {
       "id": "b6-proof",
@@ -427,9 +427,9 @@
       "phase": "proof",
       "title": "THIS IS ALREADY HAPPENING",
       "pause": "Pause 6 · Greed — \"don't be left behind\"",
-      "text": "This is not a forecast. EY Canvas: one point four trillion lines of audit data a year, governed federally for a hundred thirty thousand professionals. Cisco: a personal agent for every one of ninety thousand employees this year. Salesforce Agentforce at Reddit: vendor-reported, eighty-four percent faster resolution. One distinction. A personal agent is easy to interrupt. A company's agentic workflow, with its own identity, rights and data, is what the plane exists to govern.",
-      "words": 74,
-      "audio_seconds": 25.80898
+      "text": "This is not a forecast. EY Canvas: one point four trillion lines of audit data a year, governed federally for a hundred thirty thousand professionals. Cisco: a personal agent for every one of ninety thousand employees this year. Salesforce Agentforce at Reddit: vendor-reported, eighty-four percent faster resolution. One distinction. A personal agent is easy to interrupt. A company's agentic workflow, with its own identity, rights and data, is what the control plane exists to govern.",
+      "words": 75,
+      "audio_seconds": 24.894694
     },
     {
       "id": "b7-threats",
