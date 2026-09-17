@@ -1,5 +1,11 @@
 # Release Notes
 
+## v0.3.3 — Requirement ids on the vendor card; the WG2 narration finishes its thought (September 17, 2026)
+
+- **Every control now carries the working-group requirement ids it translates**, from Peter Campbell's vendor three-lane challenge report (17 Sep): TF, REG and RS for the five WG1 controls, LOOP-4 and PER-1 (with LOOP-6 underneath bounded auto-act) for WG2, RES-4/LOOP-4 and LOOP-5/RS-3 for WG3. The Beat 7 vendor card shows them per lane under *Controls · requirements*, and the narration says so, so a vendor reads the lane against the requirements list by number. [Peter, 17 Sep: "ties the three lane challenge back to the list of requirements quite nicely"]
+- **The WG2 reference-architecture narration no longer stops at "step four is the verify gate."** It names the four checks, says only execute is mutable and that the autonomy level decides whether steps four to six fire, and hands off to the run. [Peter, 17 Sep: "the audio stops at step 4 the verify gate, did you mean to?"]
+- Peter's v2 pack (credits, licence, ballot citations fixed) carries the same three drawings; nothing in `public/ra/` changed. Two clips regenerated; 41 steps.
+
 ## v0.3.2 — 24 requirements, secure baseline, and "the control plane" every time (September 17, 2026)
 
 - **24 requirements, not 25.** The Beat 2 "You are here" card and narration, and the Beat 3 title card, now say 24; so do the presenter guide and CLAUDE.md. [Peter, 16 Sep, through the portal form: "there are actually 24 requirements going back to the original list provided by Mick and enhanced by Carlos and Baird"]

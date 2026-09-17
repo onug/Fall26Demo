@@ -34,6 +34,7 @@ export interface ControlInfo {
   lane: LaneKey;
   name: string;
   detail: string;
+  reqs: string;   // the working-group requirement ids this control translates (Peter's crosswalk, 17 Sep 2026)
 }
 
 // ─── Events ───────────────────────────────────────────
