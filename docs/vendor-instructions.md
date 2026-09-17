@@ -16,6 +16,22 @@ The keynote demo, *One Control Plane, Every Domain*, shows what happens to a com
 | 2 | WG2 · Autonomous Infrastructure | Let agents run the fabric with every write mediated. | The Verify Gate on every write: change-stop · dry-run · blast radius · rollback · declared autonomy levels · bounded auto-act with automatic revert |
 | 3 | WG3 · AI-Enabled SOC | Compress detect-to-decide to seconds without destroying evidence. | Cross-domain correlation · the Decide Gate: contain now or observe and trace · evidence preserved with chain of custody |
 
+**The controls you are judged on, by number, and the working-group requirements each one translates.** From Peter Campbell's vendor three-lane challenge report (17 September 2026), which checks the demo against the 24-requirements crosswalk. None of this is new scope: each control is a requirement already in that lane's document, phrased as something a vendor can be asked to show.
+
+| Lane | Control | Requirements |
+|------|---------|--------------|
+| 1 · WG1 | #1 Identity Attestation · cryptographic non-human identity, mutual auth | TF-1, TF-5 |
+| 1 · WG1 | #2 Artifact Provenance · approved source, SBOM, new artifacts run sandboxed first | REG-5, REG-2 |
+| 1 · WG1 | #3 Runtime Monitoring · behaviour measured from outside the agent | RS-2 |
+| 1 · WG1 | #4 Immutable Audit Journal · append-only, hash-chained, agent has no access | RS-3 |
+| 1 · WG1 | #5 Kill Switch · quarantine at machine speed | RS-4 |
+| 2 · WG2 | #6 Verify Gate · change-stop, dry-run, blast radius, rollback | LOOP-4 |
+| 2 · WG2 | #7 Autonomy Levels · observe → recommend → gated act → bounded auto-act (revert on failure is LOOP-6 under the L3 tier) | PER-1 |
+| 3 · WG3 | #8 Detect → Decide · cross-domain correlation in seconds | RES-4, LOOP-4 |
+| 3 · WG3 | #9 Deliberate Containment · evidence preserved before anything is destroyed | LOOP-5, RS-3 |
+
+The demo's Beat 7 card shows the same numbers per lane. Your one-page summary should say which of these numbers the video covers.
+
 Pick the lane where you are strongest. Nobody is expected to cover all three. A company may enter more than one lane, with a separate video for each.
 
 ## 2. Timeline
@@ -115,7 +131,7 @@ These are the working groups' terms as the keynote uses them. The reference-arch
 | Agentic control plane | The supervision layer that sits outside every agent. Agents enroll in it, every action is mediated by it, and no agent can vouch for itself to it. Formerly "AOMC supervision plane". |
 | Persona | What an agent declares at enrollment: who it acts for, what it may want, its autonomy level, the estate it may touch. Runtime drift is measured against it. |
 | Identity attestation · artifact provenance · runtime monitoring · immutable audit journal · kill switch | The five WG1 capabilities on screen in Beat 2. |
-| Sandbox first | New artifacts run in a sandbox under the plane before they touch the network. The sandbox runs the artifact for real; its writes are intercepted before any device. |
+| Sandbox first | New artifacts run in a sandbox under the control plane before they touch the network. The sandbox runs the artifact for real; its writes are intercepted before any device. |
 | Planning phase · execution phase | The two halves of the WG2 and WG3 architectures: persona creation on top, the operations loop inside an enforcement and audit boundary below. |
 | Operations loop | WG2: detect · diagnose · propose · verify · execute · validate. WG3: detect · investigate · propose · decide · respond · validate. |
 | Verify Gate | WG2, step 4 of the loop. Change-stop · dry-run · blast radius · rollback. Every write passes it; a failed check escalates to a person. |
