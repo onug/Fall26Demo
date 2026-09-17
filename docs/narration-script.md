@@ -5,7 +5,7 @@ _Generated from `web-demo/lib/steps.ts` by `scripts/export-script.mjs`. Do not e
 | | |
 |---|---|
 | Steps with narration | 41 |
-| Words | 1838 (~12.3 min at 150 wpm) |
+| Words | 1873 (~12.5 min at 150 wpm) |
 | Recorded audio | 10.5 min |
 | Voice | Nick Lippis (cloned) · ElevenLabs `16VamcPQIJBvVLoE1Zss` · eleven_multilingual_v2 · speed 1.2 |
 | Presenter pauses | 6 |
@@ -155,9 +155,9 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 22. WG2 · THE AUTONOMOUS INFRASTRUCTURE ARCHITECTURE
 
-`b4-ra` · ra · 47 words · audio 18s
+`b4-ra` · ra · 73 words · audio 18s
 
-> Working group two's architecture. Two phases. Planning, on top: the agent's persona, autonomy level, models, and the estate it may touch. Execution, below: the loop, detect, diagnose, propose, verify, execute, validate, inside an enforcement and audit boundary the agent cannot influence. Step four is the verify gate.
+> Working group two's architecture. Two phases. Planning, on top: the agent's persona, autonomy level, models, and the estate it may touch. Execution, below: the loop, detect, diagnose, propose, verify, execute, validate, inside an enforcement and audit boundary the agent cannot influence. Step four is the verify gate: change-stop, dry-run, blast radius, rollback. Only execute is genuinely mutable, and the autonomy level decides whether steps four to six ever fire. Now watch it run.
 
 ### 23. T+00:41 — 1 · Detect
 
@@ -272,9 +272,9 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 40. THE VENDOR CHALLENGE — THREE LANES
 
-`b7-lanes` · lanes · 51 words · audio 17s
+`b7-lanes` · lanes · 60 words · audio 17s
 
-> To the vendor community. The reference implementation is in Git. Three lanes, matching the working groups. Pick your lane; nobody covers all three. Use the working groups' terminology. Submit a five-to-ten-minute screen capture: it plays on loop in the showcase theatre, with office hours. Members vote best in show, per lane.
+> To the vendor community. The reference implementation is in Git. Three lanes, matching the working groups. Pick your lane; nobody covers all three. Use the working groups' terminology: every control on the card carries its requirement number. Submit a five-to-ten-minute screen capture: it plays on loop in the showcase theatre, with office hours. Members vote best in show, per lane.
 
 ### 41. GO WATCH. GO VOTE.
 

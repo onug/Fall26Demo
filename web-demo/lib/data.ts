@@ -14,16 +14,19 @@ export const LANE_BY_KEY: Record<LaneKey, LaneInfo> = Object.fromEntries(
 ) as Record<LaneKey, LaneInfo>;
 
 // ─── Control plane capabilities ───────────────────────
+// `reqs` is Peter Campbell's crosswalk (report-onug-vendor-three-lane-challenge, 17 Sep
+// 2026): each control is a translation of numbered WG1/WG2/WG3 requirements, not new
+// scope. Bounded auto-act with automatic revert is the top of #7, with LOOP-6 underneath.
 export const CONTROLS: ControlInfo[] = [
-  { key: 'identity_attestation', number: 1, lane: 'control_plane', name: 'Identity Attestation', detail: 'Cryptographic non-human identity · mutual auth' },
-  { key: 'artifact_provenance', number: 2, lane: 'control_plane', name: 'Artifact Provenance', detail: 'Approved source · SBOM · new artifacts run sandboxed first' },
-  { key: 'runtime_monitoring', number: 3, lane: 'control_plane', name: 'Runtime Monitoring', detail: 'Behavior measured from outside the agent' },
-  { key: 'audit_journal', number: 4, lane: 'control_plane', name: 'Immutable Audit Journal', detail: 'Append-only · hash-chained · agent has no access' },
-  { key: 'kill_switch', number: 5, lane: 'control_plane', name: 'Kill Switch', detail: 'Quarantine at machine speed' },
-  { key: 'verify_gate', number: 6, lane: 'autonomous_infra', name: 'Verify Gate', detail: 'Change-stop · dry-run · blast radius · rollback' },
-  { key: 'autonomy_levels', number: 7, lane: 'autonomous_infra', name: 'Autonomy Levels', detail: 'Observe → recommend → gated act → bounded auto-act' },
-  { key: 'detect_decide', number: 8, lane: 'ai_soc', name: 'Detect → Decide', detail: 'Cross-domain correlation in seconds' },
-  { key: 'containment', number: 9, lane: 'ai_soc', name: 'Deliberate Containment', detail: 'Evidence preserved before anything is destroyed' },
+  { key: 'identity_attestation', number: 1, lane: 'control_plane', name: 'Identity Attestation', detail: 'Cryptographic non-human identity · mutual auth', reqs: 'TF-1 · TF-5' },
+  { key: 'artifact_provenance', number: 2, lane: 'control_plane', name: 'Artifact Provenance', detail: 'Approved source · SBOM · new artifacts run sandboxed first', reqs: 'REG-5 · REG-2' },
+  { key: 'runtime_monitoring', number: 3, lane: 'control_plane', name: 'Runtime Monitoring', detail: 'Behavior measured from outside the agent', reqs: 'RS-2' },
+  { key: 'audit_journal', number: 4, lane: 'control_plane', name: 'Immutable Audit Journal', detail: 'Append-only · hash-chained · agent has no access', reqs: 'RS-3' },
+  { key: 'kill_switch', number: 5, lane: 'control_plane', name: 'Kill Switch', detail: 'Quarantine at machine speed', reqs: 'RS-4' },
+  { key: 'verify_gate', number: 6, lane: 'autonomous_infra', name: 'Verify Gate', detail: 'Change-stop · dry-run · blast radius · rollback', reqs: 'LOOP-4' },
+  { key: 'autonomy_levels', number: 7, lane: 'autonomous_infra', name: 'Autonomy Levels', detail: 'Observe → recommend → gated act → bounded auto-act', reqs: 'PER-1 · LOOP-6' },
+  { key: 'detect_decide', number: 8, lane: 'ai_soc', name: 'Detect → Decide', detail: 'Cross-domain correlation in seconds', reqs: 'RES-4 · LOOP-4' },
+  { key: 'containment', number: 9, lane: 'ai_soc', name: 'Deliberate Containment', detail: 'Evidence preserved before anything is destroyed', reqs: 'LOOP-5 · RS-3' },
 ];
 
 export const INITIAL_CONTROLS: Record<ControlKey, boolean> = {

@@ -2,6 +2,14 @@
 
 Practitioner and co-chair input on the keynote arc, and what the demo did with it. Newest first.
 
+## Peter Campbell, ONUG — September 17, 2026, afternoon (incorporated in v0.3.3)
+
+Three emails after v0.3.2 went in.
+
+1. **"This slide the audio stops at step 4 the verify gate, did you mean to?"** (with a screenshot of the WG2 reference-architecture card). No clip was cut; the narration itself ended on "Step four is the verify gate." **Incorporated:** the line now finishes the thought: the four checks, only execute is mutable, the autonomy level decides whether steps four to six fire, "now watch it run". Regenerated.
+2. **The vendor three-lane challenge report** (`report-onug-vendor-three-lane-challenge.html`, 17 Sep). Peter checked `data.ts` against his 24-requirements crosswalk and mapped each of the nine controls to the working-group requirements it translates: #1 TF-1, TF-5 · #2 REG-5, REG-2 · #3 RS-2 · #4 RS-3 · #5 RS-4 · #6 LOOP-4 · #7 PER-1 (bounded auto-act with revert is LOOP-6 under the L3 tier) · #8 RES-4, LOOP-4 · #9 LOOP-5, RS-3. "This report ties the three lane challenge back to the list of requirements quite nicely." **Incorporated:** every control carries its requirement ids in `data.ts`; the Beat 7 vendor card shows them per lane under *Controls · requirements*; the narration says every control on the card carries its requirement number. The report belongs in the vendor instructions too (PR #3, unmerged).
+3. **`ACP-local-wiki-v2.zip`** with the fixes Nick asked for (credits, licence, ballot citations) and the challenge report added. The three architecture drawings are text-for-text identical to the ones already in `public/ra/`, so nothing changed there.
+
 ## Peter Campbell and Baird Kaake — September 16–17, 2026 (incorporated in v0.3.2)
 
 Peter sent five notes through the portal's feedback form on the evening of 16 September (against v0.3.0); they reached Nick on 17 September, forwarded by Jeannette. Baird's note came by email.

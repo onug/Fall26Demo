@@ -8,8 +8,8 @@
     "speed": 1.2,
     "notes": "Segment ids match Step.id in lib/steps.ts; audio is served from public/narration/<id>.mp3",
     "segments": 41,
-    "total_words": 1838,
-    "estimated_minutes": 12.3,
+    "total_words": 1873,
+    "estimated_minutes": 12.5,
     "recorded_minutes": 10.5
   },
   "segments": [
@@ -251,8 +251,8 @@
       "phase": "ra",
       "title": "WG2 · THE AUTONOMOUS INFRASTRUCTURE ARCHITECTURE",
       "pause": null,
-      "text": "Working group two's architecture. Two phases. Planning, on top: the agent's persona, autonomy level, models, and the estate it may touch. Execution, below: the loop, detect, diagnose, propose, verify, execute, validate, inside an enforcement and audit boundary the agent cannot influence. Step four is the verify gate.",
-      "words": 47,
+      "text": "Working group two's architecture. Two phases. Planning, on top: the agent's persona, autonomy level, models, and the estate it may touch. Execution, below: the loop, detect, diagnose, propose, verify, execute, validate, inside an enforcement and audit boundary the agent cannot influence. Step four is the verify gate: change-stop, dry-run, blast radius, rollback. Only execute is genuinely mutable, and the autonomy level decides whether steps four to six ever fire. Now watch it run.",
+      "words": 73,
       "audio_seconds": 18.285714
     },
     {
@@ -449,8 +449,8 @@
       "phase": "lanes",
       "title": "THE VENDOR CHALLENGE — THREE LANES",
       "pause": null,
-      "text": "To the vendor community. The reference implementation is in Git. Three lanes, matching the working groups. Pick your lane; nobody covers all three. Use the working groups' terminology. Submit a five-to-ten-minute screen capture: it plays on loop in the showcase theatre, with office hours. Members vote best in show, per lane.",
-      "words": 51,
+      "text": "To the vendor community. The reference implementation is in Git. Three lanes, matching the working groups. Pick your lane; nobody covers all three. Use the working groups' terminology: every control on the card carries its requirement number. Submit a five-to-ten-minute screen capture: it plays on loop in the showcase theatre, with office hours. Members vote best in show, per lane.",
+      "words": 60,
       "audio_seconds": 16.953469
     },
     {

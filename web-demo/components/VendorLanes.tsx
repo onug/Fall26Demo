@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { VENDOR_LANES, VENDOR_MECHANICS } from '@/lib/data';
+import { CONTROLS, VENDOR_LANES, VENDOR_MECHANICS } from '@/lib/data';
 
 interface VendorLanesProps {
   title: string;
@@ -44,6 +44,16 @@ export default function VendorLanes({ title }: VendorLanesProps) {
                 </li>
               ))}
             </ul>
+            {/* Peter's crosswalk: the controls a lane is judged on, by number, with the
+                working-group requirement ids each one translates. */}
+            <div className="mt-auto pt-3 border-t border-gray-800">
+              <div className="text-[10px] uppercase tracking-widest text-gray-500 mb-1.5">Controls · requirements</div>
+              <div className="flex flex-wrap gap-x-3 gap-y-1 text-[11px] font-mono leading-snug">
+                {CONTROLS.filter(c => c.lane === lane.key).map(c => (
+                  <span key={c.key} className="text-gray-500">#{c.number} <span className="text-gray-300">{c.reqs}</span></span>
+                ))}
+              </div>
+            </div>
           </motion.div>
         ))}
       </div>
