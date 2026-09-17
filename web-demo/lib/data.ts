@@ -221,9 +221,13 @@ export const VENDOR_LANES: VendorLane[] = [
   },
 ];
 
-// ─── Reference architectures (public/ra/*.svg, lifted from the WG drawings) ───
+// ─── Reference architectures (public/ra/*.svg) ───
+// Peter Campbell's redraws in ONUG's design language (his "Agentic Control Plane
+// requirements and architecture pack", 16–17 Sep 2026), pinned to the ratified
+// versions: WG1 v0.2, WG2 v0.6, WG3 v0.6. Peter, 17 Sep: one slide for the control
+// plane, the personas version, "One control plane, many domains".
 export interface RaCard {
-  key: 'map' | 'wg1' | 'wg2' | 'wg3';
+  key: 'wg1' | 'wg2' | 'wg3';
   file: string;
   wg: string;
   color: string;
@@ -237,54 +241,39 @@ export interface RaCard {
 }
 
 export const RA_CARDS: Record<RaCard['key'], RaCard> = {
-  map: {
-    key: 'map', file: '/ra/map.svg', wg: 'WG1 · WG2 · WG3', color: '#f97316',
-    kicker: 'HOW THE REFERENCE ARCHITECTURES CONNECT',
-    title: 'One Control Plane, Every Domain — Unified Architecture Map',
-    version: 'Draft v0.2 · 6 August 2026 · composite of WG1 v0.2, WG2 v0.6, WG3 v0.6',
-    planning: 'Every domain defines a persona: autonomy · models · estate',
-    execution: 'Every persona runs its ops loop on the same enforcement layer',
-    gate: 'Cross-domain cooperation goes through the plane, never around it',
-    lines: [
-      'NOC and SOC are the first two personas. Cloud ops, DevOps, data, OT: same template.',
-      'The plane is the shared Access Enforcement & Audit layer beneath all of them.',
-      'Build the enforcement machinery once; reuse it everywhere.',
-    ],
-  },
   wg1: {
     key: 'wg1', file: '/ra/wg1.svg', wg: 'WG1', color: '#f97316',
     kicker: 'WORKING GROUP 1 · AGENTIC CONTROL PLANE',
-    title: 'Agentic Control Plane — Reference Architecture',
-    version: 'Draft v0.2 · ratified at the 28 July session',
-    planning: 'Human oversight & governance on top (AOMC-6)',
-    execution: 'Four components, six controls, outside the agents',
-    gate: 'Identity air gap: agents receive identity from the plane, never reach into it',
+    title: 'One Control Plane, Every Domain — the personas view',
+    version: 'WG1 v0.2 · composite with WG2 v0.6 and WG3 v0.6 · redrawn in ONUG design language, 15 Sep 2026',
+    planning: 'Domain personas: NOC and SOC first; any domain plugs in the same way (persona → loop → plane)',
+    execution: 'The plane: Agent Trust Fabric · Registry, Personas & BOM · Runtime Supervision · Private Open Router',
+    gate: 'Enrollment and mediation: every persona, every action, through the plane, never around it',
     lines: [
-      'Agent Trust Fabric: non-human identity, per-step scoped tokens, deprovisioning first.',
-      'Registry, Personas & Agent BOM: who / what / why for every agent.',
-      'Runtime Supervision: policy on every message, injection filtered, immutable audit.',
-      'Private Open Router: every model call routed by cost, risk, sovereignty.',
+      'Human oversight sets the risk appetite: decision rights, approval of personas and task sets, change-stop authority.',
+      'Governed access below the plane: identity systems air-gapped from agents, sources of truth read-only, tools and data only via governed gateways, a certified model estate.',
+      'Build the enforcement machinery once; every domain inherits identity, enforcement, audit and model routing.',
     ],
   },
   wg2: {
     key: 'wg2', file: '/ra/wg2.svg', wg: 'WG2', color: '#3b82f6',
     kicker: 'WORKING GROUP 2 · AUTONOMOUS INFRASTRUCTURE',
     title: 'Autonomous Infrastructure — Reference Architecture',
-    version: 'Draft v0.6 · 6 August 2026',
+    version: 'WG2 v0.6 · redrawn in ONUG design language, 16 Sep 2026',
     planning: 'Agent persona creation: autonomy level · models & model location · estate under management',
     execution: 'Agent operations loop 1–6: detect · diagnose · propose · verify · execute · validate',
     gate: 'Step 4 = the Verify Gate: change-stop · dry-run · blast radius · rollback',
     lines: [
       'Two access patterns, both valid: direct agent-to-agent, or an orchestrator that is itself governed.',
       'Access Enforcement & Audit sits outside agent control and influence.',
-      'Only one box in the loop can mutate state, and it is visually unmistakable.',
+      'Only Execute is genuinely mutable; the autonomy level decides whether steps 4–6 ever fire.',
     ],
   },
   wg3: {
     key: 'wg3', file: '/ra/wg3.svg', wg: 'WG3', color: '#06b6d4',
     kicker: 'WORKING GROUP 3 · AI-ENABLED SOC',
     title: 'Agentic-Enabled SOC — Reference Architecture',
-    version: 'Draft v0.6 · 6 August 2026 · same skeleton as WG2',
+    version: 'WG3 v0.6 · same skeleton as WG2 · redrawn in ONUG design language, 16 Sep 2026',
     planning: 'Agent persona creation: conservative autonomy ceiling · models · estate under watch',
     execution: 'Agent operations loop 1–6: detect · investigate · propose · decide · respond · validate',
     gate: 'Step 4 = the Decide Gate: contain now, or observe & trace',
@@ -376,16 +365,16 @@ export const PRACTITIONER_MEMBERS: MemberMark[] = [
   { name: 'RTX', file: 'rtx.png' },
 ];
 
-// The practitioners who reviewed the demo, with their company's mark. Fidelity
-// Investments, eBay and Huntington have no mark in the ONUG Drive folders: Fidelity's
-// is the mark from fidelity.com (the Commons file is Fidelity International's, a
-// different company), eBay's and Huntington's are from Wikimedia Commons. Swap for
-// company-supplied artwork when it arrives.
+// The practitioners who reviewed the demo. Mick asked (August) to be credited by name
+// and ONUG role, never with his employer, so his tile carries the ONUG mark; Baird has
+// not been asked how he wants to appear, so his does too until he says. eBay's and
+// Huntington's marks are from Wikimedia Commons because the ONUG Drive folders have
+// none; swap for company-supplied artwork when it arrives.
 export const REVIEWERS: { name: string; org: string; file: string }[] = [
-  { name: 'Mick Currey', org: 'Fidelity Investments', file: 'fidelity.png' },
+  { name: 'Mick Currey', org: 'WG1 co-lead · ONUG Board', file: 'onug.svg' },
   { name: 'Rick Casarez', org: 'eBay', file: 'ebay.svg' },
   { name: 'Chris Hertenstein', org: 'Huntington', file: 'huntington.svg' },
-  { name: 'Baird Kaake', org: 'Cigna', file: 'cigna.png' },
+  { name: 'Baird Kaake', org: 'WG1', file: 'onug.svg' },
   { name: 'Peter Campbell', org: 'ONUG', file: 'onug.svg' },
 ];
 

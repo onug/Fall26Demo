@@ -149,8 +149,8 @@ export type StepPhase =
   | 'threats'     // beat 7: the other threat scenarios the same controls address
   | 'lanes';      // beat 7: vendor challenge lanes
 
-// The four reference-architecture drawings under public/ra/
-export type RaKey = 'map' | 'wg1' | 'wg2' | 'wg3';
+// The three reference-architecture drawings under public/ra/ (Peter's ONUG-theme redraws, 15–16 Sep 2026)
+export type RaKey = 'wg1' | 'wg2' | 'wg3';
 
 export interface Step {
   id: string;

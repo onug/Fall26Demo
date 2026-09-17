@@ -36,7 +36,7 @@ web-demo/
 ├── lib/
 │   ├── types.ts           Step, DemoState, ControlKey, LaneKey, GateProposal, Metrics, ...
 │   ├── data.ts            LANES, CONTROLS (9 capabilities), BASE_NODES/BASE_EDGES, BU_AGENTS, PROOF_POINTS, VENDOR_LANES
-│   ├── steps.ts           THE SCRIPT — 42 steps across seven beats, with narration and pause markers
+│   ├── steps.ts           THE SCRIPT — 41 steps across seven beats, with narration and pause markers
 │   ├── audio.ts           Narration playback: /narration/<step-id>.mp3 first, browser TTS fallback
 │   └── assets.ts          asset(path): prefixes NEXT_PUBLIC_BASE_PATH for images under public/
 ├── scripts/
@@ -44,8 +44,8 @@ web-demo/
 │   ├── qa.mjs             Script integrity check (npm run qa): replays steps, validates references, audio, export freshness
 │   └── generate-narration.py  ElevenLabs TTS via urllib; key from env ELEVENLABS_API_KEY or keychain item "elevenlabs"
 ├── narration/script.json  Exported narration script (generated)
-├── public/narration/      42 MP3s, one per step id (generated, committed)
-├── public/ra/             The four reference-architecture drawings as SVG (lifted from the WG1 shared folder HTML)
+├── public/narration/      41 MP3s, one per step id (generated, committed)
+├── public/ra/             The three reference-architecture drawings as SVG (Peter's ONUG-theme redraws, from his ACP wiki pack)
 ├── public/logos/          Member marks, copied from the collaborative portal's app/static/founding/
 └── components/
     ├── DemoStage.tsx      Orchestrator: useReducer, state replay, keyboard, layout switch by phase
@@ -78,8 +78,8 @@ web-demo/
 - **Change narration or add a step**: edit `web-demo/lib/steps.ts`, then `npm run narration:export` and regenerate the audio for that step (`python3 scripts/generate-narration.py --force --only <step-id>`). Commit the MP3 with the text change.
 - **Move a node / add a node**: `BASE_NODES` in `web-demo/lib/data.ts`. The SVG viewBox is 1000×660: plane band y 28–98, infra lane x 20–350, SOC lane x 370–700, external x 720–980. Edges are straight lines; check new ones don't pass through other nodes (the model-pull edge from the hub at y=200 was moved above the SOC row for this reason).
 - **Change proof points, BU agents, vendor lanes**: the arrays at the bottom of `web-demo/lib/data.ts`.
-- **Replace a reference-architecture drawing**: the SVGs in `public/ra/` are the `<svg>` element cut out of the WG drawing's HTML (Drive, synced under `~/Library/CloudStorage/GoogleDrive-nick@onug.net/Shared drives/AI Sales Tool/Sales Knowledge Base/07 - Collab Working Groups/`) with a white background rect prepended; `RA_CARDS` in `data.ts` carries the version string and the takeaways. Update both.
-- **Add a member mark**: drop the file in `public/logos/` and add it to `FOUNDING_MEMBERS`, `PRACTITIONER_MEMBERS` or `REVIEWERS` in `data.ts`. Marks must read on a white tile. `fidelity.png` came from fidelity.com (Fidelity Investments, not Fidelity International, which is what Commons has), `ebay.svg` and `huntington.svg` from Wikimedia Commons, because the ONUG Drive folders have no mark for them; replace with company-supplied artwork when it arrives.
+- **Replace a reference-architecture drawing**: the SVGs in `public/ra/` are the 1200-wide `<svg>` cut out of Peter's `report-onug-wg<N>-architecture-reference.html` pages (his ACP wiki pack, emailed 16 Sep 2026 as `ACP-local-wiki.zip`, headed for GitHub Pages under onug/), with HTML named entities (`&middot;` etc.) converted to characters and a white background rect prepended; `RA_CARDS` in `data.ts` carries the version string and the takeaways. Update both. The control plane is deliberately one card, the personas version (Peter, 17 Sep).
+- **Add a member mark**: drop the file in `public/logos/` and add it to `FOUNDING_MEMBERS`, `PRACTITIONER_MEMBERS` or `REVIEWERS` in `data.ts`. Marks must read on a white tile. `ebay.svg` and `huntington.svg` came from Wikimedia Commons because the ONUG Drive folders have no mark for them; replace with company-supplied artwork when it arrives. Mick Currey is credited by name and ONUG role only, never with Fidelity (his request, August 2026); Baird Kaake without an employer until he says.
 - **Change the voice**: `VOICE_ID` in `scripts/export-script.mjs` (the cloned Nick Lippis voice is the default; Sarah was Dallas), then regenerate with `--force`.
 - **Adjust animations**: keyframes in `web-demo/app/globals.css`; Framer transitions inline in components.
 
