@@ -87,7 +87,7 @@ there, so the page shows people their note changed something.
 ## Things that are deliberately not done
 
 - **Vendor overrides.** Dallas let a vendor swap its product name and logo into the "enable" and "blocked" steps via `vendor-config.ts`. The Fall equivalent is per-lane overrides. Not built; waiting on the arc lock and the challenge mechanics (submission format, voting, deadlines).
-- **Public repo.** Private until Nick flips it. Vendors need it public to fork.
+- **Public repo.** Public since 17 September 2026 (Nick: members get the head start on the repo; it is announced to all sponsors on 28 September). Internal memos and meeting notes moved to the private collaborative repo, `docs/keynote-internal/`, before the flip; keep programme business out of this repo.
 - **Video export.** The arc calls for a pre-produced, playable file. This demo is the interactive source; producing the MP4 is a screen-capture job once the script is locked. Record at 1920×1080 with text narration hidden (`T`).
 - **Live demo / Docker.** Dallas had a Dockerized live environment. Fall is web-only by design; the keynote is not a deep dive.
 
@@ -95,7 +95,7 @@ there, so the page shows people their note changed something.
 
 | What | Who / where |
 |------|-------------|
-| GitHub repo | `onug/Fall26Demo`, private. Admins: Nick (`nicklippis`), Tony (`tfarinacci`). Peter is `securitysonar` and needs to be added. |
+| GitHub repo | `onug/Fall26Demo`, public since 17 September 2026. Admins: Nick (`nicklippis`), Tony (`tfarinacci`); Peter (`securitysonar`) is a collaborator. |
 | ElevenLabs | ONUG account; key with Nick. |
 | Dallas reference | `github.com/onug/AOMC-demo`, public. Same architecture; its `docs/vendor-guide.md` is the model for ours. |
 | Arc document | `docs/ONUG_Fall_2026_Keynote_Demo_Arc.docx` in this repo; the working copy may also live in the ONUG Collaborative shared drive. |

@@ -40,8 +40,8 @@ Pick the lane where you are strongest. Nobody is expected to cover all three. A 
 
 | Date | Milestone | Who |
 |------|-----------|-----|
-| Thu 17 Sep | **Members first.** Collaborative members get the demo on collaborative.onug.net, the private repository and these instructions. | Nick |
-| ▲ Mon 28 Sep | Call opens to every sponsor. Repository made public, these instructions sent to all sponsoring vendors. | Nick, Peter |
+| Thu 17 Sep | **Members first.** Collaborative members get the demo on collaborative.onug.net, the repository (public from this day, unannounced until the call opens) and these instructions. | Nick |
+| ▲ Mon 28 Sep | Call opens to every sponsor. Repository announced, these instructions sent to all sponsoring vendors. | Nick, Peter |
 | ▲ Fri 2 Oct | **Intent to enter** due: company, lane(s), booth number, whether you want a theatre presentation slot, and who will be at the booth during the Challenge Walks. | Vendor → Bill and Jesi |
 | ▲ Wed 7 Oct | Office hours 1 (online): the repository, the reference architectures, the terminology, Q&A. Recorded. | Peter, Nick |
 | ▲ Wed 14 Oct | Optional checkpoint: send a rough cut for feedback on fit and terminology. | Vendor → Bill and Jesi |
