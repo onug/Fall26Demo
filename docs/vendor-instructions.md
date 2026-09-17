@@ -2,7 +2,7 @@
 
 ONUG Fall AI Networking Summit · New York City · 28 October 2026
 
-**Status: draft for Nick, Peter, Bill and Jesi, 16 September 2026.** Shareable copy: [Google Doc, draft v3](https://docs.google.com/document/d/15qbvUx6v6O8ZEzRj6owaeaxLsGbGupmShl2HVfFEnGo/edit) in Nick's *Demo Fall 26* Drive folder (v1 and v2 are renamed as superseded; v3 adds the controls-to-requirements table; keep the Doc in step with this file). Dates marked ▲ are proposals that need a yes before this goes to vendors. Everything else follows what was agreed at the 15 September co-chair review and the 16 September team meeting (the challenge is open to every sponsor, not only Collaborative members; founding members had the demo and these instructions first and carry their marks in the Collaborative Center).
+**Status: draft for Nick, Peter, Bill and Jesi, 17 September 2026.** Shareable copy: [Google Doc, draft v4](https://docs.google.com/document/d/1AN870HsgxS9oh0aAZ8ezlCxpsWV8sl13F4XuS3qghWc/edit) in Nick's *Demo Fall 26* Drive folder (v1 to v3 are renamed as superseded; v4 adds joint rights, members' priority for presentation slots and the schedule-may-change note; keep the Doc in step with this file). Dates marked ▲ are proposals that need a yes before this goes to vendors. Everything else follows what was agreed at the 15 September co-chair review and the 16 September team meeting (the challenge is open to every sponsor, not only Collaborative members; founding members had the demo and these instructions first and carry their marks in the Collaborative Center).
 
 ## 1. What this is
 
@@ -43,14 +43,16 @@ Pick the lane where you are strongest. Nobody is expected to cover all three. A 
 | Thu 17 Sep | **Members first.** Collaborative members get the demo on collaborative.onug.net, the private repository and these instructions. | Nick |
 | ▲ Mon 28 Sep | Call opens to every sponsor. Repository made public, these instructions sent to all sponsoring vendors. | Nick, Peter |
 | ▲ Fri 2 Oct | **Intent to enter** due: company, lane(s), booth number, whether you want a theatre presentation slot, and who will be at the booth during the Challenge Walks. | Vendor → Bill and Jesi |
-| ▲ Wed 7 Oct | Office hours 1: the repository, the reference architectures, the terminology, Q&A. Recorded. | Peter, Nick |
+| ▲ Wed 7 Oct | Office hours 1 (online): the repository, the reference architectures, the terminology, Q&A. Recorded. | Peter, Nick |
 | ▲ Wed 14 Oct | Optional checkpoint: send a rough cut for feedback on fit and terminology. | Vendor → Bill and Jesi |
-| ▲ Fri 16 Oct | Office hours 2: final Q&A, submission mechanics, voting walkthrough. Recorded. | Peter, Nick |
+| ▲ Fri 16 Oct | Office hours 2 (online): final Q&A, submission mechanics, voting walkthrough. Recorded. | Peter, Nick |
 | ▲ **Mon 19 Oct, 11:59 PM ET** | **Final video due.** Late videos play in the theatre but are not on the ballot. | Vendor → Bill and Jesi |
-| ▲ Fri 23 Oct | Theatre presentation schedule and Whova ballots published. | Bill, Jesi |
+| ▲ Fri 23 Oct | Theatre presentation schedule, Challenge Walk windows, on-site office hours and Whova ballots published in Slack. | Bill, Jesi |
 | Wed 28 Oct | Summit. Videos on loop in the Collaborative Center and the networking areas. Presentations and office hours in the theatre. Members vote in Whova. Best in Show per lane announced at the close. | Everyone |
 
 Nine days between the deadline and the Summit is what Bill needs to load the loops, build the schedule and test the ballots. It is not padding.
+
+**The on-site schedule is not final.** ONUG is developing a process to schedule demo presentations for entrants who wish to present, and Collaborative members get first priority over non-members for those slots. The Challenge Walk windows and the on-site office hours may move as that process settles. The final schedule is posted in the Collaborative Slack when it is available; what is in section 7 is the current shape, not a commitment.
 
 ## 3. Rules
 
@@ -62,7 +64,7 @@ Nine days between the deadline and the Summit is what Bill needs to load the loo
 6. **Your product, not the competition.** No competitor names, screenshots or comparisons.
 7. **One lane per video.** A second lane is a second video and a second entry.
 8. **Length: five to ten minutes.** Over ten will not be loaded. Under five is fine if it does the job.
-9. **You own it; ONUG may play it.** You keep the rights. By entering you allow ONUG to play the video on loop at the Summit, in the Whova app, on collaborative.onug.net and on onug.net afterwards, and to use stills from it in Summit coverage. Clear any music, fonts and stock footage for that use.
+9. **Joint rights.** You keep ownership of your submission. By entering you grant ONUG a worldwide, perpetual, royalty-free licence to host, post, display, perform, reproduce, translate and excerpt it, in any medium and at any ONUG event or property, including the Summit loops and theatre, the Whova app, collaborative.onug.net, onug.net, ONUG's social channels and Summit coverage. Clear any music, fonts, stock footage and third-party marks for that use, and do not include anything you cannot license on those terms.
 10. **The keynote's narration is Nick's voice and stays in the keynote.** Record your own narration. Do not reuse the keynote's audio files.
 11. **Be at your booth for the Challenge Walks.** During each scheduled walk your submission plays at your booth and a person who built it is there to talk it through. That is where members decide how to vote.
 
@@ -146,9 +148,9 @@ These are the working groups' terms as the keynote uses them. The reference-arch
 ## 7. At the Summit
 
 - **The loops.** Every accepted video plays in rotation in the Collaborative Center theatre and on screens in the networking areas, grouped by lane. If a lane draws many entries it gets its own screen.
-- **Presentations.** Companies that asked for a slot present in the theatre: ten minutes, your video or a live walk-through, five minutes of questions. Slots are assigned in order of intent-to-enter and published on 23 October.
-- **Office hours.** Working-group co-chairs hold office hours in the same space for members and vendors, on the published schedule.
-- **The Challenge Walks.** ▲ Two scheduled windows over lunch, one each day, listed in Whova as sessions. Nothing runs against the sponsored main-stage keynotes, so the walks sit in the exhibit-floor time: day one about 11:45–12:30 with the 5:00–6:30 reception as a second chance, day two lunch through about 1:30. Bill sets the exact windows on the 21 September agenda call. The theatre goes quiet, the loops keep running, and attendees are pointed at the entrants' booths. Every entrant's booth carries a lane sign in the lane colour, "Fall 2026 Challenge · WG2", and each Whova ballot entry carries the company's booth number, so a member can see the submission and the people behind it before voting.
+- **Presentations.** Companies that asked for a slot present in the theatre: ten minutes, your video or a live walk-through, five minutes of questions. **Collaborative members get first priority for slots**; the rest are assigned in order of intent-to-enter. The scheduling process is being developed and the schedule is posted in Slack when it is ready, planned for 23 October.
+- **Office hours.** Working-group co-chairs hold office hours in the same space for members and vendors. Times may change; the final schedule is posted in Slack.
+- **The Challenge Walks.** ▲ Two scheduled windows over lunch, one each day, listed in Whova as sessions. Nothing runs against the sponsored main-stage keynotes, so the walks sit in the exhibit-floor time: day one about 11:45–12:30 with the 5:00–6:30 reception as a second chance, day two lunch through about 1:30. The windows may change as the presentation schedule is developed; the final schedule is posted in Slack. The theatre goes quiet, the loops keep running, and attendees are pointed at the entrants' booths. Every entrant's booth carries a lane sign in the lane colour, "Fall 2026 Challenge · WG2", and each Whova ballot entry carries the company's booth number, so a member can see the submission and the people behind it before voting.
 - **Voting.** Attending members vote in the Whova app, one ballot per lane, one vote per attendee per lane. Voting opens after the keynote and closes at the end of lunch on day two, so the count is ready for the close at 4:15. The ballot carries one line of guidance, no more: how well does this answer the challenge Nick and Peter set in the keynote? Attendees from vendor companies do not vote; the count is screened for that (Bill, 16 September). Bill expects around 200 voters.
 - **Best in Show, per lane.** Three awards, announced at the close, with the video played once more on the main screen. They are three of the Summit's four Best in Show categories, which follow the conference tracks (AI infrastructure, security, networking, automation); the fourth is outside the challenge. ▲ Whether a sponsor may enter a track with a product rather than a challenge video is open; Bill and Tony are working it (16 September team meeting).
 
