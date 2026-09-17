@@ -17,7 +17,7 @@ Peter sent five notes through the portal's feedback form on the evening of 16 Se
 1. **24 requirements, not 25.** "Even though we have been using the number 25 there are actually 24 requirements going back to the original list provided by Mick and enhanced by Carlos and Baird." Sent twice, once against the whole demo and once against Beat 2. **Incorporated:** the Beat 2 "You are here" card and narration, the Beat 3 title card, the presenter guide and CLAUDE.md now say 24.
 2. **"Baseline" for "provenance"** (Beat 2). "It may be easier to understand and it reads better." **Not incorporated as a rename:** Artifact Provenance is the control's name in the WG1 requirements and in Peter's own reference architecture, and the demo follows that terminology source. Nick, 17 Sep.
 3. **"But provenance says" → "but secure baseline says"** (Beat 2, the sandbox-first step). **Incorporated** as the narration line, regenerated. The on-screen PROVENANCE gate tag keeps the control's name.
-4. **Baird's listing** (Beat 7). "I will check with Baird to see how he wants to be listed, he may not be able to represent Cigna." Already the case since v0.3.1: Baird is credited by name and WG1 only. Nothing further until Baird says.
+4. **Baird's listing** (Beat 7). "I will check with Baird to see how he wants to be listed, he may not be able to represent his employer." Already the case since v0.3.1: Baird is credited by name and WG1 only. Nothing further until Baird says.
 
 Baird Kaake: the word "plane" on its own, "mentioned many times without 'AI Control Plane'", tripped him up a few times. **Incorporated:** every bare "the plane" in titles, subtitles, event lines, card text and narration now reads "the control plane" (the beat's first mention still gives the full name, the agentic control plane). Fifteen clips regenerated. "Management plane" in Beat 1 is the network's management plane and is unchanged.
 
@@ -29,7 +29,7 @@ Two email threads. On the reference architectures: the trust-domains version of 
 
 ## Co-chair review meeting — September 15, 2026 (incorporated in v0.3.0)
 
-Attended: Mick Currey (Fidelity), Rick Casarez (eBay), Chris Hertenstein (Huntington), Baird Kaake (Cigna), Peter Campbell, Nick, Jeannette. Transcript in Nick's Drive folder *Demo Fall 26*. Consolidated with Baird's and Chris's Slack notes and the 11-responder survey into `docs/v0.3-plan.md`, which is the working change list. Summary of what each person said:
+Attended: Mick Currey (WG1 co-lead), Rick Casarez (eBay), Chris Hertenstein (Huntington), Baird Kaake (WG1), Peter Campbell, Nick, Jeannette. Transcript in Nick's Drive folder *Demo Fall 26*. Consolidated with Baird's and Chris's Slack notes and the 11-responder survey into `docs/v0.3-plan.md`, which is the working change list. Summary of what each person said:
 
 - **Mick:** the registry step is a best practice most companies don't have ("some will say wow, that's sophisticated, I wish I had that"). Hugging Face is not a rogue-agent story: their own agents, given impossible tasks, cheated, built a message board, broke out of the sandbox, rewrote scoring and logs, sacrificed agents to feed the core. Use it at the Beat 5 escape so traditionalists know we're not making it up, noting the demo's timescale is compressed. Careful with proof points: most agent use in coding is not autonomous.
 - **Rick:** everyone assumes AI has ethics; it doesn't. Goal without boundaries means lie, cheat, steal. "This wouldn't happen where I'm at": air gap between identity systems and AI tools, no mutable permissions, human review for identity grants, time-limited rolled credentials, a config-drift scanner that reverts unapproved changes within a day and alarms CSIRT. Confirmed the story is a supply-chain attack; asked why no Artifactory-style gate (answer: there is one, and it passed).
@@ -40,7 +40,7 @@ Attended: Mick Currey (Fidelity), Rick Casarez (eBay), Chris Hertenstein (Huntin
 
 **Survey (11 responders, Jeannette's deck):** readiness data, not demo feedback. Mid-maturity room: half limited production, half broad; half under 10% of AI workloads in production; agents in ops split lab / limited Tier 1 / Tier 1 and 2; half can govern non-human identities, a quarter inventory only, a quarter neither; three quarters close under a quarter of Tier 1 incidents without a human. Word cloud: rarely, highly, governed, controls, trusted, future.
 
-## Mick Currey, Fidelity — September 14, 2026 (incorporated in v0.3.0)
+## Mick Currey, WG1 co-lead — September 14, 2026 (incorporated in v0.3.0)
 
 Source: reply to "Watch the keynote demo draft before Tuesday." Mick watched v0.2.1 on the portal: *"I love it, we can make it scarier."* Three items. All three went into v0.3.0 on 15 September: the ransomware ending (Nick's decision), the agentic escape with the Hugging Face line, and "four to eight hours across three teams".
 
@@ -76,7 +76,7 @@ Reviewed the v0.2 demo app: "pretty amazing." One gap so far: **agent personas**
 
 Working note on what "agent personas" likely means for the demo, to be confirmed against Peter's notes: today every agent on screen is a role label (Fabric Optimizer, NOC Responder, SOC Analyst Agent) with no declared persona behind it. The plane's identity and autonomy controls would be stronger if each agent carried a persona: who it acts for, what it is allowed to want, its declared objective and autonomy envelope, and what a drift from that persona looks like. Beat 2's "declared objective vs. observed behavior" already leans on this idea without naming it.
 
-## Mick Currey, Fidelity — September 10, 2026
+## Mick Currey, WG1 co-lead — September 10, 2026
 
 Source: reply to "Fall keynote demo — your input to make it real-world". Mick liked the approach and proposed two adjustments to the story.
 
@@ -106,7 +106,7 @@ Mick offered two options:
 
 ### Why this matters for the story
 
-The through-line got stronger: best practices inspect the artifact; the plane watches the behavior. Scanners are a snapshot of what is already known. Supervision from outside the agent catches what is new. That is the Dallas principle, restated in a way a Fidelity architect would nod at.
+The through-line got stronger: best practices inspect the artifact; the plane watches the behavior. Scanners are a snapshot of what is already known. Supervision from outside the agent catches what is new. That is the Dallas principle, restated in a way a bank's architect would nod at.
 
 ### Not changed
 
