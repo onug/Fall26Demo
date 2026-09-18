@@ -18,7 +18,9 @@ The keynote ends by pointing the room at you. **The challenge is to show how you
 2. **WG2 · Autonomous Infrastructure.** Let agents run the fabric with every write through the Verify Gate: change-stop, dry-run, blast radius, rollback.
 3. **WG3 · AI-Enabled SOC.** Detect-to-decide in seconds, the Decide Gate, containment that preserves evidence.
 
-**What you submit.** A five-to-ten-minute MP4 screen capture of your response, using the working groups' terminology and reference architectures. Fork the reference implementation at github.com/onug/Fall26Demo and build on it, or record your own following the same beats. Full rules, the format table, the file naming pattern and the glossary are in the instructions: https://github.com/onug/Fall26Demo/blob/main/docs/vendor-instructions.md.
+**What you submit.** A five-to-ten-minute MP4 screen capture of your response, using the working groups' terminology and reference architectures. Fork the reference implementation at github.com/onug/Fall26Demo and build on it, or record your own following the same beats. Full rules, the format table, the file naming pattern and the glossary are in the instructions:
+
+https://github.com/onug/Fall26Demo/blob/main/docs/vendor-instructions.md
 
 **How it is judged.** Differently from Dallas. There is no judging panel. Every video plays on loop in the Collaborative Center and the networking areas, companies that ask for a slot present in the theatre (Collaborative members get first priority for slots), and two scheduled Challenge Walks send attendees to your booth to see the submission with the people who built it. The on-site schedule for presentations, walks and office hours is still being built and will be posted in the Collaborative Slack.
 
