@@ -98,3 +98,9 @@ See [CLAUDE.md](CLAUDE.md) for the architecture notes and common editing tasks, 
 ## Vendor challenge
 
 Vendors fork this repository, pick a lane (WG1, WG2, or WG3), and show how their product satisfies that lane's controls. The submission is a playable video shown throughout the conference; attending members vote Best in Show per lane. The vendor customization mechanism from the Dallas demo (`vendor-config.ts`) is the model and will be carried over once the arc is locked.
+
+## Licence
+
+The code in this repository is licensed under the [Apache License 2.0](LICENSE). Fork it and build on it; the patent grant in section 3 is deliberate.
+
+The three reference-architecture drawings in `web-demo/public/ra/` are working-group documents and are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), with credit to the ONUG Collaborative working group that produced each one. Member logos in `web-demo/public/logos/` are their owners' trademarks and are not licensed by either.
