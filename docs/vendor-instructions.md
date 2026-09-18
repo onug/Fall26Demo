@@ -36,6 +36,8 @@ Pick the lane where you are strongest. Nobody is expected to cover all three. A 
 
 **Collaborative members first.** Members of the ONUG Collaborative receive the demo, the repository and these instructions on 17 September, eleven days before the call opens to every other sponsor on 28 September. That is deliberate: the members wrote the reference architectures the challenge is judged against, and the head start is part of what membership buys. Founding members also carry their marks in the Collaborative Center, where the videos play.
 
+**Entering is for Summit sponsors.** A video on the ballot, a presentation slot, a stop on the Challenge Walk and Best in Show are part of the AI Networking Summit and open to its sponsors, Collaborative members included. A Collaborative member that is not sponsoring this Summit keeps the head start, its place in the working groups and its mark in the Collaborative Center. The repository itself is open to anyone to build on under its licence.
+
 ## 2. Timeline
 
 | Date | Milestone | Who |
@@ -48,7 +50,8 @@ Pick the lane where you are strongest. Nobody is expected to cover all three. A 
 | ▲ Fri 16 Oct | Office hours 2 (online): final Q&A, submission mechanics, voting walkthrough. Recorded. | Peter, Nick |
 | ▲ **Mon 19 Oct, 11:59 PM ET** | **Final video due.** Late videos play in the theatre but are not on the ballot. | Vendor → Bill and Jesi |
 | ▲ Fri 23 Oct | Theatre presentation schedule, Challenge Walk windows, on-site office hours and Whova ballots published in Slack. | Bill, Jesi |
-| Wed 28 Oct | Summit. Videos on loop in the Collaborative Center and the networking areas. Presentations and office hours in the theatre. Members vote in Whova. Best in Show per lane announced at the close. | Everyone |
+| Wed 28 – Thu 29 Oct | Summit. Videos on loop in the Collaborative Center and the networking areas. Presentations and office hours in the theatre. Members vote in Whova. | Everyone |
+| ▲ Thu 29 Oct | Voting closes early in the afternoon; the exact time is confirmed separately. Best in Show per lane announced at the close of the day. | Bill |
 
 Nine days between the deadline and the Summit is what Bill needs to load the loops, build the schedule and test the ballots. It is not padding.
 
@@ -151,7 +154,7 @@ These are the working groups' terms as the keynote uses them. The reference-arch
 - **Presentations.** Companies that asked for a slot present in the theatre: ten minutes, your video or a live walk-through, five minutes of questions. **Collaborative members get first priority for slots**; the rest are assigned in order of intent-to-enter. The scheduling process is being developed and the schedule is posted in Slack when it is ready, planned for 23 October.
 - **Office hours.** Working-group co-chairs hold office hours in the same space for members and vendors. Times may change; the final schedule is posted in Slack.
 - **The Challenge Walks.** ▲ Two scheduled windows over lunch, one each day, listed in Whova as sessions. Nothing runs against the sponsored main-stage keynotes, so the walks sit in the exhibit-floor time: day one about 11:45–12:30 with the 5:00–6:30 reception as a second chance, day two lunch through about 1:30. The windows may change as the presentation schedule is developed; the final schedule is posted in Slack. The theatre goes quiet, the loops keep running, and attendees are pointed at the entrants' booths. Every entrant's booth carries a lane sign in the lane colour, "Fall 2026 Challenge · WG2", and each Whova ballot entry carries the company's booth number, so a member can see the submission and the people behind it before voting.
-- **Voting.** Attending members vote in the Whova app, one ballot per lane, one vote per attendee per lane. Voting opens after the keynote and closes at the end of lunch on day two, so the count is ready for the close at 4:15. The ballot carries one line of guidance, no more: how well does this answer the challenge Nick and Peter set in the keynote? Attendees from vendor companies do not vote; the count is screened for that (Bill, 16 September). Bill expects around 200 voters.
+- **Voting.** Attending members vote in the Whova app, one ballot per lane, one vote per attendee per lane. Voting opens after the keynote and closes early in the afternoon on day two (▲ exact time to be confirmed), so the count is ready for the close. The ballot carries one line of guidance, no more: how well does this answer the challenge Nick and Peter set in the keynote? Attendees from vendor companies do not vote; the count is screened for that (Bill, 16 September). Bill expects around 200 voters.
 - **Best in Show, per lane.** Three awards, announced at the close, with the video played once more on the main screen. They are three of the Summit's four Best in Show categories, which follow the conference tracks (AI infrastructure, security, networking, automation); the fourth is outside the challenge. ▲ Whether a sponsor may enter a track with a product rather than a challenge video is open; Bill and Tony are working it (16 September team meeting).
 
 ## 8. Questions
