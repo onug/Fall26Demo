@@ -41,7 +41,7 @@ Requirements: Node 20 or newer, npm. Python 3 only to regenerate narration. macO
 | `docs/narration-script.md` | Exported script with word counts and durations (generated). |
 | `docs/presenter-guide.md` | Run of show, talking points per pause, every number on screen. |
 | `docs/review-feedback.md` | What each reviewer said and what the demo did about it. The credit ledger. |
-| `docs/vendor-instructions.md` | The challenge: lanes, controls with requirement ids, timeline, rules, format, naming, glossary, the Summit. Draft v4; the Google Doc copy is linked from its status line. |
+| `docs/vendor-instructions.md` | The challenge: lanes, controls with requirement ids, timeline, rules, format, naming, glossary, the Summit. The only copy given to anyone outside ONUG; it needs no sign-in. |
 | `docs/vendor-call-email.md` | The call for entries that goes to every sponsor on 28 September. Draft. |
 | `docs/vendor-guide.md` | The older fork-and-pick-a-lane guide; superseded by the instructions, kept for the Dallas-shaped reader. |
 | `CLAUDE.md` | Architecture notes and common tasks, written for Claude Code and useful for humans. |
@@ -79,7 +79,9 @@ The demo is inside collaborative.onug.net at `/keynote`, behind the portal's log
 
 ## The vendor challenge
 
-`docs/vendor-instructions.md` is the source of record; the Google Doc linked from its status line is the copy for marking up. Members had the demo, the repo and the instructions on 17 September; every sponsor gets them when the call opens on 28 September (`docs/vendor-call-email.md`). Dates marked ▲ are proposals until Bill Sell and Jesi confirm: intent to enter 2 October, online office hours 7 and 16 October, final video 19 October, schedule and ballots 23 October. Members' vote in Whova, Best in Show per lane; the on-site schedule for presentations, Challenge Walks and office hours is still being built and is posted in the Collaborative Slack.
+`docs/vendor-instructions.md` is the source of record and the only copy anyone outside ONUG is given: it opens with no sign-in and links to nothing that needs one. ONUG keeps a staff-only Google Doc for marking up; it is never linked from this repository or from anything members see (it was, on 17 and 18 September, and members hit a request-access screen both times).
+
+**Entering is for sponsors of the AI Networking Summit**, Collaborative members included: a video on the ballot, a presentation slot, a stop on the Challenge Walk and Best in Show. A member that is not sponsoring keeps the head start, its working-group seat and its mark in the Collaborative Center. The instructions say so in their first section, before the benefits, and anything written to members or vendors about the challenge should do the same. Members had the demo, the repo and the instructions on 17 September; every sponsor gets them when the call opens on 28 September (`docs/vendor-call-email.md`). Dates marked ▲ are proposals until Bill Sell and Jesi confirm: intent to enter 2 October, online office hours 7 and 16 October, final video 19 October, schedule and ballots 23 October. Members' vote in Whova, Best in Show per lane; the on-site schedule for presentations, Challenge Walks and office hours is still being built and is posted in the Collaborative Slack.
 
 ## Things that are deliberately not done
 
@@ -93,6 +95,7 @@ The demo is inside collaborative.onug.net at `/keynote`, behind the portal's log
 | What | Who / where |
 |------|-------------|
 | GitHub repo | `onug/Fall26Demo`, public since 17 September 2026. Admins: Nick (`nicklippis`), Tony (`tfarinacci`); Peter (`securitysonar`) is a collaborator. |
+| Licence | Apache-2.0 for the code (`LICENSE`); CC BY 4.0 for the three drawings in `web-demo/public/ra/`, credited to the working group that produced each; member logos in `web-demo/public/logos/` are not licensed for reuse. See the README. |
 | ElevenLabs | ONUG account; key with Nick. |
 | Reference architectures | Peter's "Agentic Control Plane requirements and architecture pack" (his ACP local wiki, headed for GitHub Pages under onug/) is the terminology source. The drawings in `public/ra/` are cut from it. |
 | Dallas reference | `github.com/onug/AOMC-demo`, public. |
@@ -105,7 +108,7 @@ The demo is inside collaborative.onug.net at `/keynote`, behind the portal's log
 3. Bill and Jesi confirm the ▲ dates; the call for entries goes to every sponsor on 28 September.
 4. Office hours 7 and 16 October; final videos 19 October.
 5. Screen-capture the locked build to MP4 for the production pass.
-6. Nick and Peter present it on 28 October.
+6. Nick and Peter present it on 28 October. The Summit runs 28 and 29 October; voting closes early in the afternoon of the 29th (time to be confirmed) and Best in Show is announced at the close of that day.
 
 ## Questions
 
