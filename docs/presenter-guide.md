@@ -26,7 +26,7 @@ Two presenters: Nick plus one co-presenter. The demo narrates itself. You advanc
 | 9 | DAY 6 — EVERYTHING IS DOWN | DAY 6 — EVERYTHING IS DOWN. Red flash. IdP and Backups nodes; admins locked out, backups deleted, disks encrypted, ransom note. |  |
 | 10 | BLAST RADIUS — ONE ROUTINE PULL | Blast radius: seven red bullets, ending on the ransom note. |  |
 | 11 | WHICH OF THESE DO YOU HAVE? | Gap analysis card: what happened / the control that stops it. No company named. "Which of these do you have?" | **Pause 2** — ask the room which column they are in |
-| 12 | YOU ARE HERE | Rewind. Dallas → 24 requirements. One governance change: sandbox first. |  |
+| 12 | YOU ARE HERE | Rewind. Dallas → 25 requirements. One governance change: sandbox first. |  |
 | 13 | AGENTIC CONTROL PLANE ONLINE | Agentic control plane online. Five WG1 controls. Three personas registered. |  |
 | 14 | T+00:00 — Same artifact, new policy | Provenance routes v3.2 to the sandbox. Sandbox runs it for real; writes intercepted. |  |
 | 15 | T+00:04 — Loads in the sandbox · self-attests healthy | Payload fires in the sandbox. Drift 97/100 against the declared persona. |  |
@@ -63,7 +63,7 @@ Two presenters: Nick plus one co-presenter. The demo narrates itself. You advanc
 
 **Pause 2 (step 11, the gap card).** Mick Currey's line: show them their worst fear. The best practices in place today are still not good enough. Then Chris Hertenstein's framing: the room is a maturity continuum. Read the six rows and ask which column they are in. Rick Casarez's shop has the identity air gap, the checked-out credentials and the drift scanner; say so if he is in the room, and say that most are not there. Do not claim the ransom sequence is exotic: real incidents have run it exactly.
 
-**Pause 3 (step 17).** Bridge to Dallas. The six controls became twenty-four requirements (Peter: 24, not 25). The one principle: the control plane sits outside the agents; agents cannot vouch for themselves. Best practices inspect the artifact, the control plane watches the behavior. Mick's other option, if asked: even if an artifact slips past the sandbox, the control plane sits outside every agent, so the first environment it lands in is the blast radius, not the enterprise. That is exactly what Beat 5 shows when the second stage tries to break out.
+**Pause 3 (step 17).** Bridge to Dallas. The six controls became twenty-five requirements (Nick, 18 Sep: 25; it read 24 from v0.3.2 to v0.3.3). The one principle: the control plane sits outside the agents; agents cannot vouch for themselves. Best practices inspect the artifact, the control plane watches the behavior. Mick's other option, if asked: even if an artifact slips past the sandbox, the control plane sits outside every agent, so the first environment it lands in is the blast radius, not the enterprise. That is exactly what Beat 5 shows when the second stage tries to break out.
 
 **Pause 4 (step 28).** The infrastructure question: can I let an agent touch the fabric? Yes, when every write is mediated. Point at write #4: the gate said no, handed a human the homework, and the agent could not argue.
 
