@@ -1,5 +1,11 @@
 # Release Notes
 
+## v0.3.4 — 25 requirements (September 18, 2026)
+
+- **The requirement count is 25.** The Beat 2 "You are here" card and narration, and the Beat 3 title card, say 25; so do the presenter guide and CLAUDE.md. v0.3.2 had changed it to 24 on Peter's note of 16 September; Nick set it back on the 18th. One narration clip regenerated; 41 steps. [Nick, 18 Sep]
+- **Recorded length, measured: 10.6 minutes** (637 seconds across the 41 clips). The handover said 10.5 for v0.3.3; that figure was taken before v0.3.3's two clips were re-recorded, and v0.3.3 actually ran 10.7. Against a ten-minute target, that is the number to cut from.
+- The vendor instructions no longer give a number when they mention the requirements crosswalk, so they stay true whichever count the working group's document carries.
+
 ## After v0.3.3 — licence, who may enter, and one source for the instructions (September 18, 2026)
 
 No change to the build.

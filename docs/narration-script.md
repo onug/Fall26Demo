@@ -6,7 +6,7 @@ _Generated from `web-demo/lib/steps.ts` by `scripts/export-script.mjs`. Do not e
 |---|---|
 | Steps with narration | 41 |
 | Words | 1873 (~12.5 min at 150 wpm) |
-| Recorded audio | 10.5 min |
+| Recorded audio | 10.6 min |
 | Voice | Nick Lippis (cloned) · ElevenLabs `16VamcPQIJBvVLoE1Zss` · eleven_multilingual_v2 · speed 1.2 |
 | Presenter pauses | 6 |
 
@@ -89,9 +89,9 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 12. YOU ARE HERE
 
-`b2-title` · title · 42 words · audio 16s
+`b2-title` · title · 42 words · audio 14s
 
-> You are here. This is where Dallas left off: the AOMC supervision plane, six controls then, twenty-four requirements now. Same company, same artifact, one governance change: every new artifact runs in a sandbox, under the control plane, before it touches the network.
+> You are here. This is where Dallas left off: the AOMC supervision plane, six controls then, twenty-five requirements now. Same company, same artifact, one governance change: every new artifact runs in a sandbox, under the control plane, before it touches the network.
 
 ### 13. AGENTIC CONTROL PLANE ONLINE
 
@@ -155,7 +155,7 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 22. WG2 · THE AUTONOMOUS INFRASTRUCTURE ARCHITECTURE
 
-`b4-ra` · ra · 73 words · audio 18s
+`b4-ra` · ra · 73 words · audio 29s
 
 > Working group two's architecture. Two phases. Planning, on top: the agent's persona, autonomy level, models, and the estate it may touch. Execution, below: the loop, detect, diagnose, propose, verify, execute, validate, inside an enforcement and audit boundary the agent cannot influence. Step four is the verify gate: change-stop, dry-run, blast radius, rollback. Only execute is genuinely mutable, and the autonomy level decides whether steps four to six ever fire. Now watch it run.
 
@@ -272,7 +272,7 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 40. THE VENDOR CHALLENGE — THREE LANES
 
-`b7-lanes` · lanes · 60 words · audio 17s
+`b7-lanes` · lanes · 60 words · audio 18s
 
 > To the vendor community. The reference implementation is in Git. Three lanes, matching the working groups. Pick your lane; nobody covers all three. Use the working groups' terminology: every control on the card carries its requirement number. Submit a five-to-ten-minute screen capture: it plays on loop in the showcase theatre, with office hours. Members vote best in show, per lane.
 
@@ -287,6 +287,7 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 | Step | Words | Audio |
 |---|---:|---:|
+| 22. WG2 · THE AUTONOMOUS INFRASTRUCTURE ARCHITECTURE (`b4-ra`) | 73 | 29s |
 | 38. THIS IS ALREADY HAPPENING (`b6-proof`) | 75 | 25s |
 | 31. T+00:58 — The second stage is an agent. It gets out. (`b5-escalate`) | 78 | 22s |
 | 39. ONE PATH SHOWN. THE SAME CONTROLS STOP THESE. (`b7-threats`) | 62 | 21s |
@@ -294,4 +295,3 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 | 33. 4 · Decide — the Decide Gate: containment is a write too (`b5-gate`) | 51 | 19s |
 | 32. T+01:02 — 1 · Detect → 2 · Investigate → 3 · Propose, in 4.2 seconds (`b5-detect`) | 66 | 19s |
 | 25. 4 · Verify — the Verify Gate, writes #1–#3 (`b4-gate-pass`) | 45 | 19s |
-| 30. WG3 · THE AI-ENABLED SOC ARCHITECTURE (`b5-ra`) | 47 | 18s |
