@@ -1,5 +1,14 @@
 # Release Notes
 
+## After v0.3.3 — documents only (September 17, 2026, evening)
+
+No change to the build. What moved around it:
+
+- **Vendor instructions v4** (`docs/vendor-instructions.md`, Google Doc copy linked from its status line). v3 added the nine controls with the requirement ids each translates (Peter's three-lane challenge report), the 16 September team-meeting decisions (the challenge is open to every sponsor; four Best in Show categories by conference track, three of them the lanes; user's-choice voting in Whova closing at the end of lunch on day two; Challenge Walks over lunch on both days), and the members-first note (members had the demo, the repo and the instructions on 17 September, every sponsor on 28 September). v4 added joint rights (a worldwide, perpetual licence to ONUG to host, post, display and translate submissions), members' first priority for theatre presentation slots, and the note that the on-site schedule for walks and office hours may change and is posted in Slack. The call-for-entries email follows.
+- **The repository is public** (Nick, 17 September). Before the flip, every doc that paired a reviewer with an employer they did not choose was rewritten to name and WG role, and the internal memos, the team-meeting note and the members Slack post moved to the private collaborative repo (`docs/keynote-internal/`). History was left as it was (Nick's call).
+- **On the portal** (collaborative repo): notes from the demo page's form now go to Nick, Peter and Tony and are kept on a staff-only page, `/keynote/feedback` (AD-130); the Demos page shows only the keynote until the groups choose their own demos (AD-131); the keynote page says the repo is public.
+- Handover and CLAUDE.md rewritten to match all of the above.
+
 ## v0.3.3 — Requirement ids on the vendor card; the WG2 narration finishes its thought (September 17, 2026)
 
 - **Every control now carries the working-group requirement ids it translates**, from Peter Campbell's vendor three-lane challenge report (17 Sep): TF, REG and RS for the five WG1 controls, LOOP-4 and PER-1 (with LOOP-6 underneath bounded auto-act) for WG2, RES-4/LOOP-4 and LOOP-5/RS-3 for WG3. The Beat 7 vendor card shows them per lane under *Controls · requirements*, and the narration says so, so a vendor reads the lane against the requirements list by number. [Peter, 17 Sep: "ties the three lane challenge back to the list of requirements quite nicely"]

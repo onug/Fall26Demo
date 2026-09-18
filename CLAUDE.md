@@ -8,7 +8,9 @@ The keynote demo for the ONUG Fall AI Networking Summit (New York, October 28, 2
 
 One deliverable: `web-demo/`, a presenter-controlled Next.js presentation. The narrative arc it implements is `docs/ONUG_Fall_2026_Keynote_Demo_Arc.docx` (seven beats, fear then greed, three working-group lanes). The arc is a working draft; the script will change after co-chair review.
 
-Supporting docs: `README.md` (run it), `docs/handover.md` (state of the project, edit loop, open items), `docs/presenter-guide.md` (run of show), `docs/release-notes.md`, `docs/vendor-guide.md`, `docs/narration-script.md` (generated, do not hand-edit).
+Supporting docs: `README.md` (run it), `docs/handover.md` (state of the project, edit loop, open items), `docs/presenter-guide.md` (run of show), `docs/release-notes.md`, `docs/review-feedback.md` (what each reviewer said and what the demo did; the credit ledger), `docs/vendor-instructions.md` (the challenge, source of record; a Google Doc copy is linked from its status line), `docs/vendor-call-email.md`, `docs/vendor-guide.md` (older, superseded by the instructions), `docs/narration-script.md` (generated, do not hand-edit).
+
+**This repository is public** (since 17 September 2026). Nothing programme-internal belongs here: staff memos, meeting notes, registration figures, Slack posts and anything naming a member's employer against their wishes go in the private collaborative repo under `docs/keynote-internal/`.
 
 ## Running
 
@@ -104,7 +106,9 @@ web-demo/
 ## Working agreements
 
 - Commit MP3s alongside the script change that produced them.
-- This checkout lives in a cloud-synced folder, and the sync drops `name 2.ext` duplicate files next to files that were recreated. Before `git add -A` or a portal import, run `find . -name "* 2.*" -not -path "*/node_modules/*"` and delete what it finds; they have reached both repositories once already (15 Sep) and broke the portal's manifest-size test.
+- This checkout lives in a cloud-synced folder, and the sync drops `name 2.ext` (and `name 3.ext`) duplicate files next to files that were recreated. Before `git add -A`, and before `npm run build:portal` feeds `out/` to the portal import, run `find . -name "* [0-9].*" -not -path "*/node_modules/*"` and delete what it finds. They have reached both repositories twice (15 and 17 Sep); the collaborative checkout has the same problem, so run the same find there before its `git add -A`.
 - Never write the ElevenLabs key anywhere in the repo, including scripts, `.env` files, or docs. The generator reads it at run time.
-- Repo administration (adding collaborators, changing visibility) via `gh api` is blocked for Claude in auto mode unless `.claude/settings.json` allows `Bash(gh api:*)`. Hand the command to the user otherwise.
+- Repo administration: `gh repo edit --visibility` and read-only `gh api` calls worked for Claude in auto mode (17 Sep); adding collaborators via `gh api` may be blocked, in which case hand the command to the user. PR merges and Cloud Run deploys are blocked for Claude in auto mode unless Nick says "merge" in the request; the deploy is always Nick's to run.
+- Credits follow the person's own wishes, everywhere: Mick Currey by name and WG1 role, never with his employer; Baird Kaake by name and WG1 until he says. That applies to docs and commit messages as well as the tiles.
+- Feedback from the portal's form reaches Nick, Peter and Tony and is kept on the portal's staff page `/keynote/feedback`. Every note that changes the demo gets a line in `docs/review-feedback.md` here and a row in the portal's `config/keynote.toml`.
 - Nick's collaborators: Tony Farinacci is `tfarinacci` (org admin); Peter is `securitysonar` (outside collaborator, add per repo).
