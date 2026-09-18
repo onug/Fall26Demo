@@ -2,7 +2,7 @@
 
 ONUG Fall AI Networking Summit · New York City · 28 October 2026
 
-**Status: draft for Nick, Peter, Bill and Jesi, 17 September 2026.** Shareable copy: [Google Doc, draft v4](https://docs.google.com/document/d/1AN870HsgxS9oh0aAZ8ezlCxpsWV8sl13F4XuS3qghWc/edit) in Nick's *Demo Fall 26* Drive folder (v1 to v3 are renamed as superseded; v4 adds joint rights, members' priority for presentation slots and the schedule-may-change note; keep the Doc in step with this file). Dates marked ▲ are proposals that need a yes before this goes to vendors. Everything else follows what was agreed at the 15 September co-chair review and the 16 September team meeting (the challenge is open to every sponsor, not only Collaborative members; founding members had the demo and these instructions first and carry their marks in the Collaborative Center).
+**Status: 18 September 2026.** This file is the source of record; nothing else needs a sign-in or a request for access. Dates marked ▲ are provisional and will be confirmed; the final on-site schedule is posted in the Collaborative Slack.
 
 ## 1. What this is
 
