@@ -1,0 +1,291 @@
+<meta charset="UTF-8">
+<title>The Vendor Three-Lane Challenge</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+  :root {
+    color-scheme: light;
+    --onug-white: #FFFFFF;
+    --onug-bg-alt: #F4F4F4;
+    --onug-border: #E8E8E8;
+    --onug-border-strong: #DADBDD;
+    --onug-text-muted: #585858;
+    --onug-text-secondary: #2C2C2C;
+    --onug-text: #000000;
+    --onug-navy: #0F1D2A;
+    --onug-ink: #141414;
+    --onug-on-dark: #FFFFFF;
+    --onug-on-dark-muted: #9B9B9B;
+    --onug-green: #8FC73E;
+    --onug-green-dark: #70A228;
+    --onug-orange: #F58220;
+    --onug-orange-dark: #DB7015;
+    --font-body: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--onug-white);
+    color: var(--onug-text-secondary);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .report { max-width: 980px; margin: 0 auto; padding: 72px 28px 120px; }
+
+  a { color: var(--onug-green-dark); transition: color 0.2s linear; }
+  a:hover { color: var(--onug-green); }
+  a:focus-visible { outline: 2px solid var(--onug-orange); outline-offset: 3px; }
+  code, .mono { font-family: var(--font-mono); }
+
+  .rpt-mast { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-bottom: 20px; border-bottom: 2px solid var(--onug-green); margin-bottom: 40px; }
+  .rpt-mast svg { flex: none; display: block; }
+  .rpt-mast .kind { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--onug-text-muted); text-align: right; line-height: 1.5; }
+
+  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--onug-orange-dark); margin-bottom: 18px; }
+
+  h1 { color: var(--onug-text); font-size: 38px; font-weight: 700; line-height: 1.14; margin: 0; text-wrap: balance; max-width: 780px; }
+  .hl { color: var(--onug-green-dark); font-weight: 700; }
+
+  .byline { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; font-family: var(--font-mono); font-size: 12.5px; color: var(--onug-text-muted); margin-top: 18px; }
+
+  blockquote {
+    margin: 36px 0; padding-left: 22px; max-width: 780px;
+    border-left: 3px solid var(--onug-orange);
+    font-size: 21px; line-height: 1.45; color: var(--onug-text);
+  }
+
+  h2 { color: var(--onug-text); font-size: 24px; font-weight: 600; line-height: 1.2; margin: 52px 0 12px; text-wrap: balance; }
+  h3 { color: var(--onug-text); font-size: 17px; font-weight: 600; margin: 0 0 4px; }
+
+  p { font-size: 17px; line-height: 1.62; margin: 16px 0; color: var(--onug-text-secondary); max-width: 780px; }
+  strong { color: var(--onug-text); font-weight: 600; }
+
+  /* ---------- three-lane table ---------- */
+
+  .table-wrap { overflow-x: auto; margin: 24px 0; border: 1px solid var(--onug-border); border-radius: 6px; }
+  table.lanes { width: 100%; min-width: 780px; border-collapse: collapse; font-size: 14px; }
+  table.lanes thead th {
+    text-align: left; padding: 12px 14px;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+    color: var(--onug-on-dark-muted);
+    background: var(--onug-navy);
+  }
+  table.lanes thead th:first-child { border-top-left-radius: 5px; }
+  table.lanes thead th:last-child { border-top-right-radius: 5px; }
+  table.lanes tbody tr:nth-child(even) { background: var(--onug-bg-alt); }
+  table.lanes tbody td { padding: 14px; border-bottom: 1px solid var(--onug-border); vertical-align: top; color: var(--onug-text-secondary); line-height: 1.5; font-size: 14px; }
+  table.lanes tbody tr:last-child td { border-bottom: none; }
+  table.lanes .lane-num { font-family: var(--font-mono); font-size: 15px; color: var(--onug-green-dark); font-weight: 700; white-space: nowrap; }
+  table.lanes .wg-name { color: var(--onug-text); font-weight: 600; }
+  table.lanes .ctrl-list { display: flex; flex-direction: column; gap: 4px; }
+  table.lanes .ctrl-list span { font-size: 13px; }
+  table.lanes .ctrl-list b { font-family: var(--font-mono); color: var(--onug-green-dark); font-weight: 700; margin-right: 4px; }
+
+  /* ---------- lane detail cards ---------- */
+
+  .lane-card { margin: 20px 0; border: 1px solid var(--onug-border); border-radius: 6px; overflow: hidden; }
+  .lane-card .head { background: var(--onug-navy); color: var(--onug-on-dark); padding: 16px 22px; }
+  .lane-card .head .num { font-family: var(--font-mono); font-size: 12px; color: var(--onug-green); text-transform: uppercase; letter-spacing: 0.06em; }
+  .lane-card .head .title { font-size: 18px; font-weight: 700; margin-top: 2px; }
+  .lane-card .head .challenge { font-size: 13.5px; color: var(--onug-on-dark-muted); margin-top: 6px; font-style: italic; }
+  .lane-card .body { padding: 18px 22px 20px; }
+
+  .prove-row { display: grid; grid-template-columns: 1fr 140px; gap: 16px; padding: 12px 0; border-top: 1px solid var(--onug-border); align-items: start; }
+  .prove-row:first-child { border-top: none; }
+  .prove-row .claim { font-size: 14.5px; line-height: 1.5; color: var(--onug-text-secondary); }
+  .prove-row .claim b { color: var(--onug-text); font-weight: 600; }
+  .prove-row .maps-to { font-family: var(--font-mono); font-size: 12px; color: var(--onug-green-dark); text-align: right; font-weight: 600; }
+
+  /* ---------- callout ---------- */
+
+  .callout { margin: 28px 0; padding: 26px 28px; background: var(--onug-navy); color: var(--onug-on-dark); border-radius: 6px; max-width: 780px; }
+  .callout h3 { color: var(--onug-on-dark); margin: 0 0 8px; font-size: 14px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .callout p { color: var(--onug-on-dark-muted); font-size: 14.5px; margin: 0 0 12px; max-width: none; }
+  .callout ol, .callout ul { margin: 0; padding-left: 20px; font-size: 14.5px; line-height: 1.55; color: var(--onug-on-dark); }
+  .callout li { margin: 9px 0; }
+  .callout b { color: var(--onug-green); font-weight: 600; }
+
+  .cta-band {
+    margin: 32px 0; padding: 24px 28px; border-radius: 6px;
+    background: var(--onug-bg-alt); border-left: 4px solid var(--onug-orange);
+  }
+  .cta-band h3 { color: var(--onug-orange-dark); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; margin: 0 0 8px; }
+  .cta-band p { margin: 0; max-width: none; font-size: 15px; }
+
+  .tag-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 20px 0 8px; }
+  .tag {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+    padding: 5px 13px; border: 1px solid var(--onug-border-strong); border-radius: 999px;
+    color: var(--onug-text-secondary);
+  }
+  .tag.accent { border-color: var(--onug-green); color: var(--onug-green-dark); }
+  .tag.orange { border-color: var(--onug-orange); color: var(--onug-orange-dark); }
+
+  footer {
+    margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--onug-border);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    font-family: var(--font-mono); font-size: 11.5px; color: var(--onug-text-muted);
+  }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 28px; }
+    .prove-row { grid-template-columns: 1fr; gap: 4px; }
+    .prove-row .maps-to { text-align: left; }
+    .rpt-mast { flex-direction: column; align-items: flex-start; }
+    .rpt-mast .kind { text-align: left; }
+  }
+</style>
+
+<article class="report">
+
+  <div class="rpt-mast">
+    <svg width="132" height="32" viewBox="0 0 276 66.9" role="img" aria-label="ONUG">
+      <path d="M33.4,14c-10.7,0-19.5,8.7-19.5,19.5c0,10.7,8.7,19.5,19.5,19.5c10.7,0,19.5-8.7,19.5-19.5C52.9,22.7,44.2,14,33.4,14 M33.4,66.9C15,66.9,0,51.9,0,33.4C0,15,15,0,33.4,0s33.4,15,33.4,33.4C66.9,51.9,51.9,66.9,33.4,66.9" fill="#8FC73E"/>
+      <path d="M88.1,29.1c0-8.4,6.8-15.2,15.2-15.2c8.4,0,15.2,6.8,15.2,15.2v37.8h13.9V29.1c0-16-13.1-29.1-29.1-29.1c-16,0-29.1,13.1-29.1,29.1v37.8h13.9V29.1z" fill="#000000"/>
+      <path d="M183.2,37.8c0,8.4-6.8,15.2-15.2,15.2c-8.4,0-15.2-6.8-15.2-15.2V0h-13.9v37.8c0,16,13.1,29.1,29.1,29.1c16,0,29.1-13.1,29.1-29.1V0h-13.9V37.8z" fill="#000000"/>
+      <path d="M253.3,45.3c-3.6,4.7-9.2,7.7-15.5,7.7c-10.7,0-19.5-8.7-19.5-19.5c0-10.7,8.7-19.5,19.5-19.5c6.2,0,11.7,2.9,15.3,7.5H269C264.2,8.9,252,0,237.9,0c-18.4,0-33.4,15-33.4,33.4s15,33.4,33.4,33.4c14.3,0,26.5-9,31.3-21.6H253.3z" fill="#000000"/>
+      <rect x="246.8" y="26.4" width="29.2" height="13.9" fill="#000000"/>
+    </svg>
+    <div class="kind">Collaborative Working Groups<br>WG1 &middot; WG2 &middot; WG3</div>
+  </div>
+
+  <div class="eyebrow">Vendor Challenge &middot; All Three Working Groups</div>
+  <h1>The Vendor <span class="hl">Three-Lane</span> Challenge</h1>
+  <div class="byline">
+    <span>WG1 &mdash; Agentic Control Plane</span><span>&middot;</span>
+    <span>WG2 &mdash; Autonomous Infrastructure</span><span>&middot;</span>
+    <span>WG3 &mdash; AI-Enabled SOC</span><span>&middot;</span>
+    <span>2026-09-17</span><span>&middot;</span>
+    <span>owner: ONUG Collaborative</span>
+  </div>
+
+  <blockquote>
+    Three working groups, three lanes, one standard: prove it, don't claim it.
+  </blockquote>
+
+  <p>Every vendor briefing to WG1, WG2, or WG3 gets measured against the same question, asked three different ways depending on which lane the product sits in. This is that question, made explicit. A vendor that can answer all three "prove it" columns with a working demo &mdash; not a roadmap slide &mdash; is speaking the working groups' language.</p>
+
+  <div class="table-wrap">
+    <table class="lanes">
+      <thead>
+        <tr><th>Lane</th><th>Working Group</th><th>The Challenge</th><th>Controls</th><th>What "Prove It" Looks Like</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="lane-num">1</td>
+          <td class="wg-name">Agentic Control Plane</td>
+          <td>Supervise agents from outside. No self-attestation.</td>
+          <td>
+            <div class="ctrl-list">
+              <span><b>#1</b>Identity Attestation</span>
+              <span><b>#2</b>Artifact Provenance</span>
+              <span><b>#3</b>Runtime Monitoring</span>
+              <span><b>#4</b>Immutable Audit Journal</span>
+              <span><b>#5</b>Kill Switch</span>
+            </div>
+          </td>
+          <td>Identity and provenance for every agent and artifact &middot; runtime rogue detection and kill switch &middot; immutable, hash-chained audit journal</td>
+        </tr>
+        <tr>
+          <td class="lane-num">2</td>
+          <td class="wg-name">Autonomous Infrastructure</td>
+          <td>Let agents run the fabric, with every write mediated.</td>
+          <td>
+            <div class="ctrl-list">
+              <span><b>#6</b>Verify Gate</span>
+              <span><b>#7</b>Autonomy Levels</span>
+            </div>
+          </td>
+          <td>Verify gate: change-stop, dry-run, blast radius, rollback &middot; declared autonomy levels per agent &middot; bounded auto-act with automatic revert</td>
+        </tr>
+        <tr>
+          <td class="lane-num">3</td>
+          <td class="wg-name">AI-Enabled SOC</td>
+          <td>Compress detect-to-decide to seconds without destroying evidence.</td>
+          <td>
+            <div class="ctrl-list">
+              <span><b>#8</b>Detect &rarr; Decide</span>
+              <span><b>#9</b>Deliberate Containment</span>
+            </div>
+          </td>
+          <td>Cross-domain correlation: fabric + plane + SOC &middot; deliberate, gated containment &middot; evidence preserved with chain of custody</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Lane 1 &mdash; Agentic Control Plane</h2>
+  <div class="lane-card">
+    <div class="head">
+      <div class="num">WG1</div>
+      <div class="title">Supervise agents from outside. No self-attestation.</div>
+      <div class="challenge">An agent that can vouch for its own identity or authority isn't supervised &mdash; it's trusted on its word.</div>
+    </div>
+    <div class="body">
+      <div class="prove-row"><div class="claim"><b>#1 Identity Attestation.</b> Cryptographic non-human identity &middot; mutual auth.</div><div class="maps-to">TF-1, TF-5</div></div>
+      <div class="prove-row"><div class="claim"><b>#2 Artifact Provenance.</b> Approved source &middot; SBOM &middot; new artifacts run sandboxed first.</div><div class="maps-to">REG-5, REG-2</div></div>
+      <div class="prove-row"><div class="claim"><b>#3 Runtime Monitoring.</b> Behavior measured from outside the agent.</div><div class="maps-to">RS-2</div></div>
+      <div class="prove-row"><div class="claim"><b>#4 Immutable Audit Journal.</b> Append-only &middot; hash-chained &middot; agent has no access.</div><div class="maps-to">RS-3</div></div>
+      <div class="prove-row"><div class="claim"><b>#5 Kill Switch.</b> Quarantine at machine speed.</div><div class="maps-to">RS-4</div></div>
+    </div>
+  </div>
+
+  <h2>Lane 2 &mdash; Autonomous Infrastructure</h2>
+  <div class="lane-card">
+    <div class="head">
+      <div class="num">WG2 &middot; NOC</div>
+      <div class="title">Let agents run the fabric, with every write mediated.</div>
+      <div class="challenge">Autonomy is fine; an unmediated write is not.</div>
+    </div>
+    <div class="body">
+      <div class="prove-row"><div class="claim"><b>#6 Verify Gate.</b> Change-stop &middot; dry-run &middot; blast radius &middot; rollback.</div><div class="maps-to">LOOP-4</div></div>
+      <div class="prove-row"><div class="claim"><b>#7 Autonomy Levels.</b> Observe &rarr; recommend &rarr; gated act &rarr; bounded auto-act.</div><div class="maps-to">PER-1</div></div>
+    </div>
+  </div>
+  <p style="font-size:14px;color:var(--onug-text-muted);margin-top:-4px;">"Bounded auto-act with automatic revert" is the top end of Control #7, not a separate control &mdash; the revert-on-failure behavior is <span class="mono" style="font-family:var(--font-mono);">LOOP-6</span> firing underneath the L3 tier.</p>
+
+  <h2>Lane 3 &mdash; AI-Enabled SOC</h2>
+  <div class="lane-card">
+    <div class="head">
+      <div class="num">WG3 &middot; SOC</div>
+      <div class="title">Compress detect-to-decide to seconds without destroying evidence.</div>
+      <div class="challenge">Speed that costs the case is not a win.</div>
+    </div>
+    <div class="body">
+      <div class="prove-row"><div class="claim"><b>#8 Detect &rarr; Decide.</b> Cross-domain correlation in seconds.</div><div class="maps-to">RES-4, LOOP-4</div></div>
+      <div class="prove-row"><div class="claim"><b>#9 Deliberate Containment.</b> Evidence preserved before anything is destroyed.</div><div class="maps-to">LOOP-5, RS-3 lineage</div></div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <h3>Why nine controls, not a slogan</h3>
+    <p>Each of the nine numbered controls already has a home in that lane's working-group requirements document &mdash; the mapping above isn't new scope, it's a translation of what's already required into a control a vendor can be asked to demonstrate by number.</p>
+    <ul>
+      <li><b>Lane 1 carries five controls, Lanes 2 and 3 carry two each</b> &mdash; the split isn't even because the plane (Lane 1) is where most of the accountability machinery actually lives; NOC and SOC (Lanes 2&ndash;3) each add only what's specific to running inside that domain.</li>
+      <li><b>Lane 1 is the plane itself</b> &mdash; not a fourth thing WG1 does alongside the plane, but the accountability restated as numbered controls: #1&ndash;5 are already numbered requirements in the WG1 requirements document.</li>
+      <li><b>Lanes 2 and 3 are what the plane looks like from inside a domain</b> &mdash; the same invariants (mediated writes, gated decisions, an audit trail the agent can't touch), now phrased as controls a NOC or SOC operator would actually ask a vendor to demonstrate.</li>
+    </ul>
+  </div>
+
+  <div class="cta-band">
+    <h3>For vendors preparing a briefing</h3>
+    <p>Bring the lane that matches your product to a live demo, not a slide. "Prove it" means the working group sees the kill switch fire, the rollback execute, or the chain of custody survive &mdash; in the room, on your product, not on a roadmap.</p>
+  </div>
+
+  <div class="tag-row">
+    <span class="tag accent">Lane 1 &middot; WG1</span>
+    <span class="tag accent">Lane 2 &middot; WG2</span>
+    <span class="tag accent">Lane 3 &middot; WG3</span>
+    <span class="tag orange">Vendor-facing</span>
+  </div>
+
+  <footer>
+    <span>ONUG &mdash; Vendor three-lane challenge across WG1, WG2, WG3</span>
+    <span>Generated from ONUG Collaborative shared documents and Slack workspaces</span>
+  </footer>
+
+</article>

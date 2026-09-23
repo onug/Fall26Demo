@@ -1,0 +1,279 @@
+<meta charset="UTF-8">
+<title>WG3 Requirements — Agentic-Enabled SOC Persona</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+  :root {
+    color-scheme: light;
+    --onug-white: #FFFFFF;
+    --onug-bg-alt: #F4F4F4;
+    --onug-border: #E8E8E8;
+    --onug-border-strong: #DADBDD;
+    --onug-text-muted: #585858;
+    --onug-text-secondary: #2C2C2C;
+    --onug-text: #000000;
+    --onug-navy: #0F1D2A;
+    --onug-ink: #141414;
+    --onug-on-dark: #FFFFFF;
+    --onug-on-dark-muted: #9B9B9B;
+    --onug-green: #8FC73E;
+    --onug-green-dark: #70A228;
+    --onug-orange: #F58220;
+    --onug-orange-dark: #DB7015;
+    --font-body: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--onug-white);
+    color: var(--onug-text-secondary);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .report {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 72px 28px 120px;
+  }
+
+  a { color: var(--onug-green-dark); transition: color 0.2s linear; }
+  a:hover { color: var(--onug-green); }
+  a:focus-visible { outline: 2px solid var(--onug-orange); outline-offset: 3px; }
+  code, .mono { font-family: var(--font-mono); }
+  .wiki-ref { font-family: var(--font-mono); font-size: 0.92em; color: var(--onug-text-muted); }
+
+  .rpt-mast { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-bottom: 20px; border-bottom: 2px solid var(--onug-green); margin-bottom: 40px; }
+  .rpt-mast svg { flex: none; display: block; }
+  .rpt-mast .kind { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--onug-text-muted); text-align: right; line-height: 1.5; }
+
+  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--onug-green-dark); margin-bottom: 18px; }
+
+  h1 { color: var(--onug-text); font-size: 38px; font-weight: 700; line-height: 1.14; margin: 0; text-wrap: balance; }
+  h1 .hl, h2 .hl { color: var(--onug-green-dark); font-weight: 700; }
+
+  .byline { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; font-family: var(--font-mono); font-size: 12.5px; color: var(--onug-text-muted); margin-top: 18px; }
+
+  blockquote {
+    margin: 36px 0; padding-left: 22px;
+    border-left: 3px solid var(--onug-green);
+    font-size: 21px; line-height: 1.45; color: var(--onug-text);
+  }
+
+  h2 { color: var(--onug-text); font-size: 24px; font-weight: 600; line-height: 1.2; margin: 52px 0 6px; text-wrap: balance; }
+  h3 { color: var(--onug-text); font-size: 17px; font-weight: 600; margin: 30px 0 8px; }
+
+  p { font-size: 17px; line-height: 1.62; margin: 16px 0; color: var(--onug-text-secondary); }
+  strong { color: var(--onug-text); font-weight: 600; }
+
+  ul { font-size: 17px; line-height: 1.6; color: var(--onug-text-secondary); padding-left: 22px; }
+  li { margin: 8px 0; }
+  li strong { font-weight: 600; }
+
+  .quote-strip {
+    font-size: 14.5px; font-style: italic; color: var(--onug-text-muted);
+    margin: 10px 0 22px; padding-left: 2px;
+  }
+
+  .callout {
+    margin: 28px 0; padding: 26px 28px;
+    background: var(--onug-navy); color: var(--onug-on-dark);
+    border-radius: 6px;
+  }
+  .callout h3 { color: var(--onug-on-dark); margin: 0 0 6px; font-size: 14px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .callout p { color: var(--onug-on-dark-muted); font-size: 14.5px; margin: 6px 0 16px; }
+  .callout ol, .callout ul { margin: 0; padding-left: 20px; font-size: 14.5px; line-height: 1.55; color: var(--onug-on-dark); }
+  .callout ol li, .callout ul li { margin: 9px 0; }
+  .callout ol li b, .callout ul li b { color: var(--onug-green); font-weight: 600; }
+  .callout .legend-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+
+  .req { display: grid; grid-template-columns: 96px 1fr; gap: 18px; padding: 16px 0; border-top: 1px solid var(--onug-border); }
+  .req:last-of-type { border-bottom: 1px solid var(--onug-border); }
+  .req .id { font-family: var(--font-mono); font-size: 12.5px; font-weight: 600; color: var(--onug-green-dark); }
+  .req .id .src { display: block; margin-top: 4px; font-size: 11px; line-height: 1.4; color: var(--onug-text-muted); font-weight: 500; }
+  .req .body b.title { color: var(--onug-text); font-weight: 600; display: block; margin-bottom: 3px; font-size: 15.5px; }
+  .req .body p { font-size: 15px; line-height: 1.55; margin: 0; color: var(--onug-text-secondary); }
+  .req .body .note { display: block; margin-top: 6px; font-size: 13px; color: var(--onug-text-muted); font-style: italic; }
+  .req.readonly { border-left: 3px solid var(--onug-green); padding-left: 12px; }
+  .req.gated { border-left: 3px solid var(--onug-orange); padding-left: 12px; }
+
+  .tag-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 20px 0 8px; }
+  .tag {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+    padding: 5px 13px; border: 1px solid var(--onug-border-strong); border-radius: 999px;
+    color: var(--onug-text-secondary);
+  }
+  .tag.accent { border-color: var(--onug-green); color: var(--onug-green-dark); }
+  .tag.orange { border-color: var(--onug-orange); color: var(--onug-orange-dark); }
+  .tag.dark { background: var(--onug-navy); border-color: var(--onug-navy); color: #fff; }
+
+  .constraint-wrap { overflow-x: auto; margin: 20px 0; }
+  table.constraints { width: 100%; border-collapse: collapse; font-size: 14px; }
+  table.constraints thead th {
+    text-align: left; padding: 9px 12px;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--onug-text-muted);
+    border-bottom: 2px solid var(--onug-green);
+  }
+  table.constraints tbody td { padding: 11px 12px; border-bottom: 1px solid var(--onug-border); vertical-align: top; color: var(--onug-text-secondary); line-height: 1.45; }
+  table.constraints .who { color: var(--onug-text); font-weight: 600; white-space: nowrap; }
+  table.constraints .ref { font-family: var(--font-mono); font-size: 11.5px; color: var(--onug-text-muted); white-space: nowrap; }
+
+  .sources {
+    margin-top: 52px; padding-top: 22px; border-top: 2px solid var(--onug-green);
+    display: flex; flex-direction: column; gap: 8px;
+    font-family: var(--font-mono); font-size: 12.5px;
+  }
+  .sources .lbl { color: var(--onug-text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-size: 11px; margin-bottom: 4px; }
+  .sources a { text-decoration: none; }
+
+  footer {
+    margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--onug-border);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    font-family: var(--font-mono); font-size: 11.5px; color: var(--onug-text-muted);
+  }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 28px; }
+    .req { grid-template-columns: 1fr; gap: 4px; }
+    .rpt-mast { flex-direction: column; align-items: flex-start; }
+    .rpt-mast .kind { text-align: left; }
+  }
+</style>
+
+<article class="report">
+
+  <div class="rpt-mast">
+    <svg width="132" height="32" viewBox="0 0 276 66.9" role="img" aria-label="ONUG">
+      <path d="M33.4,14c-10.7,0-19.5,8.7-19.5,19.5c0,10.7,8.7,19.5,19.5,19.5c10.7,0,19.5-8.7,19.5-19.5C52.9,22.7,44.2,14,33.4,14 M33.4,66.9C15,66.9,0,51.9,0,33.4C0,15,15,0,33.4,0s33.4,15,33.4,33.4C66.9,51.9,51.9,66.9,33.4,66.9" fill="#8FC73E"/>
+      <path d="M88.1,29.1c0-8.4,6.8-15.2,15.2-15.2c8.4,0,15.2,6.8,15.2,15.2v37.8h13.9V29.1c0-16-13.1-29.1-29.1-29.1c-16,0-29.1,13.1-29.1,29.1v37.8h13.9V29.1z" fill="#000000"/>
+      <path d="M183.2,37.8c0,8.4-6.8,15.2-15.2,15.2c-8.4,0-15.2-6.8-15.2-15.2V0h-13.9v37.8c0,16,13.1,29.1,29.1,29.1c16,0,29.1-13.1,29.1-29.1V0h-13.9V37.8z" fill="#000000"/>
+      <path d="M253.3,45.3c-3.6,4.7-9.2,7.7-15.5,7.7c-10.7,0-19.5-8.7-19.5-19.5c0-10.7,8.7-19.5,19.5-19.5c6.2,0,11.7,2.9,15.3,7.5H269C264.2,8.9,252,0,237.9,0c-18.4,0-33.4,15-33.4,33.4s15,33.4,33.4,33.4c14.3,0,26.5-9,31.3-21.6H253.3z" fill="#000000"/>
+      <rect x="246.8" y="26.4" width="29.2" height="13.9" fill="#000000"/>
+    </svg>
+    <div class="kind">Collaborative Working Groups<br>WG3 &middot; AI-Assisted SOC</div>
+  </div>
+
+  <div class="eyebrow">Requirements Document &middot; Draft v0.6</div>
+  <h1>Requirements for the <span class="hl">Agentic-Enabled SOC</span> Persona</h1>
+  <div class="byline">
+    <span>WG3 &mdash; Agentic-Enabled SOC Reference Architecture</span><span>&middot;</span>
+    <span>architecture dated 2026-08-06</span><span>&middot;</span>
+    <span>this spec 2026-09-15</span><span>&middot;</span>
+    <span>owner: ONUG Collaborative</span>
+  </div>
+
+  <blockquote>
+    WG3 kept WG2's skeleton on purpose &mdash; same four boxes, same six-step loop, "per the shared-template agreement." What changes is exactly what a security operations center needs changed: a conservative autonomy ceiling, a Decide Gate instead of a Verify Gate, and an audit journal that has to double as chain of custody.
+  </blockquote>
+
+  <h2>Scope and method</h2>
+  <p>Like WG2, WG3 has no separate numbered requirements list. The WG2/WG3 v0.6 NOC/SOC reference architecture is the drawing this document numbers, element by element. Where the drawing's step names conflict with the older AI SOC Reference Architecture technical reference, both are cited and the conflict is flagged rather than silently resolved &mdash; see the note under Agent Operations Loop.</p>
+  <p>This is the SOC application of the same skeleton WG2 uses for the NOC. Requirements that are identical in structure to WG2's are stated in SOC-specific language below; see the <a href="report-onug-wg2-requirements.html">WG2 requirements document</a> for the network-operations version.</p>
+
+  <div class="callout">
+    <h3>Lineage &mdash; tracing back to the 25</h3>
+    <p>Every requirement below now cites the WG1 item it descends from, matching WG1's and WG2's requirements documents so all three trace to one list.</p>
+    <ul>
+      <li>WG1's Agentic Overlay Alignment Analysis is the only numbered requirements source across the WG1&ndash;3 set. WG3's v0.6 drawing has no numbers of its own &mdash; the citations below are this document's analysis, not a working-group-ratified crosswalk.</li>
+      <li>The v0.6 reference architecture already names three of these connections (persona &rarr; item #18, next-hop auth &rarr; item #21, composite authority &rarr; item #22); the rest are extended here to cover every requirement.</li>
+      <li>Two SOC-specific items get pulled in that WG2 doesn't need: <b>item #19</b>, Agent Inferred Prompt Injection &mdash; relevant wherever an LLM-based agent parses attacker-influenced log or alert content &mdash; and the same <b>item #20</b>, Credential-in-Context Protection, at the Respond step.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <h3>How to read the drawing</h3>
+    <p>Quoted directly from the architecture map's own labels.</p>
+    <div class="legend-row">
+      <span class="tag dark">Agent Persona Creation</span>
+      <span class="tag dark">Access Enforcement &amp; Audit</span>
+      <span class="tag dark">Agent Operations Loop 1&ndash;6</span>
+    </div>
+    <ul style="margin-top:16px;">
+      <li><b>Same plan-then-build structure as WG2.</b> Persona creation (autonomy, model, estate) must be answered before enforcement and the loop can be built.</li>
+      <li><b>The SOC ceiling is conservative by design.</b> Where WG2's L3 is earned by track record generally, WG3's L3 is scoped narrowly &mdash; "corroborated known-bad signatures only."</li>
+      <li><b>Green = read-only, orange = autonomy-gated</b> &mdash; same color coding as WG2. Steps 1&ndash;3 always run; steps 4&ndash;6 are gated by the persona's autonomy level.</li>
+    </ul>
+  </div>
+
+  <h2>Agent Persona Creation</h2>
+  <div class="quote-strip">"you can't do anything below unless you know what you're going to allow up here"</div>
+
+  <div class="req"><div class="id">PER-1<span class="src">item #1<br>rel. #6</span></div><div class="body"><b class="title">Agent Autonomy Level</b><p>Four levels, with a SOC-specific ceiling: L0 observe, L1 recommend, L2 gated act ("analyst approves each block"), L3 bounded auto-act ("corroborated known-bad signatures only"). This level decides whether loop steps 4&ndash;6 ever fire.</p><span class="note">This is WG1 item #1's risk-tier and decision-rights model, scoped conservatively for a SOC persona. Related: item #6, Human Oversight Policy. The older AI SOC Reference Architecture technical-reference doc defines a differently-scoped three-level framework (Level 1 Inform/Suggest, Level 2 Bounded Auto-Containment, Level 3 Full Machine Autonomy). The two schemes are not reconciled in the source material &mdash; treat the v0.6 drawing's L0&ndash;L3 as current.</span></div></div>
+  <div class="req"><div class="id">PER-2<span class="src">item #10</span></div><div class="body"><b class="title">Models &amp; Model Location</b><p>On-prem versus frontier is a risk decision: design for retries on off-premises calls, account for public-pretraining contamination. SOC-specific: ML handles anomaly scoring, NLP/LLM handles log semantics. No GPU fabric is required &mdash; the build standard matters, not the cluster.</p><span class="note">Maps to WG1 item #10's model-security requirements, applied to detection models rather than action-taking ones.</span></div></div>
+  <div class="req"><div class="id">PER-3<span class="src">item #4<br>rel. #18</span></div><div class="body"><b class="title">Estate Under Watch</b><p>Endpoints/EDR, identity systems, cloud IAM &amp; flows, internet edge/CDN/WAF &mdash; with fused detection across all of them, not siloed per source.</p><span class="note">The "connected systems / data accessed" field from WG1 item #4's Inventory and Registry, scoped to the SOC persona. Related: item #18, Agent Personas.</span></div></div>
+
+  <h2>Access Enforcement &amp; Audit</h2>
+  <div class="quote-strip">"outside agent control and influence"</div>
+
+  <div class="req"><div class="id">ACC-1<span class="src">item #21</span></div><div class="body"><b class="title">Pattern A &mdash; Direct (agent &hArr; agent)</b><p>Agents reach resources and each other directly; every call carries full enforcement.</p><span class="note">WG1 item #21, Agent-to-Next-Hop Authentication, applied to direct SOC agent-to-agent calls.</span></div></div>
+  <div class="req"><div class="id">ACC-2<span class="src">item #7<br>rel. #5</span></div><div class="body"><b class="title">Pattern B &mdash; Orchestrated</b><p>An Orchestrator / API Gateway fronts all four resource classes, itself governed &mdash; referencing policy on every request rather than acting as a trusted superuser.</p><span class="note">The gateway's per-request check is item #7's guardrails, centralized. Related: item #5, least privilege.</span></div></div>
+  <div class="req"><div class="id">RES-1<span class="src">item #8<br>rel. #19</span></div><div class="body"><b class="title">Telemetry / Logs</b><p>Governed resource, reachable only as policy allows.</p><span class="note">Feeds item #8, Observability and Monitoring. Related: item #19 &mdash; log and alert content an LLM-based agent parses is a channel for inferred/indirect prompt injection, not just a data source.</span></div></div>
+  <div class="req"><div class="id">RES-2<span class="src">item #8<br>rel. #9</span></div><div class="body"><b class="title">Sources of Truth</b><p>Governed resource, reachable only as policy allows.</p><span class="note">The baseline data item #8 compares live signal against. Related: item #9, Audit and Traceability.</span></div></div>
+  <div class="req"><div class="id">RES-3<span class="src">item #7<br>rel. #10</span></div><div class="body"><b class="title">Rulesets</b><p>The agent reads its rules, baselines, and intel but can never modify them.</p><span class="note">Stated plainly in the source: "an agent that could rewrite its own detection rules could blind the SOC." The ruleset is item #7's technical guardrails; read-only access is what item #10's escalation-prevention requirement demands of it.</span></div></div>
+  <div class="req"><div class="id">RES-4<span class="src">item #16<br>rel. #21, #22</span></div><div class="body"><b class="title">Agents / MCPs</b><p>Governed, reachable only under explicit control of which agents may talk to which. For the SOC this is what makes fused detection possible &mdash; endpoint, identity, cloud, and edge agents correlating under control &mdash; including SOC&hArr;NOC coordination, such as quarantining a host without tipping off the intruder.</p><span class="note">Item #16, Multi-Vendor Control Plane Interoperability, applied across internal domains rather than external vendors. Related: item #21 (per-hop auth) and item #22 (the aggregate risk of many correlating agents).</span></div></div>
+
+  <h2>Agent Operations Loop 1&ndash;6</h2>
+  <div class="quote-strip">"the autonomy level chosen above decides whether steps 4&ndash;6 ever fire" &middot; "intelligence value may outweigh immediate blocking"</div>
+  <p>The v0.6 drawing names these steps Detect &middot; Investigate &middot; Propose &middot; Decide &middot; Respond &middot; Validate &amp; Learn. The older technical-reference doc names the same six positions Detect &middot; Diagnose &middot; Propose &middot; Verify Gate &middot; Execute &middot; Validate, with per-step authority-scope detail this drawing doesn't spell out. The content lines up 1:1; the names don't match and the source material never reconciles them. Both are given below.</p>
+
+  <div class="req readonly"><div class="id">LOOP-1<span class="src">item #8<br>rel. #19</span></div><div class="body"><b class="title">Detect</b><p>Signal surfaces. Read-only.</p><span class="note">Per the older reference doc: "read-only / high-throughput ingestion" across EDR, cloud, identity, NDR, and AI-API telemetry &mdash; the ingestion half of item #8. Related: item #19, since this is where adversary-influenced log content first reaches an agent.</span></div></div>
+  <div class="req readonly"><div class="id">LOOP-2<span class="src">item #8<br>rel. #9</span></div><div class="body"><b class="title">Investigate <span style="font-weight:400;color:var(--onug-text-muted);">(called "Diagnose" in the older reference)</span></b><p>Context and scope. Read-only.</p><span class="note">Per the older doc: "read-only graph queries and source-of-truth lookups" across the Unified Security Graph, without manual pivoting between tools &mdash; item #8's investigation half, drawing on item #9's audit data.</span></div></div>
+  <div class="req readonly"><div class="id">LOOP-3<span class="src">item #6<br>rel. #1</span></div><div class="body"><b class="title">Propose</b><p>Candidate action. Read-only &mdash; an analyst still decides; nothing here is mutable.</p><span class="note">Per the older doc: "read-only proposal generation and impact assessment," not execution of a fixed static playbook &mdash; item #6's Human Oversight Policy in practice. Related: item #1's decision-rights matrix.</span></div></div>
+  <div class="req gated"><div class="id">LOOP-4<span class="src">item #7<br>rel. #6</span></div><div class="body"><b class="title">Decide &mdash; Decide Gate <span style="font-weight:400;color:var(--onug-text-muted);">(called "Verify Gate" in the older reference)</span></b><p>Weighs contain-now versus observe-and-trace. Read-only &mdash; nothing changes yet.</p><span class="note">Per the older doc: a "Mother-May-I" change-stop check with dry-run and required rollback plan; low-risk actions pass automatically, high-impact actions (e.g. taking a primary database offline) require human authorization. This is item #7's runtime guardrails (confidence thresholds) executing; item #6 covers the human-authorization branch.</span></div></div>
+  <div class="req gated"><div class="id">LOOP-5<span class="src">item #5<br>rel. #20</span></div><div class="body"><b class="title">Respond <span style="font-weight:400;color:var(--onug-text-muted);">(called "Execute" in the older reference)</span></b><p>Staged, ticketed monitor &rarr; flag &rarr; block. Never blanket. This is the one genuinely mutable step in the loop.</p><span class="note">Per the older doc: ephemeral, scoped service credentials at the control-plane/API layer; auto-files an ITSM/change ticket &mdash; item #5's IAM Standard. Related: item #20, since the credential is injected at this boundary and never held by the agent.</span></div></div>
+  <div class="req gated"><div class="id">LOOP-6<span class="src">item #13<br>rel. #9</span></div><div class="body"><b class="title">Validate &amp; Learn</b><p>Confirm the response worked; feed the outcome back into learning rather than merely observing it.</p><span class="note">Per the older doc: confirms neutralization (e.g. C2 traffic stopped, token disabled), auto-triggers rollback and escalates to L3 on failure or unintended degradation &mdash; item #13's Incident Response recovery process. Related: item #9 &mdash; the outcome becomes chain-of-custody evidence.</span></div></div>
+
+  <h2>Boundary constraints</h2>
+  <p>Invariants that hold across every persona, pattern, and loop step above.</p>
+
+  <div class="constraint-wrap">
+    <table class="constraints">
+      <thead><tr><th>Invariant</th><th>Statement</th><th>Enforced by</th></tr></thead>
+      <tbody>
+        <tr><td class="who">Identity air-gap</td><td>No self-promotion &mdash; an agent can never grant itself more authority.</td><td class="ref">PER-1, ACC-1, ACC-2</td></tr>
+        <tr><td class="who">Scoped service accounts</td><td>Every agent identity is scoped to what its persona needs.</td><td class="ref">PER-3</td></tr>
+        <tr><td class="who">Enforcement-point-only responses</td><td>Respond (LOOP-5) is the only mutable step, and only fires through the enforcement point, never a direct agent-to-device path.</td><td class="ref">LOOP-5</td></tr>
+        <tr><td class="who">Governed agent/MCP reachability</td><td>Which agents may talk to which &mdash; including cross-domain SOC&hArr;NOC calls &mdash; is an explicit, enforced allow-list.</td><td class="ref">RES-4</td></tr>
+        <tr><td class="who">Change-stop and observe-mode honored</td><td>Both a change-stop signal and a standing observe-mode instruction are honored by all automation, regardless of autonomy level.</td><td class="ref">LOOP-4, LOOP-5</td></tr>
+        <tr><td class="who">Immutable audit journal</td><td>Timestamped, agent-inaccessible record of every action. For the SOC it doubles as the evidence trail: chain of custody, forensic replay, a defensible record.</td><td class="ref">LOOP-5, LOOP-6</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Out of scope / open questions</h2>
+  <ul>
+    <li><b>Hierarchical vs. full-mesh agent topology, cross-domain read-access authority, centralized vs. distributed audit, and where guardrails/AOMC live</b> &mdash; the same four open questions WG2 carries forward; not SOC-specific, not resolved.</li>
+    <li><b>Loop step names are unreconciled</b> between the v0.6 drawing and the older technical-reference doc &mdash; see the note under Agent Operations Loop above. Anyone citing a step name should specify which document.</li>
+    <li><b>"AOMC" is an acronym collision.</b> In the AI SOC Reference Architecture technical reference it expands to "Autonomous Operations Management Console"; in the three sibling WG1 documents it means "Agentic Overlay Mandatory Controls." Same working-group ecosystem, same acronym, different referent, not reconciled anywhere in the source.</li>
+    <li>The tiered-autonomy naming conflict noted under PER-1 (L0&ndash;L3 vs. Level 1&ndash;3) is unresolved.</li>
+    <li>The older reference doc states a 45:1 non-human-identity ratio and "millions of events per day" without citation &mdash; treat as unverified working-group color, not a sourced figure.</li>
+    <li>Both v0.6 drawings are dated August 6, 2026, but the WG3 file cites WG3 sessions only through 7/23 while the WG2 file it borrows its skeleton from cites sessions through 7/28.</li>
+    <li>This is a v0.6 working draft prepared for vendor sessions &mdash; not a ratified reference architecture.</li>
+  </ul>
+
+  <div class="tag-row">
+    <span class="tag accent">Read-only &middot; steps 1&ndash;3</span>
+    <span class="tag orange">Autonomy-gated &middot; steps 4&ndash;6</span>
+    <span class="tag">Plan-time requirement</span>
+  </div>
+
+  <div class="callout">
+    <h3>Status &amp; next step</h3>
+    <p>Draft v0.6 &middot; owner ONUG Collaborative.</p>
+    <ol>
+      <li><b>Now</b> &mdash; circulate alongside the WG3 drawing so vendor sessions have a numbered checklist, with the WG2/older-doc name conflicts flagged rather than hidden.</li>
+      <li><b>Before the next session</b> &mdash; reconcile the two autonomy-tier naming schemes (PER-1) and the two loop-step naming schemes (LOOP-1&ndash;6), or explicitly deprecate one.</li>
+      <li><b>Before ratification</b> &mdash; resolve the AOMC acronym collision across the WG1 and WG3 document sets; it currently means two different things in the same ecosystem.</li>
+    </ol>
+  </div>
+
+  <footer>
+    <span>ONUG &mdash; WG3 requirements specification &middot; item lineage is proposed, not ratified</span>
+    <span>Generated from ONUG Collaborative shared documents and Slack workspaces</span>
+  </footer>
+
+</article>

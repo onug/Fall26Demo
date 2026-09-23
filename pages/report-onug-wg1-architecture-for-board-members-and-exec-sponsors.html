@@ -1,0 +1,217 @@
+<meta charset="UTF-8">
+<title>One Control Plane, Every Domain — Board &amp; Executive View</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+  :root {
+    color-scheme: light;
+    --onug-white: #FFFFFF;
+    --onug-bg-alt: #F4F4F4;
+    --onug-border: #E8E8E8;
+    --onug-border-strong: #DADBDD;
+    --onug-text-muted: #585858;
+    --onug-text-secondary: #2C2C2C;
+    --onug-text: #000000;
+    --onug-navy: #0F1D2A;
+    --onug-ink: #141414;
+    --onug-on-dark: #FFFFFF;
+    --onug-on-dark-muted: #9B9B9B;
+    --onug-green: #8FC73E;
+    --onug-green-dark: #70A228;
+    --onug-orange: #F58220;
+    --onug-orange-dark: #DB7015;
+    --font-body: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--onug-white);
+    color: var(--onug-text-secondary);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .report { max-width: 860px; margin: 0 auto; padding: 64px 28px 90px; }
+
+  /* ---------- masthead ---------- */
+
+  .rpt-mast { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-bottom: 20px; border-bottom: 2px solid var(--onug-green); margin-bottom: 36px; }
+  .rpt-mast svg { flex: none; display: block; }
+  .rpt-mast .kind { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--onug-text-muted); text-align: right; line-height: 1.5; }
+
+  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--onug-green-dark); margin-bottom: 16px; }
+
+  h1 { color: var(--onug-text); font-size: 42px; font-weight: 700; line-height: 1.1; margin: 0; text-wrap: balance; }
+  .hl { color: var(--onug-green-dark); font-weight: 700; }
+
+  .dek { font-size: 19px; line-height: 1.55; color: var(--onug-text-secondary); max-width: 62ch; margin: 18px 0 0; }
+  .dek strong { color: var(--onug-text); font-weight: 600; }
+
+  /* ---------- architecture bands ---------- */
+
+  .arch-band { margin-top: 44px; border-radius: 6px; padding: 22px 26px; }
+  .arch-band.governance { background: var(--onug-navy); color: var(--onug-on-dark); }
+  .arch-band-title { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  .governance .arch-band-title { color: var(--onug-green); }
+  .arch-band-sub { font-size: 16px; line-height: 1.5; margin-top: 6px; }
+  .governance .arch-band-sub { color: var(--onug-on-dark-muted); }
+
+  .persona-row { margin-top: 22px; text-align: center; }
+  .persona-pills { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .persona-pill {
+    font-size: 13px; font-weight: 600; letter-spacing: 0.02em;
+    padding: 8px 20px; border-radius: 999px;
+    border: 1px solid var(--onug-border-strong); color: var(--onug-text-secondary);
+    background: var(--onug-white);
+  }
+  .persona-pill.more { border-style: dashed; color: var(--onug-text-muted); }
+  .persona-caption { margin-top: 12px; font-size: 14px; color: var(--onug-text-muted); }
+
+  .plane-frame {
+    margin-top: 30px; border: 2px solid var(--onug-green); border-radius: 6px;
+    padding: 28px 26px 26px; background: var(--onug-white);
+  }
+  .plane-label { font-size: 15px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--onug-green-dark); text-align: center; }
+  .plane-sub { font-size: 14.5px; color: var(--onug-text-muted); text-align: center; margin-top: 6px; }
+
+  .plane-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+  .plane-card { border: 1px solid var(--onug-border); border-radius: 6px; padding: 20px 22px; background: var(--onug-white); }
+  .plane-card.star { border-color: var(--onug-green); border-width: 1.5px; }
+  .plane-card .name { font-size: 17px; font-weight: 700; color: var(--onug-text); display: flex; align-items: center; gap: 6px; }
+  .plane-card .name .star-mark { color: var(--onug-green-dark); }
+  .plane-card p { font-size: 15px; line-height: 1.55; color: var(--onug-text-secondary); margin: 10px 0 0; }
+  .plane-card ul { margin: 10px 0 0; padding-left: 18px; font-size: 14px; line-height: 1.5; color: var(--onug-text-secondary); }
+  .plane-card li { margin: 7px 0; }
+  .plane-card li b { color: var(--onug-text); font-weight: 600; }
+
+  .boundary-frame { margin-top: 30px; border-radius: 6px; padding: 24px 26px; background: var(--onug-bg-alt); }
+  .boundary-label { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--onug-orange-dark); text-align: center; }
+  .boundary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; }
+  .boundary-item { background: var(--onug-white); border-radius: 6px; border-left: 3px solid var(--onug-orange); padding: 16px 18px; }
+  .boundary-item .name { font-size: 15.5px; font-weight: 700; color: var(--onug-text); }
+  .boundary-item p { font-size: 14.5px; line-height: 1.5; color: var(--onug-text-secondary); margin: 6px 0 0; }
+
+  .takeaway { margin-top: 34px; padding: 28px 30px; background: var(--onug-navy); color: var(--onug-on-dark); border-radius: 6px; }
+  .takeaway h3 { color: var(--onug-on-dark); font-size: 15px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 10px; }
+  .takeaway p { font-size: 16px; line-height: 1.55; color: var(--onug-on-dark-muted); margin: 0 0 16px; }
+  .takeaway ul { margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.6; color: var(--onug-on-dark); }
+  .takeaway li { margin: 10px 0; }
+  .takeaway li b { color: var(--onug-green); font-weight: 600; }
+
+  footer {
+    margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--onug-border);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    font-family: var(--font-mono); font-size: 12px; color: var(--onug-text-muted);
+  }
+
+  @media (max-width: 620px) {
+    h1 { font-size: 30px; }
+    .plane-grid, .boundary-grid { grid-template-columns: 1fr; }
+    .rpt-mast { flex-direction: column; align-items: flex-start; }
+    .rpt-mast .kind { text-align: left; }
+  }
+</style>
+
+<article class="report">
+
+  <div class="rpt-mast">
+    <svg width="132" height="32" viewBox="0 0 276 66.9" role="img" aria-label="ONUG">
+      <path d="M33.4,14c-10.7,0-19.5,8.7-19.5,19.5c0,10.7,8.7,19.5,19.5,19.5c10.7,0,19.5-8.7,19.5-19.5C52.9,22.7,44.2,14,33.4,14 M33.4,66.9C15,66.9,0,51.9,0,33.4C0,15,15,0,33.4,0s33.4,15,33.4,33.4C66.9,51.9,51.9,66.9,33.4,66.9" fill="#8FC73E"/>
+      <path d="M88.1,29.1c0-8.4,6.8-15.2,15.2-15.2c8.4,0,15.2,6.8,15.2,15.2v37.8h13.9V29.1c0-16-13.1-29.1-29.1-29.1c-16,0-29.1,13.1-29.1,29.1v37.8h13.9V29.1z" fill="#000000"/>
+      <path d="M183.2,37.8c0,8.4-6.8,15.2-15.2,15.2c-8.4,0-15.2-6.8-15.2-15.2V0h-13.9v37.8c0,16,13.1,29.1,29.1,29.1c16,0,29.1-13.1,29.1-29.1V0h-13.9V37.8z" fill="#000000"/>
+      <path d="M253.3,45.3c-3.6,4.7-9.2,7.7-15.5,7.7c-10.7,0-19.5-8.7-19.5-19.5c0-10.7,8.7-19.5,19.5-19.5c6.2,0,11.7,2.9,15.3,7.5H269C264.2,8.9,252,0,237.9,0c-18.4,0-33.4,15-33.4,33.4s15,33.4,33.4,33.4c14.3,0,26.5-9,31.3-21.6H253.3z" fill="#000000"/>
+      <rect x="246.8" y="26.4" width="29.2" height="13.9" fill="#000000"/>
+    </svg>
+    <div class="kind">Architecture Diagram<br>WG1 &middot; Agentic Control Plane</div>
+  </div>
+
+  <div class="eyebrow">One-Page View &middot; For Board Members &amp; Executive Sponsors</div>
+  <h1>One Control Plane, <span class="hl">Every Domain</span></h1>
+  <p class="dek">Every agentic system in the enterprise &mdash; network, security, cloud, or whatever comes next &mdash; runs on the <strong>same</strong> identity, enforcement, and audit layer, instead of every team building and defending its own.</p>
+
+  <div class="arch-band governance">
+    <div class="arch-band-title">Human Oversight &amp; Governance</div>
+    <div class="arch-band-sub">Humans set the risk appetite and can stop any agent, in any domain, immediately.</div>
+  </div>
+
+  <div class="persona-row">
+    <div class="persona-pills">
+      <span class="persona-pill">Network Operations</span>
+      <span class="persona-pill">Security Operations</span>
+      <span class="persona-pill">Cloud &amp; Platform</span>
+      <span class="persona-pill">DevOps / CI-CD</span>
+      <span class="persona-pill">Data &amp; Storage</span>
+      <span class="persona-pill more">+ any future domain</span>
+    </div>
+    <div class="persona-caption">Every domain plugs into the same plane, the same way.</div>
+  </div>
+
+  <div class="plane-frame">
+    <div class="plane-label">The Agentic Control Plane</div>
+    <div class="plane-sub">Federated by design &mdash; no single point of override. Every hop authenticated.</div>
+    <div class="plane-grid">
+      <div class="plane-card star">
+        <div class="name"><span class="star-mark">&#9733;</span> Agent Trust Fabric</div>
+        <p>Every agent has a verifiable, non-human identity. Agents are never handed a secret to hold.</p>
+      </div>
+      <div class="plane-card">
+        <div class="name">Registry, Personas &amp; BOM</div>
+        <p>Every agent's owner, identity, and permitted actions are on record &mdash; and checked automatically against what it actually does.</p>
+      </div>
+      <div class="plane-card">
+        <div class="name">Runtime Supervision</div>
+        <p>Guardrails on every action, checked in real time and logged immutably:</p>
+        <ul>
+          <li><b>What it's allowed to do</b> &mdash; a fixed list of approved actions; anything else is denied by default.</li>
+          <li><b>How much it can do</b> &mdash; spending caps, rate limits, and confidence thresholds that force a stop.</li>
+          <li><b>What it can touch</b> &mdash; data-handling and compliance rules on what it may read, send, or change.</li>
+        </ul>
+      </div>
+      <div class="plane-card star">
+        <div class="name"><span class="star-mark">&#9733;</span> Private Open Router</div>
+        <p>Every model call is routed by cost, risk, and data sovereignty &mdash; so spend and exposure stay accountable.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="boundary-frame">
+    <div class="boundary-label">What Agents Never Touch Directly</div>
+    <div class="boundary-grid">
+      <div class="boundary-item">
+        <div class="name">Enterprise Identity Systems</div>
+        <p>Air-gapped. An agent can read its own identity; it can never grant itself more.</p>
+      </div>
+      <div class="boundary-item">
+        <div class="name">Rules, Baselines &amp; Detection Logic</div>
+        <p>Read-only to agents. An agent can never rewrite the rules that judge it.</p>
+      </div>
+      <div class="boundary-item">
+        <div class="name">Tools &amp; Enterprise Data</div>
+        <p>Reached only through a governed gateway that enforces the same guardrails a second time, at the door &mdash; no agent has a direct line to production.</p>
+      </div>
+      <div class="boundary-item">
+        <div class="name">Model Estate</div>
+        <p>Every model is certified and version-pinned before use, with automatic rollback if it regresses.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="takeaway">
+    <h3>Why this matters</h3>
+    <p>The plane is built once and reused everywhere &mdash; that's what makes it governable at enterprise scale.</p>
+    <ul>
+      <li><b>One identity fabric, one audit journal</b> to oversee &mdash; not one per team, per tool, per domain.</li>
+      <li><b>New domains inherit every control on day one.</b> Nothing gets rebuilt, and nothing gets skipped, when the next team plugs in.</li>
+      <li><b>Compromise is contained by construction.</b> No secrets to steal, no self-granted access, no unwatched action, no unlogged trail.</li>
+    </ul>
+  </div>
+
+  <footer>
+    <span>ONUG &mdash; WG1 Agentic Control Plane, redrawn for executive briefing</span>
+    <span>Source: One Control Plane, Every Domain architecture map v0.2</span>
+  </footer>
+
+</article>

@@ -1,0 +1,305 @@
+<meta charset="UTF-8">
+<title>WG1 Requirements — One Control Plane, Every Domain</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+  :root {
+    color-scheme: light;
+    --onug-white: #FFFFFF;
+    --onug-bg-alt: #F4F4F4;
+    --onug-border: #E8E8E8;
+    --onug-border-strong: #DADBDD;
+    --onug-text-muted: #585858;
+    --onug-text-secondary: #2C2C2C;
+    --onug-text: #000000;
+    --onug-navy: #0F1D2A;
+    --onug-ink: #141414;
+    --onug-on-dark: #FFFFFF;
+    --onug-on-dark-muted: #9B9B9B;
+    --onug-green: #8FC73E;
+    --onug-green-dark: #70A228;
+    --onug-orange: #F58220;
+    --onug-orange-dark: #DB7015;
+    --font-body: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--onug-white);
+    color: var(--onug-text-secondary);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .report {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 72px 28px 120px;
+  }
+
+  a { color: var(--onug-green-dark); transition: color 0.2s linear; }
+  a:hover { color: var(--onug-green); }
+  a:focus-visible { outline: 2px solid var(--onug-orange); outline-offset: 3px; }
+  code, .mono { font-family: var(--font-mono); }
+  .wiki-ref { font-family: var(--font-mono); font-size: 0.92em; color: var(--onug-text-muted); }
+
+  /* ---------- masthead ---------- */
+
+  .rpt-mast { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-bottom: 20px; border-bottom: 2px solid var(--onug-green); margin-bottom: 40px; }
+  .rpt-mast svg { flex: none; display: block; }
+  .rpt-mast .kind { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--onug-text-muted); text-align: right; line-height: 1.5; }
+
+  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--onug-green-dark); margin-bottom: 18px; }
+
+  h1 { color: var(--onug-text); font-size: 38px; font-weight: 700; line-height: 1.14; margin: 0; text-wrap: balance; }
+  h1 .hl, h2 .hl { color: var(--onug-green-dark); font-weight: 700; }
+
+  .byline { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; font-family: var(--font-mono); font-size: 12.5px; color: var(--onug-text-muted); margin-top: 18px; }
+
+  blockquote {
+    margin: 36px 0; padding-left: 22px;
+    border-left: 3px solid var(--onug-green);
+    font-size: 21px; line-height: 1.45; color: var(--onug-text);
+  }
+  blockquote cite { display: block; margin-top: 10px; font-size: 13px; font-style: normal; font-family: var(--font-mono); color: var(--onug-text-muted); }
+
+  h2 { color: var(--onug-text); font-size: 24px; font-weight: 600; line-height: 1.2; margin: 52px 0 6px; text-wrap: balance; }
+  h2 .comp-note { display: block; font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--onug-text-muted); text-transform: none; letter-spacing: 0; margin-top: 6px; }
+  h3 { color: var(--onug-text); font-size: 17px; font-weight: 600; margin: 30px 0 8px; }
+
+  p { font-size: 17px; line-height: 1.62; margin: 16px 0; color: var(--onug-text-secondary); }
+  strong { color: var(--onug-text); font-weight: 600; }
+
+  ul { font-size: 17px; line-height: 1.6; color: var(--onug-text-secondary); padding-left: 22px; }
+  li { margin: 8px 0; }
+  li strong { font-weight: 600; }
+
+  .quote-strip {
+    font-size: 14.5px; font-style: italic; color: var(--onug-text-muted);
+    margin: 10px 0 22px; padding-left: 2px;
+  }
+
+  /* ---------- navy callout ---------- */
+
+  .callout {
+    margin: 28px 0; padding: 26px 28px;
+    background: var(--onug-navy); color: var(--onug-on-dark);
+    border-radius: 6px;
+  }
+  .callout h3 { color: var(--onug-on-dark); margin: 0 0 6px; font-size: 14px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .callout p { color: var(--onug-on-dark-muted); font-size: 14.5px; margin: 6px 0 16px; }
+  .callout ol, .callout ul { margin: 0; padding-left: 20px; font-size: 14.5px; line-height: 1.55; color: var(--onug-on-dark); }
+  .callout ol li, .callout ul li { margin: 9px 0; }
+  .callout ol li b, .callout ul li b { color: var(--onug-green); font-weight: 600; }
+  .callout .legend-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+
+  /* ---------- requirement rows (reused across every component) ---------- */
+
+  .req { display: grid; grid-template-columns: 82px 1fr; gap: 18px; padding: 16px 0; border-top: 1px solid var(--onug-border); }
+  .req:last-of-type { border-bottom: 1px solid var(--onug-border); }
+  .req .id { font-family: var(--font-mono); font-size: 12.5px; font-weight: 600; color: var(--onug-green-dark); }
+  .req .id .src { display: block; margin-top: 4px; color: var(--onug-text-muted); font-weight: 500; }
+  .req .body b.title { color: var(--onug-text); font-weight: 600; display: block; margin-bottom: 3px; font-size: 15.5px; }
+  .req .body p { font-size: 15px; line-height: 1.55; margin: 0; color: var(--onug-text-secondary); }
+  .req .body .note { display: block; margin-top: 6px; font-size: 13px; color: var(--onug-text-muted); font-style: italic; }
+  .req.baseline { border-left: 3px solid var(--onug-green); padding-left: 12px; }
+  .req.open { border-left: 3px solid var(--onug-orange); padding-left: 12px; }
+
+  /* ---------- tag row ---------- */
+
+  .tag-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 20px 0 8px; }
+  .tag {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+    padding: 5px 13px; border: 1px solid var(--onug-border-strong); border-radius: 999px;
+    color: var(--onug-text-secondary);
+  }
+  .tag.accent { border-color: var(--onug-green); color: var(--onug-green-dark); }
+  .tag.orange { border-color: var(--onug-orange); color: var(--onug-orange-dark); }
+  .tag.dark { background: var(--onug-navy); border-color: var(--onug-navy); color: #fff; }
+
+  /* ---------- perimeter constraints ---------- */
+
+  .constraint-wrap { overflow-x: auto; margin: 20px 0; }
+  table.constraints { width: 100%; border-collapse: collapse; font-size: 14px; }
+  table.constraints thead th {
+    text-align: left; padding: 9px 12px;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--onug-text-muted);
+    border-bottom: 2px solid var(--onug-green);
+  }
+  table.constraints tbody td { padding: 11px 12px; border-bottom: 1px solid var(--onug-border); vertical-align: top; color: var(--onug-text-secondary); line-height: 1.45; }
+  table.constraints .who { color: var(--onug-text); font-weight: 600; white-space: nowrap; }
+  table.constraints .ref { font-family: var(--font-mono); font-size: 11.5px; color: var(--onug-text-muted); white-space: nowrap; }
+
+  /* ---------- sources ---------- */
+
+  .sources {
+    margin-top: 52px; padding-top: 22px; border-top: 2px solid var(--onug-green);
+    display: flex; flex-direction: column; gap: 8px;
+    font-family: var(--font-mono); font-size: 12.5px;
+  }
+  .sources .lbl { color: var(--onug-text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-size: 11px; margin-bottom: 4px; }
+  .sources a { text-decoration: none; }
+
+  footer {
+    margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--onug-border);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    font-family: var(--font-mono); font-size: 11.5px; color: var(--onug-text-muted);
+  }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 28px; }
+    .req { grid-template-columns: 1fr; gap: 4px; }
+    .rpt-mast { flex-direction: column; align-items: flex-start; }
+    .rpt-mast .kind { text-align: left; }
+  }
+</style>
+
+<article class="report">
+
+  <div class="rpt-mast">
+    <svg width="132" height="32" viewBox="0 0 276 66.9" role="img" aria-label="ONUG">
+      <path d="M33.4,14c-10.7,0-19.5,8.7-19.5,19.5c0,10.7,8.7,19.5,19.5,19.5c10.7,0,19.5-8.7,19.5-19.5C52.9,22.7,44.2,14,33.4,14 M33.4,66.9C15,66.9,0,51.9,0,33.4C0,15,15,0,33.4,0s33.4,15,33.4,33.4C66.9,51.9,51.9,66.9,33.4,66.9" fill="#8FC73E"/>
+      <path d="M88.1,29.1c0-8.4,6.8-15.2,15.2-15.2c8.4,0,15.2,6.8,15.2,15.2v37.8h13.9V29.1c0-16-13.1-29.1-29.1-29.1c-16,0-29.1,13.1-29.1,29.1v37.8h13.9V29.1z" fill="#000000"/>
+      <path d="M183.2,37.8c0,8.4-6.8,15.2-15.2,15.2c-8.4,0-15.2-6.8-15.2-15.2V0h-13.9v37.8c0,16,13.1,29.1,29.1,29.1c16,0,29.1-13.1,29.1-29.1V0h-13.9V37.8z" fill="#000000"/>
+      <path d="M253.3,45.3c-3.6,4.7-9.2,7.7-15.5,7.7c-10.7,0-19.5-8.7-19.5-19.5c0-10.7,8.7-19.5,19.5-19.5c6.2,0,11.7,2.9,15.3,7.5H269C264.2,8.9,252,0,237.9,0c-18.4,0-33.4,15-33.4,33.4s15,33.4,33.4,33.4c14.3,0,26.5-9,31.3-21.6H253.3z" fill="#000000"/>
+      <rect x="246.8" y="26.4" width="29.2" height="13.9" fill="#000000"/>
+    </svg>
+    <div class="kind">Collaborative Working Groups<br>WG1 &middot; Agentic Control Plane</div>
+  </div>
+
+  <div class="eyebrow">Requirements Document &middot; Draft v0.2</div>
+  <h1>Requirements for the <span class="hl">Agentic Control Plane</span></h1>
+  <div class="byline">
+    <span>WG1 &mdash; One Control Plane, Every Domain</span><span>&middot;</span>
+    <span>architecture dated 2026-08-06</span><span>&middot;</span>
+    <span>this spec 2026-09-15</span><span>&middot;</span>
+    <span>owner: ONUG Collaborative</span>
+  </div>
+
+  <blockquote>
+    The architecture map draws four boxes and says this is what every domain runs on. This document says, box by box, what has to be true for that claim to hold &mdash; using the working group's own list of 24 requirements as the source of what goes in each box.
+  </blockquote>
+
+  <h2>Scope and method</h2>
+  <p>This document starts from the diagram, not the list. The "One Control Plane, Every Domain" architecture draws the Agentic Control Plane as four components &mdash; Agent Trust Fabric, Registry/Personas/BOM, Runtime Supervision, and Private Open Router &mdash; sitting under a Human Oversight &amp; Governance band and above a perimeter of resources agents never touch directly. Each requirement below is placed in the box it belongs to, using the exact wording the WG1 scoping document (Agentic Overlay Alignment Analysis) uses for that item. Every one of the 25 items appears exactly once.</p>
+  <p>Two labels carry forward from the source analysis: a <span class="tag accent" style="padding:2px 9px;">green bar</span> marks the six items that also map 1:1 to an AOMC control (the externally-validated minimum baseline) &mdash; these are non-negotiable regardless of the Fall 2026 track vote. An <span class="tag orange" style="padding:2px 9px;">orange bar</span> marks a requirement the source material itself calls unresolved &mdash; an open gap, a field-wide problem, or scope still to be decided.</p>
+
+  <div class="callout">
+    <h3>How to read the plane</h3>
+    <p>Quoted directly from the architecture map's own labels.</p>
+    <div class="legend-row">
+      <span class="tag dark">Human Oversight &amp; Governance</span>
+      <span class="tag dark">Agent Trust Fabric ★</span>
+      <span class="tag dark">Registry, Personas &amp; BOM</span>
+      <span class="tag dark">Runtime Supervision</span>
+      <span class="tag dark">Private Open Router ★</span>
+    </div>
+    <ul style="margin-top:16px;">
+      <li><b>★ marks the two components the map calls out as distinctive</b> &mdash; Trust Fabric and Private Open Router. Registry/Personas/BOM and Runtime Supervision are just as required; they're simply not the novel part.</li>
+      <li>The plane sits below a governance band and above four <b>governed resources</b> &mdash; Enterprise Identity Systems, Telemetry/Sources of Truth, Tools &amp; Enterprise Data, Model Estate &mdash; that agents reach only through it, never around it.</li>
+      <li>NOC and SOC (WG2, WG3) are the first two <b>domain personas</b> plugging into this plane. They are not WG1's requirements &mdash; they're proof the plane's requirements are domain-agnostic. See "Out of scope" below.</li>
+    </ul>
+  </div>
+
+  <h2>Human Oversight &amp; Governance</h2>
+  <div class="quote-strip">"decision rights &middot; approval of personas &amp; task sets &middot; change-stop authority &middot; one oversight model across every domain"</div>
+  <p>This band sits above the plane, not inside it. Its job is to decide what the plane is allowed to enforce &mdash; the plane itself has no authority to set its own risk appetite.</p>
+
+  <div class="req baseline"><div class="id">GOV-1<span class="src">item #1</span></div><div class="body"><b class="title">Agentic Control Framework</b><p>Publish one classification model for agents (assistant, copilot, workflow agent, autonomous agent, multi-agent system), four risk tiers (low/moderate/high/critical), and a decision-rights matrix that says who approves what at each tier.</p><span class="note">Maps to AOMC-6, Governance of Agent Autonomy. This is the document every other requirement's risk tier resolves back to.</span></div></div>
+  <div class="req"><div class="id">GOV-2<span class="src">item #2</span></div><div class="body"><b class="title">Governance Model</b><p>Name who owns what: executive sponsor, agent owner, business owner, platform owner, and security &mdash; plus the escalation and exception path when they disagree.</p></div></div>
+  <div class="req"><div class="id">GOV-3<span class="src">item #6</span></div><div class="body"><b class="title">Human Oversight Policy</b><p>List the decisions that always need a human sign-off (financial commitments, contract changes, customer-impacting actions, production changes) and define the emergency-stop and escalation procedures.</p><span class="note">This is where the diagram's "change-stop authority" gets specified.</span></div></div>
+
+  <h2>Agent Trust Fabric <span class="hl">★</span></h2>
+  <div class="quote-strip">"non-human identity &middot; attestation &middot; gateway-held credentials &mdash; agents never touch secrets &middot; per-step scoped tokens &middot; least privilege &middot; deprovisioning first &middot; kill-on-drift"</div>
+  <p>Everything in this box answers one question: how does the plane know which agent this is, and what is it allowed to hold?</p>
+
+  <div class="req baseline"><div class="id">TF-1<span class="src">item #5</span></div><div class="body"><b class="title">Agent IAM Standard</b><p>Give every agent a unique, non-human identity. Enforce least privilege and just-in-time access. Rotate credentials automatically and manage keys centrally &mdash; no agent holds a long-lived secret.</p><span class="note">Maps to AOMC-1, Identity, Lifecycle &amp; Attestation.</span></div></div>
+  <div class="req baseline"><div class="id">TF-2<span class="src">item #10</span></div><div class="body"><b class="title">Security Control Baseline (identity half)</b><p>Enforce zero trust on every authentication and authorization decision. Prevent privilege escalation. Fail secure by design, and validate the design with red-teaming and penetration testing.</p><span class="note">Maps to AOMC-4, Zero Trust Enforcement. The other half of item #10 (resiliency tiers, testing program) lives under Cross-Cutting Assurance below.</span></div></div>
+  <div class="req open"><div class="id">TF-3<span class="src">item #16</span></div><div class="body"><b class="title">Multi-Vendor Control Plane</b><p>Let agents prove identity, authorization, and accountability across organizational and vendor boundaries &mdash; without a shared identity provider or a custom integration per partner.</p><span class="note">This is the "federated, no über-controller" property in the diagram's own header. No reference implementation exists yet.</span></div></div>
+  <div class="req"><div class="id">TF-4<span class="src">item #20</span></div><div class="body"><b class="title">Credential-in-Context Protection</b><p>Secrets must never enter an agent's prompt, context window, or reasoning trace. Credentials get injected only at the proxy or tool-call boundary, through a secrets manager, with leak detection on everything the agent produces.</p><span class="note">This is the literal source of "agents never touch secrets" in the diagram.</span></div></div>
+  <div class="req"><div class="id">TF-5<span class="src">item #21</span></div><div class="body"><b class="title">Agent-to-Next-Hop Authentication</b><p>Every hop in an agent's path &mdash; a tool server, a peer agent, a direct API call &mdash; requires cryptographic proof of identity, so a stolen token is useless to anyone it wasn't issued to.</p><span class="note">This is the diagram's "every hop mutually authenticated."</span></div></div>
+
+  <h2>Registry, Personas &amp; BOM</h2>
+  <div class="quote-strip">"the persona record: autonomy, model, estate, approved task set &middot; agent bill of materials &middot; data classes &middot; rights &amp; normal-behavior spec (open gap &mdash; vendor challenge)"</div>
+  <p>This box is the record of what each agent is and is allowed to do &mdash; the thing every other component checks against.</p>
+
+  <div class="req"><div class="id">REG-1<span class="src">item #3</span></div><div class="body"><b class="title">Risk Assessment Standard</b><p>One scoring model and template covering financial, security, privacy, compliance, operational, reputational, regulatory, and data-sensitivity risk. This is what sets each agent's risk tier.</p></div></div>
+  <div class="req"><div class="id">REG-2<span class="src">item #4</span></div><div class="body"><b class="title">Inventory and Registry</b><p>Track every agent: name, owner, purpose, data it can reach, systems it's connected to, model it runs on, risk classification, approval and production status.</p><span class="note">This is the diagram's "persona record."</span></div></div>
+  <div class="req"><div class="id">REG-3<span class="src">item #18</span></div><div class="body"><b class="title">Agent Personas</b><p>Identity governance changes with the use case &mdash; an ad hoc assistant flow needs different identity handling than a structured, multi-team business process.</p></div></div>
+  <div class="req open"><div class="id">REG-4<span class="src">item #23</span></div><div class="body"><b class="title">Agentic Process Notation &amp; Authorization Scope</b><p>Extend BPMN 2.0 so each process step carries its objective, authorization-scope reference, data-sensitivity class, volume bound, and a flag for whether it crosses a trust boundary &mdash; so the review of what an agent can do lives in the same diagram as what it does.</p></div></div>
+  <div class="req open"><div class="id">REG-5<span class="src">item #24</span></div><div class="body"><b class="title">Rights Bill of Materials &amp; Access Reconciliation</b><p>Keep a version-controlled inventory of the permissions each process step actually needs, alongside standard AI-BOMs. Reconcile declared access against actual access, classification, and data volume automatically &mdash; any mismatch is a finding.</p><span class="note">This is the diagram's "rights &amp; normal-behavior spec," explicitly flagged there as an open gap and posed to vendors as a challenge. No product does this today.</span></div></div>
+
+  <h2>Runtime Supervision</h2>
+  <div class="quote-strip">"policy check on every message &amp; call &middot; injection filtering (prompt &middot; inferred &middot; hidden-instruction) &middot; composite-authority detection &middot; quarantine &middot; immutable audit journal"</div>
+  <p>This box watches what agents actually do, in real time, and can stop them.</p>
+
+  <div class="req baseline"><div class="id">RS-1<span class="src">item #7</span></div><div class="body"><b class="title">Action Guardrails</b><p>Define allowed, restricted, and denied actions with an authorized tool catalog. Enforce rate limits, spending limits, confidence thresholds, and scope boundaries at runtime. Set data-handling, compliance, and regulatory restrictions on what an agent may read, transform, or send.</p><span class="note">Maps to both AOMC-3 (Data Guardrails) and AOMC-5 (Secure Orchestration &amp; Tool Authorization) &mdash; the source analysis delivers both from this one catalog.</span></div></div>
+  <div class="req baseline"><div class="id">RS-2<span class="src">item #8</span></div><div class="body"><b class="title">Observability and Monitoring</b><p>Instrument every agent with telemetry, tracing, action and prompt logging, and decision traceability over immutable data. Run anomaly detection and alert a human in time to abort.</p><span class="note">Maps to AOMC-2, Runtime Monitoring &amp; Rogue Agent Detection.</span></div></div>
+  <div class="req"><div class="id">RS-3<span class="src">item #9</span></div><div class="body"><b class="title">Audit and Traceability Architecture</b><p>Immutably capture every user request, agent reasoning summary, tool call, action, data access, and approval &mdash; enough to support forensics, compliance review, and incident investigation.</p><span class="note">This is the diagram's "immutable audit journal," and the evidentiary backbone TF-1's attestation and RS-2's forensic replay both depend on.</span></div></div>
+  <div class="req"><div class="id">RS-4<span class="src">item #13</span></div><div class="body"><b class="title">Incident Response Playbook</b><p>Cover runaway agents, unauthorized actions, hallucinated decisions, breaches, data leakage, and policy violations, with defined containment, a kill-switch process, and recovery.</p><span class="note">This is the diagram's "quarantine."</span></div></div>
+  <div class="req"><div class="id">RS-5<span class="src">item #19</span></div><div class="body"><b class="title">Inferred Prompt Injection</b><p>Defend against indirect injection &mdash; content that alters an agent's intent without a direct prompt attack &mdash; by filtering what the agent can see, logging both direct and indirect outcomes, and constraining flows to limit blast radius.</p><span class="note">This is the "inferred · hidden-instruction" half of the diagram's injection filtering.</span></div></div>
+  <div class="req open"><div class="id">RS-6<span class="src">item #22</span></div><div class="body"><b class="title">Aggregate Grant Risk</b><p>Evaluate an agent's combined set of grants, not each one in isolation &mdash; individually narrow, individually-approved permissions can add up to more authority than intended. Monitor for composite-access patterns, not just single-action anomalies.</p><span class="note">Named in the source as a field-wide open problem: no framework today proves a bound on composite authority. Monitoring is the interim compensating control, not a fix.</span></div></div>
+
+  <h2>Private Open Router <span class="hl">★</span></h2>
+  <div class="quote-strip">"every model call routed by cost &middot; risk &middot; sovereignty &middot; certification &middot; right-size the model per task &middot; spend caps &middot; usage attribution &mdash; the AI FinOps lever for every domain"</div>
+  <p>The one component with a single requirement behind it &mdash; and the one the source material is most explicit is undefined.</p>
+
+  <div class="req open"><div class="id">POR-1<span class="src">item #17</span></div><div class="body"><b class="title">Private Open Routing</b><p>Route every model call by data sovereignty, tokenomics, AI FinOps cost, and national-security constraints, so cheap models handle routine work and frontier models are reserved for what needs them.</p><span class="note">Scope is explicitly undefined in the source: "for the WG to determine and scope the demonstration." Nothing below this line is committed yet.</span></div></div>
+
+  <h2>Cross-cutting assurance <span class="comp-note">not one plane box &mdash; the process every box above is enforced through</span></h2>
+  <p>These four don't correspond to a component on the diagram. They're the wrapper that makes the four boxes above real rather than aspirational.</p>
+
+  <div class="req"><div class="id">PROC-1<span class="src">item #11</span></div><div class="body"><b class="title">Agent Lifecycle Management (SDLC)</b><p>Eight stages &mdash; request, assessment, design, testing, approval, deployment, monitoring, retirement &mdash; each with a required artifact (design document, risk assessment, test evidence, approval record).</p><span class="note">Every requirement above gets enforced stage by stage through this process, not as a one-time check.</span></div></div>
+  <div class="req"><div class="id">PROC-2<span class="src">item #12</span></div><div class="body"><b class="title">Validation and Assurance Program</b><p>Test functionality, accuracy, safety, security, resilience (including chaos testing), performance, and regulatory compliance. Produce test plans, certification reports, and approval criteria.</p><span class="note">This is where TF-2's red-teaming and penetration testing actually run.</span></div></div>
+  <div class="req"><div class="id">PROC-3<span class="src">item #14</span></div><div class="body"><b class="title">Compliance and Regulatory Mapping</b><p>Map the requirements above to NIST AI RMF, ISO 42001, ISO 27001, SOC 2, the EU AI Act, and applicable industry regulations &mdash; proving that meeting this document also satisfies external frameworks.</p></div></div>
+  <div class="req"><div class="id">PROC-4<span class="src">item #15</span></div><div class="body"><b class="title">Operational Metrics and KPIs</b><p>Report risk metrics (high-risk agents, violations, incidents), operational metrics (agents in production, override rate, success rate), and business metrics (productivity, cost savings, cycle time).</p><span class="note">Has nothing to report on until the requirements above exist in production.</span></div></div>
+
+  <h2>Boundary constraints</h2>
+  <p>The diagram's bottom band isn't a fifth plane component &mdash; it's four resources the plane protects by keeping agents out of them directly. Each constraint below is enforced by requirements already listed; this table just states the invariant the diagram draws.</p>
+
+  <div class="constraint-wrap">
+    <table class="constraints">
+      <thead><tr><th>Resource</th><th>Invariant</th><th>Enforced by</th></tr></thead>
+      <tbody>
+        <tr><td class="who">Enterprise Identity Systems</td><td>Air-gapped from agents. Identity flows out of the plane to the agent, never the reverse &mdash; an agent can never reach into an IdP to promote or mint its own authority.</td><td class="ref">TF-1, TF-2</td></tr>
+        <tr><td class="who">Telemetry, Sources of Truth &amp; Rulesets</td><td>Read-only to agents. An agent can observe what the estate is and what it should be, but can never rewrite its own baseline or the rules that judge it.</td><td class="ref">RS-2, RS-3</td></tr>
+        <tr><td class="who">Tools &amp; Enterprise Data</td><td>Reached only through governed MCP gateways the plane authorizes. No direct agent-to-device path exists.</td><td class="ref">RS-1, TF-5</td></tr>
+        <tr><td class="who">Model Estate</td><td>Hybrid by design (frontier, open-weight, private on-prem). Every model is certified before use, version-pinned, and rolled back on regression.</td><td class="ref">POR-1, PROC-2</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Out of scope</h2>
+  <ul>
+    <li><b>Domain personas (NOC, SOC, and whatever plugs in next)</b> are not WG1 requirements. WG2 owns the NOC persona, WG3 owns the SOC persona; WG1's obligation ends at making the plane's four components domain-agnostic enough that a new persona can plug in "the same way." Nothing in this document specifies an ops loop, a gate name, or a domain-specific control.</li>
+    <li>The architecture map's date lines don't reconcile: the subtitle reads "Draft v0.2, August 6, 2026" and claims WG1 v0.2 "ratified 7/28," but the alignment analysis has WG1 still mid-scoping in late July. The ratification claim is not corroborated by the sibling source &mdash; treat REG-4 and REG-5 in particular as pre-ratification.</li>
+    <li>TF-3, REG-4, REG-5, RS-6, and POR-1 are each marked open above for a different reason (no reference implementation, an explicit vendor challenge, a field-wide unsolved problem, or undefined scope). None of the five should be read as "specified" just because it has a requirement ID.</li>
+    <li>Tier and track assignment from the earlier draft of this document is intentionally dropped here. Priority now follows the diagram's own emphasis (★ components, baseline/AOMC bar, open bar) rather than a separate MUST/SHOULD/MAY scheme layered on top.</li>
+  </ul>
+
+  <div class="tag-row">
+    <span class="tag accent">Baseline &middot; maps to an AOMC control</span>
+    <span class="tag orange">Open &middot; source calls this unresolved</span>
+    <span class="tag">Everything else &middot; specified, not yet built</span>
+  </div>
+
+  <div class="callout">
+    <h3>Status &amp; next step</h3>
+    <p>Draft v0.2 &middot; owner ONUG Collaborative.</p>
+    <ol>
+      <li><b>Now</b> &mdash; circulate this version alongside the architecture map so each of the four plane components has an explicit, numbered checklist instead of prose.</li>
+      <li><b>Before Fall 2026 track vote</b> &mdash; resolve the five open items (TF-3, REG-4, REG-5, RS-6, POR-1) enough to write acceptance criteria, or vote to defer them explicitly rather than leave them open by default.</li>
+      <li><b>After ratification</b> &mdash; reconcile the diagram's "ratified 7/28" date against the alignment analysis before this document cites it as settled.</li>
+    </ol>
+  </div>
+
+  <footer>
+    <span>ONUG &mdash; WG1 requirements specification</span>
+    <span>Generated from ONUG Collaborative shared documents and Slack workspaces</span>
+  </footer>
+
+</article>
