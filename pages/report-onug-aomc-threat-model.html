@@ -1,0 +1,417 @@
+<meta charset="UTF-8">
+<title>AOMC Threat & Risk Scenario Catalog</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+  :root {
+    color-scheme: light;
+    --onug-white: #FFFFFF;
+    --onug-bg-alt: #F4F4F4;
+    --onug-border: #E8E8E8;
+    --onug-border-strong: #DADBDD;
+    --onug-text-muted: #585858;
+    --onug-text-secondary: #2C2C2C;
+    --onug-text: #000000;
+    --onug-navy: #0F1D2A;
+    --onug-ink: #141414;
+    --onug-on-dark: #FFFFFF;
+    --onug-on-dark-muted: #9B9B9B;
+    --onug-green: #8FC73E;
+    --onug-green-dark: #70A228;
+    --onug-orange: #F58220;
+    --onug-orange-dark: #DB7015;
+    --font-body: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--onug-white);
+    color: var(--onug-text-secondary);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .report { max-width: 1080px; margin: 0 auto; padding: 72px 28px 120px; }
+
+  a { color: var(--onug-green-dark); transition: color 0.2s linear; }
+  a:hover { color: var(--onug-green); }
+  a:focus-visible { outline: 2px solid var(--onug-orange); outline-offset: 3px; }
+  code, .mono { font-family: var(--font-mono); }
+  .wiki-ref { font-family: var(--font-mono); font-size: 0.92em; color: var(--onug-text-muted); }
+
+  .rpt-mast { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-bottom: 20px; border-bottom: 2px solid var(--onug-green); margin-bottom: 40px; }
+  .rpt-mast svg { flex: none; display: block; }
+  .rpt-mast .kind { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--onug-text-muted); text-align: right; line-height: 1.5; }
+
+  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--onug-green-dark); margin-bottom: 18px; }
+
+  h1 { color: var(--onug-text); font-size: 38px; font-weight: 700; line-height: 1.14; margin: 0; text-wrap: balance; max-width: 820px; }
+  .hl { color: var(--onug-green-dark); font-weight: 700; }
+
+  .byline { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; font-family: var(--font-mono); font-size: 12.5px; color: var(--onug-text-muted); margin-top: 18px; }
+
+  blockquote {
+    margin: 36px 0; padding-left: 22px; max-width: 800px;
+    border-left: 3px solid var(--onug-green);
+    font-size: 21px; line-height: 1.45; color: var(--onug-text);
+  }
+
+  h2 { color: var(--onug-text); font-size: 24px; font-weight: 600; line-height: 1.2; margin: 52px 0 6px; text-wrap: balance; }
+  h3 { color: var(--onug-text); font-size: 18px; font-weight: 700; margin: 0 0 4px; display: flex; align-items: baseline; gap: 10px; }
+  h3 .letter { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 5px; background: var(--onug-navy); color: var(--onug-green); font-family: var(--font-mono); font-size: 14px; font-weight: 700; flex: none; }
+  h3 .count { margin-left: auto; font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--onug-text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  .family-dek { font-size: 14.5px; color: var(--onug-text-muted); margin: 0 0 14px 36px; max-width: 700px; }
+
+  p { font-size: 17px; line-height: 1.62; margin: 16px 0; color: var(--onug-text-secondary); max-width: 800px; }
+  strong { color: var(--onug-text); font-weight: 600; }
+
+  ul { font-size: 16px; line-height: 1.6; color: var(--onug-text-secondary); padding-left: 22px; max-width: 800px; }
+  li { margin: 8px 0; }
+  li strong { font-weight: 600; }
+
+  .callout {
+    margin: 28px 0; padding: 26px 28px;
+    background: var(--onug-navy); color: var(--onug-on-dark);
+    border-radius: 6px;
+  }
+  .callout h3 { color: var(--onug-on-dark); margin: 0 0 6px; font-size: 14px; letter-spacing: 0.04em; text-transform: uppercase; display: block; }
+  .callout p { color: var(--onug-on-dark-muted); font-size: 14.5px; margin: 6px 0 16px; max-width: none; }
+  .callout ul { margin: 0; padding-left: 20px; font-size: 14.5px; line-height: 1.55; color: var(--onug-on-dark); max-width: none; }
+  .callout li { margin: 9px 0; }
+  .callout li b { color: var(--onug-green); font-weight: 600; }
+
+  .callout.warn { background: #2A1B0E; }
+  .callout.warn h3 { color: var(--onug-orange); }
+  .callout.warn li b { color: var(--onug-orange); }
+
+  /* ---------- family summary strip ---------- */
+  .family-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin: 24px 0 8px; }
+  .family-chip { border: 1px solid var(--onug-border); border-radius: 6px; padding: 14px 16px; }
+  .family-chip .fid { font-family: var(--font-mono); font-weight: 700; color: var(--onug-green-dark); font-size: 13px; }
+  .family-chip .fname { font-weight: 600; color: var(--onug-text); font-size: 14.5px; margin: 3px 0; }
+  .family-chip .fcount { font-family: var(--font-mono); font-size: 11.5px; color: var(--onug-text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+
+  /* ---------- scenario table ---------- */
+  .table-wrap { overflow-x: auto; margin: 10px 0 32px; border: 1px solid var(--onug-border); border-radius: 6px; }
+  table.scenarios { width: 100%; min-width: 900px; border-collapse: collapse; font-size: 13.5px; }
+  table.scenarios thead th {
+    text-align: left; padding: 11px 13px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--onug-on-dark-muted);
+    background: var(--onug-navy);
+  }
+  table.scenarios thead th:first-child { border-top-left-radius: 5px; }
+  table.scenarios thead th:last-child { border-top-right-radius: 5px; }
+  table.scenarios tbody tr:nth-child(even) { background: var(--onug-bg-alt); }
+  table.scenarios tbody td { padding: 12px 13px; border-bottom: 1px solid var(--onug-border); vertical-align: top; color: var(--onug-text-secondary); line-height: 1.42; }
+  table.scenarios tbody tr:last-child td { border-bottom: none; }
+  table.scenarios .id { font-family: var(--font-mono); font-size: 12.5px; color: var(--onug-green-dark); font-weight: 700; white-space: nowrap; }
+  table.scenarios .scen-name { color: var(--onug-text); font-weight: 600; display: block; font-size: 13.5px; }
+  table.scenarios .prevent, table.scenarios .detect { font-size: 12.5px; }
+  table.scenarios .xref { font-family: var(--font-mono); font-size: 11.5px; white-space: nowrap; color: var(--onug-text-muted); }
+  table.scenarios .xref b { color: var(--onug-text); font-weight: 700; }
+  table.scenarios .none { color: var(--onug-border-strong); }
+
+  .tag-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 20px 0 8px; }
+  .tag {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+    padding: 5px 13px; border: 1px solid var(--onug-border-strong); border-radius: 999px;
+    color: var(--onug-text-secondary);
+  }
+  .tag.accent { border-color: var(--onug-green); color: var(--onug-green-dark); }
+  .tag.muted { color: var(--onug-text-muted); }
+  .tag.warn { border-color: var(--onug-orange); color: var(--onug-orange-dark); }
+
+  /* ---------- gap table ---------- */
+  table.gaps { width: 100%; border-collapse: collapse; font-size: 14.5px; margin: 16px 0 8px; }
+  table.gaps td { padding: 12px 0; border-bottom: 1px solid var(--onug-border); vertical-align: top; line-height: 1.55; }
+  table.gaps tr:last-child td { border-bottom: none; }
+  table.gaps .gid { font-family: var(--font-mono); font-weight: 700; color: var(--onug-orange-dark); white-space: nowrap; padding-right: 18px; width: 190px; }
+
+  .sources {
+    margin-top: 52px; padding-top: 22px; border-top: 2px solid var(--onug-green);
+    display: flex; flex-direction: column; gap: 8px;
+    font-family: var(--font-mono); font-size: 12.5px;
+  }
+  .sources .lbl { color: var(--onug-text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-size: 11px; margin-bottom: 4px; }
+  .sources a { text-decoration: none; }
+
+  footer {
+    margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--onug-border);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    font-family: var(--font-mono); font-size: 11.5px; color: var(--onug-text-muted);
+  }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 28px; }
+    .rpt-mast { flex-direction: column; align-items: flex-start; }
+    .rpt-mast .kind { text-align: left; }
+  }
+</style>
+
+<article class="report">
+
+  <div class="rpt-mast">
+    <svg width="132" height="32" viewBox="0 0 276 66.9" role="img" aria-label="ONUG">
+      <path d="M33.4,14c-10.7,0-19.5,8.7-19.5,19.5c0,10.7,8.7,19.5,19.5,19.5c10.7,0,19.5-8.7,19.5-19.5C52.9,22.7,44.2,14,33.4,14 M33.4,66.9C15,66.9,0,51.9,0,33.4C0,15,15,0,33.4,0s33.4,15,33.4,33.4C66.9,51.9,51.9,66.9,33.4,66.9" fill="#8FC73E"/>
+      <path d="M88.1,29.1c0-8.4,6.8-15.2,15.2-15.2c8.4,0,15.2,6.8,15.2,15.2v37.8h13.9V29.1c0-16-13.1-29.1-29.1-29.1c-16,0-29.1,13.1-29.1,29.1v37.8h13.9V29.1z" fill="#000000"/>
+      <path d="M183.2,37.8c0,8.4-6.8,15.2-15.2,15.2c-8.4,0-15.2-6.8-15.2-15.2V0h-13.9v37.8c0,16,13.1,29.1,29.1,29.1c16,0,29.1-13.1,29.1-29.1V0h-13.9V37.8z" fill="#000000"/>
+      <path d="M253.3,45.3c-3.6,4.7-9.2,7.7-15.5,7.7c-10.7,0-19.5-8.7-19.5-19.5c0-10.7,8.7-19.5,19.5-19.5c6.2,0,11.7,2.9,15.3,7.5H269C264.2,8.9,252,0,237.9,0c-18.4,0-33.4,15-33.4,33.4s15,33.4,33.4,33.4c14.3,0,26.5-9,31.3-21.6H253.3z" fill="#000000"/>
+      <rect x="246.8" y="26.4" width="29.2" height="13.9" fill="#000000"/>
+    </svg>
+    <div class="kind">Collaborative Working Groups<br>WG1 &middot; WG2 &middot; WG3</div>
+  </div>
+
+  <div class="eyebrow">AOMC Threat Model &middot; V. Threat &amp; Risk Scenario Catalog</div>
+  <h1>One Path Shown, <span class="hl">Fifty-Nine Catalogued</span></h1>
+  <div class="byline">
+    <span>Source: AOMC Threat &amp; Risk Scenario Catalog</span><span>&middot;</span>
+    <span>ingested 2026-09-23</span><span>&middot;</span>
+    <span>owner: ONUG Collaborative</span><span>&middot;</span>
+    <span>status: not WG1-ratified</span>
+  </div>
+
+  <blockquote>
+    Fifty-nine scenarios across eleven families &mdash; what each item in the working group's control list actually defends against, and where it doesn't. A vendor demo shows one path closed. This is the other fifty-eight.
+  </blockquote>
+
+  <div class="callout">
+    <h3>How to read this</h3>
+    <ul>
+      <li><b>Prevent</b> &mdash; the control that stops the scenario before the action runs (design-time or pre-action enforcement).</li>
+      <li><b>Detect / contain</b> &mdash; the control that catches it during or after execution, and what limits the blast radius.</li>
+      <li><b>Cross-ref</b> &mdash; OWASP Top 10 for Agentic Applications 2026 category (ASI01&ndash;ASI10) and the WG's four-bucket architecture: <b>TF</b> Trust Fabric, <b>RP</b> Registry/Personas, <b>BOM</b> Bill of Materials, <b>RS</b> Runtime Supervision.</li>
+      <li>Item numbers below use the <a href="report-onug-25-requirements-crosswalk.html">25-item consolidated list</a>, not the catalog's original #1&ndash;27.</li>
+    </ul>
+  </div>
+
+  <h2>Eleven families, fifty-nine scenarios</h2>
+  <div class="family-strip">
+    <div class="family-chip"><div class="fid">A</div><div class="fname">Identity and impersonation</div><div class="fcount">8 scenarios</div></div>
+    <div class="family-chip"><div class="fid">B</div><div class="fname">Authorization scope and privilege</div><div class="fcount">10 scenarios</div></div>
+    <div class="family-chip"><div class="fid">C</div><div class="fname">Content-driven manipulation</div><div class="fcount">5 scenarios</div></div>
+    <div class="family-chip"><div class="fid">D</div><div class="fname">Credential exposure</div><div class="fcount">3 scenarios</div></div>
+    <div class="family-chip"><div class="fid">E</div><div class="fname">Chain of trust across hops</div><div class="fcount">6 scenarios</div></div>
+    <div class="family-chip"><div class="fid">F</div><div class="fname">Result integrity and provenance</div><div class="fcount">4 scenarios</div></div>
+    <div class="family-chip"><div class="fid">G</div><div class="fname">Design-execution divergence</div><div class="fcount">4 scenarios</div></div>
+    <div class="family-chip"><div class="fid">H</div><div class="fname">Runtime behavior and containment</div><div class="fcount">8 scenarios</div></div>
+    <div class="family-chip"><div class="fid">I</div><div class="fname">Lifecycle and supply chain</div><div class="fcount">5 scenarios</div></div>
+    <div class="family-chip"><div class="fid">J</div><div class="fname">Cross-domain trust and personas</div><div class="fcount">3 scenarios</div></div>
+    <div class="family-chip"><div class="fid">K</div><div class="fname">Governance failure modes</div><div class="fcount">3 scenarios</div></div>
+  </div>
+
+  <!-- ============ FAMILY A ============ -->
+  <h3><span class="letter">A</span> Identity and impersonation <span class="count">8 scenarios</span></h3>
+  <p class="family-dek">The agent is not who the system thinks it is, or the thing it is talking to is not who it claims to be.</p>
+  <div class="table-wrap">
+    <table class="scenarios">
+      <thead><tr><th>ID</th><th>Scenario</th><th>What goes wrong</th><th>Prevent</th><th>Detect / contain</th><th>Cross-ref</th></tr></thead>
+      <tbody>
+        <tr><td class="id">A1</td><td class="scen-name">Identity fusion</td><td>Agent runs under the requesting human's credentials or a shared service account. Actions can't be attributed; agent inherits the human's full rights; revoking the agent means revoking the human.</td><td class="prevent">IAM Standard, Agent Personas, L1, L14</td><td class="detect">Attribution fails visibly</td><td class="xref"><b>ASI03</b> &middot; RP, TF</td></tr>
+        <tr><td class="id">A2</td><td class="scen-name">Shared credential across agents</td><td>One credential serves several agents. Compromise of one is compromise of all; no per-agent revocation or behavioral baseline.</td><td class="prevent">IAM Standard, L1</td><td class="detect">Observability (needs per-identity baseline)</td><td class="xref"><b>ASI03</b> &middot; TF</td></tr>
+        <tr><td class="id">A3</td><td class="scen-name">Ownerless agent</td><td>No accountable human of record. Nobody approves changes, answers for actions, or notices when it should be retired.</td><td class="prevent">Governance Model, Inventory and Registry, L1</td><td class="detect">Registry audit</td><td class="xref"><b>ASI10</b> &middot; RP</td></tr>
+        <tr><td class="id">A4</td><td class="scen-name">Shadow or rogue agent</td><td>Deployed outside the inventory. Unknown data access, no risk score, no monitoring hooks.</td><td class="prevent">Inventory and Registry, Lifecycle (SDLC), Risk Assessment</td><td class="detect">Observability, Security Control Baseline (discovery)</td><td class="xref"><b>ASI10</b> &middot; RP</td></tr>
+        <tr><td class="id">A5</td><td class="scen-name">Tool or server name spoofing</td><td>Agent sends data to a lookalike tool server whose name matches the one it expects &mdash; a documented, actively exploited MCP threat class.</td><td class="prevent">Next-Hop Authentication (verify destination before transmitting), L10</td><td class="detect">Observability, Audit and Traceability</td><td class="xref"><b>ASI02, ASI07</b> &middot; TF</td></tr>
+        <tr><td class="id">A6</td><td class="scen-name">Caller impersonation at the receiver</td><td>Something claiming to be an authorized agent invokes a tool or service using a stolen or forged assertion.</td><td class="prevent">Next-Hop Authentication, L10 sender-constrained tokens (DPoP / mTLS-bound)</td><td class="detect">Audit and Traceability</td><td class="xref"><b>ASI03, ASI07</b> &middot; TF</td></tr>
+        <tr><td class="id">A7</td><td class="scen-name">Token theft and replay</td><td>A bearer token is lifted from logs, memory, or the model's context and replayed by another party.</td><td class="prevent">L10 sender-constraining, IAM rotation/short TTL (L13), Credential-in-Context Protection</td><td class="detect">Observability</td><td class="xref"><b>ASI03</b> &middot; TF</td></tr>
+        <tr><td class="id">A8</td><td class="scen-name">Admitted once, trusted forever</td><td>A party vetted at admission is later compromised or degrades; trust persists because establishment and maintenance are one checkbox. The UDAP community-vetting lesson.</td><td class="prevent">L1 establishment/maintenance split, L15 cross-domain boundary, Multi-Vendor Control Plane</td><td class="detect">Continuous re-verification against a source outside either party's say-so</td><td class="xref"><b>ASI07, ASI10</b> &middot; TF</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ FAMILY B ============ -->
+  <h3><span class="letter">B</span> Authorization scope and privilege <span class="count">10 scenarios</span></h3>
+  <p class="family-dek">The agent is who it claims to be, but it holds &mdash; or accumulates &mdash; more authority than the job needs.</p>
+  <div class="table-wrap">
+    <table class="scenarios">
+      <thead><tr><th>ID</th><th>Scenario</th><th>What goes wrong</th><th>Prevent</th><th>Detect / contain</th><th>Cross-ref</th></tr></thead>
+      <tbody>
+        <tr><td class="id">B1</td><td class="scen-name">Master-key standing privilege</td><td>Agent holds its full base authority for every action. Any hijack, injection, or bug yields full authority.</td><td class="prevent">IAM least privilege / JIT, L2 per-action attenuation, Action Guardrails</td><td class="detect">Observability</td><td class="xref"><b>ASI03</b> &middot; TF</td></tr>
+        <tr><td class="id">B2</td><td class="scen-name">Composite authority ceiling</td><td>Ten individually narrow, individually approved grants union to the agent's full base authority. Every grant is compliant in isolation; nothing inventories the set. Default, correctly functioning behavior &mdash; not an attack.</td><td class="prevent">Process Notation combined-grant-set analysis, in Risk Assessment; L2 gap acknowledged</td><td class="detect">Observability / L9 total-reach monitoring (backstop only)</td><td class="xref"><b>ASI03</b> &middot; BOM, RS</td></tr>
+        <tr><td class="id">B3</td><td class="scen-name">SoD violation in a step chain</td><td>One agent identity executes both halves of a control pair across steps (initiate/approve; request/fulfil; write/attest). Distinct from B2: a specific forbidden combination, not a ceiling.</td><td class="prevent">Process Notation SoD pass, per-step scope, Signed Step Provenance</td><td class="detect">Step attribution (Audit and Traceability)</td><td class="xref"><b>ASI03</b> &middot; BOM</td></tr>
+        <tr><td class="id">B4</td><td class="scen-name">Bulk extraction under a valid grant</td><td>The read permission is legitimate; the agent pulls a million records where the step was meant to pull one.</td><td class="prevent">Process Notation volume/cardinality bound, Rights-BOM pre-action check, Action Guardrails rate limits</td><td class="detect">L9 volume threshold (fallback &mdash; exposure has already occurred)</td><td class="xref"><b>ASI02</b> &middot; BOM, RS</td></tr>
+        <tr><td class="id">B5</td><td class="scen-name">Sensitivity boundary crossing</td><td>A step authorized for internal data touches PII, PHI, or PCI. Classification is noticed at runtime inspection, not declared as a pre-execution boundary.</td><td class="prevent">Process Notation classification attribute, Rights-BOM, L6</td><td class="detect">AOMC-3 data guardrails, Action Guardrails</td><td class="xref"><b>ASI02</b> &middot; BOM</td></tr>
+        <tr><td class="id">B6</td><td class="scen-name">Write where read was intended</td><td>Action-type ambiguity. The agent modifies or deletes when the step only needed to read.</td><td class="prevent">Process Notation action type, Action Guardrails action catalog</td><td class="detect">Audit and Traceability</td><td class="xref"><b>ASI02, ASI05</b> &middot; BOM</td></tr>
+        <tr><td class="id">B7</td><td class="scen-name">Confused deputy via gateway</td><td>A high-privilege intermediary performs actions for a low-privilege caller. The backend sees only the gateway's identity and applies the gateway's rights.</td><td class="prevent">Intermediary Identity Propagation, L11</td><td class="detect">Attribution loss is the symptom (Audit and Traceability)</td><td class="xref"><b>ASI03, ASI07</b> &middot; TF</td></tr>
+        <tr><td class="id">B8</td><td class="scen-name">Declared-vs-actual drift</td><td>Real systems have granted more, or different, rights than the process design says. Found during incident review months later.</td><td class="prevent">Rights-BOM reconciliation, L8</td><td class="detect">Rights-BOM continuous check</td><td class="xref"><b>ASI03</b> &middot; BOM</td></tr>
+        <tr><td class="id">B9</td><td class="scen-name">Revoked access that still works</td><td>The IAM system records the revocation; the credential still opens the door. Passive reconciliation says "removed," active testing says otherwise.</td><td class="prevent">Rights-BOM active removal verification, IAM Standard</td><td class="detect">Rights-BOM test-based verification</td><td class="xref"><b>ASI03</b> &middot; BOM</td></tr>
+        <tr><td class="id">B10</td><td class="scen-name">Unplanned tool invocation</td><td>The agent calls a tool the process design never listed.</td><td class="prevent">Action Guardrails, Signed Step Provenance design-execution binding</td><td class="detect">Observability, L9</td><td class="xref"><b>ASI02</b> &middot; RS</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ FAMILY C ============ -->
+  <h3><span class="letter">C</span> Content-driven manipulation <span class="count">5 scenarios</span></h3>
+  <p class="family-dek">The agent's behavior is steered by what it reads, with or without an attacker.</p>
+  <div class="table-wrap">
+    <table class="scenarios">
+      <thead><tr><th>ID</th><th>Scenario</th><th>What goes wrong</th><th>Prevent</th><th>Detect / contain</th><th>Cross-ref</th></tr></thead>
+      <tbody>
+        <tr><td class="id">C1</td><td class="scen-name">Direct prompt injection via ingested content</td><td>An attacker's payload in a document, web page, email, or tool output steers the agent.</td><td class="prevent">Inferred Prompt Injection control, AOMC-3 / L5 filtering, input-sanitization principle</td><td class="detect">Action Guardrails denies the action; Audit tags it</td><td class="xref"><b>ASI01, ASI06</b> &middot; RS</td></tr>
+        <tr><td class="id">C2</td><td class="scen-name">Inferred scope expansion, no attacker</td><td>The agent reads legitimate content and talks itself into a bigger job than it was given. Filtering catches nothing because there is no payload.</td><td class="prevent">Inferred-vs-instructed action tagging; Action Guardrails denies inferred-but-unauthorized actions</td><td class="detect">Audit distinguishes declared from inferred actions</td><td class="xref"><b>ASI01</b> &middot; RS</td></tr>
+        <tr><td class="id">C3</td><td class="scen-name">Tool output or tool description poisoning</td><td>A tool's metadata changes after approval ("rug pull"), or its response carries instructions.</td><td class="prevent">Inferred Prompt Injection control, Validation and Assurance, Next-Hop Auth part 3, Inference Result Provenance</td><td class="detect">Observability</td><td class="xref"><b>ASI02, ASI04, ASI06</b> &middot; TF, RS</td></tr>
+        <tr><td class="id">C4</td><td class="scen-name">Objective drift across a multi-step flow</td><td>Each step is locally reasonable; the cumulative path leaves the declared objective.</td><td class="prevent">Process Notation intended objective per step, Signed Step Provenance</td><td class="detect">L9 declared-objective comparison</td><td class="xref"><b>ASI01</b> &middot; BOM, RS</td></tr>
+        <tr><td class="id">C5</td><td class="scen-name">Memory and context poisoning across sessions</td><td>Persisted memory or retrieved context carries injected or stale instructions into later runs.</td><td class="prevent">Inferred Prompt Injection control, Audit and Traceability</td><td class="detect">Audit and Traceability</td><td class="xref"><b>ASI06</b> &middot; RS</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ FAMILY D ============ -->
+  <h3><span class="letter">D</span> Credential exposure <span class="count">3 scenarios</span></h3>
+  <p class="family-dek">Secrets end up somewhere the agent, or an attacker reading the agent's trail, can see them.</p>
+  <div class="table-wrap">
+    <table class="scenarios">
+      <thead><tr><th>ID</th><th>Scenario</th><th>What goes wrong</th><th>Prevent</th><th>Detect / contain</th><th>Cross-ref</th></tr></thead>
+      <tbody>
+        <tr><td class="id">D1</td><td class="scen-name">Secret in the model's context</td><td>A credential is placed in the prompt or context. It leaks through output, "print your instructions" injection, or model-side logging.</td><td class="prevent">Credential-in-Context Protection, L4 &mdash; injected at the tool-call boundary by a component the agent cannot see inside</td><td class="detect">Log scanning (Audit and Traceability)</td><td class="xref"><b>ASI03</b> &middot; TF</td></tr>
+        <tr><td class="id">D2</td><td class="scen-name">Audit trail becomes a credential store</td><td>Prompt and action logging captures secrets that were in context. The immutable trail now holds live keys.</td><td class="prevent">Credential-in-Context Protection (nothing to capture), Audit redaction</td><td class="detect">Audit and Traceability</td><td class="xref"><b>ASI03</b> &middot; TF, RS</td></tr>
+        <tr><td class="id">D3</td><td class="scen-name">Long-lived, unrotated credential</td><td>A compromised key keeps working indefinitely.</td><td class="prevent">IAM rotation, L13 short TTLs</td><td class="detect">Observability</td><td class="xref"><b>ASI03</b> &middot; TF</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ FAMILY E ============ -->
+  <h3><span class="letter">E</span> Chain of trust across hops <span class="count">6 scenarios</span></h3>
+  <p class="family-dek">Identity and integrity are lost or forged as a request passes through gateways, routers, and other agents.</p>
+  <div class="table-wrap">
+    <table class="scenarios">
+      <thead><tr><th>ID</th><th>Scenario</th><th>What goes wrong</th><th>Prevent</th><th>Detect / contain</th><th>Cross-ref</th></tr></thead>
+      <tbody>
+        <tr><td class="id">E1</td><td class="scen-name">Response injection / async callback hijack</td><td>The response arrives over a webhook, queue, or callback from a party other than the verified destination. Pre-transmission verification alone does not close this.</td><td class="prevent">Next-Hop Auth part 3 (response attributable + correlated to the request), L10</td><td class="detect">Correlation (Audit and Traceability)</td><td class="xref"><b>ASI07</b> &middot; TF</td></tr>
+        <tr><td class="id">E2</td><td class="scen-name">Identity laundering at the intermediary</td><td>The gateway authenticates to backends with its own identity (trusted-subsystem pattern). The original caller's identity and scope are discarded; downstream can't enforce least privilege or attribute.</td><td class="prevent">Intermediary Identity Propagation (delegated Verifiable Presentation), L11</td><td class="detect">Audit and Traceability</td><td class="xref"><b>ASI03, ASI07</b> &middot; TF</td></tr>
+        <tr><td class="id">E3</td><td class="scen-name">Tampering in transit at an intermediary</td><td>A gateway or router alters the request or the response between hops.</td><td class="prevent">Intermediary Identity Propagation both-signature verification (issuer + presenter), Inference Result Provenance content envelope</td><td class="detect">Verification failure</td><td class="xref"><b>ASI07</b> &middot; TF</td></tr>
+        <tr><td class="id">E4</td><td class="scen-name">Replay of a delegated presentation</td><td>A captured presentation is re-presented later as a static credential.</td><td class="prevent">Intermediary Identity Propagation fresh verifier-issued challenge bound at moment of use</td><td class="detect">&mdash;</td><td class="xref"><b>ASI03, ASI07</b> &middot; TF</td></tr>
+        <tr><td class="id">E5</td><td class="scen-name">Delegation chain forgery in multi-agent flows</td><td>An agent claims delegated authority it was never given; the downstream party has no way to verify the chain without prior coordination.</td><td class="prevent">Intermediary Identity Propagation (VC chain, KYA-OS pattern), Multi-Vendor Control Plane</td><td class="detect">&mdash;</td><td class="xref"><b>ASI03, ASI07</b> &middot; TF</td></tr>
+        <tr><td class="id">E6</td><td class="scen-name">Protocol coverage gap</td><td>Controls are built for MCP and absent for A2A, direct API, or the next protocol.</td><td class="prevent">Next-Hop Auth protocol-agnostic requirement, Multi-Vendor Control Plane</td><td class="detect">&mdash;</td><td class="xref"><b>ASI07</b> &middot; TF</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ FAMILY F ============ -->
+  <h3><span class="letter">F</span> Result integrity and provenance <span class="count">4 scenarios</span></h3>
+  <p class="family-dek">The answer that comes back is not what the verified producer produced, or is trusted for the wrong reason.</p>
+  <div class="table-wrap">
+    <table class="scenarios">
+      <thead><tr><th>ID</th><th>Scenario</th><th>What goes wrong</th><th>Prevent</th><th>Detect / contain</th><th>Cross-ref</th></tr></thead>
+      <tbody>
+        <tr><td class="id">F1</td><td class="scen-name">Tampered inference result</td><td>The result is altered between producer and consumer.</td><td class="prevent">Inference Result Provenance, L12 DSSE-style envelope</td><td class="detect">Verification failure</td><td class="xref"><b>ASI07</b> &middot; TF</td></tr>
+        <tr><td class="id">F2</td><td class="scen-name">Wrong or unapproved model produced the result</td><td>Shadow model, silently downgraded version, or substituted provider.</td><td class="prevent">Inference Result Provenance model/version attestation, Security Control Baseline supply chain, Private Open Routing guardrails</td><td class="detect">Inventory and Registry, Observability</td><td class="xref"><b>ASI04</b> &middot; TF, RP</td></tr>
+        <tr><td class="id">F3</td><td class="scen-name">Result-request mismatch</td><td>A stale or swapped result is served for a different request. Static artifact signing proves the bytes; it says nothing about which request they answer.</td><td class="prevent">Inference Result Provenance request-bound attestation (open problem), Next-Hop Auth part 3 correlation</td><td class="detect">&mdash;</td><td class="xref"><b>ASI07</b> &middot; TF</td></tr>
+        <tr><td class="id">F4</td><td class="scen-name">Authorization mistaken for trustworthiness</td><td>A validly authorized result is consumed as trusted content. No separate trust decision is rendered on the content itself.</td><td class="prevent">L3 two-decision split ("is this authorized" vs. "should this be trusted"), Inference Result Provenance</td><td class="detect">&mdash;</td><td class="xref"><b>ASI01, ASI09</b> &middot; TF</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ FAMILY G ============ -->
+  <h3><span class="letter">G</span> Design-execution divergence <span class="count">4 scenarios</span></h3>
+  <p class="family-dek">What ran is not what was designed, and nobody can prove it either way.</p>
+  <div class="table-wrap">
+    <table class="scenarios">
+      <thead><tr><th>ID</th><th>Scenario</th><th>What goes wrong</th><th>Prevent</th><th>Detect / contain</th><th>Cross-ref</th></tr></thead>
+      <tbody>
+        <tr><td class="id">G1</td><td class="scen-name">Execution deviates from the designed process</td><td>Steps skipped, reordered, added, or run by the wrong actor.</td><td class="prevent">Signed Step Provenance (signed layout verified against signed links), Process Notation</td><td class="detect">Provenance verification, Observability</td><td class="xref"><b>ASI01, ASI10</b> &middot; BOM</td></tr>
+        <tr><td class="id">G2</td><td class="scen-name">Step attribution loss</td><td>A multi-step flow shares one agent identity throughout. When something misbehaves, no one can say which step.</td><td class="prevent">Signed Step Provenance versioned, signed step identity</td><td class="detect">Audit and Traceability, L9 step-level anomaly detection</td><td class="xref"><b>ASI10</b> &middot; BOM, RS</td></tr>
+        <tr><td class="id">G3</td><td class="scen-name">Self-attestation</td><td>The orchestrator signs and verifies its own step attestations. The attestation has no independent value.</td><td class="prevent">L7 signer and verifier must be separate parties, Governance Model</td><td class="detect">&mdash;</td><td class="xref"><b>ASI10</b> &middot; BOM</td></tr>
+        <tr><td class="id">G4</td><td class="scen-name">Unversioned process change</td><td>The process changes; controls stay calibrated to the old version; no re-assessment is triggered.</td><td class="prevent">Lifecycle (SDLC) stage gates, Rights-BOM version control, Validation and Assurance, Risk Assessment</td><td class="detect">Rights-BOM reconciliation</td><td class="xref"><b>ASI08</b> &middot; BOM</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ FAMILY H ============ -->
+  <h3><span class="letter">H</span> Runtime behavior and containment <span class="count">8 scenarios</span></h3>
+  <p class="family-dek">The agent is doing something it should not, right now, and the question is whether anyone can see it and stop it.</p>
+  <div class="table-wrap">
+    <table class="scenarios">
+      <thead><tr><th>ID</th><th>Scenario</th><th>What goes wrong</th><th>Prevent</th><th>Detect / contain</th><th>Cross-ref</th></tr></thead>
+      <tbody>
+        <tr><td class="id">H1</td><td class="scen-name">Runaway agent</td><td>Loops, spend blowout, resource exhaustion, recursive tool calls.</td><td class="prevent">Action Guardrails rate and spend limits, L9</td><td class="detect">Observability; Incident Response kill switch (SLA-bound)</td><td class="xref"><b>ASI08</b> &middot; RS</td></tr>
+        <tr><td class="id">H2</td><td class="scen-name">Cascading failure across agents</td><td>One agent's bad output propagates through every dependent agent.</td><td class="prevent">Next-Hop Auth, Inference Result Provenance (refuse unverified input), Action Guardrails confidence thresholds</td><td class="detect">Observability; Incident Response containment</td><td class="xref"><b>ASI08</b> &middot; RS, TF</td></tr>
+        <tr><td class="id">H3</td><td class="scen-name">Slow behavioral drift</td><td>Behavior changes gradually enough to stay under every per-call threshold.</td><td class="prevent">&mdash;</td><td class="detect">Observability continuous baselining, L9</td><td class="xref"><b>ASI10</b> &middot; RS</td></tr>
+        <tr><td class="id">H4</td><td class="scen-name">Blind spots</td><td>Actions run unobserved; no forensic trail exists when it matters.</td><td class="prevent">Observability, Audit and Traceability</td><td class="detect">&mdash;</td><td class="xref"><b>ASI10</b> &middot; RS</td></tr>
+        <tr><td class="id">H5</td><td class="scen-name">Irreversible action without a human</td><td>A high-consequence action executes with no approval gate.</td><td class="prevent">Human Oversight Policy, Action Guardrails confidence thresholds, Governance Model decision-rights matrix</td><td class="detect">Audit and Traceability</td><td class="xref"><b>ASI05, ASI09</b> &middot; RS, RP</td></tr>
+        <tr><td class="id">H6</td><td class="scen-name">Tamperable audit trail</td><td>Logs are edited after the fact; the reasoning trace cannot be relied on.</td><td class="prevent">Audit and Traceability immutable capture, Inference Result Provenance signed results</td><td class="detect">&mdash;</td><td class="xref"><b>ASI10</b> &middot; RS</td></tr>
+        <tr><td class="id">H7</td><td class="scen-name">Human-agent trust exploitation</td><td>The agent's output manipulates the human approver &mdash; fabricated rationale, false urgency, selective evidence.</td><td class="prevent">Human Oversight Policy, Audit reasoning capture, Validation and Assurance</td><td class="detect">Audit and Traceability</td><td class="xref"><b>ASI09</b> &middot; RS</td></tr>
+        <tr><td class="id">H8</td><td class="scen-name">Unsafe code or command execution</td><td>The agent generates and runs code outside a sandbox or allowed action set.</td><td class="prevent">Action Guardrails action catalog, Security Control Baseline (sandboxing, isolation)</td><td class="detect">Observability</td><td class="xref"><b>ASI05</b> &middot; RS</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ FAMILY I ============ -->
+  <h3><span class="letter">I</span> Lifecycle and supply chain <span class="count">5 scenarios</span></h3>
+  <p class="family-dek">Rights and components outlive, or predate, the governance that was supposed to cover them.</p>
+  <div class="table-wrap">
+    <table class="scenarios">
+      <thead><tr><th>ID</th><th>Scenario</th><th>What goes wrong</th><th>Prevent</th><th>Detect / contain</th><th>Cross-ref</th></tr></thead>
+      <tbody>
+        <tr><td class="id">I1</td><td class="scen-name">Zombie agent, zombie access</td><td>The business process is retired; the agent and its grants stay live. Nobody complains about access that still works.</td><td class="prevent">Lifecycle (SDLC), Rights-BOM process-centric revocation cascade, L13</td><td class="detect">Rights-BOM, Inventory status</td><td class="xref"><b>ASI03, ASI10</b> &middot; BOM, RP</td></tr>
+        <tr><td class="id">I2</td><td class="scen-name">Unrevocable external grant</td><td>Rights were granted in a third-party system with no administrative relationship, so push deprovisioning is impossible.</td><td class="prevent">Rights-BOM contractual deprovisioning SLAs or self-expiring credentials, L13</td><td class="detect">Rights-BOM active removal test</td><td class="xref"><b>ASI03</b> &middot; BOM</td></tr>
+        <tr><td class="id">I3</td><td class="scen-name">Deployed without assessment</td><td>No risk score, no validation evidence, no approval gate passed.</td><td class="prevent">Risk Assessment, Lifecycle (SDLC), Validation and Assurance</td><td class="detect">&mdash;</td><td class="xref"><b>ASI10</b> &middot; RP</td></tr>
+        <tr><td class="id">I4</td><td class="scen-name">Poisoned component</td><td>A malicious or compromised model, plugin, MCP server package, or dependency enters the pipeline.</td><td class="prevent">Security Control Baseline supply chain, Validation and Assurance, Inference Result Provenance model attestation, L8 AI-BOM base</td><td class="detect">Inventory and Registry</td><td class="xref"><b>ASI04</b> &middot; BOM, TF</td></tr>
+        <tr><td class="id">I5</td><td class="scen-name">Model or version rotation without re-validation</td><td>An upgrade changes behavior; controls and baselines were tuned to the old model.</td><td class="prevent">Lifecycle (SDLC), Validation and Assurance, Inference Result Provenance version attestation</td><td class="detect">Observability baseline shift</td><td class="xref"><b>ASI04, ASI08</b> &middot; RP, RS</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ FAMILY J ============ -->
+  <h3><span class="letter">J</span> Cross-domain trust and personas <span class="count">3 scenarios</span></h3>
+  <p class="family-dek">The trust model that fits inside the enterprise is applied where it does not fit.</p>
+  <div class="table-wrap">
+    <table class="scenarios">
+      <thead><tr><th>ID</th><th>Scenario</th><th>What goes wrong</th><th>Prevent</th><th>Detect / contain</th><th>Cross-ref</th></tr></thead>
+      <tbody>
+        <tr><td class="id">J1</td><td class="scen-name">External party treated with internal trust</td><td>A partner, open API, or another provider's agent is admitted under the default internal standard.</td><td class="prevent">AOMC-4 / L15 stricter, deliberate cross-domain standard; Multi-Vendor Control Plane</td><td class="detect">A8 controls apply continuously</td><td class="xref"><b>ASI07</b> &middot; TF</td></tr>
+        <tr><td class="id">J2</td><td class="scen-name">Sovereignty and routing leakage</td><td>Model routing sends regulated data to a jurisdiction or provider that is not permitted for that classification.</td><td class="prevent">Private Open Routing, Process Notation trust-boundary flag</td><td class="detect">Observability</td><td class="xref"><b>ASI02, ASI04</b> &middot; RS</td></tr>
+        <tr><td class="id">J3</td><td class="scen-name">Consumer-delegated agent in an enterprise context</td><td>A personal assistant whose identity terminates in an individual acts against enterprise systems under enterprise assumptions. No governance model exists for it.</td><td class="prevent">Agent Personas, L14 explicit scope boundary</td><td class="detect">&mdash;</td><td class="xref"><b>ASI03</b> &middot; RP</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ FAMILY K ============ -->
+  <h3><span class="letter">K</span> Governance failure modes <span class="count">3 scenarios</span></h3>
+  <p class="family-dek">Not threats in themselves, but the conditions that let every scenario above persist unnoticed.</p>
+  <div class="table-wrap">
+    <table class="scenarios">
+      <thead><tr><th>ID</th><th>Scenario</th><th>What goes wrong</th><th colspan="2">Addressed by</th><th>Cross-ref</th></tr></thead>
+      <tbody>
+        <tr><td class="id">K1</td><td class="scen-name">Nobody owns the decision</td><td>An agent acts across executive, business, platform, and security owners with no decision-rights matrix.</td><td colspan="2">Agentic Control Framework, Governance Model</td><td class="xref none">&mdash;</td></tr>
+        <tr><td class="id">K2</td><td class="scen-name">Controls cannot be evidenced to a regulator</td><td>No mapping to NIST AI RMF, ISO 42001 / 27001, SOC 2, EU AI Act.</td><td colspan="2">Compliance, Metrics &amp; Regulatory Reporting</td><td class="xref none">&mdash;</td></tr>
+        <tr><td class="id">K3</td><td class="scen-name">Risk posture is unmeasurable</td><td>No KPIs; the exposure is invisible at executive level until an incident.</td><td colspan="2">Compliance, Metrics &amp; Regulatory Reporting</td><td class="xref none">&mdash;</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Scenarios the controls only partially close</h2>
+  <p>Honest gap statements, consistent with the layer-by-layer gaps in the WG1 reference architecture. These are the scenarios where a vendor claiming full coverage should be asked to show the mechanism.</p>
+  <table class="gaps">
+    <tr><td class="gid">B2 &middot; Composite authority ceiling</td><td>No token or policy framework proves a bound on the union of active grants. The combined-grant-set analysis names the problem; runtime monitoring is the only backstop, and it detects after the fact.</td></tr>
+    <tr><td class="gid">B4/B5 &middot; Volume and sensitivity bounds</td><td>Pre-execution enforcement depends on process-notation attributes and a rights-BOM pre-action check, neither of which exists as a standard yet. Today these are caught at runtime, after exposure.</td></tr>
+    <tr><td class="gid">C2 &middot; Inferred scope expansion</td><td>Inferred-vs-instructed action tagging is not a named control in any current agent security baseline. Every deployed guardrail assumes a payload.</td></tr>
+    <tr><td class="gid">F3 &middot; Result-request mismatch</td><td>Live inference results need attestation bound to the originating request. Current supply-chain signing is artifact-centric and offline.</td></tr>
+    <tr><td class="gid">A8/J1 &middot; Trust maintenance</td><td>No standard separates admission rigor from continuous re-verification, and no mandate applies the split at the cross-domain boundary where it matters most.</td></tr>
+    <tr><td class="gid">J3 &middot; Consumer-delegated agents</td><td>A governance vacuum, not an engineering gap. Enterprise NHI controls do not extend to a personal agent whose identity terminates in an individual.</td></tr>
+  </table>
+
+  <div class="callout warn">
+    <h3>Status &amp; caveat</h3>
+    <p>This report renders the AOMC Threat &amp; Risk Scenario Catalog in ONUG design language, with item names updated to the 25-item consolidated list.</p>
+    <ul>
+      <li>Neither the underlying catalog nor the 25-item consolidation has been reviewed or ratified by WG1.</li>
+      <li>The catalog's own item numbering is stated to follow <code>AOMC_Full_Item_Summary.md</code>, a file not available for direct cross-check &mdash; item names here are cross-checked against <a href="report-onug-25-requirements-crosswalk.html">the crosswalk report</a> rather than read directly from that summary.</li>
+      <li>No WG1, WG2, or WG3 requirements document currently cites Signed Step Provenance, Intermediary Identity Propagation, or Inference Result Provenance.</li>
+    </ul>
+  </div>
+
+  <div class="tag-row">
+    <span class="tag muted">&mdash; &middot; no control currently named</span>
+    <span class="tag accent">ASI01&ndash;ASI10 &middot; OWASP cross-ref</span>
+  </div>
+
+  <footer>
+    <span>ONUG &mdash; AOMC Threat &amp; Risk Scenario Catalog, 59 scenarios across 11 families</span>
+    <span>Generated from ONUG Collaborative shared documents</span>
+  </footer>
+
+</article>
