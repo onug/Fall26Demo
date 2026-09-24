@@ -2,6 +2,10 @@
 
 Practitioner and co-chair input on the keynote arc, and what the demo did with it. Newest first.
 
+## Nick Lippis — September 18, 2026 (incorporated in v0.3.4)
+
+**The requirement count on stage is 25.** "You have to change the number of requirements is 25." The Beat 2 "You are here" card and its narration, and the Beat 3 title card, say 25 again, as they did before v0.3.2. Peter's note of 16 September ("there are actually 24 requirements going back to the original list") made it 24 for two versions; his crosswalk report is still titled for 24, and that is for Peter to reconcile in his pack. The entries below record what was said and done at the time and are left as they were.
+
 ## Peter Campbell, ONUG — September 17, 2026, afternoon (incorporated in v0.3.3)
 
 Three emails after v0.3.2 went in.

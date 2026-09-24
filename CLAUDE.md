@@ -71,7 +71,7 @@ web-demo/
 
 **Step phases** drive layout: `title`, `accelerator`, `proof`, `lanes`, `ra`, `gap`, `threats` are full-screen cards; everything else is the dashboard (event feed, topology, control plane, impact). `violation` and `blocked` phases also fire the red/green overlays. `gate` phases show the verify-gate panel under the topology; `showAudit: true` shows the journal.
 
-**Controls.** Nine capabilities, not the Dallas six. WG1: identity, artifact provenance, runtime monitoring, audit journal, kill switch. WG2: verify gate, autonomy levels. WG3: detect→decide, deliberate containment. The demo never enumerates the 24 WG1 requirements on stage (24, not 25: Peter, 17 Sep 2026); AOMC is the vehicle, not the checklist.
+**Controls.** Nine capabilities, not the Dallas six. WG1: identity, artifact provenance, runtime monitoring, audit journal, kill switch. WG2: verify gate, autonomy levels. WG3: detect→decide, deliberate containment. The demo never enumerates the 25 WG1 requirements on stage (25: Nick's decision, 18 Sep 2026. Peter's note of 16 Sep made it 24 for v0.3.2 and v0.3.3, and his crosswalk report is still titled for 24; a member's threat catalogue counts 27. The on-stage number is Nick's to set; do not change it again without him); AOMC is the vehicle, not the checklist.
 
 **Narration.** Every step has `narration` text. Playback (`lib/audio.ts`) tries the MP3 for the step id and falls back to `speechSynthesis`. The `id` is therefore a contract: renaming a step id orphans its audio.
 

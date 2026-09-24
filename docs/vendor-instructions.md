@@ -16,7 +16,7 @@ The keynote demo, *One Control Plane, Every Domain*, shows what happens to a com
 | 2 | WG2 · Autonomous Infrastructure | Let agents run the fabric with every write mediated. | The Verify Gate on every write: change-stop · dry-run · blast radius · rollback · declared autonomy levels · bounded auto-act with automatic revert |
 | 3 | WG3 · AI-Enabled SOC | Compress detect-to-decide to seconds without destroying evidence. | Cross-domain correlation · the Decide Gate: contain now or observe and trace · evidence preserved with chain of custody |
 
-**The controls you are judged on, by number, and the working-group requirements each one translates.** From Peter Campbell's vendor three-lane challenge report (17 September 2026), which checks the demo against the 24-requirements crosswalk. None of this is new scope: each control is a requirement already in that lane's document, phrased as something a vendor can be asked to show.
+**The controls you are judged on, by number, and the working-group requirements each one translates.** From Peter Campbell's vendor three-lane challenge report (17 September 2026), which checks the demo against the working group's requirements crosswalk. None of this is new scope: each control is a requirement already in that lane's document, phrased as something a vendor can be asked to show.
 
 | Lane | Control | Requirements |
 |------|---------|--------------|
