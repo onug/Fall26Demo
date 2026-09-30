@@ -38,6 +38,8 @@ export default function StepIndicator({ currentStep, totalSteps, beat, stepTitle
         <span>beat</span>
         <kbd className="px-1.5 py-0.5 bg-gray-800 rounded text-gray-400 border border-gray-700">F</kbd>
         <span>fullscreen</span>
+        <kbd className="px-1.5 py-0.5 bg-gray-800 rounded text-gray-400 border border-gray-700">P</kbd>
+        <span>pause</span>
         <kbd className="px-1.5 py-0.5 bg-gray-800 rounded text-gray-400 border border-gray-700">N</kbd>
         <span>voice</span>
         <kbd className="px-1.5 py-0.5 bg-gray-800 rounded text-gray-400 border border-gray-700">T</kbd>

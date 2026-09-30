@@ -7,6 +7,10 @@
 const AUDIO_BASE_PATH = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/narration`;
 
 let currentAudio: HTMLAudioElement | null = null;
+// A play() the browser refused before the first user gesture. Autoplay policy blocks step 1's
+// narration on load; without this the demo opens silent and only speaks once you have moved
+// forward and back. Kept so the first click or key press can start it where it should have.
+let blocked: { stepId: string; text: string; onStart: () => void; onEnd: () => void } | null = null;
 let currentUtterance: SpeechSynthesisUtterance | null = null;
 let generation = 0;
 
@@ -16,6 +20,7 @@ export interface NarrationHandle {
 
 export function stopNarration(): void {
   generation++;
+  blocked = null;
   if (currentAudio) {
     currentAudio.pause();
     currentAudio.onended = null;
@@ -67,12 +72,35 @@ export function playNarration(
   };
   audio.oncanplay = () => { if (gen === generation) onStart(); };
   audio.play().catch(() => {
-    // Autoplay may be blocked before first user gesture; TTS also needs a gesture,
-    // so there is nothing more to do here — the next key press will narrate.
-    if (gen === generation && currentAudio === audio) { currentAudio = null; onEnd(); }
+    // Autoplay refused (no user gesture yet). Remember it so resumeNarration() can start it.
+    if (gen === generation && currentAudio === audio) {
+      currentAudio = null;
+      blocked = { stepId, text, onStart, onEnd };
+      onEnd();
+    }
   });
 
   return { stop: stopNarration };
+}
+
+export function pauseNarration(): void {
+  if (currentAudio && !currentAudio.paused) { currentAudio.pause(); return; }
+  if (typeof window !== 'undefined' && window.speechSynthesis?.speaking) window.speechSynthesis.pause();
+}
+
+/** Resume a paused clip, or start one the browser refused before the first gesture. */
+export function resumeNarration(): void {
+  if (currentAudio && currentAudio.paused) { void currentAudio.play().catch(() => {}); return; }
+  if (typeof window !== 'undefined' && window.speechSynthesis?.paused) { window.speechSynthesis.resume(); return; }
+  if (blocked) {
+    const b = blocked;
+    blocked = null;
+    playNarration(b.stepId, b.text, b.onStart, b.onEnd);
+  }
+}
+
+export function hasBlockedNarration(): boolean {
+  return blocked !== null;
 }
 
 export function isNarrating(): boolean {

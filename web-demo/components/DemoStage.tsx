@@ -6,7 +6,7 @@ import {
 } from '@/lib/types';
 import { INITIAL_CONTROLS, INITIAL_METRICS, BASE_NODES, BASE_EDGES } from '@/lib/data';
 import { STEPS, firstStepOfBeat, BEAT_LABELS } from '@/lib/steps';
-import { playNarration, stopNarration } from '@/lib/audio';
+import { playNarration, stopNarration, pauseNarration, resumeNarration, hasBlockedNarration } from '@/lib/audio';
 
 import TitleSlide from './TitleSlide';
 import Topology from './Topology';
@@ -194,6 +194,19 @@ export default function DemoStage() {
   const isFullScreenCard = phase === 'title' || phase === 'accelerator' || phase === 'proof' || phase === 'lanes'
     || phase === 'ra' || phase === 'gap' || phase === 'threats';
 
+  const [paused, setPaused] = useState(false);
+
+  // Autoplay policy refuses step 1's narration on load. The first click or key press is the
+  // gesture the browser was waiting for, so start it there rather than leaving the demo silent.
+  useEffect(() => {
+    function kick() {
+      if (hasBlockedNarration()) { resumeNarration(); setPaused(false); }
+    }
+    window.addEventListener('pointerdown', kick);
+    window.addEventListener('keydown', kick);
+    return () => { window.removeEventListener('pointerdown', kick); window.removeEventListener('keydown', kick); };
+  }, []);
+
   const goToStep = useCallback((n: number) => {
     if (overlayTimerRef.current) clearTimeout(overlayTimerRef.current);
     dispatch({ type: 'GOTO_STEP', step: n });
@@ -205,6 +218,7 @@ export default function DemoStage() {
     const t = setTimeout(() => {
       playNarration(step.id, step.narration!, () => setSpeaking(true), () => setSpeaking(false));
     }, 350);
+    setPaused(false);
     return () => { clearTimeout(t); stopNarration(); setSpeaking(false); };
   }, [state.currentStep, muted, step?.id, step?.narration]);
 
@@ -230,6 +244,11 @@ export default function DemoStage() {
         case 'ArrowLeft':
         case 'PageUp':
           e.preventDefault(); goToStep(state.currentStep - 1); break;
+        case 'p':
+        case 'P':
+          e.preventDefault();
+          setPaused(v => { v ? resumeNarration() : pauseNarration(); return !v; });
+          break;
         case 'Home':
           e.preventDefault(); goToStep(0); break;
         case 'End':
@@ -286,6 +305,18 @@ export default function DemoStage() {
             title="Toggle narration text (T)"
           >
             {showText ? 'TEXT ON' : 'TEXT OFF'}
+          </button>
+          <button
+            onClick={() => setPaused(v => { v ? resumeNarration() : pauseNarration(); return !v; })}
+            disabled={muted}
+            className={`flex items-center gap-1.5 text-xs px-2.5 py-1 rounded border transition-colors font-mono tracking-wide ${
+              muted
+                ? 'border-gray-900 text-gray-700 cursor-not-allowed'
+                : 'border-cyan-800 text-cyan-500 hover:text-cyan-300 hover:border-cyan-600 cursor-pointer'
+            }`}
+            title="Pause or resume the narration (P)"
+          >
+            {paused ? '▶' : '⏸'}<span>{paused ? 'PLAY' : 'PAUSE'}</span>
           </button>
           <button
             onClick={() => setMuted(v => !v)}
