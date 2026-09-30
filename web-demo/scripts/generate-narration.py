@@ -24,6 +24,7 @@ No third-party packages required.
 
 import argparse
 import json
+import re
 import os
 import subprocess
 import sys
@@ -81,9 +82,32 @@ def list_voices(key: str) -> None:
 DEFAULT_SPEED = 1.2  # ElevenLabs range 0.7–1.2; Nick asked for 1.2
 
 
+# **Said aloud, not shown on screen.** `step.narration` is both spoken and displayed (the
+# demo has a "Toggle narration text" button), so the fix for a mispronounced acronym cannot
+# be to rewrite the script — that would put "sock" on the screen. These substitutions apply
+# only to the text sent for synthesis.
+#
+# Iddo Kadim (cPacket), 29 September 2026, after watching it cold: *"not saying Es-Oh-Si, and
+# not So-Si, but SOC"*. He heard it two different ways, which is what a model does with a bare
+# three-letter token — it guesses per occurrence. SOC is "sock" and NOC is "knock" to everyone
+# who works in one.
+SPOKEN_AS = {
+    r"\bSOC\b": "sock",
+    r"\bNOC\b": "knock",
+    r"\bSIEM\b": "seem",
+}
+
+
+def for_speech(text: str) -> str:
+    """The narration as it should be *heard*. Display text is untouched."""
+    for pattern, spoken in SPOKEN_AS.items():
+        text = re.sub(pattern, spoken, text)
+    return text
+
+
 def synthesize(key: str, voice_id: str, model_id: str, text: str, speed: float = DEFAULT_SPEED) -> bytes:
     body = {
-        "text": text,
+        "text": for_speech(text),
         "model_id": model_id,
         "voice_settings": {
             "stability": 0.5,

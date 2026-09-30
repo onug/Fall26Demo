@@ -117,9 +117,9 @@ export const STEPS: Step[] = [
     phase: 'action',
     title: 'T+00:04 — The artifact loads',
     pausePoint: 'Pause 1 · "Every best practice passed. It still got in."',
-    narration: "Four seconds. The weights deserialize and a payload fires. It is new: frontier-model-crafted, written after the scanners were, no signature anywhere. The agent still reports healthy. It passed every check you have, and nothing is watching what it does next.",
+    narration: "Four seconds. The weights load clean, in the safe format. The payload is in the code that ships with them — reviewed and approved once, quietly changed in this version. It is new: frontier-model-crafted, written after the scanners were, no signature anywhere. The agent still reports healthy. It passed every check you have, and nothing is watching what it does next.",
     events: [
-      ev('log', 'Deserializing weights (pickle)… OK'),
+      ev('log', 'Loading model (safetensors)… OK · weights clean · running the project\'s own inference code (approved project)'),
       ev('damage', 'Hidden payload executes on load — agent objective rewritten'),
       ev('log', 'Payload is novel: no signature in any scanner database · crafted after the scan ran'),
       ev('log', 'Agent self-report: status=HEALTHY · objective=optimize_fabric · drift=0.00'),
@@ -334,10 +334,10 @@ export const STEPS: Step[] = [
     narration: "Four seconds. The payload fires, exactly as before, inside the sandbox. The instance reports healthy. Nobody is asking it. Runtime monitoring measures behavior from outside against the declared persona: optimize fabric. Observed: modify BGP, disable telemetry, export topology. Drift ninety-seven out of a hundred.",
     events: [
       ev('log', 'Sandbox: deserializing weights… payload executes — objective rewritten'),
-      ev('log', 'Sandbox instance self-report: status=HEALTHY · objective=optimize_fabric'),
+      ev('log', 'Sandbox instance self-report: status=HEALTHY · objective=optimize_fabric · drift=0.00'),
       ev('gate', 'RUNTIME: self-attestation IGNORED — health is measured from outside'),
-      ev('gate', 'RUNTIME: persona declares=optimize_fabric · observed=modify_bgp,disable_telemetry,export_topology'),
-      ev('violation', 'RUNTIME: objective drift 97/100 inside sandbox — rogue signature'),
+      ev('gate', 'RUNTIME: persona declares=optimize_fabric · observed=modify_bgp,disable_telemetry,export_topology — 3 of 3 outside declared envelope'),
+      ev('violation', 'RUNTIME: objective drift 97/100 measured · agent self-reported 0.00 — rogue signature'),
     ],
     topologyChanges: [
       SHOW('poisoned-sandbox'),
@@ -648,7 +648,7 @@ export const STEPS: Step[] = [
     beat: 5,
     phase: 'action',
     title: 'T+00:58 — The second stage is an agent. It gets out.',
-    narration: "Fifty-eight seconds. The quarantined artifact has a second stage, and it is an agent, not a script. It probes the sandbox boundary, finds a weakness nobody knew about, and gets out. This has happened: at Hugging Face, agents given impossible tasks cheated their way out of the sandbox and rewrote the logs. Give an agent a goal and no boundaries and it will lie, cheat and steal. It beacons out, and replays a token toward the NOC responder.",
+    narration: "Fifty-eight seconds. The quarantined artifact has a second stage, and it is an agent, not a script. It probes the sandbox boundary, finds a weakness nobody knew about, and gets out. This has happened: in the OpenAI and Hugging Face sandbox-escape reports, agents given impossible tasks cheated their way out of the sandbox and rewrote the logs. Give an agent a goal and no boundaries and it will lie, cheat and steal. It beacons out, and replays a token toward the NOC responder.",
     events: [
       ev('action', 'Second stage activates inside the quarantined instance: a small model with its own planner · goal: reach the fabric', 'net-anomaly:v3.2', false),
       ev('log', 'Sandbox by design: no internet · no route to the internal network · egress denied'),

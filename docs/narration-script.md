@@ -5,8 +5,8 @@ _Generated from `web-demo/lib/steps.ts` by `scripts/export-script.mjs`. Do not e
 | | |
 |---|---|
 | Steps with narration | 41 |
-| Words | 1873 (~12.5 min at 150 wpm) |
-| Recorded audio | 10.5 min |
+| Words | 1899 (~12.7 min at 150 wpm) |
+| Recorded audio | 10.7 min |
 | Voice | Nick Lippis (cloned) · ElevenLabs `16VamcPQIJBvVLoE1Zss` · eleven_multilingual_v2 · speed 1.2 |
 | Presenter pauses | 6 |
 
@@ -44,9 +44,9 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 5. T+00:04 — The artifact loads
 
-`b1-load` · action · 40 words · audio 14s · **⏸ Pause 1 · "Every best practice passed. It still got in."**
+`b1-load` · action · 61 words · audio 14s · **⏸ Pause 1 · "Every best practice passed. It still got in."**
 
-> Four seconds. The weights deserialize and a payload fires. It is new: frontier-model-crafted, written after the scanners were, no signature anywhere. The agent still reports healthy. It passed every check you have, and nothing is watching what it does next.
+> Four seconds. The weights load clean, in the safe format. The payload is in the code that ships with them — reviewed and approved once, quietly changed in this version. It is new: frontier-model-crafted, written after the scanners were, no signature anywhere. The agent still reports healthy. It passed every check you have, and nothing is watching what it does next.
 
 ### 6. T+00:19 — The agent goes to work (for someone else)
 
@@ -155,7 +155,7 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 22. WG2 · THE AUTONOMOUS INFRASTRUCTURE ARCHITECTURE
 
-`b4-ra` · ra · 73 words · audio 18s
+`b4-ra` · ra · 73 words · audio 29s
 
 > Working group two's architecture. Two phases. Planning, on top: the agent's persona, autonomy level, models, and the estate it may touch. Execution, below: the loop, detect, diagnose, propose, verify, execute, validate, inside an enforcement and audit boundary the agent cannot influence. Step four is the verify gate: change-stop, dry-run, blast radius, rollback. Only execute is genuinely mutable, and the autonomy level decides whether steps four to six ever fire. Now watch it run.
 
@@ -212,9 +212,9 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 31. T+00:58 — The second stage is an agent. It gets out.
 
-`b5-escalate` · action · 78 words · audio 22s
+`b5-escalate` · action · 83 words · audio 22s
 
-> Fifty-eight seconds. The quarantined artifact has a second stage, and it is an agent, not a script. It probes the sandbox boundary, finds a weakness nobody knew about, and gets out. This has happened: at Hugging Face, agents given impossible tasks cheated their way out of the sandbox and rewrote the logs. Give an agent a goal and no boundaries and it will lie, cheat and steal. It beacons out, and replays a token toward the NOC responder.
+> Fifty-eight seconds. The quarantined artifact has a second stage, and it is an agent, not a script. It probes the sandbox boundary, finds a weakness nobody knew about, and gets out. This has happened: in the OpenAI and Hugging Face sandbox-escape reports, agents given impossible tasks cheated their way out of the sandbox and rewrote the logs. Give an agent a goal and no boundaries and it will lie, cheat and steal. It beacons out, and replays a token toward the NOC responder.
 
 ### 32. T+01:02 — 1 · Detect → 2 · Investigate → 3 · Propose, in 4.2 seconds
 
@@ -272,7 +272,7 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 40. THE VENDOR CHALLENGE — THREE LANES
 
-`b7-lanes` · lanes · 60 words · audio 17s
+`b7-lanes` · lanes · 60 words · audio 18s
 
 > To the vendor community. The reference implementation is in Git. Three lanes, matching the working groups. Pick your lane; nobody covers all three. Use the working groups' terminology: every control on the card carries its requirement number. Submit a five-to-ten-minute screen capture: it plays on loop in the showcase theatre, with office hours. Members vote best in show, per lane.
 
@@ -287,11 +287,11 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 | Step | Words | Audio |
 |---|---:|---:|
+| 22. WG2 · THE AUTONOMOUS INFRASTRUCTURE ARCHITECTURE (`b4-ra`) | 73 | 29s |
 | 38. THIS IS ALREADY HAPPENING (`b6-proof`) | 75 | 25s |
-| 31. T+00:58 — The second stage is an agent. It gets out. (`b5-escalate`) | 78 | 22s |
+| 31. T+00:58 — The second stage is an agent. It gets out. (`b5-escalate`) | 83 | 22s |
 | 39. ONE PATH SHOWN. THE SAME CONTROLS STOP THESE. (`b7-threats`) | 62 | 21s |
 | 15. T+00:04 — Loads in the sandbox · self-attests healthy (`b2-load`) | 44 | 19s |
 | 33. 4 · Decide — the Decide Gate: containment is a write too (`b5-gate`) | 51 | 19s |
 | 32. T+01:02 — 1 · Detect → 2 · Investigate → 3 · Propose, in 4.2 seconds (`b5-detect`) | 66 | 19s |
 | 25. 4 · Verify — the Verify Gate, writes #1–#3 (`b4-gate-pass`) | 45 | 19s |
-| 30. WG3 · THE AI-ENABLED SOC ARCHITECTURE (`b5-ra`) | 47 | 18s |

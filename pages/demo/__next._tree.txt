@@ -1,0 +1,2 @@
+:HL["/Fall26Demo/demo/_next/static/chunks/8d9e3b3317b5f8f9.css","style"]
+0:{"buildId":"hq_a3JaUJti730OTRQ1NP","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

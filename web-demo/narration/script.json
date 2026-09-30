@@ -8,9 +8,9 @@
     "speed": 1.2,
     "notes": "Segment ids match Step.id in lib/steps.ts; audio is served from public/narration/<id>.mp3",
     "segments": 41,
-    "total_words": 1873,
-    "estimated_minutes": 12.5,
-    "recorded_minutes": 10.5
+    "total_words": 1899,
+    "estimated_minutes": 12.7,
+    "recorded_minutes": 10.7
   },
   "segments": [
     {
@@ -64,8 +64,8 @@
       "phase": "action",
       "title": "T+00:04 — The artifact loads",
       "pause": "Pause 1 · \"Every best practice passed. It still got in.\"",
-      "text": "Four seconds. The weights deserialize and a payload fires. It is new: frontier-model-crafted, written after the scanners were, no signature anywhere. The agent still reports healthy. It passed every check you have, and nothing is watching what it does next.",
-      "words": 40,
+      "text": "Four seconds. The weights load clean, in the safe format. The payload is in the code that ships with them — reviewed and approved once, quietly changed in this version. It is new: frontier-model-crafted, written after the scanners were, no signature anywhere. The agent still reports healthy. It passed every check you have, and nothing is watching what it does next.",
+      "words": 61,
       "audio_seconds": 13.792653
     },
     {
@@ -253,7 +253,7 @@
       "pause": null,
       "text": "Working group two's architecture. Two phases. Planning, on top: the agent's persona, autonomy level, models, and the estate it may touch. Execution, below: the loop, detect, diagnose, propose, verify, execute, validate, inside an enforcement and audit boundary the agent cannot influence. Step four is the verify gate: change-stop, dry-run, blast radius, rollback. Only execute is genuinely mutable, and the autonomy level decides whether steps four to six ever fire. Now watch it run.",
       "words": 73,
-      "audio_seconds": 18.285714
+      "audio_seconds": 29.204898
     },
     {
       "id": "b4-detect",
@@ -350,8 +350,8 @@
       "phase": "action",
       "title": "T+00:58 — The second stage is an agent. It gets out.",
       "pause": null,
-      "text": "Fifty-eight seconds. The quarantined artifact has a second stage, and it is an agent, not a script. It probes the sandbox boundary, finds a weakness nobody knew about, and gets out. This has happened: at Hugging Face, agents given impossible tasks cheated their way out of the sandbox and rewrote the logs. Give an agent a goal and no boundaries and it will lie, cheat and steal. It beacons out, and replays a token toward the NOC responder.",
-      "words": 78,
+      "text": "Fifty-eight seconds. The quarantined artifact has a second stage, and it is an agent, not a script. It probes the sandbox boundary, finds a weakness nobody knew about, and gets out. This has happened: in the OpenAI and Hugging Face sandbox-escape reports, agents given impossible tasks cheated their way out of the sandbox and rewrote the logs. Give an agent a goal and no boundaries and it will lie, cheat and steal. It beacons out, and replays a token toward the NOC responder.",
+      "words": 83,
       "audio_seconds": 22.334694
     },
     {
@@ -451,7 +451,7 @@
       "pause": null,
       "text": "To the vendor community. The reference implementation is in Git. Three lanes, matching the working groups. Pick your lane; nobody covers all three. Use the working groups' terminology: every control on the card carries its requirement number. Submit a five-to-ten-minute screen capture: it plays on loop in the showcase theatre, with office hours. Members vote best in show, per lane.",
       "words": 60,
-      "audio_seconds": 16.953469
+      "audio_seconds": 18.468571
     },
     {
       "id": "finale",
