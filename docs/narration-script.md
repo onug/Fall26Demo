@@ -5,8 +5,8 @@ _Generated from `web-demo/lib/steps.ts` by `scripts/export-script.mjs`. Do not e
 | | |
 |---|---|
 | Steps with narration | 41 |
-| Words | 1899 (~12.7 min at 150 wpm) |
-| Recorded audio | 10.7 min |
+| Words | 1926 (~12.8 min at 150 wpm) |
+| Recorded audio | 10.8 min |
 | Voice | Nick Lippis (cloned) · ElevenLabs `16VamcPQIJBvVLoE1Zss` · eleven_multilingual_v2 · speed 1.2 |
 | Presenter pauses | 6 |
 
@@ -44,7 +44,7 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 5. T+00:04 — The artifact loads
 
-`b1-load` · action · 61 words · audio 14s · **⏸ Pause 1 · "Every best practice passed. It still got in."**
+`b1-load` · action · 61 words · audio 18s · **⏸ Pause 1 · "Every best practice passed. It still got in."**
 
 > Four seconds. The weights load clean, in the safe format. The payload is in the code that ships with them — reviewed and approved once, quietly changed in this version. It is new: frontier-model-crafted, written after the scanners were, no signature anywhere. The agent still reports healthy. It passed every check you have, and nothing is watching what it does next.
 
@@ -128,7 +128,7 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 18. ONE CONTROL PLANE, THREE WORKING GROUPS
 
-`b3-title` · title · 45 words · audio 17s
+`b3-title` · title · 45 words · audio 15s
 
 > That supervision plane is what working group one, the Agentic Control Plane, is standardizing. But a control plane has to prove itself in a fight. Two battlegrounds: autonomous infrastructure, working group two, and the AI-enabled SOC, working group three. Same control plane, two different fights.
 
@@ -161,21 +161,21 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 23. T+00:41 — 1 · Detect
 
-`b4-detect` · action · 38 words · audio 14s
+`b4-detect` · action · 52 words · audio 13s
 
-> Forty-one seconds. The artifact is locked in the sandbox, but the attacker's mirror is still out there, and it probes. Edge routers see route flaps from AS64512. The NOC responder, at autonomy level zero, observe, picks it up.
+> Forty-one seconds. The artifact is locked in the sandbox, but the attacker's mirror is still out there, and it probes. Edge routers see route flaps from AS64512. The NOC responder picks it up. Its autonomy was set when its persona was created, not tonight: bounded auto-act on low-risk changes, and nothing wider.
 
 ### 24. T+00:47 — 2 · Diagnose → 3 · Propose
 
-`b4-diagnose` · action · 40 words · audio 15s
+`b4-diagnose` · action · 39 words · audio 15s
 
-> Six seconds later it has a root cause: rogue prefixes from the same autonomous system the quarantined artifact was talking to. Level one, propose. Four writes: filter the prefix, withdraw three routes, re-enable telemetry, and restart BGP on the core.
+> Six seconds later it has a root cause: rogue prefixes from the same autonomous system the quarantined artifact was talking to. It proposes four writes: filter the prefix, withdraw three routes, re-enable telemetry, and restart BGP on the core.
 
 ### 25. 4 · Verify — the Verify Gate, writes #1–#3
 
-`b4-gate-pass` · gate · 45 words · audio 19s
+`b4-gate-pass` · gate · 49 words · audio 19s
 
-> Every write hits the verify gate. Change-stop: no freeze window. Dry-run: simulated against the digital twin, zero unintended path changes. Blast radius: two devices, fourteen prefixes, under the five percent threshold. Rollback: snapshot taken, automatic revert if the SLO regresses. Approved. Level two, gated act.
+> Every write hits the verify gate. Change-stop: no freeze window. Dry-run: simulated against the digital twin, zero unintended path changes. Blast radius: two devices, fourteen prefixes, under the five percent threshold. Rollback: snapshot taken, automatic revert if the SLO regresses. Approved — inside the envelope the agent already had.
 
 ### 26. 4 · Verify — the Verify Gate, write #4
 
@@ -185,9 +185,9 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 27. T+00:52 — 5 · Execute → 6 · Validate · journaled
 
-`b4-execute` · action · 48 words · audio 16s
+`b4-execute` · action · 58 words · audio 16s
 
-> Fifty-two seconds. Three mediated writes execute and validate: flaps stop, telemetry is back. Every write, check and verdict is in the journal, and the agent has no path to it. For the low-risk envelope, the policy allows level three: bounded auto-act with automatic revert. That is safe autonomy.
+> Fifty-two seconds. Three mediated writes execute and validate: flaps stop, telemetry is back. Every write, check and verdict is in the journal, and the agent has no path to it. All of it inside the envelope the agent already held: bounded auto-act on low-risk changes, with automatic revert. Nothing about its autonomy changed tonight. That is safe autonomy.
 
 ### 28. SAFE AUTONOMY — WG2
 
@@ -212,13 +212,13 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 31. T+00:58 — The second stage is an agent. It gets out.
 
-`b5-escalate` · action · 83 words · audio 22s
+`b5-escalate` · action · 83 words · audio 25s
 
 > Fifty-eight seconds. The quarantined artifact has a second stage, and it is an agent, not a script. It probes the sandbox boundary, finds a weakness nobody knew about, and gets out. This has happened: in the OpenAI and Hugging Face sandbox-escape reports, agents given impossible tasks cheated their way out of the sandbox and rewrote the logs. Give an agent a goal and no boundaries and it will lie, cheat and steal. It beacons out, and replays a token toward the NOC responder.
 
 ### 32. T+01:02 — 1 · Detect → 2 · Investigate → 3 · Propose, in 4.2 seconds
 
-`b5-detect` · action · 66 words · audio 19s
+`b5-detect` · action · 66 words · audio 21s
 
 > Four point two seconds. The SOC analyst agent doesn't start from a SIEM alert. It starts from the control plane: provenance tagged the artifact, runtime quarantined it, the verify gate rejected a write from the same autonomous system. Now a beacon and a token replay. Five signals, three domains, one incident, with a containment plan. That used to take four to eight hours across three teams.
 
@@ -288,10 +288,10 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 | Step | Words | Audio |
 |---|---:|---:|
 | 22. WG2 · THE AUTONOMOUS INFRASTRUCTURE ARCHITECTURE (`b4-ra`) | 73 | 29s |
+| 31. T+00:58 — The second stage is an agent. It gets out. (`b5-escalate`) | 83 | 25s |
 | 38. THIS IS ALREADY HAPPENING (`b6-proof`) | 75 | 25s |
-| 31. T+00:58 — The second stage is an agent. It gets out. (`b5-escalate`) | 83 | 22s |
 | 39. ONE PATH SHOWN. THE SAME CONTROLS STOP THESE. (`b7-threats`) | 62 | 21s |
+| 32. T+01:02 — 1 · Detect → 2 · Investigate → 3 · Propose, in 4.2 seconds (`b5-detect`) | 66 | 21s |
 | 15. T+00:04 — Loads in the sandbox · self-attests healthy (`b2-load`) | 44 | 19s |
 | 33. 4 · Decide — the Decide Gate: containment is a write too (`b5-gate`) | 51 | 19s |
-| 32. T+01:02 — 1 · Detect → 2 · Investigate → 3 · Propose, in 4.2 seconds (`b5-detect`) | 66 | 19s |
-| 25. 4 · Verify — the Verify Gate, writes #1–#3 (`b4-gate-pass`) | 45 | 19s |
+| 25. 4 · Verify — the Verify Gate, writes #1–#3 (`b4-gate-pass`) | 49 | 19s |

@@ -476,11 +476,11 @@ export const STEPS: Step[] = [
     beat: 4,
     phase: 'action',
     title: 'T+00:41 — 1 · Detect',
-    narration: "Forty-one seconds. The artifact is locked in the sandbox, but the attacker's mirror is still out there, and it probes. Edge routers see route flaps from AS64512. The NOC responder, at autonomy level zero, observe, picks it up.",
+    narration: "Forty-one seconds. The artifact is locked in the sandbox, but the attacker's mirror is still out there, and it probes. Edge routers see route flaps from AS64512. The NOC responder picks it up. Its autonomy was set when its persona was created, not tonight: bounded auto-act on low-risk changes, and nothing wider.",
     events: [
       ev('log', 'AS64512 begins announcing overlapping prefixes toward edge-routers'),
       ev('action', 'DETECT: 3 prefixes flapping on edge-routers · leaf-pod-7 latency +340%', NOC, true),
-      ev('log', 'Autonomy level: 0 OBSERVE — read-only telemetry'),
+      ev('log', 'Agent persona (set in planning): autonomy envelope = bounded auto-act, low-risk changes only'),
     ],
     topologyChanges: [
       SHOW('c2-server'),
@@ -497,10 +497,10 @@ export const STEPS: Step[] = [
     beat: 4,
     phase: 'action',
     title: 'T+00:47 — 2 · Diagnose → 3 · Propose',
-    narration: "Six seconds later it has a root cause: rogue prefixes from the same autonomous system the quarantined artifact was talking to. Level one, propose. Four writes: filter the prefix, withdraw three routes, re-enable telemetry, and restart BGP on the core.",
+    narration: "Six seconds later it has a root cause: rogue prefixes from the same autonomous system the quarantined artifact was talking to. It proposes four writes: filter the prefix, withdraw three routes, re-enable telemetry, and restart BGP on the core.",
     events: [
       ev('action', 'DIAGNOSE: rogue prefix announcements from AS64512 (matches quarantined artifact C2)', NOC, true),
-      ev('log', 'Autonomy level: 1 RECOMMEND — proposal generated, no writes yet'),
+      ev('log', 'Proposal generated — no writes yet'),
       ev('action', 'PROPOSE #1: apply prefix-filter AS64512 on edge-routers', NOC, true),
       ev('action', 'PROPOSE #2: withdraw 3 flapping routes', NOC, true),
       ev('action', 'PROPOSE #3: re-enable telemetry streaming', NOC, true),
@@ -514,10 +514,10 @@ export const STEPS: Step[] = [
     beat: 4,
     phase: 'gate',
     title: '4 · Verify — the Verify Gate, writes #1–#3',
-    narration: "Every write hits the verify gate. Change-stop: no freeze window. Dry-run: simulated against the digital twin, zero unintended path changes. Blast radius: two devices, fourteen prefixes, under the five percent threshold. Rollback: snapshot taken, automatic revert if the SLO regresses. Approved. Level two, gated act.",
+    narration: "Every write hits the verify gate. Change-stop: no freeze window. Dry-run: simulated against the digital twin, zero unintended path changes. Blast radius: two devices, fourteen prefixes, under the five percent threshold. Rollback: snapshot taken, automatic revert if the SLO regresses. Approved — inside the envelope the agent already had.",
     events: [
       ev('gate', 'GATE #1–#3: change-stop CLEAR · dry-run PASS · blast radius 0.8% · rollback ARMED'),
-      ev('blocked', 'APPROVED: 3 writes → autonomy level 2 GATED ACT'),
+      ev('blocked', 'APPROVED: 3 writes — within the agent\'s standing envelope'),
     ],
     topologyChanges: [
       GATED('e-noc-gate', NOC, 'verify-gate', 'proposal'),
@@ -578,7 +578,7 @@ export const STEPS: Step[] = [
     beat: 4,
     phase: 'action',
     title: 'T+00:52 — 5 · Execute → 6 · Validate · journaled',
-    narration: "Fifty-two seconds. Three mediated writes execute and validate: flaps stop, telemetry is back. Every write, check and verdict is in the journal, and the agent has no path to it. For the low-risk envelope, the policy allows level three: bounded auto-act with automatic revert. That is safe autonomy.",
+    narration: "Fifty-two seconds. Three mediated writes execute and validate: flaps stop, telemetry is back. Every write, check and verdict is in the journal, and the agent has no path to it. All of it inside the envelope the agent already held: bounded auto-act on low-risk changes, with automatic revert. Nothing about its autonomy changed tonight. That is safe autonomy.",
     events: [
       ev('action', 'EXECUTE #1 prefix-filter AS64512 → edge-routers  ✓', NOC, true),
       ev('action', 'EXECUTE #2 withdraw 3 routes → edge-routers  ✓', NOC, true),
@@ -609,7 +609,7 @@ export const STEPS: Step[] = [
     topologyChanges: [],
     outcomeTone: 'defense',
     outcomeList: [
-      'Detect → diagnose → propose in 6 seconds, at autonomy level OBSERVE → RECOMMEND',
+      'Detect → diagnose → propose in 6 seconds, inside a standing autonomy envelope',
       '3 writes executed — every one through change-stop · dry-run · blast radius · rollback',
       '1 write REJECTED by blast-radius check — escalated to human with full package',
       'Rollback armed: auto-revert in 120s on SLO regression',

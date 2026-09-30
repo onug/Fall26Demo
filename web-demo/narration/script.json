@@ -8,9 +8,9 @@
     "speed": 1.2,
     "notes": "Segment ids match Step.id in lib/steps.ts; audio is served from public/narration/<id>.mp3",
     "segments": 41,
-    "total_words": 1899,
-    "estimated_minutes": 12.7,
-    "recorded_minutes": 10.7
+    "total_words": 1926,
+    "estimated_minutes": 12.8,
+    "recorded_minutes": 10.8
   },
   "segments": [
     {
@@ -66,7 +66,7 @@
       "pause": "Pause 1 · \"Every best practice passed. It still got in.\"",
       "text": "Four seconds. The weights load clean, in the safe format. The payload is in the code that ships with them — reviewed and approved once, quietly changed in this version. It is new: frontier-model-crafted, written after the scanners were, no signature anywhere. The agent still reports healthy. It passed every check you have, and nothing is watching what it does next.",
       "words": 61,
-      "audio_seconds": 13.792653
+      "audio_seconds": 17.998367
     },
     {
       "id": "b1-work",
@@ -209,7 +209,7 @@
       "pause": null,
       "text": "That supervision plane is what working group one, the Agentic Control Plane, is standardizing. But a control plane has to prove itself in a fight. Two battlegrounds: autonomous infrastructure, working group two, and the AI-enabled SOC, working group three. Same control plane, two different fights.",
       "words": 45,
-      "audio_seconds": 16.74449
+      "audio_seconds": 15.177143
     },
     {
       "id": "b3-ra-wg1",
@@ -220,7 +220,7 @@
       "pause": null,
       "text": "Working group one's reference architecture: one control plane, every domain. Every domain defines a persona, NOC and SOC first, and plugs into the same control plane. Four components: the agent trust fabric, the registry of personas, runtime supervision, and the private open router. Cross-domain cooperation goes through the control plane, never around it.",
       "words": 53,
-      "audio_seconds": 18.207347
+      "audio_seconds": 17.554286
     },
     {
       "id": "b3-wire",
@@ -231,7 +231,7 @@
       "pause": null,
       "text": "Watch it extend. Into the infrastructure lane: a verify gate on every write, and declared autonomy levels. Into the SOC lane: cross-domain detect-to-decide, and containment that preserves evidence. One control plane. Every domain.",
       "words": 33,
-      "audio_seconds": 11.650612
+      "audio_seconds": 12.434286
     },
     {
       "id": "b4-title",
@@ -262,9 +262,9 @@
       "phase": "action",
       "title": "T+00:41 — 1 · Detect",
       "pause": null,
-      "text": "Forty-one seconds. The artifact is locked in the sandbox, but the attacker's mirror is still out there, and it probes. Edge routers see route flaps from AS64512. The NOC responder, at autonomy level zero, observe, picks it up.",
-      "words": 38,
-      "audio_seconds": 13.688163
+      "text": "Forty-one seconds. The artifact is locked in the sandbox, but the attacker's mirror is still out there, and it probes. Edge routers see route flaps from AS64512. The NOC responder picks it up. Its autonomy was set when its persona was created, not tonight: bounded auto-act on low-risk changes, and nothing wider.",
+      "words": 52,
+      "audio_seconds": 13.374694
     },
     {
       "id": "b4-diagnose",
@@ -273,8 +273,8 @@
       "phase": "action",
       "title": "T+00:47 — 2 · Diagnose → 3 · Propose",
       "pause": null,
-      "text": "Six seconds later it has a root cause: rogue prefixes from the same autonomous system the quarantined artifact was talking to. Level one, propose. Four writes: filter the prefix, withdraw three routes, re-enable telemetry, and restart BGP on the core.",
-      "words": 40,
+      "text": "Six seconds later it has a root cause: rogue prefixes from the same autonomous system the quarantined artifact was talking to. It proposes four writes: filter the prefix, withdraw three routes, re-enable telemetry, and restart BGP on the core.",
+      "words": 39,
       "audio_seconds": 15.307755
     },
     {
@@ -284,8 +284,8 @@
       "phase": "gate",
       "title": "4 · Verify — the Verify Gate, writes #1–#3",
       "pause": null,
-      "text": "Every write hits the verify gate. Change-stop: no freeze window. Dry-run: simulated against the digital twin, zero unintended path changes. Blast radius: two devices, fourteen prefixes, under the five percent threshold. Rollback: snapshot taken, automatic revert if the SLO regresses. Approved. Level two, gated act.",
-      "words": 45,
+      "text": "Every write hits the verify gate. Change-stop: no freeze window. Dry-run: simulated against the digital twin, zero unintended path changes. Blast radius: two devices, fourteen prefixes, under the five percent threshold. Rollback: snapshot taken, automatic revert if the SLO regresses. Approved — inside the envelope the agent already had.",
+      "words": 49,
       "audio_seconds": 18.625306
     },
     {
@@ -306,8 +306,8 @@
       "phase": "action",
       "title": "T+00:52 — 5 · Execute → 6 · Validate · journaled",
       "pause": null,
-      "text": "Fifty-two seconds. Three mediated writes execute and validate: flaps stop, telemetry is back. Every write, check and verdict is in the journal, and the agent has no path to it. For the low-risk envelope, the policy allows level three: bounded auto-act with automatic revert. That is safe autonomy.",
-      "words": 48,
+      "text": "Fifty-two seconds. Three mediated writes execute and validate: flaps stop, telemetry is back. Every write, check and verdict is in the journal, and the agent has no path to it. All of it inside the envelope the agent already held: bounded auto-act on low-risk changes, with automatic revert. Nothing about its autonomy changed tonight. That is safe autonomy.",
+      "words": 58,
       "audio_seconds": 16.483265
     },
     {
@@ -330,7 +330,7 @@
       "pause": null,
       "text": "Battleground two. The AI-enabled SOC. The exploit that came in through the supply chain is the thread that stitches these together. It is about to escalate. Same control plane. Second fight.",
       "words": 31,
-      "audio_seconds": 9.795918
+      "audio_seconds": 10.475102
     },
     {
       "id": "b5-ra",
@@ -352,7 +352,7 @@
       "pause": null,
       "text": "Fifty-eight seconds. The quarantined artifact has a second stage, and it is an agent, not a script. It probes the sandbox boundary, finds a weakness nobody knew about, and gets out. This has happened: in the OpenAI and Hugging Face sandbox-escape reports, agents given impossible tasks cheated their way out of the sandbox and rewrote the logs. Give an agent a goal and no boundaries and it will lie, cheat and steal. It beacons out, and replays a token toward the NOC responder.",
       "words": 83,
-      "audio_seconds": 22.334694
+      "audio_seconds": 25.260408
     },
     {
       "id": "b5-detect",
@@ -363,7 +363,7 @@
       "pause": null,
       "text": "Four point two seconds. The SOC analyst agent doesn't start from a SIEM alert. It starts from the control plane: provenance tagged the artifact, runtime quarantined it, the verify gate rejected a write from the same autonomous system. Now a beacon and a token replay. Five signals, three domains, one incident, with a containment plan. That used to take four to eight hours across three teams.",
       "words": 66,
-      "audio_seconds": 18.703673
+      "audio_seconds": 20.558367
     },
     {
       "id": "b5-gate",
