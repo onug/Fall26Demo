@@ -21,7 +21,12 @@ const ts = require('typescript');
 
 const VOICE_ID = '16VamcPQIJBvVLoE1Zss';
 const VOICE_NAME = 'Nick Lippis (cloned)';
-const MODEL_ID = 'eleven_multilingual_v2';
+// eleven_v4 since 30 Sep 2026. v2 read the script flat — Iddo Kadim (cPacket): "sentences
+// read like lists of words". v4 at these settings is warmer and still sounds like Nick; v3 at
+// any stability did not, and v4 at stability 0.35 drifted too. **Keep stability at 0.5 and
+// style at 0.15** (generate-narration.py) — those are what hold a cloned voice to its
+// reference. Lowering them costs ~25% runtime AND the voice.
+const MODEL_ID = 'eleven_v4';
 const SPEED = 1.2; // ElevenLabs max; Nick's preference
 
 function loadTsModule(file, registry) {

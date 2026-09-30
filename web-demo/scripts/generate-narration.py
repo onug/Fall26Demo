@@ -148,7 +148,7 @@ def main() -> None:
     script = json.loads(SCRIPT_PATH.read_text())
     meta = script["metadata"]
     voice_id = args.voice or meta["voice_id"]
-    model_id = args.model or meta.get("model_id", "eleven_multilingual_v2")
+    model_id = args.model or meta.get("model_id", "eleven_v4")
     speed = args.speed if args.speed is not None else float(meta.get("speed", DEFAULT_SPEED))
     if not 0.7 <= speed <= 1.2:
         print(f"speed {speed} out of ElevenLabs range 0.7–1.2")

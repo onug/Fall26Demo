@@ -276,11 +276,6 @@ export default function DemoStage() {
               {beatLabel}
             </span>
           )}
-          {step?.pausePoint && (
-            <span className="text-[11px] font-bold px-2 py-0.5 rounded bg-yellow-500/15 text-yellow-300 border border-yellow-500/40 tracking-wide">
-              ⏸ PRESENTER PAUSE — {step.pausePoint}
-            </span>
-          )}
         </div>
         <div className="flex items-center gap-3">
           <button
