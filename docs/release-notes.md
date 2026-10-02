@@ -1,5 +1,23 @@
 # Release Notes
 
+## v0.3.7 — 25 requirements; Baird's title (October 2, 2026)
+
+- **The requirement count is 25.** The Beat 2 "You are here" card and narration and the Beat 3 title card say 25; so do the presenter guide and CLAUDE.md. v0.3.2 had made it 24 on Peter's note of 16 September; Nick set it to 25 on the 18th and Peter's report pack, published the 23rd, calls them "The 25". One clip re-recorded (eleven_v4, the voice since v0.3.6). [Nick, 18 Sep; Peter, 23 Sep]
+- **Baird Kaake is credited as Independent AI Cybersecurity Researcher**, the title on his public onug.net profile in his own words. [via Jeannette and Andrea, 2 Oct]
+- The vendor instructions refer to "The 25" crosswalk by Peter's name for it, with no number of their own to fall out of date.
+
+## v0.3.4 to v0.3.6 — reconstructed from the commit log (September 23 to October 2, 2026)
+
+These versions shipped without release-note entries. This section is written from the commit messages, not from watching each change land; read those commits for the full reasoning.
+
+- **The report pack is published.** Peter Campbell's ONUG Agentic Control Plane pack (requirements, architectures, the crosswalk "The 25", the AOMC threat model with 59 scenarios, the vendor challenge) lives in `pages/` and deploys to onug.github.io/Fall26Demo by GitHub Actions on every push that touches `pages/**`. [23–24 Sep]
+- **The demo is published for sponsors** at onug.github.io/Fall26Demo/demo/, built with `NEXT_PUBLIC_BASE_PATH=/Fall26Demo/demo`, after Jeannette found the README sent people to localhost. The README and the vendor instructions now open with where to watch it. [29 Sep, 2 Oct]
+- **Member feedback, four changes:** the poisoned model loads as safetensors with the payload in its shipped code (Tomasz Janaszka); the drift score shows what produced it; the sandbox escape cites the OpenAI and Hugging Face reports (Iddo Kadim); SOC, NOC and SIEM are spoken as words. [29 Sep]
+- **Beat 4 no longer escalates the agent's autonomy mid-incident.** Peter's ruling on Tomasz's reading of WG2: the envelope is stated once, as a prior fact. [30 Sep]
+- **v0.3.6: the gate, not the kill switch.** A new step, `b2-everyday`, shows an ordinary write proposed, checked, approved, executed and journalled before the poisoned artifact arrives, so the plane says yes before it says no. The presenter-pause badges are gone and the two that carried framing are spoken. 108 words cut from Beats 1 and 2. Narration moved to eleven_v4 at stability 0.5, style 0.15, after Iddo said the old read sounded like lists of words. 42 steps; runtime about 13.8 minutes. [30 Sep]
+- **A pause button (P), and the first slide narrates after the first gesture** instead of opening mute. [30 Sep]
+- **Vendor instructions corrected against the invitation 57 companies hold:** checkpoint 9 October, final video Wednesday 14 October, no booth number at intent, submission by a link on the vendor's own platform rather than a Drive upload. [2 Oct]
+
 ## After v0.3.3 — licence, who may enter, and one source for the instructions (September 18, 2026)
 
 No change to the build.

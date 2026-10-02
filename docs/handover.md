@@ -6,7 +6,7 @@ For Peter and Tony, and anyone picking this up before October 28, 2026.
 
 The keynote demo for the ONUG Fall AI Networking Summit in New York, *One Control Plane, Every Domain*. It opens the Summit, runs about ten and a half minutes of recorded narration with presenter pauses, and ends by handing the room to the vendor challenge. It is the successor to the Dallas AOMC demo and deliberately looks like it.
 
-Current state: **v0.3.3** (17 September 2026), 41 steps across seven beats, 10.5 minutes recorded in the cloned Nick Lippis voice. Everything runs, QA passes, and the build is live for members on collaborative.onug.net under Demos. The script is in co-chair review until it locks; every change since v0.2 came from a reviewer and is logged in `docs/review-feedback.md`. See `docs/release-notes.md` for what each version did.
+Current state: **v0.3.7** (2 October 2026), 42 steps across seven beats, 13.8 minutes recorded (measured from the clips) in the cloned Nick Lippis voice on ElevenLabs eleven_v4, stability 0.5, style 0.15. The requirement count on stage is 25. Everything runs, QA passes, and the build is live for members on collaborative.onug.net under Demos. The script is in co-chair review until it locks; every change since v0.2 came from a reviewer and is logged in `docs/review-feedback.md`. See `docs/release-notes.md` for what each version did.
 
 The arc it implements is `docs/ONUG_Fall_2026_Keynote_Demo_Arc.docx`, now well behind the script: the seven beats survive, most of the detail has been rewritten by the practitioners' review.
 
