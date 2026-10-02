@@ -10,6 +10,14 @@ This is the next version of the Spring 2026 Dallas [AOMC demo](https://github.co
 | WG2 | Autonomous Infrastructure | Battleground 1: an agent runs the fabric, every write passes the verify gate |
 | WG3 | AI-Enabled SOC | Battleground 2: detect-to-decide in seconds, containment that preserves evidence |
 
+## Watch it
+
+**[onug.github.io/Fall26Demo/demo/](https://onug.github.io/Fall26Demo/demo/)** — public, no
+sign-in, nothing to install. Click once on the page to start the narration (browsers refuse
+audio before you interact with them), then `Space` or `→` to advance. About 14 minutes.
+
+Collaborative members can also watch it signed in at `collaborative.onug.net`, under Demos.
+
 ## Documentation
 
 | Document | Read it if you… |
@@ -36,7 +44,11 @@ This is the next version of the Spring 2026 Dallas [AOMC demo](https://github.co
 6. **From Seatbelt to Accelerator** (greed) — business units build on the plane. Public proof points: EY Canvas, Cisco, Salesforce Agentforce at Reddit.
 7. **The Vendor Challenge** — three lanes, pick one, submit a playable MP4, Best in Show per lane.
 
-## Running the demo
+## Running it locally — to build on it
+
+**You do not need this to watch the demo.** `localhost:3000` is your own machine and only
+answers after you have cloned this repository and started the dev server; to simply see the
+demo, use the link at the top. This section is for forking and changing it.
 
 ```bash
 cd web-demo

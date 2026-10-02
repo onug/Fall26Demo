@@ -34,6 +34,12 @@ The demo's Beat 7 card shows the same numbers per lane. Your one-page summary sh
 
 Pick the lane where you are strongest. Nobody is expected to cover all three. A company may enter more than one lane, with a separate video for each.
 
+**Watch the demo first, and nothing needs installing.**
+**https://onug.github.io/Fall26Demo/demo/** — public, no sign-in. Click once on the page to
+start the narration, then `Space` or `→`. About 14 minutes. Collaborative members can also
+watch it signed in at collaborative.onug.net, under Demos. You are answering this; read the
+rest of these instructions after you have seen it.
+
 **Collaborative members first.** Members of the ONUG Collaborative receive the demo, the repository and these instructions on 17 September, eleven days before the call opens to every other sponsor on 28 September. That is deliberate: the members wrote the reference architectures the challenge is judged against, and the head start is part of what membership buys. Founding members also carry their marks in the Collaborative Center, where the videos play.
 
 **Entering is for Summit sponsors.** A video on the ballot, a presentation slot, a stop on the Challenge Walk and Best in Show are part of the AI Networking Summit and open to its sponsors, Collaborative members included. A Collaborative member that is not sponsoring this Summit keeps the head start, its place in the working groups and its mark in the Collaborative Center. The repository itself is open to anyone to build on under its licence.
@@ -44,16 +50,16 @@ Pick the lane where you are strongest. Nobody is expected to cover all three. A 
 |------|-----------|-----|
 | Thu 17 Sep | **Members first.** Collaborative members get the demo on collaborative.onug.net, the repository (public from this day, unannounced until the call opens) and these instructions. | Nick |
 | ▲ Mon 28 Sep | Call opens to every sponsor. Repository announced, these instructions sent to all sponsoring vendors. | Nick, Peter |
-| ▲ Fri 2 Oct | **Intent to enter** due: company, lane(s), booth number, whether you want a theatre presentation slot, and who will be at the booth during the Challenge Walks. | Vendor → Bill and Jesi |
+| ▲ Fri 2 Oct | **Intent to enter** due: company, which awards you are entering, whether you want a theatre presentation slot, and who will be at the booth during the Challenge Walks. **You do not need a booth number** — those are issued at the Logistics Webinar on Tue 6 Oct, and your company name identifies everything you send. | Vendor → Bill and Jesi |
 | ▲ Wed 7 Oct | Office hours 1 (online): the repository, the reference architectures, the terminology, Q&A. Recorded. | Peter, Nick |
-| ▲ Wed 14 Oct | Optional checkpoint: send a rough cut for feedback on fit and terminology. | Vendor → Bill and Jesi |
-| ▲ Fri 16 Oct | Office hours 2 (online): final Q&A, submission mechanics, voting walkthrough. Recorded. | Peter, Nick |
-| ▲ **Mon 19 Oct, 11:59 PM ET** | **Final video due.** Late videos play in the theatre but are not on the ballot. | Vendor → Bill and Jesi |
+| ▲ Fri 9 Oct | Optional checkpoint: send a rough cut for feedback on fit and terminology. | Vendor → Bill and Jesi |
+| ▲ **Wed 14 Oct, 11:59 PM ET** | **Final video due.** A later video can still play in the theatre but will not be on the ballot, which is what decides Best in Show. | Vendor → Bill and Jesi |
+| ▲ Fri 16 Oct | Office hours 2 (online): what happens on the day and how voting works. Recorded. | Peter, Nick |
 | ▲ Fri 23 Oct | Theatre presentation schedule, Challenge Walk windows, on-site office hours and Whova ballots published in Slack. | Bill, Jesi |
 | Wed 28 – Thu 29 Oct | Summit. Videos on loop in the Collaborative Center and the networking areas. Presentations and office hours in the theatre. Members vote in Whova. | Everyone |
-| ▲ Thu 29 Oct | Voting closes early in the afternoon; the exact time is confirmed separately. Best in Show per lane announced at the close of the day. | Bill |
+| ▲ Thu 29 Oct | **Voting closes 1:00 PM ET**, at the end of the lunch block and the last Challenge Walk. Best in Show announced at the close of the day. | Bill |
 
-Nine days between the deadline and the Summit is what Bill needs to load the loops, build the schedule and test the ballots. It is not padding.
+**Corrected 2 October** against the sponsor invitation sent on 28 September, which is the version 57 companies hold. This file had the checkpoint on the 14th, the final video on the 19th, and asked for a booth number that is not issued until the 6th. The fortnight between the deadline and the Summit is what Bill needs to load the loops, build the schedule and test the ballots. It is not padding.
 
 **The on-site schedule is not final.** ONUG is developing a process to schedule demo presentations for entrants who wish to present, and Collaborative members get first priority over non-members for those slots. The Challenge Walk windows and the on-site office hours may move as that process settles. The final schedule is posted in the Collaborative Slack when it is available; what is in section 7 is the current shape, not a commitment.
 
@@ -115,20 +121,30 @@ The company token is the short name everyone uses, not the legal name. A resubmi
 | `<stem>-summary.pdf` | One page: what the video shows, which controls in the lane it covers, one contact (required) |
 | `<stem>-logo.png` or `.svg` | Your mark on a transparent or white background, for the theatre signage and the ballot (required) |
 
-**Where it goes.** Jesi will create a Google Drive folder, *Fall 2026 Vendor Demos*, with one subfolder per lane, and send each entering company an upload link with the acknowledgement of their intent to enter. Upload the files there; do not email video attachments. Then send one email so there is a record:
+**Where it goes. Send a link, not an upload** — corrected 2 October, and this is Bill's
+instruction: put the video on whatever platform you already use and send us the link. **Vimeo
+is our preference**, and YouTube, Google Drive, WeTransfer, Box and Dropbox all work. We
+download it from there and confirm receipt, so there is nothing for you to sign up to. His
+reason: *a growing number of companies cannot use Google anything.* If you would rather not
+record it yourselves, we can record you on StreamYard, the same way the TTT sessions are
+pre-recorded. Send one email:
 
 ```
 To:      bill@onug.net, jesi@onug.net
 Cc:      peter@onug.net
-Subject: Fall26 demo submission — <Company> — WG<lane>
+Subject: Fall26 final — <Company>
 
-Company, lane, file names uploaded, presenter name if you requested a theatre slot,
-and the one contact for questions.
+Company, lane, the link to the video, presenter name if you requested a theatre
+slot, and the one contact for questions.
 ```
 
 Bill and Jesi confirm receipt within two business days. No confirmation means it did not arrive.
 
-**Intent to enter** is the same email on 2 October with the subject `Fall26 demo intent — <Company>`, listing the lane or lanes, your booth number, whether you want a theatre presentation slot, who will be at the booth during the Challenge Walks, and who your technical contact is for office hours.
+**Intent to enter** is the same email on 2 October with the subject
+`Fall26 demo intent – <Company>`, listing which awards you are entering, whether you want a
+theatre presentation slot, who will be at the booth during the Challenge Walks, and who your
+technical contact is for office hours. **No booth number** — those are issued at the Logistics
+Webinar on 6 October, and your company name identifies everything you send.
 
 ## 6. Glossary — the words to use
 
