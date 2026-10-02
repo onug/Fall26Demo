@@ -91,7 +91,7 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 `b2-title` · title · 38 words · audio 17s
 
-> You are here. This is where Dallas left off: six controls then, twenty-four requirements now. Same company, same artifact, one governance change: every new artifact runs in a sandbox, under the control plane, before it touches the network.
+> You are here. This is where Dallas left off: six controls then, twenty-five requirements now. Same company, same artifact, one governance change: every new artifact runs in a sandbox, under the control plane, before it touches the network.
 
 ### 13. AGENTIC CONTROL PLANE ONLINE
 
