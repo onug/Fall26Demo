@@ -9,6 +9,9 @@ interface StepIndicatorProps {
   totalSteps: number;
   beat: Beat;
   stepTitle: string;
+  /** Touch navigation. A phone has no arrow keys, and the hint bar below lists seven. */
+  onPrev?: () => void;
+  onNext?: () => void;
 }
 
 function beatColors(beat: Beat): { text: string; bar: string } {
@@ -23,14 +26,14 @@ function beatColors(beat: Beat): { text: string; bar: string } {
   }
 }
 
-export default function StepIndicator({ currentStep, totalSteps, beat, stepTitle }: StepIndicatorProps) {
+export default function StepIndicator({ currentStep, totalSteps, beat, stepTitle, onPrev, onNext }: StepIndicatorProps) {
   const progress = ((currentStep + 1) / totalSteps) * 100;
   const { text, bar } = beatColors(beat);
   const label = BEAT_LABELS[beat] ?? '';
 
   return (
     <div className="h-full flex items-center gap-4 px-4 bg-gray-900/50 rounded-lg border border-gray-800">
-      <div className="flex items-center gap-2 text-gray-600 text-[10px] font-mono flex-shrink-0">
+      <div className="hidden lg:flex items-center gap-2 text-gray-600 text-[10px] font-mono flex-shrink-0">
         <kbd className="px-1.5 py-0.5 bg-gray-800 rounded text-gray-400 border border-gray-700">&larr;</kbd>
         <kbd className="px-1.5 py-0.5 bg-gray-800 rounded text-gray-400 border border-gray-700">&rarr;</kbd>
         <span>navigate</span>
@@ -48,14 +51,36 @@ export default function StepIndicator({ currentStep, totalSteps, beat, stepTitle
         <span>reset</span>
       </div>
 
+      {/* Below lg the hint bar above is hidden, so these are the only way forward. Buttons
+          rather than swipe alone: a swipe you have to guess at is not a way forward. */}
+      <div className="flex lg:hidden items-center gap-2 flex-shrink-0">
+        <button
+          onClick={onPrev}
+          disabled={currentStep === 0}
+          aria-label="Previous step"
+          className="h-9 w-11 rounded border border-gray-700 text-gray-300 text-lg leading-none disabled:opacity-30"
+        >
+          &larr;
+        </button>
+        <button
+          onClick={onNext}
+          disabled={currentStep >= totalSteps - 1}
+          aria-label="Next step"
+          className="h-9 px-4 rounded border border-cyan-700 text-cyan-300 text-sm font-mono tracking-wide disabled:opacity-30"
+        >
+          NEXT &rarr;
+        </button>
+      </div>
+
       {label && (
-        <span className={`text-[10px] font-bold uppercase tracking-wider ${text} flex-shrink-0`}>{label}</span>
+        <span className={`hidden sm:inline text-[10px] font-bold uppercase tracking-wider ${text} flex-shrink-0`}>{label}</span>
       )}
 
-      <span className="text-xs text-gray-400 truncate flex-1 min-w-0">{stepTitle}</span>
+      <span className="hidden sm:block text-xs text-gray-400 truncate flex-1 min-w-0">{stepTitle}</span>
+      <span className="sm:hidden flex-1" />
 
       <div className="flex items-center gap-2 flex-shrink-0">
-        <div className="w-40 h-1.5 bg-gray-800 rounded-full overflow-hidden">
+        <div className="w-16 lg:w-40 h-1.5 bg-gray-800 rounded-full overflow-hidden">
           <motion.div
             className={`h-full ${bar} rounded-full`}
             animate={{ width: `${progress}%` }}

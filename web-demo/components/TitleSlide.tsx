@@ -40,9 +40,9 @@ export default function TitleSlide({ title, subtitle, beat, contributors, logos,
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex-1 flex items-center justify-center"
+          className="flex-1 flex items-start lg:items-center justify-center overflow-y-auto"
         >
-          <div className={`text-center px-8 ${logos === 'wall' ? 'max-w-7xl' : 'max-w-5xl'}`}>
+          <div className={`text-center px-4 py-6 lg:px-8 lg:py-0 ${logos === 'wall' ? 'max-w-7xl' : 'max-w-5xl'}`}>
             {s.kicker && (
               <motion.p
                 initial={{ opacity: 0 }}
@@ -54,7 +54,7 @@ export default function TitleSlide({ title, subtitle, beat, contributors, logos,
               </motion.p>
             )}
             <motion.div initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2, duration: 0.5 }}>
-              <h1 className={`${logos === 'wall' ? 'text-4xl mb-4' : 'text-5xl mb-6'} font-bold ${s.text} tracking-tight leading-tight`}>{title}</h1>
+              <h1 className={`${logos === 'wall' ? 'text-xl sm:text-2xl lg:text-4xl mb-4' : 'text-2xl sm:text-3xl lg:text-5xl mb-6'} font-bold ${s.text} tracking-tight leading-tight`}>{title}</h1>
               <div className={`w-32 h-1 mx-auto ${logos === 'wall' ? 'mb-5' : 'mb-8'} rounded-full ${s.glow}`} style={{ backgroundColor: s.divider }} />
             </motion.div>
 
@@ -63,7 +63,7 @@ export default function TitleSlide({ title, subtitle, beat, contributors, logos,
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
-                className={`${logos === 'wall' ? 'text-lg mb-5' : 'text-xl mb-8'} text-gray-300 leading-relaxed whitespace-pre-line`}
+                className={`${logos === 'wall' ? 'text-sm lg:text-lg mb-5' : 'text-base lg:text-xl mb-8'} text-gray-300 leading-relaxed whitespace-pre-line`}
               >
                 {subtitle}
               </motion.div>

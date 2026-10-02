@@ -188,6 +188,7 @@ export default function DemoStage() {
   const [showText, setShowText] = useState(true);
   const [speaking, setSpeaking] = useState(false);
   const overlayTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
 
   const step = STEPS[state.currentStep];
   const phase = step?.phase;
@@ -281,11 +282,29 @@ export default function DemoStage() {
   const beatTone = state.beat === 1 ? 'fear' : state.beat === 6 ? 'greed' : state.beat === 0 ? 'neutral' : 'plane';
 
   return (
-    <div className={`h-screen w-screen flex flex-col bg-gray-950 relative ${state.activeViolation ? 'animate-shake' : ''}`}>
+    <div
+      className={`h-screen w-screen flex flex-col bg-gray-950 relative overflow-x-hidden ${state.activeViolation ? 'animate-shake' : ''}`}
+      onTouchStart={e => { const t = e.touches[0]; touchStart.current = { x: t.clientX, y: t.clientY }; }}
+      onTouchEnd={e => {
+        const from = touchStart.current;
+        if (!from) return;
+        touchStart.current = null;
+        const t = e.changedTouches[0];
+        const dx = t.clientX - from.x;
+        const dy = t.clientY - from.y;
+        // A swipe, not a scroll: far enough to be deliberate and clearly more sideways than
+        // up. Without the second test every flick down the event feed would skip a step.
+        if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 2) return;
+        goToStep(state.currentStep + (dx < 0 ? 1 : -1));
+      }}
+    >
       {/* Header */}
-      <header className="h-12 flex-shrink-0 flex items-center justify-between px-6 border-b border-gray-800/50 bg-gray-950">
+      <header className="min-h-12 lg:h-12 flex-shrink-0 flex flex-wrap items-center justify-between gap-y-1 py-1 lg:py-0 px-3 lg:px-6 border-b border-gray-800/50 bg-gray-950">
         <div className="flex items-center gap-3">
-          <h1 className="text-sm font-bold text-cyan-400 tracking-wide">ONUG Fall 2026 · One Control Plane, Every Domain</h1>
+          <h1 className="text-sm font-bold text-cyan-400 tracking-wide">
+            <span className="lg:hidden">ONUG Fall 2026</span>
+            <span className="hidden lg:inline">ONUG Fall 2026 · One Control Plane, Every Domain</span>
+          </h1>
           {beatLabel && (
             <span className={`text-[11px] font-bold px-2 py-0.5 rounded tracking-wider ${
               beatTone === 'fear' ? 'bg-red-500/20 text-red-400'
@@ -337,7 +356,7 @@ export default function DemoStage() {
       </header>
 
       {isFullScreenCard ? (
-        <div className="flex-1 flex items-stretch justify-center relative min-h-0">
+        <div className="flex-1 flex items-stretch justify-center relative min-h-0 overflow-y-auto">
           {phase === 'title' && (
             <TitleSlide
               title={step.title}
@@ -357,14 +376,14 @@ export default function DemoStage() {
           {phase === 'lanes' && <VendorLanes title={step.title} />}
         </div>
       ) : (
-        <main className="flex-1 flex gap-2 p-2 min-h-0">
+        <main className="flex-1 flex flex-col lg:flex-row gap-2 p-2 min-h-0 overflow-y-auto lg:overflow-hidden">
           {/* Left: event feed */}
-          <div className="w-80 flex-shrink-0">
+          <div className="w-full h-64 order-3 lg:order-none lg:w-80 lg:h-auto flex-shrink-0">
             <EventFeed events={state.events} />
           </div>
 
           {/* Center: topology + gate / journal */}
-          <div className="flex-1 flex flex-col gap-2 min-w-0">
+          <div className="flex-1 order-1 lg:order-none flex flex-col gap-2 min-w-0 min-h-[320px] lg:min-h-0">
             <div className="flex-1 min-h-0">
               <Topology
                 topology={state.topology}
@@ -390,7 +409,7 @@ export default function DemoStage() {
           </div>
 
           {/* Right: control plane + impact */}
-          <div className="w-72 flex-shrink-0 flex flex-col gap-2 min-h-0">
+          <div className="w-full order-2 lg:order-none lg:w-72 flex-shrink-0 flex flex-col gap-2 min-h-0">
             <ControlPlanePanel
               controls={state.controls}
               enforcing={state.enforcingControls}
@@ -417,12 +436,14 @@ export default function DemoStage() {
       )}
 
       {/* Footer */}
-      <footer className="h-10 flex-shrink-0 px-2 pb-2 pt-1">
+      <footer className="h-14 lg:h-10 flex-shrink-0 px-2 pb-2 pt-1">
         <StepIndicator
           currentStep={state.currentStep}
           totalSteps={STEPS.length}
           beat={state.beat}
           stepTitle={step?.title || ''}
+          onPrev={() => goToStep(state.currentStep - 1)}
+          onNext={() => goToStep(state.currentStep + 1)}
         />
       </footer>
 
