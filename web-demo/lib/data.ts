@@ -369,15 +369,16 @@ export const PRACTITIONER_MEMBERS: MemberMark[] = [
 ];
 
 // The practitioners who reviewed the demo. Mick asked (August) to be credited by name
-// and ONUG role, never with his employer, so his tile carries the ONUG mark; Baird has
-// not been asked how he wants to appear, so his does too until he says. eBay's and
+// and ONUG role, never with his employer, so his tile carries the ONUG mark; Baird's
+// title is the one on his public onug.net profile, in his own words (2 Oct 2026); his tile
+// carries the ONUG mark because his former employer is never attached to his name here. eBay's and
 // Huntington's marks are from Wikimedia Commons because the ONUG Drive folders have
 // none; swap for company-supplied artwork when it arrives.
 export const REVIEWERS: { name: string; org: string; file: string }[] = [
   { name: 'Mick Currey', org: 'WG1 co-lead · ONUG Board', file: 'onug.svg' },
   { name: 'Rick Casarez', org: 'eBay', file: 'ebay.svg' },
   { name: 'Chris Hertenstein', org: 'Huntington', file: 'huntington.svg' },
-  { name: 'Baird Kaake', org: 'WG1', file: 'onug.svg' },
+  { name: 'Baird Kaake', org: 'Independent AI Cybersecurity Researcher', file: 'onug.svg' },
   { name: 'Peter Campbell', org: 'ONUG', file: 'onug.svg' },
 ];
 

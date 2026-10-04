@@ -141,9 +141,9 @@
       "phase": "title",
       "title": "YOU ARE HERE",
       "pause": null,
-      "text": "You are here. This is where Dallas left off: six controls then, twenty-four requirements now. Same company, same artifact, one governance change: every new artifact runs in a sandbox, under the control plane, before it touches the network.",
+      "text": "You are here. This is where Dallas left off: six controls then, twenty-five requirements now. Same company, same artifact, one governance change: every new artifact runs in a sandbox, under the control plane, before it touches the network.",
       "words": 38,
-      "audio_seconds": 16.666122
+      "audio_seconds": 17.319184
     },
     {
       "id": "b2-enable",
