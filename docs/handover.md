@@ -6,7 +6,7 @@ For Peter and Tony, and anyone picking this up before October 28, 2026.
 
 The keynote demo for the ONUG Fall AI Networking Summit in New York, *One Control Plane, Every Domain*. It opens the Summit, runs about ten and a half minutes of recorded narration with presenter pauses, and ends by handing the room to the vendor challenge. It is the successor to the Dallas AOMC demo and deliberately looks like it.
 
-Current state: **v0.3.3** (17 September 2026), 41 steps across seven beats, 10.5 minutes recorded in the cloned Nick Lippis voice. Everything runs, QA passes, and the build is live for members on collaborative.onug.net under Demos. The script is in co-chair review until it locks; every change since v0.2 came from a reviewer and is logged in `docs/review-feedback.md`. See `docs/release-notes.md` for what each version did.
+Current state: **v0.3.6** on main (2 October 2026), 42 steps across seven beats, 13.8 minutes recorded (measured from the clips) in the cloned Nick Lippis voice on ElevenLabs eleven_v4, stability 0.5, style 0.15. Everything runs, QA passes, and the build is published for sponsors at onug.github.io/Fall26Demo/demo/ and for members on collaborative.onug.net under Demos. Pull request #9 (v0.3.7) is open: it changes the on-stage requirement count from 24 to 25 and credits Baird Kaake by his title; it lands when Nick says merge. The script is in co-chair review until it locks; every change since v0.2 came from a reviewer and is logged in `docs/review-feedback.md`. See `docs/release-notes.md` for what each version did.
 
 The arc it implements is `docs/ONUG_Fall_2026_Keynote_Demo_Arc.docx`, now well behind the script: the seven beats survive, most of the detail has been rewritten by the practitioners' review.
 
@@ -68,12 +68,25 @@ Step ids double as audio filenames; renaming one orphans its clip.
 - A full regeneration bills about 11,000 characters; use `--only` for the steps that changed. Nick's target is ten minutes recorded; `npm run narration:export` prints the figure.
 - Playback: `public/narration/<id>.mp3` if it exists, otherwise browser speech synthesis reads the same text, so a missing file degrades rather than breaks.
 
+## Where it is published
+
+Three copies exist, and only one is source.
+
+| Copy | Where | How it gets there |
+|------|-------|-------------------|
+| Source | `web-demo/` in this repo | Edit, QA, build, PR, merge. |
+| Public demo for sponsors | onug.github.io/Fall26Demo/demo/ | A compiled export in `pages/demo/`, built with `NEXT_PUBLIC_BASE_PATH=/Fall26Demo/demo`. **Rebuild and commit it in the same PR as any source change**; it has gone stale in silence twice. `.github/workflows/pages.yml` deploys `pages/**` on every push to main that touches it. |
+| Report pack | onug.github.io/Fall26Demo/ | Peter Campbell's ONUG Agentic Control Plane pack, also under `pages/`: requirements, architectures, the crosswalk "The 25", the AOMC threat model, the vendor challenge. Peter owns its content. |
+
+A fourth copy, for members, is the portal's vendored build (next section). The README opens with the public link; the vendor instructions open with it too.
+
 ## Where members watch it, and where their notes go
 
 The demo is inside collaborative.onug.net at `/keynote`, behind the portal's login, reached from the first card on the Demos tab (collaborative repo, AD-122). Live since 12 September 2026; v0.3.3 since 17 September. The portal holds a vendored copy of the build. To ship a new version:
 
 1. Here: `cd web-demo && npm run build:portal` (sets `NEXT_PUBLIC_BASE_PATH=/keynote/app`). Delete any `name 2.ext` files under `out/` first; the import copies everything.
 2. In the collaborative repo: `bin/import_keynote.py /path/to/Fall26Demo/web-demo/out --version vX.Y.Z`, set `version` and `updated` in `config/keynote.toml`, add the "what changed because somebody said so" rows, run the suite, PR, merge, deploy (`gcloud run deploy collab-feed --source . --region=us-east1 --project=onug-collaborative`).
+3. Back here: rebuild `pages/demo` from the same source (`NEXT_PUBLIC_BASE_PATH=/Fall26Demo/demo npm run build`, copy `out/` to `pages/demo/`) so the public copy matches.
 
 **Feedback.** The form under the demo emails Nick, Peter and Tony and keeps every note on the portal's staff-only page `/keynote/feedback` (AD-130). Log each note in `docs/review-feedback.md` here with what was done, and mirror the outcome into `config/keynote.toml` there, so the member sees their note changed something.
 
@@ -87,8 +100,9 @@ The demo is inside collaborative.onug.net at `/keynote`, behind the portal's log
 
 - **Vendor overrides.** Dallas let a vendor swap its product name and logo into the "enable" and "blocked" steps. The Fall equivalent is per-lane overrides. Not built; vendors fork and build their own response.
 - **Video export.** The interactive build is the source; the MP4 is a screen-capture job once the script locks. Record at 1920×1080, narration text hidden (`T`).
+- **Ten minutes.** Nick's target. The move to eleven_v4 and the new `b2-everyday` step took the runtime from 10.9 to 13.8 minutes; the cut that pays for it has not been made.
 - **Live demo / Docker.** Fall is web-only by design.
-- **Company artwork.** eBay's and Huntington's marks are from Wikimedia Commons until the companies supply artwork. Mick Currey is credited by name and WG1 role only, at his request; Baird Kaake by name and WG1 until he says how he wants to appear.
+- **Company artwork.** eBay's and Huntington's marks are from Wikimedia Commons until the companies supply artwork. Mick Currey is credited by name and WG1 role only, at his request. Baird Kaake's title is Independent AI Cybersecurity Researcher, from his public onug.net profile in his own words (confirmed 2 October); the credit change is in pull request #9. His former employer is never attached to his name here.
 
 ## Accounts and access
 
@@ -106,7 +120,7 @@ The demo is inside collaborative.onug.net at `/keynote`, behind the portal's log
 1. Co-chair review closes; the script locks. Reactions before 19 September reach that review.
 2. Baird says how he wants to be credited; eBay and Huntington send artwork.
 3. Bill and Jesi confirm the ▲ dates; the call for entries goes to every sponsor on 28 September.
-4. Office hours 7 and 16 October; final videos 19 October.
+4. Office hours 7 and 16 October; optional checkpoint 9 October; final videos Wednesday 14 October (the dates in the invitation 57 companies hold).
 5. Screen-capture the locked build to MP4 for the production pass.
 6. Nick and Peter present it on 28 October. The Summit runs 28 and 29 October; voting closes early in the afternoon of the 29th (time to be confirmed) and Best in Show is announced at the close of that day.
 

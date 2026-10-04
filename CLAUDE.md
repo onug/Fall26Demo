@@ -28,6 +28,8 @@ Keys: `Space`/`→` next, `←` back, `1`–`7` jump to beat, `F` fullscreen, `N
 
 For browser verification in this session, `.claude/launch.json` defines a `web-demo` server on port 3100.
 
+**Where it is published.** Sponsors watch it at onug.github.io/Fall26Demo/demo/, a compiled export committed under `pages/demo/` and built with `NEXT_PUBLIC_BASE_PATH=/Fall26Demo/demo`. Members watch the portal's vendored copy at collaborative.onug.net under Demos. Peter Campbell's report pack (requirements, architectures, the crosswalk "The 25", the AOMC threat model, the vendor challenge) is the rest of `pages/` and deploys with it. `.github/workflows/pages.yml` publishes `pages/**` on every push to main that touches it, so a source change that does not rebuild `pages/demo` publishes nothing while looking shipped.
+
 ## Architecture
 
 Next.js 16 App Router, TypeScript, Tailwind CSS v4, Framer Motion. Static export, no runtime network calls.
@@ -38,7 +40,7 @@ web-demo/
 ├── lib/
 │   ├── types.ts           Step, DemoState, ControlKey, LaneKey, GateProposal, Metrics, ...
 │   ├── data.ts            LANES, CONTROLS (9 capabilities), BASE_NODES/BASE_EDGES, BU_AGENTS, PROOF_POINTS, VENDOR_LANES
-│   ├── steps.ts           THE SCRIPT — 41 steps across seven beats, with narration and pause markers
+│   ├── steps.ts           THE SCRIPT — 42 steps across seven beats, with narration (the presenter-pause badges went in v0.3.6)
 │   ├── audio.ts           Narration playback: /narration/<step-id>.mp3 first, browser TTS fallback
 │   └── assets.ts          asset(path): prefixes NEXT_PUBLIC_BASE_PATH for images under public/
 ├── scripts/
@@ -46,7 +48,7 @@ web-demo/
 │   ├── qa.mjs             Script integrity check (npm run qa): replays steps, validates references, audio, export freshness
 │   └── generate-narration.py  ElevenLabs TTS via urllib; key from env ELEVENLABS_API_KEY or keychain item "elevenlabs"
 ├── narration/script.json  Exported narration script (generated)
-├── public/narration/      41 MP3s, one per step id (generated, committed)
+├── public/narration/      42 MP3s, one per step id (generated, committed; eleven_v4, stability 0.5, style 0.15 since v0.3.6)
 ├── public/ra/             The three reference-architecture drawings as SVG (Peter's ONUG-theme redraws, from his ACP wiki pack)
 ├── public/logos/          Member marks, copied from the collaborative portal's app/static/founding/
 └── components/
@@ -82,7 +84,8 @@ web-demo/
 - **Change proof points, BU agents, vendor lanes**: the arrays at the bottom of `web-demo/lib/data.ts`. Each entry in `CONTROLS` carries `reqs`, the WG requirement ids from Peter's vendor three-lane challenge report (17 Sep 2026); the Beat 7 card prints them per lane. Keep them in step with his crosswalk.
 - **Replace a reference-architecture drawing**: the SVGs in `public/ra/` are the 1200-wide `<svg>` cut out of Peter's `report-onug-wg<N>-architecture-reference.html` pages (his ACP wiki pack, emailed 16 Sep 2026 as `ACP-local-wiki.zip`, re-sent 17 Sep as `ACP-local-wiki-v2.zip` with the same drawings, headed for GitHub Pages under onug/), with HTML named entities (`&middot;` etc.) converted to characters and a white background rect prepended; `RA_CARDS` in `data.ts` carries the version string and the takeaways. Update both. The control plane is deliberately one card, the personas version (Peter, 17 Sep).
 - **Add a member mark**: drop the file in `public/logos/` and add it to `FOUNDING_MEMBERS`, `PRACTITIONER_MEMBERS` or `REVIEWERS` in `data.ts`. Marks must read on a white tile. `ebay.svg` and `huntington.svg` came from Wikimedia Commons because the ONUG Drive folders have no mark for them; replace with company-supplied artwork when it arrives. Mick Currey is credited by name and ONUG role only, never with his employer (his request, August 2026); Baird Kaake without an employer until he says.
-- **Change the voice**: `VOICE_ID` in `scripts/export-script.mjs` (the cloned Nick Lippis voice is the default; Sarah was Dallas), then regenerate with `--force`.
+- **Change the voice**: `VOICE_ID` and `MODEL_ID` in `scripts/export-script.mjs` (the cloned Nick Lippis voice on eleven_v4 is the default; Sarah was Dallas), then regenerate with `--force`. Keep stability 0.5 and style 0.15: v4 at 0.35 and every v3 setting drifted off the cloned voice (30 Sep 2026).
+- **Ship a change**: source PR merged → `npm run build:portal` and the portal import → rebuild `pages/demo` with the public base path and commit it. All three copies must say the same thing; the compiled ones do not update themselves.
 - **Adjust animations**: keyframes in `web-demo/app/globals.css`; Framer transitions inline in components.
 
 ## Verifying a change
@@ -106,6 +109,8 @@ web-demo/
 ## Working agreements
 
 - Commit MP3s alongside the script change that produced them.
+- **Pull main and read its log before building anything.** Several sessions push to this repository; between 18 September and 2 October main moved from v0.3.3 to v0.3.6 while a branch built on the 18th sat unmerged and had to be rebuilt. Rebasing onto a main you have not read is how a stale clip or a contradicted count gets shipped.
+- **Every version gets its release-note entry and a handover update in the same PR.** v0.3.4 to v0.3.6 shipped without them and were reconstructed from commit messages on 4 October; reconstructed notes are weaker than written ones.
 - This checkout lives in a cloud-synced folder, and the sync drops `name 2.ext` (and `name 3.ext`) duplicate files next to files that were recreated. Before `git add -A`, and before `npm run build:portal` feeds `out/` to the portal import, run `find . -name "* [0-9].*" -not -path "*/node_modules/*"` and delete what it finds. They have reached both repositories twice (15 and 17 Sep); the collaborative checkout has the same problem, so run the same find there before its `git add -A`.
 - Never write the ElevenLabs key anywhere in the repo, including scripts, `.env` files, or docs. The generator reads it at run time.
 - Repo administration: `gh repo edit --visibility` and read-only `gh api` calls worked for Claude in auto mode (17 Sep); adding collaborators via `gh api` may be blocked, in which case hand the command to the user. PR merges and Cloud Run deploys are blocked for Claude in auto mode unless Nick says "merge" in the request; the deploy is always Nick's to run.
