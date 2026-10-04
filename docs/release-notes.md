@@ -1,8 +1,11 @@
 # Release Notes
 
-## Pending — pull request #9 (v0.3.8: 25 requirements, Baird's title)
+## v0.3.8 — 25 requirements; Baird's title (October 4, 2026)
 
-Open and mergeable as of 4 October. The Beat 2 and Beat 3 cards and narration say 25, matching Peter's published crosswalk "The 25"; Baird Kaake is credited as Independent AI Cybersecurity Researcher, the title on his public onug.net profile. One clip re-recorded in eleven_v4. It lands when Nick says merge.
+- **The requirement count is 25.** The Beat 2 "You are here" card and narration and the Beat 3 title card say 25; so do the presenter guide and CLAUDE.md. v0.3.2 had made it 24 on Peter's note of 16 September; Nick set it to 25 on the 18th and Peter's report pack, published the 23rd, calls them "The 25". One clip re-recorded (eleven_v4). [Nick, 18 Sep; Peter, 23 Sep]
+- **Baird Kaake is credited as Independent AI Cybersecurity Researcher**, the title on his public onug.net profile in his own words. [via Jeannette and Andrea, 2 Oct]
+- The vendor instructions refer to "The 25" crosswalk by Peter's name for it.
+- `pages/demo` is **not** rebuilt in this version; whoever merges it rebuilds the public copy, and the portal import follows.
 
 ## v0.3.7 — On a phone the demo stopped at slide one (October 2, 2026)
 

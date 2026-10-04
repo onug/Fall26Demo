@@ -2,6 +2,12 @@
 
 Practitioner and co-chair input on the keynote arc, and what the demo did with it. Newest first.
 
+## Nick Lippis, Peter Campbell, Baird Kaake — September 18 to October 2, 2026 (incorporated in v0.3.8)
+
+**The requirement count on stage is 25.** Nick, 18 September: "you have to change the number of requirements is 25." Peter's published report pack (23 September) titles its crosswalk "The 25", so the two now agree. The Beat 2 "You are here" card and narration and the Beat 3 title card say 25 again, as they did before v0.3.2. The entries below that quote Peter's "24, not 25" are left as written.
+
+**Baird's credit.** His public onug.net profile, in his own words, gives his title as Independent AI Cybersecurity Researcher (confirmed through Jeannette and Andrea, 2 October). The credits tile uses that title. His former employer is never attached to his name on the demo.
+
 ## Peter Campbell, ONUG — September 17, 2026, afternoon (incorporated in v0.3.3)
 
 Three emails after v0.3.2 went in.
