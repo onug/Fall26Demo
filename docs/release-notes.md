@@ -1,22 +1,22 @@
 # Release Notes
 
-## Pending — pull request #9 (v0.3.7: 25 requirements, Baird's title)
+## Pending — pull request #9 (v0.3.8: 25 requirements, Baird's title)
 
 Open and mergeable as of 4 October. The Beat 2 and Beat 3 cards and narration say 25, matching Peter's published crosswalk "The 25"; Baird Kaake is credited as Independent AI Cybersecurity Researcher, the title on his public onug.net profile. One clip re-recorded in eleven_v4. It lands when Nick says merge.
 
-## Phone fix, and the published copy rebuilt (October 2, 2026)
+## v0.3.7 — On a phone the demo stopped at slide one (October 2, 2026)
 
 - **On a phone the demo stopped at slide one.** Found walking the sponsor path at 375px: no way to advance without a keyboard, three fixed columns pushed the topology off-screen, and the title card was cut at both ends. Below the `lg` breakpoint there are now on-screen next and back buttons, a guarded swipe, a single column and a title that fits; at 1024px and up nothing changed. The link travels by Slack and email, where a phone is the likely first open. [f8effbe]
 - **`pages/demo` rebuilt from that source.** Editing the source does not publish it: `pages/demo` is a compiled copy and had gone stale in silence before. 95 files, 42 clips, every chunk present. [275cc10]
 
 ## v0.3.4 to v0.3.6 — reconstructed from the commit log (September 23 to October 2, 2026)
 
-These versions shipped without release-note entries. This section is written from the commit messages, not from watching each change land; read those commits for the full reasoning.
+These versions shipped without release-note entries or tags here; the portal's release notes and `config/keynote.toml` carried the numbers. This section is written from the commit messages, not from watching each change land, and the tags v0.3.4 to v0.3.7 were added on 4 October to the commits the portal imported.
 
 - **The report pack is published.** Peter Campbell's ONUG Agentic Control Plane pack (requirements, architectures, the crosswalk "The 25", the AOMC threat model with 59 scenarios, the vendor challenge) lives in `pages/` and deploys to onug.github.io/Fall26Demo by GitHub Actions on every push to main that touches `pages/**`. v1.0 carries Peter's byline. [23–24 Sep]
 - **The demo is published for sponsors** at onug.github.io/Fall26Demo/demo/, built with `NEXT_PUBLIC_BASE_PATH=/Fall26Demo/demo`, after Jeannette found the README sent people to localhost. The README and the vendor instructions now open with where to watch it. [29 Sep, 2 Oct]
-- **Member feedback, four changes:** the poisoned model loads as safetensors with the payload in its shipped code (Tomasz Janaszka); the drift score shows what produced it; the sandbox escape cites the OpenAI and Hugging Face reports (Iddo Kadim); SOC, NOC and SIEM are spoken as words. Eight clips regenerated. [29 Sep]
-- **Beat 4 no longer escalates the agent's autonomy mid-incident.** Peter's ruling on Tomasz's reading of WG2: the envelope is stated once, as a prior fact set when the persona was created. Four clips regenerated. [30 Sep]
+- **v0.3.4, member feedback, four changes:** the poisoned model loads as safetensors with the payload in its shipped code (Tomasz Janaszka); the drift score shows what produced it; the sandbox escape cites the OpenAI and Hugging Face reports (Iddo Kadim); SOC, NOC and SIEM are spoken as words. Eight clips regenerated. [29 Sep]
+- **v0.3.5: Beat 4 no longer escalates the agent's autonomy mid-incident.** Peter's ruling on Tomasz's reading of WG2: the envelope is stated once, as a prior fact set when the persona was created. Four clips regenerated. [30 Sep]
 - **v0.3.6: the gate, not the kill switch.** Peter's ruling on the last open question: leave the audience with the gate. A new step, `b2-everyday`, shows an ordinary write proposed, checked, approved, executed and journalled before the poisoned artifact arrives, so the plane says yes before it says no. The six presenter-pause badges are gone; the two that carried framing are now spoken in `b2-principle` and `b4-summary`. 108 words cut from Beats 1 and 2. **Narration moved to eleven_v4 at stability 0.5, style 0.15** after Iddo said the old read sounded like lists of words; v4 at 0.35 and every v3 setting drifted off the cloned voice. 42 steps; runtime 10.9 → 13.8 minutes. [30 Sep]
 - **A pause button (P), and the first slide narrates after the first gesture** instead of opening mute until you moved forward and back. [30 Sep]
 - **Vendor instructions corrected against the invitation 57 companies hold:** checkpoint 9 October, final video Wednesday 14 October, no booth number at intent, submission by a link on the vendor's own platform (Vimeo preferred) rather than a Drive upload. [2 Oct]
