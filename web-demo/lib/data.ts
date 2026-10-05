@@ -304,33 +304,72 @@ export const GAP_ROWS: GapRow[] = [
 ];
 
 // ─── The other threat scenarios the same controls address (Baird Kaake) ───
-export interface ThreatScenario {
-  id: string;
-  name: string;
-  what: string;
-  control: string;
+// ─── Threat & risk scenario catalogue (Beat 7) ───────
+// From Baird Kaake's AOMC Threat & Risk Scenario Catalog for WG1 (September 2026):
+// 59 scenarios in 11 families, each mapped to the control that prevents it and the one
+// that detects it, cross-referenced to the OWASP Top 10 for Agentic Applications 2026
+// (ASI01–ASI10). The card shows scenario names, the catalogue's own scenario ids (A7, I4 …)
+// and OWASP ids. It deliberately shows NO requirement item numbers: the catalogue counts
+// the working group's items differently from the demo, and that is Peter's to reconcile.
+
+// What the audience has just watched, named as the catalogue names it.
+export interface WatchedThreat {
+  beat: number;
+  shown: string;      // what happened on screen
+  scenario: string;   // the catalogue's name for it
+  id: string;         // the catalogue's scenario id
+  asi: string;        // OWASP agentic category
 }
 
-export const THREAT_SCENARIOS: ThreatScenario[] = [
-  {
-    id: 'injection',
-    name: 'Indirect prompt injection · payload poisoning',
-    what: 'An agent that gathers web content on a structured, ongoing basis will eventually ingest instructions or a payload planted for it.',
-    control: 'Runtime supervision from outside the agent: declared persona vs observed behaviour · verify gate on every write. An injected instruction can change what the agent wants, not what it is allowed to do.',
-  },
-  {
-    id: 'misuse',
-    name: 'Agent misuse of legitimate rights',
-    what: 'The agent is tricked into using rights it already holds: its prompt altered, or the content it decides on altered, so it changes data it can write, or reads and shares content it should not — outbound or internally.',
-    control: 'Identity with a declared persona and approved task set · per-step scoped tokens · immutable audit journal the agent cannot see.',
-  },
-  {
-    id: 'writes',
-    name: 'Over-broad write access',
-    what: 'Agents in production typically hold read and write across large databases, which is what makes misuse easy.',
-    control: 'Compartmentalise writes to the smallest atomic subset a step needs — the WG1 objective that answers this scenario.',
-  },
+export const THREATS_WATCHED: WatchedThreat[] = [
+  { beat: 1, shown: 'A model that passed every scan carried a payload', scenario: 'Poisoned component', id: 'I4', asi: 'ASI04' },
+  { beat: 1, shown: 'The poisoned model inherited the agent\u2019s write rights', scenario: 'Master-key standing privilege', id: 'B1', asi: 'ASI03' },
+  { beat: 2, shown: 'The sandboxed agent reported itself healthy', scenario: 'Self-attestation', id: 'G3', asi: 'ASI10' },
+  { beat: 2, shown: 'Every decision journalled where no agent can reach', scenario: 'Tamperable audit trail', id: 'H6', asi: 'ASI10' },
+  { beat: 4, shown: 'Write #4 failed the verify gate and went to a person', scenario: 'Irreversible action without a human', id: 'H5', asi: 'ASI05 · ASI09' },
+  { beat: 5, shown: 'A lifted token replayed from the escaped second stage', scenario: 'Token theft and replay', id: 'A7', asi: 'ASI03' },
+  { beat: 6, shown: 'A personal agent is not a company workflow', scenario: 'Consumer-delegated agent in an enterprise context', id: 'J3', asi: 'ASI03' },
 ];
+
+// The eleven families. `count` is the number of scenarios the catalogue lists in each.
+export interface ThreatFamily {
+  key: string;
+  name: string;
+  line: string;
+  count: number;
+}
+
+export const THREAT_FAMILIES: ThreatFamily[] = [
+  { key: 'A', name: 'Identity and impersonation', line: 'The agent is not who the system thinks it is', count: 8 },
+  { key: 'B', name: 'Authorization scope and privilege', line: 'It holds, or accumulates, more authority than the job needs', count: 10 },
+  { key: 'C', name: 'Content-driven manipulation', line: 'Steered by what it reads, with or without an attacker', count: 5 },
+  { key: 'D', name: 'Credential exposure', line: 'Secrets end up where the agent, or its trail, can see them', count: 3 },
+  { key: 'E', name: 'Chain of trust across hops', line: 'Identity lost or forged through gateways and other agents', count: 6 },
+  { key: 'F', name: 'Result integrity and provenance', line: 'The answer is not what the verified producer produced', count: 4 },
+  { key: 'G', name: 'Design-execution divergence', line: 'What ran is not what was designed, and nobody can prove it', count: 4 },
+  { key: 'H', name: 'Runtime behavior and containment', line: 'It is misbehaving now: can anyone see it and stop it', count: 8 },
+  { key: 'I', name: 'Lifecycle and supply chain', line: 'Rights and components outlive the governance over them', count: 5 },
+  { key: 'J', name: 'Cross-domain trust and personas', line: 'Inside-the-enterprise trust applied where it does not fit', count: 3 },
+  { key: 'K', name: 'Governance failure modes', line: 'The conditions that let every scenario above persist', count: 3 },
+];
+
+// The catalogue's own honest list: scenarios the controls only partly close.
+export interface ThreatGap {
+  id: string;
+  name: string;
+  why: string;
+}
+
+export const THREAT_GAPS: ThreatGap[] = [
+  { id: 'B2', name: 'Composite authority ceiling', why: 'Nothing proves a bound on the union of an agent\u2019s active grants; monitoring sees it after the fact.' },
+  { id: 'B4 · B5', name: 'Volume and sensitivity bounds', why: 'Caught at runtime today, after the exposure. Pre-execution enforcement has no standard yet.' },
+  { id: 'C2', name: 'Inferred scope expansion', why: 'No attacker and no payload: the agent talks itself into a bigger job. Every deployed guardrail assumes a payload.' },
+  { id: 'F3', name: 'Result-request mismatch', why: 'Signing proves the bytes, not which request they answer.' },
+  { id: 'A8 · J1', name: 'Trust maintenance', why: 'Admitted once, trusted forever. No standard separates admission from continuous re-verification.' },
+  { id: 'J3', name: 'Consumer-delegated agents', why: 'A governance vacuum, not an engineering gap.' },
+];
+
+export const THREAT_TOTAL = THREAT_FAMILIES.reduce((n, f) => n + f.count, 0);
 
 // ─── Members on the wall (public/logos/, copied from the collaborative portal) ───
 export interface MemberMark {

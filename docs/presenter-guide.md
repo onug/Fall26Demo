@@ -53,7 +53,7 @@ Two presenters: Nick plus one co-presenter. The demo narrates itself. You advanc
 | 36 | FROM SEATBELT TO ACCELERATOR | The pivot. |  |
 | 37 | BUSINESS UNITS BUILD ON THE CONTROL PLANE | Four BU agents plug in with persona + identity. 6 weeks → 4 days. |  |
 | 38 | THIS IS ALREADY HAPPENING | EY · Cisco · Salesforce. Personal agent vs company agentic workflow. | **Pause 6** — greed, "don't be left behind" |
-| 39 | ONE PATH SHOWN. THE SAME CONTROLS STOP THESE. | Threat card: injection, misuse, over-broad writes → the control that stops each. |  |
+| 39 | ONE PATH SHOWN. FIFTY-NINE CATALOGUED. | Baird's catalogue on one card: seven scenarios the room just watched, by beat; the eleven families the same controls address; the six only partly closed. Land the line: when a vendor claims full coverage, ask to see the mechanism. |  |
 | 40 | THE VENDOR CHALLENGE — THREE LANES | Three lanes. Fork · terminology · 5–10 min MP4 · showcase theatre · Whova vote. |  |
 | 41 | GO WATCH. GO VOTE. | GO WATCH. GO VOTE. Logo wall: practitioner members and founding members. Reviewers credited with marks. |  |
 

@@ -8,7 +8,7 @@
     "speed": 1.2,
     "notes": "Segment ids match Step.id in lib/steps.ts; audio is served from public/narration/<id>.mp3",
     "segments": 42,
-    "total_words": 1930,
+    "total_words": 1935,
     "estimated_minutes": 12.9,
     "recorded_minutes": 13.8
   },
@@ -447,11 +447,11 @@
       "step": 40,
       "beat": 7,
       "phase": "threats",
-      "title": "ONE PATH SHOWN. THE SAME CONTROLS STOP THESE.",
+      "title": "ONE PATH SHOWN. FIFTY-NINE CATALOGUED.",
       "pause": null,
-      "text": "The demo showed one path in. The same controls address the others. Indirect prompt injection: an agent that gathers web content will eventually ingest instructions planted for it. Agent misuse: an agent tricked into using its legitimate rights. And the broad write access that makes misuse easy. Runtime supervision, declared personas, and writes cut to the smallest atomic subset a step needs.",
-      "words": 62,
-      "audio_seconds": 26.122449
+      "text": "The demo showed one path in. Working group one has catalogued fifty-nine. You just watched seven of them: a poisoned component, standing privilege, self-attestation, a tamperable audit trail, an irreversible action with no human, token replay, and the consumer-delegated agent. The same controls address the rest, eleven families in all. And six stay only partly closed. When a vendor claims full coverage, ask to see the mechanism.",
+      "words": 67,
+      "audio_seconds": 28.525714
     },
     {
       "id": "b7-lanes",

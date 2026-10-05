@@ -5,7 +5,7 @@ _Generated from `web-demo/lib/steps.ts` by `scripts/export-script.mjs`. Do not e
 | | |
 |---|---|
 | Steps with narration | 42 |
-| Words | 1930 (~12.9 min at 150 wpm) |
+| Words | 1935 (~12.9 min at 150 wpm) |
 | Recorded audio | 13.8 min |
 | Voice | Nick Lippis (cloned) · ElevenLabs `16VamcPQIJBvVLoE1Zss` · eleven_v4 · speed 1.2 |
 | Presenter pauses | 0 |
@@ -270,11 +270,11 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ## BEAT 7 · THE CHALLENGE
 
-### 40. ONE PATH SHOWN. THE SAME CONTROLS STOP THESE.
+### 40. ONE PATH SHOWN. FIFTY-NINE CATALOGUED.
 
-`b7-threats` · threats · 62 words · audio 26s
+`b7-threats` · threats · 67 words · audio 29s
 
-> The demo showed one path in. The same controls address the others. Indirect prompt injection: an agent that gathers web content will eventually ingest instructions planted for it. Agent misuse: an agent tricked into using its legitimate rights. And the broad write access that makes misuse easy. Runtime supervision, declared personas, and writes cut to the smallest atomic subset a step needs.
+> The demo showed one path in. Working group one has catalogued fifty-nine. You just watched seven of them: a poisoned component, standing privilege, self-attestation, a tamperable audit trail, an irreversible action with no human, token replay, and the consumer-delegated agent. The same controls address the rest, eleven families in all. And six stay only partly closed. When a vendor claims full coverage, ask to see the mechanism.
 
 ### 41. THE VENDOR CHALLENGE — THREE LANES
 
@@ -296,8 +296,8 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 | 23. WG2 · THE AUTONOMOUS INFRASTRUCTURE ARCHITECTURE (`b4-ra`) | 73 | 36s |
 | 39. THIS IS ALREADY HAPPENING (`b6-proof`) | 75 | 33s |
 | 32. T+00:58 — The second stage is an agent. It gets out. (`b5-escalate`) | 83 | 31s |
+| 40. ONE PATH SHOWN. FIFTY-NINE CATALOGUED. (`b7-threats`) | 67 | 29s |
 | 29. SAFE AUTONOMY — WG2 (`b4-summary`) | 70 | 27s |
-| 40. ONE PATH SHOWN. THE SAME CONTROLS STOP THESE. (`b7-threats`) | 62 | 26s |
 | 33. T+01:02 — 1 · Detect → 2 · Investigate → 3 · Propose, in 4.2 seconds (`b5-detect`) | 66 | 25s |
 | 26. 4 · Verify — the Verify Gate, writes #1–#3 (`b4-gate-pass`) | 49 | 25s |
 | 31. WG3 · THE AI-ENABLED SOC ARCHITECTURE (`b5-ra`) | 47 | 24s |

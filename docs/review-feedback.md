@@ -2,6 +2,10 @@
 
 Practitioner and co-chair input on the keynote arc, and what the demo did with it. Newest first.
 
+## Baird Kaake's threat catalogue — September 17 to October 5, 2026 (incorporated in v0.3.9)
+
+Baird sent his AOMC Threat & Risk Scenario Catalog on 17 September: "Maybe too much information, but I am attempting to capture all threats to agentic flow and the controls that we describe are intended to address." 59 scenarios in 11 families, each mapped to the control that prevents it and the one that detects it, cross-referenced to OWASP ASI01–ASI10, with six scenarios he says the controls only partly close. **Incorporated** as the Beat 7 threat card, replacing the three scenarios from the 15 September meeting: what the room just watched (seven scenarios, by beat), the eleven families, the six gaps. Baird saw the card on 19 September: "looks great! I like what you have done with it!" Peter, asked in or out, answered on 5 October: "In." The catalogue itself is published in Peter's report pack as the AOMC Threat Model; the demo cites scenario ids and OWASP ids, not requirement item numbers. Baird's note of 1 October, that personal and cloud virtual agents are a rapidly evolving risk not yet on the matrix, is open; the card's counts come from data and will follow the catalogue.
+
 ## Nick Lippis, Peter Campbell, Baird Kaake — September 18 to October 2, 2026 (incorporated in v0.3.8)
 
 **The requirement count on stage is 25.** Nick, 18 September: "you have to change the number of requirements is 25." Peter's published report pack (23 September) titles its crosswalk "The 25", so the two now agree. The Beat 2 "You are here" card and narration and the Beat 3 title card say 25 again, as they did before v0.3.2. The entries below that quote Peter's "24, not 25" are left as written.
