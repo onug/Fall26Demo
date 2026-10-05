@@ -93,7 +93,7 @@ Videos play on loop in open seating areas, often with the sound down, and in the
 | Closing card, 5 seconds | Company name · one contact for follow-up · nothing else |
 | Recording | Screen capture at native resolution, cursor visible only when it matters, no notification pop-ups, no browser chrome |
 
-A rough cut for the 14 October checkpoint can be any format; the 19 October final must meet the table.
+A rough cut for the 9 October checkpoint can be any format; the 14 October final must meet the table.
 
 ## 5. Naming and how to send
 
