@@ -62,7 +62,7 @@ web-demo/
     ├── ViolationOverlay.tsx, BlockedOverlay.tsx
     ├── RACard.tsx         phase 'ra': a reference-architecture drawing on a white panel, three takeaways beside it
     ├── GapCard.tsx        Beat 1: what happened / the control / HAD IT or MISSING
-    ├── ThreatCard.tsx     Beat 7: the other threat scenarios the same controls stop
+    ├── ThreatCard.tsx     Beat 7: Baird Kaake's threat catalogue — what the room watched (by beat), the 11 families, the 6 gaps; data in THREATS_WATCHED, THREAT_FAMILIES, THREAT_GAPS
     ├── LogoWall.tsx       Title strip and finale wall of member marks (wordmark when no file)
     ├── AcceleratorView.tsx    Beat 6: business units plug into the plane
     ├── ProofPoints.tsx    Beat 6: EY / Cisco / Salesforce cards

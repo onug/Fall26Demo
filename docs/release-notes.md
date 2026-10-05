@@ -1,6 +1,12 @@
 # Release Notes
 
-## v0.3.8 — 25 requirements; Baird's title (October 4, 2026)
+## v0.3.9 — Baird's threat catalogue on the Beat 7 card (October 5, 2026)
+
+- **The Beat 7 threat card is rebuilt from Baird Kaake's AOMC Threat & Risk Scenario Catalog** (59 scenarios in 11 families, cross-referenced to the OWASP Top 10 for Agentic Applications 2026), the same catalogue Peter's report pack publishes as the AOMC Threat Model. Left: seven moments the room has just watched, by beat, named as the catalogue names them. Middle: the eleven families with the number of scenarios in each. Right: the catalogue's six scenarios the controls only partly close, under "when a vendor claims full coverage, ask to see the mechanism." The card cites the catalogue's scenario ids and OWASP ids and no requirement item numbers. Every name, id and count was checked by script against the catalogue. Credit on the card: Baird Kaake, Independent AI Cybersecurity Researcher, WG1. [Baird, 17 Sep: "attempting to capture all threats to agentic flow and the controls that we describe are intended to address"; Baird, 19 Sep: "looks great"; Peter, 5 Oct: "In."]
+- The step title is *One path shown. Fifty-nine catalogued.* One clip re-recorded (eleven_v4), 29 seconds against 21 before. Runtime about 13.9 minutes. No step added or removed: 42 steps.
+- Baird has flagged a further family in progress, personal and cloud virtual agents, which may expand the catalogue; the card reads its counts from data and changes with it.
+
+
 
 - **The requirement count is 25.** The Beat 2 "You are here" card and narration and the Beat 3 title card say 25; so do the presenter guide and CLAUDE.md. v0.3.2 had made it 24 on Peter's note of 16 September; Nick set it to 25 on the 18th and Peter's report pack, published the 23rd, calls them "The 25". One clip re-recorded (eleven_v4). [Nick, 18 Sep; Peter, 23 Sep]
 - **Baird Kaake is credited as Independent AI Cybersecurity Researcher**, the title on his public onug.net profile in his own words. [via Jeannette and Andrea, 2 Oct]
