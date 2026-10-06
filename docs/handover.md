@@ -4,9 +4,9 @@ For Peter and Tony, and anyone picking this up before October 28, 2026.
 
 ## What you are picking up
 
-The keynote demo for the ONUG Fall AI Networking Summit in New York, *One Control Plane, Every Domain*. It opens the Summit, runs about ten and a half minutes of recorded narration with presenter pauses, and ends by handing the room to the vendor challenge. It is the successor to the Dallas AOMC demo and deliberately looks like it.
+The keynote demo for the ONUG Fall AI Networking Summit in New York, *One Control Plane, Every Domain*. It opens the Summit, runs about twelve minutes of recorded narration with presenter pauses, and ends by handing the room to the vendor challenge. It is the successor to the Dallas AOMC demo and deliberately looks like it.
 
-Current state: **v0.3.9** (5 October 2026), 42 steps across seven beats, 13.8 minutes recorded (measured from the clips) in the cloned Nick Lippis voice on ElevenLabs eleven_v4, stability 0.5, style 0.15. Everything runs, QA passes, and the build is published for sponsors at onug.github.io/Fall26Demo/demo/ and for members on collaborative.onug.net under Demos. The requirement count on stage is 25. The script is in co-chair review until it locks; every change since v0.2 came from a reviewer and is logged in `docs/review-feedback.md`. See `docs/release-notes.md` for what each version did.
+Current state: **v0.3.10** (5 October 2026), 41 steps across seven beats, 12.0 minutes recorded (measured from the clips) in the cloned Nick Lippis voice on ElevenLabs eleven_v4, stability 0.5, style 0.15. Everything runs, QA passes, and the build is published for sponsors at onug.github.io/Fall26Demo/demo/ and for members on collaborative.onug.net under Demos. The requirement count on stage is 25. The script is in co-chair review until it locks; every change since v0.2 came from a reviewer and is logged in `docs/review-feedback.md`. See `docs/release-notes.md` for what each version did.
 
 The arc it implements is `docs/ONUG_Fall_2026_Keynote_Demo_Arc.docx`, now well behind the script: the seven beats survive, most of the detail has been rewritten by the practitioners' review.
 
@@ -117,7 +117,7 @@ The demo is inside collaborative.onug.net at `/keynote`, behind the portal's log
 
 ## What happens next
 
-1. **The script is effectively locked at v0.3.9.** Both co-chair reviewers have signed off; sponsors are building against this version. Further change is for a defect, for Baird's catalogue expanding (personal and cloud virtual agents, in progress), or for a cut: the recorded length is 13.8 minutes against a ten-minute target and nothing has been cut since the voice change.
+1. **The script is effectively locked at v0.3.10.** Both co-chair reviewers have signed off on the story; sponsors are building against it. v0.3.10 carries the cuts and two changes from Nick and Peter's 5 October review call (the gap card's controls named as the Beat 2 panel names them; Beat 5 closing on the whole journal). The gap rows' mapping to the 25 is in the data, not on stage, for the WG1 reviewers. Further change is for a defect, for Baird's catalogue expanding (personal and cloud virtual agents, in progress), or for a cut: the recorded length is 13.8 minutes against a ten-minute target and nothing has been cut since the voice change.
 2. eBay and Huntington send artwork for their marks; the Commons files stay until they do.
 3. Vendors: optional checkpoint 9 October, final videos Wednesday 14 October, on the dates in the invitation 57 companies hold. Office hours 7 and 16 October.
 4. Nick and Peter rehearse. Dave Temkin has been invited to stay on stage after the fireside chat and react to the demo, and to join the rehearsals.
