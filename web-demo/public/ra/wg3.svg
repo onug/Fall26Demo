@@ -88,7 +88,7 @@
       <text x="1055" y="572" text-anchor="middle" font-size="12" font-weight="700" fill="#000000">6 · Validate</text>
       <text x="1055" y="590" text-anchor="middle" font-size="10.5" fill="#2C2C2C">&amp; learn</text>
 
-      <text x="600" y="662" text-anchor="middle" font-size="9.5" font-style="italic" fill="#8a93a5">only Respond (5) is genuinely mutable — intelligence value may outweigh immediate blocking</text>
+      <text x="600" y="674" text-anchor="middle" font-size="9.5" font-style="italic" fill="#8a93a5">only Respond (5) is genuinely mutable — intelligence value may outweigh immediate blocking</text>
 
       <!-- Invariants -->
       <text x="600" y="686" text-anchor="middle" font-size="11.5" fill="#000000">identity air-gap (no self-promotion) · scoped service accounts · enforcement-point-only responses · governed agent/MCP reachability · change-stop &amp; observe-mode honored</text>
