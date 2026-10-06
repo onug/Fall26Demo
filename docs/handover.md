@@ -117,10 +117,10 @@ The demo is inside collaborative.onug.net at `/keynote`, behind the portal's log
 
 ## What happens next
 
-1. Co-chair review closes; the script locks. Reactions before 19 September reach that review.
-2. Baird says how he wants to be credited; eBay and Huntington send artwork.
-3. Bill and Jesi confirm the ▲ dates; the call for entries goes to every sponsor on 28 September.
-4. Office hours 7 and 16 October; optional checkpoint 9 October; final videos Wednesday 14 October (the dates in the invitation 57 companies hold).
+1. **The script is effectively locked at v0.3.9.** Both co-chair reviewers have signed off; sponsors are building against this version. Further change is for a defect, for Baird's catalogue expanding (personal and cloud virtual agents, in progress), or for a cut: the recorded length is 13.8 minutes against a ten-minute target and nothing has been cut since the voice change.
+2. eBay and Huntington send artwork for their marks; the Commons files stay until they do.
+3. Vendors: optional checkpoint 9 October, final videos Wednesday 14 October, on the dates in the invitation 57 companies hold. Office hours 7 and 16 October.
+4. Nick and Peter rehearse. Dave Temkin has been invited to stay on stage after the fireside chat and react to the demo, and to join the rehearsals.
 5. Screen-capture the locked build to MP4 for the production pass.
 6. Nick and Peter present it on 28 October. The Summit runs 28 and 29 October; voting closes early in the afternoon of the 29th (time to be confirmed) and Best in Show is announced at the close of that day.
 

@@ -1,5 +1,11 @@
 # Release Notes
 
+## After v0.3.9 — published everywhere (October 5, 2026)
+
+- **All three copies say v0.3.9.** `pages/demo` was rebuilt from the merge and the Pages deploy succeeded; the live sponsor page carries the new Beat 7 card. The portal import (onug/collaborative #18) merged after its CI jobs twice died at exactly fifteen minutes with nothing failing and passed on the third run; Nick deployed revision 00220 and it carries all traffic.
+- **Approvals on record.** Peter, 5 October: "1. In. 2. That is correct, 25 is final." Baird, 19 September, on seeing the card: "looks great! I like what you have done with it!"
+- **Open.** Baird is working through a further family, personal and cloud virtual agents, which may expand the catalogue; the card's counts come from data. eBay's and Huntington's marks are still the Commons files.
+
 ## v0.3.9 — Baird's threat catalogue on the Beat 7 card (October 5, 2026)
 
 - **The Beat 7 threat card is rebuilt from Baird Kaake's AOMC Threat & Risk Scenario Catalog** (59 scenarios in 11 families, cross-referenced to the OWASP Top 10 for Agentic Applications 2026), the same catalogue Peter's report pack publishes as the AOMC Threat Model. Left: seven moments the room has just watched, by beat, named as the catalogue names them. Middle: the eleven families with the number of scenarios in each. Right: the catalogue's six scenarios the controls only partly close, under "when a vendor claims full coverage, ask to see the mechanism." The card cites the catalogue's scenario ids and OWASP ids and no requirement item numbers. Every name, id and count was checked by script against the catalogue. Credit on the card: Baird Kaake, Independent AI Cybersecurity Researcher, WG1. [Baird, 17 Sep: "attempting to capture all threats to agentic flow and the controls that we describe are intended to address"; Baird, 19 Sep: "looks great"; Peter, 5 Oct: "In."]
