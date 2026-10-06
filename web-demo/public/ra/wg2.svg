@@ -89,7 +89,7 @@
       <text x="1055" y="590" text-anchor="middle" font-size="10.5" fill="#2C2C2C">confirm</text>
       <text x="1055" y="604" text-anchor="middle" font-size="10.5" fill="#2C2C2C">outcome</text>
 
-      <text x="600" y="638" text-anchor="middle" font-size="9.5" font-style="italic" fill="#8a93a5">only Execute (5) is genuinely mutable — the autonomy level chosen above decides whether 4–6 ever fire</text>
+      <text x="600" y="662" text-anchor="middle" font-size="9.5" font-style="italic" fill="#8a93a5">only Execute (5) is genuinely mutable — the autonomy level chosen above decides whether 4–6 ever fire</text>
 
       <!-- Invariants -->
       <text x="600" y="686" text-anchor="middle" font-size="11.5" fill="#000000">identity air-gap (no self-promotion) · scoped service accounts · mediated writes only · governed agent/MCP reachability · change-stop honored</text>
