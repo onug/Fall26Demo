@@ -1,0 +1,527 @@
+<meta charset="UTF-8">
+<title>onug-plane Reference Implementation</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+  /* Layout: single-column long-form (.report-demo shape), widened for the full-detail diagram.
+     Tokens copied from design-system-onug.html; ONUG's system is light-only by design. */
+  :root {
+    color-scheme: light;
+    --onug-white: #FFFFFF;
+    --onug-bg-alt: #F4F4F4;
+    --onug-border: #E8E8E8;
+    --onug-border-strong: #DADBDD;
+    --onug-text-muted: #585858;
+    --onug-text-secondary: #2C2C2C;
+    --onug-text: #000000;
+    --onug-navy: #0F1D2A;
+    --onug-ink: #141414;
+    --onug-on-dark: #FFFFFF;
+    --onug-on-dark-muted: #9B9B9B;
+    --onug-green: #8FC73E;
+    --onug-green-dark: #70A228;
+    --onug-orange: #F58220;
+    --onug-orange-dark: #DB7015;
+    --font-body: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--onug-white);
+    color: var(--onug-text-secondary);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .report { max-width: 1180px; margin: 0 auto; padding: 64px 28px 100px; }
+
+  a { color: var(--onug-green-dark); transition: color 0.2s linear; }
+  a:hover { color: var(--onug-green); }
+  a:focus-visible { outline: 2px solid var(--onug-orange); outline-offset: 3px; }
+  code, .mono { font-family: var(--font-mono); font-size: 0.9em; }
+
+  .rpt-mast { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-bottom: 20px; border-bottom: 2px solid var(--onug-green); margin-bottom: 36px; }
+  .rpt-mast svg.logo { flex: none; display: block; }
+  .rpt-mast .kind { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--onug-text-muted); text-align: right; line-height: 1.5; }
+
+  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--onug-green-dark); margin-bottom: 16px; }
+  h1 { color: var(--onug-text); font-size: 38px; font-weight: 700; line-height: 1.12; margin: 0; text-wrap: balance; max-width: 820px; }
+  .hl { color: var(--onug-green-dark); font-weight: 700; }
+  .byline { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; font-family: var(--font-mono); font-size: 12.5px; color: var(--onug-text-muted); margin-top: 16px; }
+
+  .jump { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--onug-border); font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+  .jump a { color: var(--onug-text-muted); text-decoration: none; }
+  .jump a:hover { color: var(--onug-green-dark); }
+
+  p { font-size: 17px; line-height: 1.6; margin: 16px 0; color: var(--onug-text-secondary); max-width: 820px; }
+  strong { color: var(--onug-text); font-weight: 600; }
+
+  section { margin-top: 64px; }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 12px; margin-bottom: 20px; border-bottom: 2px solid var(--onug-green); }
+  .section-head h2 { color: var(--onug-text); font-size: 24px; font-weight: 600; margin: 0; text-wrap: balance; }
+  .section-head .count { font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--onug-text-muted); white-space: nowrap; }
+  h3 { color: var(--onug-text); font-size: 18px; font-weight: 600; margin: 32px 0 10px; }
+
+  .diagram-panel { margin-top: 24px; border: 1px solid var(--onug-border); border-radius: 6px; padding: 16px; overflow-x: auto; background: var(--onug-bg-alt); }
+  .diagram-panel svg { display: block; min-width: 1080px; width: 100%; height: auto; }
+  .diagram-panel svg text { font-family: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 14px; font-size: 13.5px; color: var(--onug-text-secondary); }
+  .legend span { display: inline-flex; align-items: center; gap: 8px; }
+  .legend i { display: inline-block; width: 28px; height: 0; border-top-width: 2.5px; border-top-style: solid; }
+  .legend i.req { border-top-color: var(--onug-green-dark); }
+  .legend i.tel { border-top-color: var(--onug-text-muted); border-top-style: dashed; border-top-width: 2px; }
+  .legend i.kill { border-top-color: var(--onug-orange); border-top-width: 3px; }
+  .legend b { display: inline-block; width: 16px; height: 12px; border-radius: 2px; background: var(--onug-navy); }
+
+  .table-wrap { overflow-x: auto; margin-top: 16px; border: 1px solid var(--onug-border); border-radius: 6px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.5; }
+  th { text-align: left; font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--onug-text-muted); background: var(--onug-bg-alt); padding: 10px 14px; border-bottom: 1px solid var(--onug-border-strong); }
+  td { padding: 11px 14px; border-bottom: 1px solid var(--onug-border); vertical-align: top; color: var(--onug-text-secondary); }
+  tr:last-child td { border-bottom: none; }
+  td:first-child { color: var(--onug-text); font-weight: 600; white-space: nowrap; }
+  td .sub { display: block; font-weight: 400; font-size: 12.5px; color: var(--onug-text-muted); }
+
+  ol.steps { list-style: none; counter-reset: step; padding: 0; margin: 16px 0 0; max-width: 860px; display: flex; flex-direction: column; gap: 0; }
+  ol.steps li { counter-increment: step; display: grid; grid-template-columns: 40px 1fr; gap: 14px; padding: 12px 0; border-top: 1px solid var(--onug-border); font-size: 16px; line-height: 1.55; }
+  ol.steps li:last-child { border-bottom: 1px solid var(--onug-border); }
+  ol.steps li::before { content: counter(step, decimal-leading-zero); font-family: var(--font-mono); font-size: 13px; font-weight: 600; color: var(--onug-green-dark); padding-top: 3px; }
+  ol.steps li > div { min-width: 0; }
+  ol.steps li.gate::before { color: var(--onug-orange-dark); }
+  .pill { display: inline-block; margin-left: 6px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--onug-border-strong); color: var(--onug-text-muted); vertical-align: 2px; }
+  .pill.deny { border-color: var(--onug-orange); color: var(--onug-orange-dark); }
+  .pill.gate { border-color: var(--onug-orange); color: var(--onug-orange-dark); }
+  .pill.ok { border-color: var(--onug-green); color: var(--onug-green-dark); }
+
+  .two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px 40px; }
+  .two-col > div { min-width: 0; }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; background: var(--onug-border); border: 1px solid var(--onug-border); margin-top: 20px; }
+  .stat { background: var(--onug-white); padding: 18px 20px; }
+  .stat .v { font-size: 26px; font-weight: 700; color: var(--onug-text); font-variant-numeric: tabular-nums; }
+  .stat .k { font-size: 13px; color: var(--onug-text-muted); margin-top: 4px; line-height: 1.45; }
+
+  .callout { margin: 28px 0 0; padding: 24px 26px; background: var(--onug-navy); color: var(--onug-on-dark); border-radius: 6px; }
+  .callout h3 { color: var(--onug-on-dark); margin: 0 0 8px; font-size: 14px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .callout p { color: var(--onug-on-dark-muted); font-size: 14.5px; margin: 0; max-width: none; }
+  .callout p + p { margin-top: 10px; }
+  .callout b { color: var(--onug-green); font-weight: 600; }
+
+  .sources { margin-top: 56px; padding-top: 22px; border-top: 2px solid var(--onug-green); display: flex; flex-direction: column; gap: 8px; font-family: var(--font-mono); font-size: 12.5px; color: var(--onug-text-secondary); }
+  .sources .lbl { color: var(--onug-text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-size: 11px; margin-bottom: 4px; }
+
+  footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--onug-border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-family: var(--font-mono); font-size: 11.5px; color: var(--onug-text-muted); }
+
+  @media (max-width: 600px) {
+    .report { padding: 40px 16px 72px; }
+    h1 { font-size: 28px; }
+    .rpt-mast { flex-direction: column; align-items: flex-start; }
+    .rpt-mast .kind { text-align: left; }
+    td:first-child { white-space: normal; }
+  }
+</style>
+
+<article class="report">
+
+  <div class="rpt-mast">
+    <svg class="logo" width="132" height="32" viewBox="0 0 276 66.9" role="img" aria-label="ONUG">
+      <path d="M33.4,14c-10.7,0-19.5,8.7-19.5,19.5c0,10.7,8.7,19.5,19.5,19.5c10.7,0,19.5-8.7,19.5-19.5C52.9,22.7,44.2,14,33.4,14 M33.4,66.9C15,66.9,0,51.9,0,33.4C0,15,15,0,33.4,0s33.4,15,33.4,33.4C66.9,51.9,51.9,66.9,33.4,66.9" fill="#8FC73E"/>
+      <path d="M88.1,29.1c0-8.4,6.8-15.2,15.2-15.2c8.4,0,15.2,6.8,15.2,15.2v37.8h13.9V29.1c0-16-13.1-29.1-29.1-29.1c-16,0-29.1,13.1-29.1,29.1v37.8h13.9V29.1z" fill="#000000"/>
+      <path d="M183.2,37.8c0,8.4-6.8,15.2-15.2,15.2c-8.4,0-15.2-6.8-15.2-15.2V0h-13.9v37.8c0,16,13.1,29.1,29.1,29.1c16,0,29.1-13.1,29.1-29.1V0h-13.9V37.8z" fill="#000000"/>
+      <path d="M253.3,45.3c-3.6,4.7-9.2,7.7-15.5,7.7c-10.7,0-19.5-8.7-19.5-19.5c0-10.7,8.7-19.5,19.5-19.5c6.2,0,11.7,2.9,15.3,7.5H269C264.2,8.9,252,0,237.9,0c-18.4,0-33.4,15-33.4,33.4s15,33.4,33.4,33.4c14.3,0,26.5-9,31.3-21.6H253.3z" fill="#000000"/>
+      <rect x="246.8" y="26.4" width="29.2" height="13.9" fill="#000000"/>
+    </svg>
+    <div class="kind">Collaborative Working Groups<br>WG1 &middot; Agentic Control Plane</div>
+  </div>
+
+  <div class="eyebrow">Reference Implementation &middot; Architecture</div>
+  <h1>The Agentic Control Plane, <span class="hl">Running on One Machine</span></h1>
+  <div class="byline">
+    <span>onug-plane @ 21a80f2</span><span>&middot;</span>
+    <span>2026-10-08</span><span>&middot;</span>
+    <span>Peter Campbell, Head of Collaborative Working Groups and Security Research</span>
+  </div>
+
+  <p><code>onug-plane</code> is a runnable build of the WG1 Agentic Control Plane, assembled from open-source components on one laptop. Two NOC personas, built on two different agent frameworks, work a real source of truth (NetBox) and a real emulated network (three Nokia SR Linux routers). The agents carry no credentials and decide nothing about their own permissions. Identity, policy, approvals, model access, audit and the kill switch all live in the plane, outside the agent.</p>
+
+  <nav class="jump" aria-label="Sections">
+    <a href="#controls">Controls</a>
+    <a href="#map">Architecture</a>
+    <a href="#components">Components</a>
+    <a href="#tool-call">Tool call</a>
+    <a href="#model-call">Model call</a>
+    <a href="#onboard">Onboarding</a>
+    <a href="#kill">Kill path</a>
+    <a href="#ladder">Autonomy</a>
+    <a href="#deviations">Deviations</a>
+  </nav>
+
+  <!-- ===================================================== -->
+  <section id="controls">
+    <div class="section-head"><h2>What the plane enforces</h2><span class="count">7 controls</span></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Control</th><th>How it is enforced</th><th>Where</th></tr></thead>
+        <tbody>
+          <tr><td>Identity from the plane</td><td>Each persona's only credential is a 5-minute SPIRE JWT-SVID, fetched over the Workload API CSI socket. No ServiceAccount token is mounted.</td><td>SPIRE</td></tr>
+          <tr><td>Policy on every call</td><td>Strict JWT validation against SPIRE's JWKS, per-persona CEL allow-lists for MCP servers, tools and models, and rate limits. Unknown identities, tools and models are denied by default.</td><td>agentgateway</td></tr>
+          <tr><td>Credentials held by the plane</td><td>Upstream bearers and provider keys live in OpenBao. Only the supervisor and LiteLLM read them; no OpenBao role binds the <code>agents</code> namespace.</td><td>OpenBao</td></tr>
+          <tr><td>Human gates on irreversible actions</td><td>Destructive MCP calls from a rung-3 persona are held in a Temporal workflow until <code>plane approve</code>. Timeout counts as deny.</td><td>supervisor + Temporal</td></tr>
+          <tr><td>Journal the agent cannot touch</td><td>Every decision is written to immudb (verified reads) and to MinIO under a 30-day COMPLIANCE object lock. Only <code>journal-writer</code> holds write credentials.</td><td>immudb + MinIO</td></tr>
+          <tr><td>Router with spend attribution</td><td>Per-persona virtual keys, model allow-lists and hard budgets. Routes to local Qwen 3 on Ollama or to Claude Opus 5.5.</td><td>LiteLLM</td></tr>
+          <tr><td>Kill on drift</td><td>A persona that leaves its declared behaviour is quarantined within 10 s. <code>plane stop-all</code> refuses every persona.</td><td>drift-detector</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <section id="map">
+    <div class="section-head"><h2>Architecture</h2><span class="count">3 namespaces &middot; 1 cluster</span></div>
+    <p>Everything runs in one kind Kubernetes cluster. Calico enforces NetworkPolicy and gVisor sandboxes the agent pods. The <code>agents</code> namespace can reach exactly two things, agentgateway and DNS, so every tool and model call passes the same choke point.</p>
+
+    <div class="diagram-panel">
+      <svg viewBox="0 0 1200 820" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="onug-plane architecture: agents call agentgateway, which forwards MCP to the supervisor and LLM calls to LiteLLM; the supervisor reaches estate MCP servers and the SR Linux routers; spans flow to the journal; the drift detector can quarantine through the gateway, SPIRE and LiteLLM.">
+        <defs>
+          <marker id="aG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#70A228"/></marker>
+          <marker id="aM" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#585858"/></marker>
+          <marker id="aO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#F58220"/></marker>
+        </defs>
+
+        <!-- ===== Operator host ===== -->
+        <rect x="30" y="16" width="1140" height="66" rx="8" fill="#0F1D2A"/>
+        <text x="52" y="44" font-size="11" font-weight="700" letter-spacing="0.1em" fill="#8FC73E">OPERATOR HOST</text>
+        <text x="52" y="62" font-size="11" fill="#9B9B9B">signing key &middot; OpenBao init keys</text>
+        <rect x="250" y="28" width="380" height="42" rx="5" fill="none" stroke="#9B9B9B"/>
+        <text x="440" y="46" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">plane CLI</text>
+        <text x="440" y="62" text-anchor="middle" font-size="11" fill="#9B9B9B">validate &middot; render &middot; apply &middot; approve &middot; stop-all &middot; journal verify</text>
+        <rect x="650" y="28" width="300" height="42" rx="5" fill="none" stroke="#9B9B9B"/>
+        <text x="800" y="46" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">registry/ (git)</text>
+        <text x="800" y="62" text-anchor="middle" font-size="11" fill="#9B9B9B">personas/*.yaml &middot; signed cards &middot; AIBOM</text>
+        <line x1="650" y1="49" x2="634" y2="49" stroke="#9B9B9B" stroke-width="1.5" marker-end="url(#aM)"/>
+
+        <!-- ===== kind cluster frame ===== -->
+        <rect x="30" y="102" width="1140" height="618" rx="10" fill="#FFFFFF" stroke="#585858" stroke-width="1.4" stroke-dasharray="7 5"/>
+        <text x="48" y="122" font-size="11" font-weight="700" letter-spacing="0.08em" fill="#585858">KIND CLUSTER &middot; CALICO NETWORKPOLICY &middot; gVISOR FOR AGENTS</text>
+
+        <!-- CLI into cluster -->
+        <line x1="440" y1="70" x2="440" y2="99" stroke="#585858" stroke-width="1.5" marker-end="url(#aM)"/>
+        <text x="450" y="94" font-size="10.5" fill="#585858">port-forward / kubectl</text>
+
+        <!-- ===== agents namespace ===== -->
+        <rect x="50" y="134" width="1100" height="110" rx="8" fill="#F4F4F4" stroke="#DADBDD"/>
+        <text x="66" y="156" font-size="11" font-weight="700" letter-spacing="0.08em" fill="#000000">NS: AGENTS</text>
+        <text x="66" y="172" font-size="11" fill="#585858">egress: gateway + DNS only</text>
+        <text x="66" y="187" font-size="11" fill="#585858">no secrets of any kind</text>
+
+        <rect x="380" y="158" width="200" height="70" rx="7" fill="#FFFFFF" stroke="#000000" stroke-width="1.6"/>
+        <text x="480" y="184" text-anchor="middle" font-size="14" font-weight="700" fill="#000000">noc-observer</text>
+        <text x="480" y="202" text-anchor="middle" font-size="11" fill="#2C2C2C">Google ADK &middot; rung 1</text>
+        <text x="480" y="217" text-anchor="middle" font-size="10.5" fill="#585858">read-only tools</text>
+
+        <rect x="620" y="158" width="200" height="70" rx="7" fill="#FFFFFF" stroke="#000000" stroke-width="1.6"/>
+        <text x="720" y="184" text-anchor="middle" font-size="14" font-weight="700" fill="#000000">noc-operator</text>
+        <text x="720" y="202" text-anchor="middle" font-size="11" fill="#2C2C2C">LangGraph &middot; rung 3</text>
+        <text x="720" y="217" text-anchor="middle" font-size="10.5" fill="#585858">writes need approval</text>
+
+        <!-- agents -> gateway -->
+        <line x1="480" y1="228" x2="540" y2="300" stroke="#70A228" stroke-width="2.2" marker-end="url(#aG)"/>
+        <line x1="720" y1="228" x2="660" y2="300" stroke="#70A228" stroke-width="2.2" marker-end="url(#aG)"/>
+        <rect x="528" y="248" width="144" height="16" fill="#FFFFFF"/>
+        <text x="600" y="260" text-anchor="middle" font-size="11" font-weight="600" fill="#70A228">MCP + LLM &middot; Bearer SVID</text>
+
+        <!-- ===== plane-system namespace ===== -->
+        <rect x="50" y="268" width="1100" height="324" rx="8" fill="#F4F4F4" stroke="#DADBDD"/>
+        <text x="66" y="290" font-size="11" font-weight="700" letter-spacing="0.08em" fill="#000000">NS: PLANE-SYSTEM</text>
+
+        <!-- trust column -->
+        <text x="180" y="300" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="0.1em" fill="#585858">TRUST</text>
+        <rect x="80" y="306" width="210" height="66" rx="7" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+        <text x="185" y="332" text-anchor="middle" font-size="14" font-weight="700" fill="#000000">SPIRE</text>
+        <text x="185" y="350" text-anchor="middle" font-size="11" fill="#2C2C2C">JWT-SVID, 5 min TTL</text>
+        <text x="185" y="364" text-anchor="middle" font-size="10.5" fill="#585858">OIDC discovery (JWKS)</text>
+
+        <rect x="80" y="396" width="210" height="70" rx="7" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+        <text x="185" y="422" text-anchor="middle" font-size="14" font-weight="700" fill="#000000">OpenBao</text>
+        <text x="185" y="440" text-anchor="middle" font-size="11" fill="#2C2C2C">upstream bearers &middot; provider keys</text>
+        <text x="185" y="455" text-anchor="middle" font-size="10.5" fill="#585858">k8s auth, no role for agents</text>
+
+        <rect x="80" y="482" width="210" height="70" rx="7" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+        <text x="185" y="508" text-anchor="middle" font-size="14" font-weight="700" fill="#000000">Temporal</text>
+        <text x="185" y="526" text-anchor="middle" font-size="11" fill="#2C2C2C">ApprovalWorkflow</text>
+        <text x="185" y="541" text-anchor="middle" font-size="10.5" fill="#585858">timeout = deny</text>
+
+        <!-- SPIRE -> personas (SVID) -->
+        <polyline points="268,306 268,193 376,193" fill="none" stroke="#70A228" stroke-width="1.8" marker-end="url(#aG)"/>
+        <text x="276" y="211" font-size="10.5" font-weight="600" fill="#70A228">SVID via</text>
+        <text x="276" y="224" font-size="10.5" font-weight="600" fill="#70A228">CSI socket</text>
+
+        <!-- enforcement column -->
+        <text x="600" y="296" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="0.1em" fill="#585858">ENFORCEMENT</text>
+        <rect x="420" y="304" width="360" height="78" rx="7" fill="#0F1D2A"/>
+        <text x="600" y="330" text-anchor="middle" font-size="15" font-weight="700" fill="#8FC73E">agentgateway</text>
+        <text x="600" y="349" text-anchor="middle" font-size="11" fill="#FFFFFF">strict JWT &middot; kill rules &middot; CEL allow-list &middot; rate limit</text>
+        <text x="600" y="366" text-anchor="middle" font-size="10.5" fill="#9B9B9B">holds no credentials; passes the SVID through</text>
+
+        <rect x="340" y="424" width="240" height="126" rx="7" fill="#0F1D2A"/>
+        <text x="460" y="450" text-anchor="middle" font-size="15" font-weight="700" fill="#8FC73E">supervisor</text>
+        <text x="460" y="472" text-anchor="middle" font-size="11" fill="#FFFFFF">re-verify SVID (no leeway)</text>
+        <text x="460" y="488" text-anchor="middle" font-size="11" fill="#FFFFFF">injection filter &middot; composite rules</text>
+        <text x="460" y="504" text-anchor="middle" font-size="11" fill="#FFFFFF">holds destructive calls</text>
+        <text x="460" y="520" text-anchor="middle" font-size="11" fill="#FFFFFF">scans + redacts results</text>
+        <text x="460" y="539" text-anchor="middle" font-size="10.5" fill="#9B9B9B">injects upstream bearer</text>
+
+        <rect x="620" y="424" width="240" height="126" rx="7" fill="#0F1D2A"/>
+        <text x="740" y="450" text-anchor="middle" font-size="15" font-weight="700" fill="#8FC73E">LiteLLM + Postgres</text>
+        <text x="740" y="472" text-anchor="middle" font-size="11" fill="#FFFFFF">SVID &#8594; persona virtual key</text>
+        <text x="740" y="488" text-anchor="middle" font-size="11" fill="#FFFFFF">model allow-list &middot; hard budget</text>
+        <text x="740" y="504" text-anchor="middle" font-size="11" fill="#FFFFFF">cost + token spans</text>
+        <text x="740" y="520" text-anchor="middle" font-size="11" fill="#FFFFFF">fails closed</text>
+        <text x="740" y="539" text-anchor="middle" font-size="10.5" fill="#9B9B9B">provider keys from OpenBao</text>
+
+        <!-- gateway -> supervisor / LiteLLM -->
+        <line x1="510" y1="382" x2="480" y2="420" stroke="#70A228" stroke-width="2.2" marker-end="url(#aG)"/>
+        <text x="476" y="404" text-anchor="end" font-size="10.5" font-weight="600" fill="#70A228">MCP</text>
+        <line x1="690" y1="382" x2="720" y2="420" stroke="#70A228" stroke-width="2.2" marker-end="url(#aG)"/>
+        <text x="724" y="404" font-size="10.5" font-weight="600" fill="#70A228">OpenAI API</text>
+
+        <!-- supervisor -> Temporal, OpenBao -->
+        <line x1="340" y1="517" x2="294" y2="517" stroke="#70A228" stroke-width="2" marker-end="url(#aG)"/>
+        <line x1="340" y1="440" x2="294" y2="440" stroke="#585858" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#aM)"/>
+
+        <!-- audit column -->
+        <text x="1015" y="296" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="0.1em" fill="#585858">AUDIT &amp; KILL</text>
+        <rect x="900" y="304" width="230" height="46" rx="7" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+        <text x="1015" y="324" text-anchor="middle" font-size="13.5" font-weight="700" fill="#000000">OTel Collector</text>
+        <text x="1015" y="340" text-anchor="middle" font-size="10.5" fill="#585858">spans: gateway &middot; supervisor &middot; LiteLLM</text>
+
+        <rect x="900" y="368" width="230" height="46" rx="7" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+        <text x="1015" y="388" text-anchor="middle" font-size="13.5" font-weight="700" fill="#000000">journal-writer</text>
+        <text x="1015" y="404" text-anchor="middle" font-size="10.5" fill="#585858">sole write credential</text>
+
+        <rect x="900" y="432" width="110" height="58" rx="7" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+        <text x="955" y="456" text-anchor="middle" font-size="13.5" font-weight="700" fill="#000000">immudb</text>
+        <text x="955" y="474" text-anchor="middle" font-size="10.5" fill="#585858">verified reads</text>
+        <rect x="1020" y="432" width="110" height="58" rx="7" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+        <text x="1075" y="456" text-anchor="middle" font-size="13.5" font-weight="700" fill="#000000">MinIO</text>
+        <text x="1075" y="474" text-anchor="middle" font-size="10.5" fill="#585858">WORM, 30 days</text>
+
+        <rect x="900" y="510" width="230" height="56" rx="7" fill="#FFFFFF" stroke="#F58220" stroke-width="2"/>
+        <text x="1015" y="532" text-anchor="middle" font-size="13.5" font-weight="700" fill="#000000">drift-detector</text>
+        <text x="1015" y="550" text-anchor="middle" font-size="10.5" fill="#585858">2 s incremental scan</text>
+
+        <line x1="1015" y1="350" x2="1015" y2="364" stroke="#585858" stroke-width="1.5" marker-end="url(#aM)"/>
+        <line x1="955" y1="414" x2="955" y2="428" stroke="#585858" stroke-width="1.5" marker-end="url(#aM)"/>
+        <line x1="1075" y1="414" x2="1075" y2="428" stroke="#585858" stroke-width="1.5" marker-end="url(#aM)"/>
+        <line x1="955" y1="490" x2="955" y2="506" stroke="#585858" stroke-width="1.5" marker-end="url(#aM)"/>
+
+        <!-- gateway spans -> OTel -->
+        <line x1="780" y1="322" x2="896" y2="322" stroke="#585858" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#aM)"/>
+        <text x="838" y="316" text-anchor="middle" font-size="10.5" fill="#585858">spans</text>
+
+        <!-- kill path: drift -> gateway -->
+        <polyline points="900,524 880,524 880,370 784,370" fill="none" stroke="#F58220" stroke-width="2.6" marker-end="url(#aO)"/>
+        <!-- kill path: drift -> LiteLLM -->
+        <line x1="900" y1="545" x2="864" y2="545" stroke="#F58220" stroke-width="2.6" marker-end="url(#aO)"/>
+        <!-- kill path: drift -> SPIRE -->
+        <polyline points="1015,566 1015,580 62,580 62,339 76,339" fill="none" stroke="#F58220" stroke-width="2.6" marker-end="url(#aO)"/>
+        <rect x="604" y="572" width="200" height="16" fill="#F4F4F4"/>
+        <text x="704" y="584" text-anchor="middle" font-size="10.5" font-weight="700" fill="#DB7015">kill path: delete identity &middot; block key &middot; refuse</text>
+
+        <!-- ===== estate namespace ===== -->
+        <rect x="50" y="606" width="700" height="98" rx="8" fill="#F4F4F4" stroke="#DADBDD"/>
+        <text x="66" y="626" font-size="11" font-weight="700" letter-spacing="0.08em" fill="#000000">NS: ESTATE</text>
+        <text x="66" y="642" font-size="10.5" fill="#585858">reachable only from the supervisor</text>
+
+        <rect x="110" y="650" width="170" height="44" rx="7" fill="#FFFFFF" stroke="#585858" stroke-width="1.3"/>
+        <text x="195" y="669" text-anchor="middle" font-size="13" font-weight="700" fill="#000000">NetBox</text>
+        <text x="195" y="684" text-anchor="middle" font-size="10.5" fill="#585858">intended state</text>
+
+        <rect x="340" y="650" width="160" height="44" rx="7" fill="#FFFFFF" stroke="#585858" stroke-width="1.3"/>
+        <text x="420" y="669" text-anchor="middle" font-size="13" font-weight="700" fill="#000000">netbox-mcp</text>
+        <text x="420" y="684" text-anchor="middle" font-size="10.5" fill="#585858">MCP server</text>
+
+        <rect x="520" y="650" width="160" height="44" rx="7" fill="#FFFFFF" stroke="#585858" stroke-width="1.3"/>
+        <text x="600" y="669" text-anchor="middle" font-size="13" font-weight="700" fill="#000000">gnmi-tools</text>
+        <text x="600" y="684" text-anchor="middle" font-size="10.5" fill="#585858">MCP server</text>
+
+        <line x1="340" y1="672" x2="284" y2="672" stroke="#70A228" stroke-width="2" marker-end="url(#aG)"/>
+        <line x1="420" y1="550" x2="420" y2="646" stroke="#70A228" stroke-width="2.2" marker-end="url(#aG)"/>
+        <line x1="550" y1="550" x2="550" y2="646" stroke="#70A228" stroke-width="2.2" marker-end="url(#aG)"/>
+        <rect x="428" y="590" width="114" height="15" fill="#F4F4F4"/>
+        <text x="485" y="601" text-anchor="middle" font-size="10.5" font-weight="600" fill="#70A228">+ upstream bearer</text>
+
+        <!-- ===== outside the cluster ===== -->
+        <rect x="400" y="744" width="250" height="56" rx="7" fill="#FFFFFF" stroke="#000000" stroke-width="1.4" stroke-dasharray="5 3"/>
+        <text x="525" y="766" text-anchor="middle" font-size="13.5" font-weight="700" fill="#000000">SR Linux srl1&#8211;srl3</text>
+        <text x="525" y="784" text-anchor="middle" font-size="10.5" fill="#585858">Containerlab &middot; gNMI :57400</text>
+        <polyline points="600,694 600,740" fill="none" stroke="#70A228" stroke-width="2.2" marker-end="url(#aG)"/>
+        <text x="608" y="733" font-size="10.5" font-weight="600" fill="#70A228">gNMI</text>
+
+        <rect x="690" y="744" width="190" height="56" rx="7" fill="#FFFFFF" stroke="#000000" stroke-width="1.4" stroke-dasharray="5 3"/>
+        <text x="785" y="766" text-anchor="middle" font-size="13.5" font-weight="700" fill="#000000">Ollama &middot; Qwen 3</text>
+        <text x="785" y="784" text-anchor="middle" font-size="10.5" fill="#585858">local, on the host</text>
+        <line x1="785" y1="550" x2="785" y2="740" stroke="#70A228" stroke-width="2.2" marker-end="url(#aG)"/>
+
+        <rect x="920" y="744" width="210" height="56" rx="7" fill="#FFFFFF" stroke="#000000" stroke-width="1.4" stroke-dasharray="5 3"/>
+        <text x="1025" y="766" text-anchor="middle" font-size="13.5" font-weight="700" fill="#000000">Anthropic API</text>
+        <text x="1025" y="784" text-anchor="middle" font-size="10.5" fill="#585858">Claude Opus 5.5 &middot; optional</text>
+        <polyline points="840,550 840,732 1025,732 1025,740" fill="none" stroke="#70A228" stroke-width="2.2" marker-end="url(#aG)"/>
+      </svg>
+    </div>
+    <div class="legend">
+      <span><i class="req"></i>Request path</span>
+      <span><i class="tel"></i>Telemetry or secret read</span>
+      <span><i class="kill"></i>Kill path</span>
+      <span><b></b>Enforcement point</span>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <section id="components">
+    <div class="section-head"><h2>Components and the WG1 plane</h2><span class="count">4 plane components</span></div>
+    <p>Each WG1 plane component maps to open-source parts plus a small amount of glue, all in one Python package (<code>plane/</code>). The personas sit outside the plane and are replaceable.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>WG1 component</th><th>Built from</th><th>Its job in this build</th></tr></thead>
+        <tbody>
+          <tr><td>Agent Trust Fabric</td><td>SPIRE, OpenBao, Calico, gVisor</td><td>Attested short-lived identity per pod. Deleting the SPIRE entry is the kill switch. Secrets sit behind Kubernetes auth with no role for agents. Network policy fixes agent egress to the gateway.</td></tr>
+          <tr><td>Registry</td><td><code>registry/</code> in git, <code>plane render</code>, CycloneDX 1.7, cosign</td><td>A persona's YAML is the contract. Rendering produces its manifests, SPIRE entry, NetworkPolicy, signed A2A Agent Card and AIBOM. <code>plane apply</code> refuses anything uncertified or unsigned.</td></tr>
+          <tr><td>Runtime Supervision</td><td>agentgateway, <code>supervisor</code>, Temporal, journal, drift-detector</td><td>Policy at the gateway, MCP-aware checks and approval holds in the supervisor, a tamper-evident record of every decision, and quarantine on drift.</td></tr>
+          <tr><td>Private Open Router</td><td>LiteLLM + Postgres, Ollama</td><td>Per-persona virtual keys, model allow-lists and budgets, spend attribution with FOCUS cost rows, local or frontier routing.</td></tr>
+          <tr><td>Governed estate <span class="sub">outside the plane</span></td><td>NetBox, netbox-mcp, gnmi-tools, Containerlab SR Linux 25.3.3</td><td>A real intended-state source of truth and a real gNMI network for the personas to work.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <section id="tool-call">
+    <div class="section-head"><h2>A tool call, end to end</h2><span class="count">MCP path</span></div>
+    <ol class="steps">
+      <li><div>The persona fetches a JWT-SVID from the SPIRE Workload API with audience <code>agentgateway</code>.</div></li>
+      <li><div>It sends MCP <code>tools/call</code> to agentgateway with the SVID as a bearer token.</div></li>
+      <li><div>The gateway validates the JWT strictly against SPIRE's JWKS, then checks kill rules, the CEL allow-list for the server and tool, and the rate limit. <span class="pill deny">refused</span> A refusal returns 4xx (JSON-RPC <code>-32003</code> for rate limits) and is journaled as <code>denied:policy</code>, <code>quarantined</code>, <code>stopped</code> or <code>budget</code>.</div></li>
+      <li><div>The gateway forwards the call with the SVID passed through. It holds no credentials of its own.</div></li>
+      <li><div>The supervisor re-verifies the SVID with no clock leeway, runs the injection filter, and checks composite rules against the persona's recent journal window.</div></li>
+      <li class="gate"><div>If the tool is destructive and the persona is at rung 3, the supervisor opens a Temporal <code>ApprovalWorkflow</code> and holds the call. <span class="pill gate">human gate</span> It proceeds only on <code>plane approve</code>; deny or timeout ends it.</div></li>
+      <li><div>The supervisor calls netbox-mcp or gnmi-tools with the upstream bearer it reads from OpenBao.</div></li>
+      <li><div>The result is scanned and secrets are redacted before it goes back through the gateway to the persona. <span class="pill ok">returned</span></div></li>
+      <li><div>The gateway emits one span per request and the supervisor emits one per decision (decision, argument hash, approver). Both become journal records.</div></li>
+    </ol>
+    <p>Tool lists are filtered per persona, so an ungranted tool does not exist from that persona's point of view. Destructiveness comes from MCP annotations, with a per-persona <code>classify</code> override.</p>
+  </section>
+
+  <!-- ===================================================== -->
+  <section id="model-call">
+    <div class="section-head"><h2>A model call</h2><span class="count">LLM path</span></div>
+    <div class="two-col">
+      <div>
+        <ol class="steps">
+          <li><div>The persona posts <code>/v1/chat/completions</code> to the gateway with its SVID and a model alias such as <code>local/small</code>.</div></li>
+          <li><div>The gateway checks the JWT, kill rules and the per-model allow-list.</div></li>
+          <li><div>LiteLLM's <code>custom_auth</code> maps the SVID to the persona's virtual key. If the mapping fails, the call is refused.</div></li>
+          <li><div>LiteLLM enforces the key's model allow-list and budget. A hard stop returns 429 <code>denied:budget</code>.</div></li>
+          <li><div>The alias is routed to <code>qwen3:1.7b</code> locally or to <code>claude-opus-5-5</code>, and a span records tokens and cost.</div></li>
+        </ol>
+      </div>
+      <div>
+        <p style="margin-top:16px">Model aliases are pinned in <code>versions.env</code>. <code>frontier/default</code> resolves to Claude Opus 5.5 when an Anthropic key has been loaded into OpenBao. Without one, it falls back to the local <code>qwen3:4b</code>.</p>
+        <p>Local models are charged a shadow price, so spend attribution covers every call and not only the paid ones. The provider key is typed into OpenBao by the operator and is never written to disk.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <section id="onboard">
+    <div class="section-head"><h2>From registry entry to running persona</h2><span class="count">Proof P4</span></div>
+    <ol class="steps">
+      <li><div><code>registry/personas/&lt;persona&gt;.yaml</code> declares the framework, rung, tools, models, budgets, behaviour limits and approval rules.</div></li>
+      <li><div><code>plane validate</code> checks the schema, the rung rules (a rung-1 persona may hold only read-only tools) and the security invariants.</div></li>
+      <li><div><code>plane render</code> writes <code>build/&lt;persona&gt;/</code> (Kubernetes manifests, SPIRE entry, NetworkPolicy), an A2A Agent Card with a JWS signature, and a CycloneDX 1.7 AIBOM with a cosign bundle.</div></li>
+      <li class="gate"><div><code>plane apply</code> admits the persona only if it is certified, its signatures are valid and the build is fresh. <span class="pill gate">admission</span></div></li>
+      <li><div>On admission the plane creates the SPIRE entry, gateway and supervisor config, the LiteLLM key and the Deployment, and journals <code>persona_applied</code>.</div></li>
+    </ol>
+    <p>Onboarding never touches enforcement code. Proof P4 onboards <code>noc-operator</code> from its YAML alone and checks that nothing changed outside <code>registry/</code> and <code>build/</code>.</p>
+  </section>
+
+  <!-- ===================================================== -->
+  <section id="kill">
+    <div class="section-head"><h2>Kill path</h2><span class="count">Proof P3</span></div>
+    <p>The drift detector scans the journal every 2 seconds against each persona's declared normal behaviour over a 24-hour window: tool calls per minute, tokens per hour, destructive calls per day, working hours, allowed servers and denial bursts. On a violation it acts on three systems at once and journals the quarantine with the rule, the numbers and the triggering span.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Target</th><th>Quarantine (one persona)</th><th>stop-all (every persona)</th></tr></thead>
+        <tbody>
+          <tr><td>agentgateway</td><td>Kill rule refuses the persona's <code>sub</code>; the next call is <code>denied:quarantined</code></td><td>Global <code>require: false</code> rule</td></tr>
+          <tr><td>SPIRE</td><td>Entry deleted, so the identity cannot renew</td><td>Entries kept, so service can resume</td></tr>
+          <tr><td>LiteLLM</td><td>Virtual key blocked</td><td>Every key blocked</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="v">5&ndash;8 s</div><div class="k">violating call to quarantine, measured (target 10 s)</div></div>
+      <div class="stat"><div class="v">1&ndash;4 s</div><div class="k"><code>stop-all</code> to every persona refused, measured</div></div>
+      <div class="stat"><div class="v">&asymp;1.1 s</div><div class="k">gateway policy reload after a kill rule lands</div></div>
+    </div>
+    <p>Recovery is explicit. <code>plane resume</code> requires <code>--recertified</code>, recreates the persona's identity from the registry, restarts its behaviour window and journals the operator who resumed it.</p>
+  </section>
+
+  <!-- ===================================================== -->
+  <section id="ladder">
+    <div class="section-head"><h2>Autonomy ladder</h2><span class="count">rungs 1 and 3 exercised</span></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Rung</th><th>Meaning</th><th>Enforcement here</th></tr></thead>
+        <tbody>
+          <tr><td>1 <span class="sub">noc-observer</span></td><td>Observe and recommend; no actions</td><td>Only tools annotated <code>readOnlyHint: true</code>; everything else denied at the gateway</td></tr>
+          <tr><td>2</td><td>Reversible changes with post-hoc review</td><td>Reversible tools allowed, destructive tools denied; review is a journal query</td></tr>
+          <tr><td>3 <span class="sub">noc-operator</span></td><td>Reversible autonomously; irreversible behind a human gate</td><td>Destructive tools run only with an approved Temporal workflow naming the approver</td></tr>
+          <tr><td>4</td><td>Full autonomy within an enumerated task set</td><td>Destructive tools without a gate, but only inside <code>taskSet</code>. Not exercised in v0.1.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <section id="deviations">
+    <div class="section-head"><h2>Where the build departs from the design</h2><span class="count">vs the design</span></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Design said</th><th>Built</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Gateway injects the LiteLLM key</td><td>Gateway passes the SVID through; LiteLLM maps it to the persona's key</td><td>agentgateway transformations don't reach MCP/LLM upstreams at v1.5</td></tr>
+          <tr><td>Invariant Guardrails</td><td>Native rules plus an optional Prompt Guard classifier</td><td>Invariant is unmaintained</td></tr>
+          <tr><td>Ollama in the cluster</td><td>Native Ollama on macOS through an in-cluster socat proxy</td><td>Memory pressure in the Docker VM</td></tr>
+          <tr><td>Drift detector, 30 s loop</td><td>Incremental 2 s scan</td><td>P3's 10 s budget</td></tr>
+          <tr><td>agentgateway Helm chart</td><td>Plain manifests</td><td>The chart builds the gateway config from Helm values; the plane rewrites it at runtime for quarantine and stop-all</td></tr>
+          <tr><td>MCP 2026-07-28</td><td>Pre-2026-07-28 transport on every hop</td><td>Server and SDK support</td></tr>
+          <tr><td>SR Linux latest</td><td>25.3.3</td><td>26.x crashes on the Docker Desktop kernel</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <h3>Proven, not claimed</h3>
+      <p><b>P1 no-secrets:</b> each agent pod, including the whole gVisor sandbox memory, is searched for every secret in OpenBao, with planted canaries to show the search works. <b>P2 journal:</b> every gateway request during the demo has exactly one journal record, sampled records verify in immudb and are locked in MinIO. <b>P3 kill:</b> quarantine within 10 s, refused at the gateway, SPIRE entry gone. <b>P4 onboard:</b> a persona onboarded from YAML alone, with its destructive call gated.</p>
+      <p>Verified end to end on Apple Silicon with 12 GB given to Docker. x86-64 and Linux builds are prepared but have not been run end to end.</p>
+    </div>
+  </section>
+
+  <div class="sources">
+    <div class="lbl">Sources</div>
+    <span>onug-plane README: quickstart, demo and acceptance proofs</span>
+    <span>onug-plane architecture notes: components, request paths and kill path</span>
+    <span>onug-plane design spec: component choices, autonomy ladder and invariants</span>
+    <span>onug-plane decision log: where and why the build departs from the design</span>
+  </div>
+
+  <footer>
+    <span>ONUG WG1 &middot; Agentic Control Plane reference implementation</span>
+    <span>onug-plane @ 21a80f2 &middot; 2026-10-08</span>
+  </footer>
+
+</article>
