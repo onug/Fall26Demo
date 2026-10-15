@@ -5,7 +5,7 @@ _Generated from `web-demo/lib/steps.ts` by `scripts/export-script.mjs`. Do not e
 | | |
 |---|---|
 | Steps with narration | 41 |
-| Words | 1731 (~11.5 min at 150 wpm) |
+| Words | 1726 (~11.5 min at 150 wpm) |
 | Recorded audio | 12.3 min |
 | Voice | Nick Lippis (cloned) · ElevenLabs `16VamcPQIJBvVLoE1Zss` · eleven_v4 · speed 1.2 |
 | Presenter pauses | 0 |
@@ -272,26 +272,26 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 40. THE VENDOR CHALLENGE — THREE LANES
 
-`b7-lanes` · lanes · 79 words · audio 30s
+`b7-lanes` · lanes · 61 words · audio 24s
 
-> To the vendor community: thank you. The reference implementation went to every sponsor in September, with three lanes matching the working groups, and nobody was asked to cover all three. Some twenty responses came back: five-to-ten-minute screen captures in the working groups' own terminology, every control tagged with its requirement number. They play on loop all Summit long, with office hours at the booths. Watch them. Ask to see the mechanism. Then vote best in show in each lane.
+> To the vendor community: thank you. The reference implementation went to every sponsor in September, with three lanes matching the working groups, and nobody was asked to cover all three. Some twenty responses came back: five-to-ten-minute screen captures in the working groups' own terminology, every control tagged with its requirement number. That is what is waiting for you on the floor.
 
 ### 41. GO WATCH. GO VOTE.
 
-`finale` · title · 87 words · audio 28s
+`finale` · title · 100 words · audio 33s
 
-> One control plane, every domain. The vendor demos play in the networking areas and the Collaborative Center all Summit long, and the Challenge Walks take you to the booths that built them. The schedule is in the Whova app, and that is where you vote for best in show in each lane. Our hope is that this puts you on the road to a secure agentic infrastructure, so you can build your own controlled autonomy. To the founding members and the practitioners who shaped this: thank you.
+> One control plane, every domain. The vendor demos play on loop in the networking areas and the Collaborative Center all Summit long, and the Challenge Walks take you to the booths that built them, with office hours. The schedule is in the Whova app, and that is where you vote for best in show in each lane. Watch them, and ask to see the mechanism. Our hope is that this puts you on the road to a secure agentic infrastructure, so you can build your own controlled autonomy. To the founding members and the practitioners who shaped this: thank you.
 
 
 ## Longest segments
 
 | Step | Words | Audio |
 |---|---:|---:|
+| 41. GO WATCH. GO VOTE. (`finale`) | 100 | 33s |
 | 38. THIS IS ALREADY HAPPENING (`b6-proof`) | 73 | 32s |
-| 40. THE VENDOR CHALLENGE — THREE LANES (`b7-lanes`) | 79 | 30s |
 | 39. ONE PATH SHOWN. FIFTY-NINE CATALOGUED. (`b7-threats`) | 67 | 29s |
-| 41. GO WATCH. GO VOTE. (`finale`) | 87 | 28s |
 | 22. WG2 AND WG3 · ONE SKELETON, TWO FIGHTS (`b3-ra-wg23`) | 63 | 25s |
 | 31. T+00:58 — The second stage is an agent. It gets out. (`b5-escalate`) | 65 | 25s |
+| 40. THE VENDOR CHALLENGE — THREE LANES (`b7-lanes`) | 61 | 24s |
 | 32. T+01:02 — 1 · Detect → 2 · Investigate → 3 · Propose, in 4.2 seconds (`b5-detect`) | 61 | 23s |
 | 13. AGENTIC CONTROL PLANE ONLINE (`b2-enable`) | 55 | 23s |

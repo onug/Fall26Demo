@@ -433,6 +433,6 @@ export const REVIEWERS: { name: string; org: string; file: string }[] = [
 export const VENDOR_MECHANICS = [
   { k: '1', t: 'They forked the reference', d: 'github.com/onug/Fall26Demo · the working groups\' own terminology' },
   { k: '2', t: 'Each picked a lane', d: 'one lane is the structure, not a concession' },
-  { k: '3', t: 'Some 20 responses', d: '5–10 minute screen captures · on loop all Summit long · office hours at the booths' },
-  { k: '4', t: 'Best in Show, per lane', d: 'you vote, in the Whova app' },
+  { k: '3', t: 'Some 20 responses', d: '5–10 minute screen captures of a working implementation' },
+  { k: '4', t: 'Every control numbered', d: 'tagged to its requirement in the 25, so you can compare like with like' },
 ];

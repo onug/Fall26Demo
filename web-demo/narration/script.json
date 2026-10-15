@@ -8,7 +8,7 @@
     "speed": 1.2,
     "notes": "Segment ids match Step.id in lib/steps.ts; audio is served from public/narration/<id>.mp3",
     "segments": 41,
-    "total_words": 1731,
+    "total_words": 1726,
     "estimated_minutes": 11.5,
     "recorded_minutes": 12.3
   },
@@ -449,9 +449,9 @@
       "phase": "lanes",
       "title": "THE VENDOR CHALLENGE — THREE LANES",
       "pause": null,
-      "text": "To the vendor community: thank you. The reference implementation went to every sponsor in September, with three lanes matching the working groups, and nobody was asked to cover all three. Some twenty responses came back: five-to-ten-minute screen captures in the working groups' own terminology, every control tagged with its requirement number. They play on loop all Summit long, with office hours at the booths. Watch them. Ask to see the mechanism. Then vote best in show in each lane.",
-      "words": 79,
-      "audio_seconds": 30.040816
+      "text": "To the vendor community: thank you. The reference implementation went to every sponsor in September, with three lanes matching the working groups, and nobody was asked to cover all three. Some twenty responses came back: five-to-ten-minute screen captures in the working groups' own terminology, every control tagged with its requirement number. That is what is waiting for you on the floor.",
+      "words": 61,
+      "audio_seconds": 23.719184
     },
     {
       "id": "finale",
@@ -460,9 +460,9 @@
       "phase": "title",
       "title": "GO WATCH. GO VOTE.",
       "pause": null,
-      "text": "One control plane, every domain. The vendor demos play in the networking areas and the Collaborative Center all Summit long, and the Challenge Walks take you to the booths that built them. The schedule is in the Whova app, and that is where you vote for best in show in each lane. Our hope is that this puts you on the road to a secure agentic infrastructure, so you can build your own controlled autonomy. To the founding members and the practitioners who shaped this: thank you.",
-      "words": 87,
-      "audio_seconds": 28.107755
+      "text": "One control plane, every domain. The vendor demos play on loop in the networking areas and the Collaborative Center all Summit long, and the Challenge Walks take you to the booths that built them, with office hours. The schedule is in the Whova app, and that is where you vote for best in show in each lane. Watch them, and ask to see the mechanism. Our hope is that this puts you on the road to a secure agentic infrastructure, so you can build your own controlled autonomy. To the founding members and the practitioners who shaped this: thank you.",
+      "words": 100,
+      "audio_seconds": 32.992653
     }
   ]
 }
