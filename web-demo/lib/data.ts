@@ -241,6 +241,7 @@ export interface RaCard {
   execution: string;
   gate: string;
   lines: string[];
+  qr?: { file: string; label: string; url: string };   // where the other drawings live (WG1 card only)
 }
 
 export const RA_CARDS: Record<RaCard['key'], RaCard> = {
@@ -257,6 +258,7 @@ export const RA_CARDS: Record<RaCard['key'], RaCard> = {
       'Governed access below the control plane: identity systems air-gapped from agents, sources of truth read-only, tools and data only via governed gateways, a certified model estate.',
       'Build the enforcement machinery once; every domain inherits identity, enforcement, audit and model routing.',
     ],
+    qr: { file: '/ra/report-pack-qr.svg', label: 'WG2 and WG3 architectures, requirements and the threat catalogue', url: 'onug.github.io/Fall26Demo' },
   },
   wg2: {
     key: 'wg2', file: '/ra/wg2.svg', wg: 'WG2', color: '#3b82f6',
@@ -289,18 +291,25 @@ export const RA_CARDS: Record<RaCard['key'], RaCard> = {
 };
 
 // ─── Beat 1 gap analysis (Chris Hertenstein's framing) ───
+// The control column names the demo's control (one of the nine in CONTROLS) with one line
+// on what it does here. `reqs` and `reqNames` place it in WG1's 25 requirements by Peter's
+// crosswalk ("The 25", 23 Sep 2026); they are NOT shown on the card (Nick, 5 Oct 2026:
+// "remove the far right column") and are kept for the WG1 reviewers' read of the mapping.
 export interface GapRow {
   happened: string;
-  control: string;
+  control: string;   // the control's name, as the Beat 2 panel shows it
+  detail: string;    // what it does in this story
+  reqs: string;      // requirement ids from the 25 (and the WG2/WG3 loop step where one applies); not rendered
+  reqNames: string;  // the requirement titles, as the crosswalk prints them; not rendered
 }
 
 export const GAP_ROWS: GapRow[] = [
-  { happened: 'Artifact pulled from a public hub', control: 'Managed registry: scan · SBOM · CVE check · cooling-off hold' },
-  { happened: 'Payload fired after every scan passed', control: 'New artifacts run sandboxed first, with no network path, watched from outside' },
-  { happened: 'Agent wrote straight to the fabric', control: 'Verify gate on every write: change-stop · dry-run · blast radius · rollback' },
-  { happened: 'Routes and telemetry changed, unnoticed', control: 'Config-drift scanner that reverts within a day and alarms the CSIRT' },
-  { happened: 'Poisoned agent reached the identity system', control: 'Identity air gap: agents receive identity from the control plane, never reach into it · time-limited checked-out credentials' },
-  { happened: 'Backups deleted, disks encrypted', control: 'Immutable backups · a journal the agent cannot touch · kill switch' },
+  { happened: 'Artifact pulled from a public hub', control: 'Artifact Provenance', detail: 'Managed registry: scan · SBOM · CVE check · cooling-off hold', reqs: 'REG-2 · REG-5', reqNames: 'Inventory and Registry · Rights Bill of Materials' },
+  { happened: 'Payload fired after every scan passed', control: 'Runtime Monitoring', detail: 'New artifacts run sandboxed first, no network path, behaviour measured from outside', reqs: 'RS-2', reqNames: 'Observability and Monitoring' },
+  { happened: 'Agent wrote straight to the fabric', control: 'Verify Gate', detail: 'Change-stop · dry-run · blast radius · rollback, on every write', reqs: 'RS-1 · WG2 LOOP-4', reqNames: 'Action Guardrails · the Verify step' },
+  { happened: 'Routes and telemetry changed, unnoticed', control: 'Detect → Decide', detail: 'Drift detected and reverted within the day · CSIRT alarmed', reqs: 'RS-2 · RS-4', reqNames: 'Observability and Monitoring · Incident Response Playbook' },
+  { happened: 'Poisoned agent reached the identity system', control: 'Identity Attestation', detail: 'Identity air gap: agents receive identity from the plane, never reach into it · time-limited checked-out credentials', reqs: 'TF-1 · TF-4', reqNames: 'Agent IAM Standard · Credential-in-Context Protection' },
+  { happened: 'Backups deleted, disks encrypted', control: 'Kill Switch · Audit Journal', detail: 'Quarantine at machine speed · a journal the agent cannot touch · immutable backups', reqs: 'RS-4 · RS-3', reqNames: 'Incident Response Playbook · Audit and Traceability' },
 ];
 
 // ─── The other threat scenarios the same controls address (Baird Kaake) ───

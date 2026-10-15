@@ -1,6 +1,6 @@
 # Presenter Guide — "One Control Plane, Every Domain"
 
-ONUG Fall AI Networking Summit · New York City · October 28, 2026 · Keynote demo, about 10⅓ minutes of recorded narration plus the six pauses.
+ONUG Fall AI Networking Summit · New York City · October 28, 2026 · Keynote demo, about 12 minutes of recorded narration plus the pauses.
 
 Two presenters: Nick plus one co-presenter. The demo narrates itself. You advance it with `Space` and stop at the six marked pause points to talk to the room. Nothing auto-advances.
 
@@ -25,37 +25,37 @@ Two presenters: Nick plus one co-presenter. The demo narrates itself. You advanc
 | 8 | Day 1 — Nobody knows yet | Day 1. Collector-bug ticket. Attacker goes for identities and backups. |  |
 | 9 | DAY 6 — EVERYTHING IS DOWN | DAY 6 — EVERYTHING IS DOWN. Red flash. IdP and Backups nodes; admins locked out, backups deleted, disks encrypted, ransom note. |  |
 | 10 | BLAST RADIUS — ONE ROUTINE PULL | Blast radius: seven red bullets, ending on the ransom note. |  |
-| 11 | WHICH OF THESE DO YOU HAVE? | Gap analysis card: what happened / the control that stops it. No company named. "Which of these do you have?" | **Pause 2** — ask the room which column they are in |
+| 11 | WHICH OF THESE DO YOU HAVE? | Gap analysis card: what happened / the control that stops it, named as the Beat 2 panel names it, with a line on what it does. No requirement ids on stage. No company named. "Which of these do you have?" | **Pause 2** — ask the room which column they are in |
 | 12 | YOU ARE HERE | Rewind. Dallas → 25 requirements. One governance change: sandbox first. |  |
 | 13 | AGENTIC CONTROL PLANE ONLINE | Agentic control plane online. Five WG1 controls. Three personas registered. |  |
-| 14 | T+00:00 — Same artifact, new policy | Provenance routes v3.2 to the sandbox. Sandbox runs it for real; writes intercepted. |  |
-| 15 | T+00:04 — Loads in the sandbox · self-attests healthy | Payload fires in the sandbox. Drift 97/100 against the declared persona. |  |
-| 16 | CAUGHT IN THE SANDBOX — KILL SWITCH | CAUGHT IN THE SANDBOX — KILL SWITCH. Green shield. |  |
-| 17 | THE CONTROL PLANE SITS OUTSIDE THE AGENTS IT SUPERVISES | Principle card. 6 seconds, 0 writes. | **Pause 3** — connect to Dallas |
-| 18 | ONE CONTROL PLANE, THREE WORKING GROUPS | One control plane, three WGs. |  |
-| 19 | WG1 · ONE CONTROL PLANE, EVERY DOMAIN | Reference-architecture card: WG1 v0.2, the personas view (Peter's redraw). Personas on top, four plane components, governed access below. |  |
-| 20 | The control plane, wired across every domain | WG2 and WG3 lanes light up. Verify gate node appears. |  |
-| 21 | BATTLEGROUND 1 · AUTONOMOUS INFRASTRUCTURE | Battleground 1. |  |
-| 22 | WG2 · THE AUTONOMOUS INFRASTRUCTURE ARCHITECTURE | Reference-architecture card: WG2 v0.6 (Peter's redraw). Planning above, execution loop below, Verify Gate at step 4. |  |
-| 23 | T+00:41 — 1 · Detect | 1 · Detect. Route flaps from AS64512 at level 0. |  |
-| 24 | T+00:47 — 2 · Diagnose → 3 · Propose | 2 · Diagnose → 3 · Propose. Four writes at level 1. |  |
-| 25 | 4 · Verify — the Verify Gate, writes #1–#3 | 4 · Verify. Writes 1–3 pass all four checks. Level 2. |  |
-| 26 | 4 · Verify — the Verify Gate, write #4 | 4 · Verify. Write 4 fails blast radius → ESCALATED. |  |
-| 27 | T+00:52 — 5 · Execute → 6 · Validate · journaled | 5 · Execute → 6 · Validate. Flaps clear. Level 3 in the envelope only. |  |
-| 28 | SAFE AUTONOMY — WG2 | Safe autonomy. Six green bullets. | **Pause 4** — "Nothing executes blindly." |
-| 29 | BATTLEGROUND 2 · THE AI-ENABLED SOC | Battleground 2. |  |
-| 30 | WG3 · THE AI-ENABLED SOC ARCHITECTURE | Reference-architecture card: WG3 v0.6 (Peter's redraw). Same skeleton, Decide Gate at step 4. |  |
+| 14 | AN ORDINARY WRITE — MEDIATED, APPROVED, JOURNALED | An ordinary write from the production optimizer: proposed, checked at the gate, approved, executed, journaled. The plane says yes before it says no. |  |
+| 15 | T+00:00 — Same artifact, new policy | Provenance routes v3.2 to the sandbox. Sandbox runs it for real; writes intercepted. |  |
+| 16 | T+00:04 — Loads in the sandbox · self-attests healthy | Payload fires in the sandbox. Drift 97/100 against the declared persona. |  |
+| 17 | CAUGHT IN THE SANDBOX — KILL SWITCH | CAUGHT IN THE SANDBOX — KILL SWITCH. Green shield. |  |
+| 18 | THE CONTROL PLANE SITS OUTSIDE THE AGENTS IT SUPERVISES | Principle card. 6 seconds, 0 writes. | **Pause 3** — connect to Dallas |
+| 19 | ONE CONTROL PLANE, THREE WORKING GROUPS | One control plane, three WGs. |  |
+| 20 | WG1 · ONE CONTROL PLANE, EVERY DOMAIN | Reference-architecture card: WG1 v0.2, the personas view (Peter's redraw). Personas on top, four plane components, governed access below. A QR tile to the report pack, where the full-size drawings and the requirements live. |  |
+| 21 | The control plane, wired across every domain | WG2 and WG3 lanes light up. Verify gate node appears. |  |
+| 22 | WG2 AND WG3 · ONE SKELETON, TWO FIGHTS | Both drawings side by side, WG2 v0.6 and WG3 v0.6 (Peter's redraws), each with its gate line: Verify Gate for the fabric, Decide Gate for the SOC. One skeleton, two fights. |  |
+| 23 | BATTLEGROUND 1 · AUTONOMOUS INFRASTRUCTURE | Battleground 1. |  |
+| 24 | T+00:41 — 1 · Detect | 1 · Detect. Route flaps from AS64512 at level 0. |  |
+| 25 | T+00:47 — 2 · Diagnose → 3 · Propose | 2 · Diagnose → 3 · Propose. Four writes at level 1. |  |
+| 26 | 4 · Verify — the Verify Gate, writes #1–#3 | 4 · Verify. Writes 1–3 pass all four checks. Level 2. |  |
+| 27 | 4 · Verify — the Verify Gate, write #4 | 4 · Verify. Write 4 fails blast radius → ESCALATED. |  |
+| 28 | T+00:52 — 5 · Execute → 6 · Validate · journaled | 5 · Execute → 6 · Validate. Flaps clear. Level 3 in the envelope only. |  |
+| 29 | SAFE AUTONOMY — WG2 | Safe autonomy. Six green bullets. | **Pause 4** — "Nothing executes blindly." |
+| 30 | BATTLEGROUND 2 · THE AI-ENABLED SOC | Battleground 2. |  |
 | 31 | T+00:58 — The second stage is an agent. It gets out. | The second stage is an agent. Probes the boundary, finds an unknown weakness, escapes, beacons, replays a token. Hugging Face line. |  |
 | 32 | T+01:02 — 1 · Detect → 2 · Investigate → 3 · Propose, in 4.2 seconds | 1–3 in 4.2 s. Five signals, three domains. Token replay dead on arrival. |  |
 | 33 | 4 · Decide — the Decide Gate: containment is a write too | 4 · Decide Gate. "Wipe host" REJECTED by evidence hold. |  |
 | 34 | 5 · RESPOND — CONTAINED, EVIDENCE PRESERVED | 5 · Respond. CONTAINED — EVIDENCE PRESERVED. Green shield. |  |
-| 35 | SAME PLANE, SECOND BATTLEGROUND | Green bullets plus the full audit journal. | **Pause 5** — "That's what makes it a control plane, not three demos." |
+| 35 | SAME CONTROL PLANE, SECOND BATTLEGROUND | The full audit journal, full screen: all 24 entries from both battlegrounds, every gate check, write and the evidence-vault snapshot, hash-chained. Three facts beneath it. "One set of nine controls. One plane. Both fights." | **Pause 5** — "That's what makes it a control plane, not three demos." |
 | 36 | FROM SEATBELT TO ACCELERATOR | The pivot. |  |
 | 37 | BUSINESS UNITS BUILD ON THE CONTROL PLANE | Four BU agents plug in with persona + identity. 6 weeks → 4 days. |  |
 | 38 | THIS IS ALREADY HAPPENING | EY · Cisco · Salesforce. Personal agent vs company agentic workflow. | **Pause 6** — greed, "don't be left behind" |
 | 39 | ONE PATH SHOWN. FIFTY-NINE CATALOGUED. | Baird's catalogue on one card: seven scenarios the room just watched, by beat; the eleven families the same controls address; the six only partly closed. Land the line: when a vendor claims full coverage, ask to see the mechanism. |  |
 | 40 | THE VENDOR CHALLENGE — THREE LANES | Three lanes. Fork · terminology · 5–10 min MP4 · showcase theatre · Whova vote. |  |
-| 41 | GO WATCH. GO VOTE. | GO WATCH. GO VOTE. Logo wall: practitioner members and founding members. Reviewers credited with marks. |  |
+| 41 | GO WATCH. GO VOTE. | GO WATCH. GO VOTE. Logo wall: practitioner members and founding members. Reviewers credited with marks. On screen and in narration: the Challenge Walks take you to the booths that built the demos; schedule in Slack. |  |
 
 ## Talking points at each pause
 

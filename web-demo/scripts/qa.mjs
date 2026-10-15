@@ -55,7 +55,7 @@ for (const s of STEPS) {
   if (s.phase === 'gate' && !s.gateProposal) fail(`step ${s.id} is phase gate but has no gateProposal`);
   if (s.gateProposal && s.phase !== 'gate') warn(`step ${s.id} has a gateProposal but phase ${s.phase} (panel will not show)`);
   if ((s.phase === 'violation' || s.phase === 'blocked') && !s.subtitle) warn(`step ${s.id} ${s.phase} overlay has no subtitle`);
-  if (s.outcomeList && s.phase !== 'summary') warn(`step ${s.id} has outcomeList but phase ${s.phase}`);
+  if (s.outcomeList && s.phase !== 'summary' && s.phase !== 'journal') warn(`step ${s.id} has outcomeList but phase ${s.phase}`);
   if (s.outcomeList && !s.outcomeTone) fail(`step ${s.id} has outcomeList but no outcomeTone`);
 }
 

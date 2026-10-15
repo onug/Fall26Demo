@@ -15,6 +15,8 @@ import EventFeed from './EventFeed';
 import ImpactPanel from './ImpactPanel';
 import VerifyGatePanel from './VerifyGatePanel';
 import AuditJournal from './AuditJournal';
+import JournalCard from './JournalCard';
+import RAPairCard from './RAPairCard';
 import ViolationOverlay from './ViolationOverlay';
 import BlockedOverlay from './BlockedOverlay';
 import StepIndicator from './StepIndicator';
@@ -193,7 +195,7 @@ export default function DemoStage() {
   const step = STEPS[state.currentStep];
   const phase = step?.phase;
   const isFullScreenCard = phase === 'title' || phase === 'accelerator' || phase === 'proof' || phase === 'lanes'
-    || phase === 'ra' || phase === 'gap' || phase === 'threats';
+    || phase === 'ra' || phase === 'gap' || phase === 'threats' || phase === 'journal';
 
   const [paused, setPaused] = useState(false);
 
@@ -369,7 +371,9 @@ export default function DemoStage() {
             />
           )}
           {phase === 'ra' && step.ra && <RACard ra={step.ra} title={step.title} />}
+          {phase === 'ra' && step.raPair && <RAPairCard pair={step.raPair} title={step.title} />}
           {phase === 'gap' && <GapCard title={step.title} />}
+          {phase === 'journal' && <JournalCard title={step.title} entries={state.audit} facts={step.outcomeList ?? []} />}
           {phase === 'threats' && <ThreatCard title={step.title} />}
           {phase === 'accelerator' && <AcceleratorView title={step.title} metrics={state.metrics} />}
           {phase === 'proof' && <ProofPoints title={step.title} />}

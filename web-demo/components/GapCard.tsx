@@ -34,10 +34,13 @@ export default function GapCard({ title }: GapCardProps) {
             initial={{ opacity: 0, x: -14 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 + i * 0.28, duration: 0.4 }}
-            className="grid grid-cols-[1fr_1.8fr] items-center px-5 py-3.5 border-b border-gray-800/60 last:border-0"
+            className="grid grid-cols-[1fr_1.8fr] items-center px-5 py-3 border-b border-gray-800/60 last:border-0"
           >
             <div className="text-[15px] text-red-300 font-medium pr-4">{r.happened}</div>
-            <div className="text-[14px] text-gray-200 pr-4 leading-snug">{r.control}</div>
+            <div className="pr-4">
+              <div className="text-[15px] font-bold text-gray-100 leading-snug">{r.control}</div>
+              <div className="text-[12px] text-gray-400 leading-snug mt-0.5">{r.detail}</div>
+            </div>
           </motion.div>
         ))}
       </div>

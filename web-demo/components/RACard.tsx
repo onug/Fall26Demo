@@ -62,6 +62,22 @@ export default function RACard({ ra, title }: RACardProps) {
             <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: card.color }}>The gate</div>
             <div className="text-sm font-bold text-gray-100 leading-snug">{card.gate}</div>
           </div>
+          {card.qr && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.6 }}
+              className="rounded-xl border border-gray-800 bg-white p-3 flex items-center gap-4"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={asset(card.qr.file)} alt={`QR code: ${card.qr.url}`} className="w-24 h-24 flex-shrink-0" />
+              <div className="min-w-0">
+                <div className="text-[10px] uppercase tracking-widest text-gray-500 mb-1">The report pack</div>
+                <div className="text-[13px] font-bold text-gray-900 leading-snug">{card.qr.label}</div>
+                <div className="text-[12px] font-mono text-gray-600 mt-1">{card.qr.url}</div>
+              </div>
+            </motion.div>
+          )}
           <ul className="rounded-xl border border-gray-800 bg-gray-900/40 p-4 space-y-2 flex-1">
             {card.lines.map((l, i) => (
               <motion.li

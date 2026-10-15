@@ -2,6 +2,17 @@
 
 Practitioner and co-chair input on the keynote arc, and what the demo did with it. Newest first.
 
+## Nick Lippis and Peter Campbell, review call — October 5, 2026 (incorporated in v0.3.10)
+
+Peter walked the whole demo with Nick; the recording is programme-internal. What changed the demo:
+
+- **Cut for time.** The separate WG2 and WG3 reference-architecture cards went; on review Nick put both drawings on one card before Battleground 1 instead, and a QR tile on the WG1 card points at the report pack. 34 narrations lost their filler. 42 steps and 13.8 minutes became 41 steps and 12.0. Nick kept Battleground 2 whole and the SOC detect and gate steps, and accepted 11.7 against his ten-minute target rather than thin every beat.
+- **The gap card should speak in controls, mapped to the 25.** Peter: reword the middle column "so that they're just controls"; Nick: "the name of the control, that maps into the 25 requirements, and identifies which one of the 25 it actually is." Done: the column names the control. The mapping to the 25 was built as a third column and Nick removed it the same evening on seeing it on the card; it stays in the data for the WG1 reviewers.
+- **Beat 5 should end on the whole journal.** Peter: "too bad we couldn't have the whole audit journal just come up and replace this for a moment at the end of that slide." Nick: "let's do that." The summary step is now the journal, full screen, all 24 entries.
+- **The finale names the Challenge Walks.**
+
+Not taken up in this version: Peter's question whether the drift score is a number or a binary (define it or lose it); his MGM, Change Healthcare and Colonial line for Beat 1, which is his to say live; where the Beat 6 "enabler" line came from (it is the demo's own framing, from the arc document, not a quotation).
+
 ## Baird Kaake's threat catalogue — September 17 to October 5, 2026 (incorporated in v0.3.9)
 
 Baird sent his AOMC Threat & Risk Scenario Catalog on 17 September: "Maybe too much information, but I am attempting to capture all threats to agentic flow and the controls that we describe are intended to address." 59 scenarios in 11 families, each mapped to the control that prevents it and the one that detects it, cross-referenced to OWASP ASI01–ASI10, with six scenarios he says the controls only partly close. **Incorporated** as the Beat 7 threat card, replacing the three scenarios from the 15 September meeting: what the room just watched (seven scenarios, by beat), the eleven families, the six gaps. Baird saw the card on 19 September: "looks great! I like what you have done with it!" Peter, asked in or out, answered on 5 October: "In." The catalogue itself is published in Peter's report pack as the AOMC Threat Model; the demo cites scenario ids and OWASP ids, not requirement item numbers. Baird's note of 1 October, that personal and cloud virtual agents are a rapidly evolving risk not yet on the matrix, is open; the card's counts come from data and will follow the catalogue.

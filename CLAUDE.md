@@ -40,7 +40,7 @@ web-demo/
 ├── lib/
 │   ├── types.ts           Step, DemoState, ControlKey, LaneKey, GateProposal, Metrics, ...
 │   ├── data.ts            LANES, CONTROLS (9 capabilities), BASE_NODES/BASE_EDGES, BU_AGENTS, PROOF_POINTS, VENDOR_LANES
-│   ├── steps.ts           THE SCRIPT — 42 steps across seven beats, with narration (the presenter-pause badges went in v0.3.6)
+│   ├── steps.ts           THE SCRIPT — 41 steps across seven beats, with narration (the presenter-pause badges went in v0.3.6)
 │   ├── audio.ts           Narration playback: /narration/<step-id>.mp3 first, browser TTS fallback
 │   └── assets.ts          asset(path): prefixes NEXT_PUBLIC_BASE_PATH for images under public/
 ├── scripts/
@@ -48,7 +48,7 @@ web-demo/
 │   ├── qa.mjs             Script integrity check (npm run qa): replays steps, validates references, audio, export freshness
 │   └── generate-narration.py  ElevenLabs TTS via urllib; key from env ELEVENLABS_API_KEY or keychain item "elevenlabs"
 ├── narration/script.json  Exported narration script (generated)
-├── public/narration/      42 MP3s, one per step id (generated, committed; eleven_v4, stability 0.5, style 0.15 since v0.3.6)
+├── public/narration/      41 MP3s, one per step id (generated, committed; eleven_v4, stability 0.5, style 0.15 since v0.3.6)
 ├── public/ra/             The three reference-architecture drawings as SVG (Peter's ONUG-theme redraws, from his ACP wiki pack)
 ├── public/logos/          Member marks, copied from the collaborative portal's app/static/founding/
 └── components/
@@ -60,8 +60,10 @@ web-demo/
     ├── AuditJournal.tsx   Immutable, hash-chained journal table
     ├── EventFeed.tsx, NarrationPanel.tsx, StepIndicator.tsx, TitleSlide.tsx
     ├── ViolationOverlay.tsx, BlockedOverlay.tsx
-    ├── RACard.tsx         phase 'ra': a reference-architecture drawing on a white panel, three takeaways beside it
-    ├── GapCard.tsx        Beat 1: what happened / the control / HAD IT or MISSING
+    ├── RACard.tsx         phase 'ra' with `ra`: one reference-architecture drawing on a white panel, takeaways beside it (WG1, with the QR tile)
+    ├── RAPairCard.tsx     phase 'ra' with `raPair`: two drawings side by side, gate line under each (WG2 and WG3, before Battleground 1)
+    ├── GapCard.tsx        Beat 1: what happened / the control, named as the Beat 2 panel names it (GAP_ROWS; the rows' place in the 25 is data only, not shown)
+    ├── JournalCard.tsx    phase 'journal', Beat 5 close: the full audit journal, full screen, with three facts beneath
     ├── ThreatCard.tsx     Beat 7: Baird Kaake's threat catalogue — what the room watched (by beat), the 11 families, the 6 gaps; data in THREATS_WATCHED, THREAT_FAMILIES, THREAT_GAPS
     ├── LogoWall.tsx       Title strip and finale wall of member marks (wordmark when no file)
     ├── AcceleratorView.tsx    Beat 6: business units plug into the plane
@@ -71,7 +73,7 @@ web-demo/
 
 **State replay.** `buildStateForStep(n)` in `DemoStage.tsx` rebuilds state from step 0 to n on every navigation, so backward navigation is always correct. A step with `resetState: true` (Beat 2's "You are here") wipes accumulated state, which is how the demo "rewinds" the poisoned pull.
 
-**Step phases** drive layout: `title`, `accelerator`, `proof`, `lanes`, `ra`, `gap`, `threats` are full-screen cards; everything else is the dashboard (event feed, topology, control plane, impact). `violation` and `blocked` phases also fire the red/green overlays. `gate` phases show the verify-gate panel under the topology; `showAudit: true` shows the journal.
+**Step phases** drive layout: `title`, `accelerator`, `proof`, `lanes`, `ra`, `gap`, `threats`, `journal` are full-screen cards; everything else is the dashboard (event feed, topology, control plane, impact). `violation` and `blocked` phases also fire the red/green overlays. `gate` phases show the verify-gate panel under the topology; `showAudit: true` shows the journal.
 
 **Controls.** Nine capabilities, not the Dallas six. WG1: identity, artifact provenance, runtime monitoring, audit journal, kill switch. WG2: verify gate, autonomy levels. WG3: detect→decide, deliberate containment. The demo never enumerates the 25 WG1 requirements on stage (25: Nick's decision, 18 Sep 2026, and Peter's published report pack calls them "The 25"; the demo said 24 from v0.3.2 to v0.3.7 after Peter's note of 16 Sep. The on-stage number is Nick's to set; do not change it again without him); AOMC is the vehicle, not the checklist.
 
@@ -82,7 +84,7 @@ web-demo/
 - **Change narration or add a step**: edit `web-demo/lib/steps.ts`, then `npm run narration:export` and regenerate the audio for that step (`python3 scripts/generate-narration.py --force --only <step-id>`). Commit the MP3 with the text change.
 - **Move a node / add a node**: `BASE_NODES` in `web-demo/lib/data.ts`. The SVG viewBox is 1000×660: plane band y 28–98, infra lane x 20–350, SOC lane x 370–700, external x 720–980. Edges are straight lines; check new ones don't pass through other nodes (the model-pull edge from the hub at y=200 was moved above the SOC row for this reason).
 - **Change proof points, BU agents, vendor lanes**: the arrays at the bottom of `web-demo/lib/data.ts`. Each entry in `CONTROLS` carries `reqs`, the WG requirement ids from Peter's vendor three-lane challenge report (17 Sep 2026); the Beat 7 card prints them per lane. Keep them in step with his crosswalk.
-- **Replace a reference-architecture drawing**: the SVGs in `public/ra/` are the 1200-wide `<svg>` cut out of Peter's `report-onug-wg<N>-architecture-reference.html` pages (his ACP wiki pack, emailed 16 Sep 2026 as `ACP-local-wiki.zip`, re-sent 17 Sep as `ACP-local-wiki-v2.zip` with the same drawings, headed for GitHub Pages under onug/), with HTML named entities (`&middot;` etc.) converted to characters and a white background rect prepended; `RA_CARDS` in `data.ts` carries the version string and the takeaways. Update both. The control plane is deliberately one card, the personas version (Peter, 17 Sep).
+- **Replace a reference-architecture drawing**: the SVGs in `public/ra/` are the 1200-wide `<svg>` cut out of Peter's `report-onug-wg<N>-architecture-reference.html` pages (his ACP wiki pack, emailed 16 Sep 2026 as `ACP-local-wiki.zip`, re-sent 17 Sep as `ACP-local-wiki-v2.zip` with the same drawings, headed for GitHub Pages under onug/), with HTML named entities (`&middot;` etc.) converted to characters and a white background rect prepended; `RA_CARDS` in `data.ts` carries the version string and the takeaways. Update both. The control plane is deliberately one card, the personas version (Peter, 17 Sep), and since v0.3.10 WG2 and WG3 share one pair card (`raPair`) before Battleground 1 instead of a card each; the WG1 card's QR tile (`qr` on `RA_CARDS.wg1`, image `public/ra/report-pack-qr.svg`) points at the report pack with the full-size drawings.
 - **Add a member mark**: drop the file in `public/logos/` and add it to `FOUNDING_MEMBERS`, `PRACTITIONER_MEMBERS` or `REVIEWERS` in `data.ts`. Marks must read on a white tile. `ebay.svg` and `huntington.svg` came from Wikimedia Commons because the ONUG Drive folders have no mark for them; replace with company-supplied artwork when it arrives. Mick Currey is credited by name and ONUG role only, never with his employer (his request, August 2026); Baird Kaake as Independent AI Cybersecurity Researcher, the title on his public onug.net profile (see Working agreements).
 - **Change the voice**: `VOICE_ID` and `MODEL_ID` in `scripts/export-script.mjs` (the cloned Nick Lippis voice on eleven_v4 is the default; Sarah was Dallas), then regenerate with `--force`. Keep stability 0.5 and style 0.15: v4 at 0.35 and every v3 setting drifted off the cloned voice (30 Sep 2026).
 - **Ship a change**: source PR merged → `npm run build:portal` and the portal import → rebuild `pages/demo` with the public base path and commit it. All three copies must say the same thing; the compiled ones do not update themselves.
@@ -102,7 +104,7 @@ web-demo/
 - **Presenter-controlled.** Nothing auto-advances. Presenter pause points are data (`pausePoint` on a step) and render as a header badge.
 - **Fear then greed.** Beat 1 is red, Beats 2–5 are orange/blue/cyan (the plane and its two battlegrounds), Beat 6 is purple, Beat 7 green. `TitleSlide` and `StepIndicator` key colors off the beat.
 - **Proof points are framed, not just quoted.** Cisco is framed around ambition (not the headcount debate); Salesforce numbers are marked vendor-reported. Keep that framing if the copy changes. The figures themselves are unverified until the arc locks.
-- **Ten minutes of audio.** Nick's target (15 Sep 2026). `npm run narration:export` reports recorded minutes; keep it near 10. Measured from the clips it has been 13.8 minutes since v0.3.6 moved to eleven_v4 and added `b2-everyday`, and no cut has paid for that. A new narration line comes with a cut elsewhere.
+- **Ten minutes of audio.** Nick's target (15 Sep 2026). `npm run narration:export` reports recorded minutes; keep it near 10. Measured from the clips it was 13.8 minutes from v0.3.6 (eleven_v4 plus `b2-everyday`) until v0.3.10 trimmed 34 steps and replaced two cards with one: 12.0. Nick accepted that on 5 Oct 2026 rather than thin every beat. At this voice's pace, 0.43 s per word, ten minutes is about 1,390 words. A new narration line comes with a cut elsewhere.
 - **Illustrative numbers.** Device counts, dollar exposure, dwell time, ransom figures, detect-to-decide seconds are demo-defined. Keep them consistent across `steps.ts`, the presenter guide, and the release notes when changing one.
 - **Presentation-first code.** Readability during a live demo beats production patterns.
 

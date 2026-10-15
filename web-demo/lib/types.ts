@@ -143,6 +143,7 @@ export type StepPhase =
   | 'gate'        // verify-gate panel is the focus
   | 'blocked'     // green shield + banner
   | 'summary'     // blast radius / outcome list
+  | 'journal'     // beat 5 close: the full audit journal, full screen (Peter and Nick, 5 Oct 2026)
   | 'accelerator' // beat 6: business units build on the plane
   | 'proof'       // beat 6: public proof points
   | 'ra'          // a working group's reference architecture, one card
@@ -178,6 +179,7 @@ export interface Step {
   logos?: 'strip' | 'wall';       // title cards: member marks, small strip or the full wall
   credits?: boolean;              // title cards: the practitioners who reviewed the demo
   ra?: RaKey;                     // phase 'ra': which drawing
+  raPair?: [RaKey, RaKey];        // phase 'ra' with two drawings side by side (RAPairCard)
   resetState?: boolean;           // wipe accumulated state at this step (rewind)
 }
 
