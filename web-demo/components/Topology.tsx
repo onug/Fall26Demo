@@ -98,9 +98,9 @@ function shortenLine(x1: number, y1: number, x2: number, y2: number, fromOffset:
 function NodeIcon({ type, x, y, stroke }: { type: string; x: number; y: number; stroke: string }) {
   switch (type) {
     case 'rogue':
-      return <text x={x} y={y + 5} textAnchor="middle" fontSize={18} className="select-none">{'☠'}</text>;
+      return <text x={x} y={y + 5} textAnchor="middle" fontSize={20} className="select-none">{'☠'}</text>;
     case 'agent':
-      return <text x={x} y={y + 4} textAnchor="middle" fill={stroke} fontSize={11} className="select-none">{'⬢'}</text>;
+      return <text x={x} y={y + 4} textAnchor="middle" fill={stroke} fontSize={12} className="select-none">{'⬢'}</text>;
     case 'datastore':
       return (
         <g>
@@ -115,7 +115,7 @@ function NodeIcon({ type, x, y, stroke }: { type: string; x: number; y: number; 
       return (
         <g>
           <rect x={x - 18} y={y - 12} width={36} height={24} rx={5} fill={nodeFill('device')} stroke={stroke} strokeWidth={1.4} />
-          <text x={x} y={y + 4} textAnchor="middle" fill={stroke} fontSize={12} className="select-none">{'⇄'}</text>
+          <text x={x} y={y + 4} textAnchor="middle" fill={stroke} fontSize={13} className="select-none">{'⇄'}</text>
         </g>
       );
     case 'tool':
@@ -133,7 +133,7 @@ function NodeIcon({ type, x, y, stroke }: { type: string; x: number; y: number; 
             fill={nodeFill('gate')} stroke="#f97316" strokeWidth={2}
             filter="url(#glow-orange)"
           />
-          <text x={x} y={y + 4} textAnchor="middle" fill="#fdba74" fontSize={11} fontWeight="bold" className="select-none">{'◈'}</text>
+          <text x={x} y={y + 4} textAnchor="middle" fill="#fdba74" fontSize={12} fontWeight="bold" className="select-none">{'◈'}</text>
         </g>
       );
     default:
@@ -160,10 +160,10 @@ function ControlBadge({ badge, active, enforcing, dim }: { badge: ControlBadgePo
       )}
       <rect x={badge.x - w / 2} y={badge.y - h / 2} width={w} height={h} rx={9} fill={bg} stroke={border} strokeWidth={1} />
       <circle cx={badge.x - w / 2 + r + 3} cy={badge.y} r={r} fill={on ? '#22c55e' : '#374151'} />
-      <text x={badge.x - w / 2 + r + 3} y={badge.y + 3.5} textAnchor="middle" fill={on ? '#fff' : '#9ca3af'} fontSize={9} fontWeight="bold" fontFamily="var(--font-mono)">
+      <text x={badge.x - w / 2 + r + 3} y={badge.y + 3.5} textAnchor="middle" fill={on ? '#fff' : '#9ca3af'} fontSize={11} fontWeight="bold" fontFamily="var(--font-mono)">
         {badge.number}
       </text>
-      <text x={badge.x + 8} y={badge.y + 3.5} textAnchor="middle" fill={text} fontSize={8} fontWeight="bold" fontFamily="var(--font-mono)">
+      <text x={badge.x + 8} y={badge.y + 3.5} textAnchor="middle" fill={text} fontSize={10} fontWeight="bold" fontFamily="var(--font-mono)">
         {badge.shortLabel}
       </text>
     </g>
@@ -177,7 +177,7 @@ function EdgeLabel({ edge, x, y }: { edge: TopologyEdge; x: number; y: number })
   return (
     <g>
       <rect x={x - w / 2} y={y - 7} width={w} height={13} rx={3} fill="#030712" stroke={color} strokeWidth={0.6} opacity={0.9} />
-      <text x={x} y={y + 3} textAnchor="middle" fill={color} fontSize={8} fontFamily="var(--font-mono)" className="select-none">
+      <text x={x} y={y + 3} textAnchor="middle" fill={color} fontSize={10} fontFamily="var(--font-mono)" className="select-none">
         {edge.label}
       </text>
     </g>
@@ -229,10 +229,10 @@ export default function Topology({ topology, planeOnline, quarantined, compromis
               {wgInfo && (
                 <g opacity={lit ? 1 : 0.5}>
                   <rect x={l.x + 10} y={l.y + 8} width={36} height={16} rx={4} fill={l.color} />
-                  <text x={l.x + 28} y={l.y + 20} textAnchor="middle" fill="#fff" fontSize={10} fontWeight="bold">{l.wg}</text>
+                  <text x={l.x + 28} y={l.y + 20} textAnchor="middle" fill="#fff" fontSize={12} fontWeight="bold">{l.wg}</text>
                 </g>
               )}
-              <text x={l.x + (wgInfo ? 54 : 12)} y={l.y + 20} fill={l.color} fontSize={11} fontWeight="bold" opacity={lit ? 0.95 : 0.6}>
+              <text x={l.x + (wgInfo ? 54 : 12)} y={l.y + 20} fill={l.color} fontSize={12} fontWeight="bold" opacity={lit ? 0.95 : 0.6}>
                 {l.label}
               </text>
               {lit && (
@@ -257,16 +257,16 @@ export default function Topology({ topology, planeOnline, quarantined, compromis
                 className="animate-pulse-orange"
               />
               <rect x={30} y={36} width={40} height={16} rx={4} fill="#f97316" />
-              <text x={50} y={48} textAnchor="middle" fill="#fff" fontSize={10} fontWeight="bold">WG1</text>
-              <text x={78} y={48} fill="#fdba74" fontSize={12} fontWeight="bold">AGENTIC CONTROL PLANE · AOMC</text>
-              <text x={78} y={62} fill="#9a3412" fontSize={9} fontFamily="var(--font-mono)">sits OUTSIDE the agents · declared personas · no self-attestation</text>
+              <text x={50} y={48} textAnchor="middle" fill="#fff" fontSize={12} fontWeight="bold">WG1</text>
+              <text x={78} y={48} fill="#fdba74" fontSize={13} fontWeight="bold">AGENTIC CONTROL PLANE · AOMC</text>
+              <text x={78} y={62} fill="#9a3412" fontSize={11} fontFamily="var(--font-mono)">sits OUTSIDE the agents · declared personas · no self-attestation</text>
             </motion.g>
           ) : beat === 1 ? (
             <motion.g key="noplane" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
               <rect x={20} y={28} width={960} height={70} rx={12}
                 fill="none" stroke="#7f1d1d" strokeWidth={1.5} strokeDasharray="6,10" opacity={0.7}
               />
-              <text x={500} y={68} textAnchor="middle" fill="#7f1d1d" fontSize={13} fontWeight="bold" letterSpacing={3}>
+              <text x={500} y={68} textAnchor="middle" fill="#7f1d1d" fontSize={14} fontWeight="bold" letterSpacing={3}>
                 NO SUPERVISION PLANE
               </text>
             </motion.g>
@@ -311,7 +311,7 @@ export default function Topology({ topology, planeOnline, quarantined, compromis
                 {edge.type === 'blocked' && (
                   <g>
                     <circle cx={mx} cy={my} r={10} fill="#16a34a" opacity={0.95} />
-                    <text x={mx} y={my + 4} textAnchor="middle" fill="white" fontSize={12} fontWeight="bold">{'✕'}</text>
+                    <text x={mx} y={my + 4} textAnchor="middle" fill="white" fontSize={13} fontWeight="bold">{'✕'}</text>
                   </g>
                 )}
                 {edge.type === 'malicious' && edge.animated && (
@@ -395,7 +395,7 @@ export default function Topology({ topology, planeOnline, quarantined, compromis
                 {isC && cLabel && (
                   <g>
                     <rect x={node.x - cLabel.length * 3.1} y={node.y + labelY + 4} width={cLabel.length * 6.2} height={15} rx={3} fill={good ? '#16a34a' : '#ef4444'} opacity={0.92} />
-                    <text x={node.x} y={node.y + labelY + 14.5} textAnchor="middle" fill="white" fontSize={8} fontWeight="bold" fontFamily="var(--font-mono)">
+                    <text x={node.x} y={node.y + labelY + 14.5} textAnchor="middle" fill="white" fontSize={10} fontWeight="bold" fontFamily="var(--font-mono)">
                       {cLabel}
                     </text>
                   </g>
@@ -404,7 +404,7 @@ export default function Topology({ topology, planeOnline, quarantined, compromis
                 {isQ && (
                   <g>
                     <rect x={node.x + 14} y={node.y - 32} width={68} height={14} rx={3} fill="#ef4444" />
-                    <text x={node.x + 48} y={node.y - 22} textAnchor="middle" fill="white" fontSize={8} fontWeight="bold">QUARANTINED</text>
+                    <text x={node.x + 48} y={node.y - 22} textAnchor="middle" fill="white" fontSize={10} fontWeight="bold">QUARANTINED</text>
                   </g>
                 )}
               </motion.g>

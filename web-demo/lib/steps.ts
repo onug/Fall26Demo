@@ -790,7 +790,7 @@ export const STEPS: Step[] = [
     phase: 'title',
     title: 'FROM SEATBELT TO ACCELERATOR',
     subtitle: 'Once the control plane exists, business units stop asking permission\nand start safely building their own agentic systems on top of it.\n\nThe infrastructure team becomes the enabler.',
-    narration: "The pivot. Everything so far was the seatbelt. Once the control plane exists, business units stop asking permission and start building their own agentic systems on top of it, safely. Infrastructure and security become the enabler.",
+    narration: "Everything so far was the seatbelt. Once the control plane exists, business units stop asking permission and start building their own agentic systems on top of it, safely. Infrastructure and security become the enabler.",
     events: [],
     topologyChanges: [],
   },

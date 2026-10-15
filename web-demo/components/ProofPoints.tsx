@@ -33,7 +33,7 @@ export default function ProofPoints({ title }: ProofPointsProps) {
             <div className="text-xs uppercase tracking-widest text-gray-500 mb-5">{p.product}</div>
             <div className="text-2xl font-bold text-gray-100 leading-tight mb-3">{p.headline}</div>
             <div className="text-sm text-gray-400 leading-relaxed mb-5">{p.detail}</div>
-            <div className="mt-auto text-[11px] text-gray-500 italic border-t border-gray-800 pt-3">{p.framing}</div>
+            <div className="mt-auto text-[14px] text-gray-500 italic border-t border-gray-800 pt-3">{p.framing}</div>
           </motion.div>
         ))}
       </div>

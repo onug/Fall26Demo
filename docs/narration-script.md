@@ -5,7 +5,7 @@ _Generated from `web-demo/lib/steps.ts` by `scripts/export-script.mjs`. Do not e
 | | |
 |---|---|
 | Steps with narration | 41 |
-| Words | 1671 (~11.1 min at 150 wpm) |
+| Words | 1669 (~11.1 min at 150 wpm) |
 | Recorded audio | 12 min |
 | Voice | Nick Lippis (cloned) · ElevenLabs `16VamcPQIJBvVLoE1Zss` · eleven_v4 · speed 1.2 |
 | Presenter pauses | 0 |
@@ -245,9 +245,9 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 36. FROM SEATBELT TO ACCELERATOR
 
-`b6-title` · title · 36 words · audio 15s
+`b6-title` · title · 34 words · audio 14s
 
-> The pivot. Everything so far was the seatbelt. Once the control plane exists, business units stop asking permission and start building their own agentic systems on top of it, safely. Infrastructure and security become the enabler.
+> Everything so far was the seatbelt. Once the control plane exists, business units stop asking permission and start building their own agentic systems on top of it, safely. Infrastructure and security become the enabler.
 
 ### 37. BUSINESS UNITS BUILD ON THE CONTROL PLANE
 

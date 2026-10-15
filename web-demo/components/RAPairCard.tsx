@@ -26,7 +26,7 @@ export default function RAPairCard({ pair, title }: RAPairCardProps) {
           <p className="text-xs tracking-[0.35em] font-bold mb-1.5 text-gray-400">WORKING GROUPS 2 AND 3 · ONE SKELETON, TWO FIGHTS</p>
           <h1 className="text-3xl font-bold text-gray-100 tracking-tight">{title}</h1>
         </div>
-        <div className="text-right text-[12px] text-gray-400 leading-snug max-w-[520px]">
+        <div className="text-right text-[14px] text-gray-400 leading-snug max-w-[520px]">
           Planning on top: who the agent is and what it may touch. Execution below, inside an enforcement boundary the agent cannot influence. Step four is the gate.
         </div>
       </div>
@@ -44,7 +44,7 @@ export default function RAPairCard({ pair, title }: RAPairCardProps) {
             >
               <div className="flex items-baseline justify-between gap-3 flex-shrink-0">
                 <div className="text-xs tracking-[0.3em] font-bold" style={{ color: card.color }}>{card.kicker}</div>
-                <div className="text-[10px] font-mono text-gray-500 truncate">{card.version}</div>
+                <div className="text-[13px] font-mono text-gray-500 truncate">{card.version}</div>
               </div>
               <div
                 className="flex-1 min-h-0 rounded-xl bg-white border overflow-hidden flex items-center justify-center p-2"
@@ -54,7 +54,7 @@ export default function RAPairCard({ pair, title }: RAPairCardProps) {
                 <img src={asset(card.file)} alt={card.title} className="max-h-full max-w-full object-contain" />
               </div>
               <div className="rounded-xl border px-4 py-2.5 flex-shrink-0" style={{ borderColor: `${card.color}90`, backgroundColor: `${card.color}12` }}>
-                <div className="text-[10px] uppercase tracking-widest mb-0.5" style={{ color: card.color }}>The gate</div>
+                <div className="text-[13px] uppercase tracking-widest mb-0.5" style={{ color: card.color }}>The gate</div>
                 <div className="text-sm font-bold text-gray-100 leading-snug">{card.gate}</div>
               </div>
             </motion.div>

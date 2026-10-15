@@ -8,7 +8,7 @@
     "speed": 1.2,
     "notes": "Segment ids match Step.id in lib/steps.ts; audio is served from public/narration/<id>.mp3",
     "segments": 41,
-    "total_words": 1671,
+    "total_words": 1669,
     "estimated_minutes": 11.1,
     "recorded_minutes": 12
   },
@@ -405,9 +405,9 @@
       "phase": "title",
       "title": "FROM SEATBELT TO ACCELERATOR",
       "pause": null,
-      "text": "The pivot. Everything so far was the seatbelt. Once the control plane exists, business units stop asking permission and start building their own agentic systems on top of it, safely. Infrastructure and security become the enabler.",
-      "words": 36,
-      "audio_seconds": 14.994286
+      "text": "Everything so far was the seatbelt. Once the control plane exists, business units stop asking permission and start building their own agentic systems on top of it, safely. Infrastructure and security become the enabler.",
+      "words": 34,
+      "audio_seconds": 14.106122
     },
     {
       "id": "b6-build",

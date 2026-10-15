@@ -9,10 +9,10 @@ export default function NarrationPanel({ text, speaking }: NarrationPanelProps) 
   return (
     <div className="mx-auto max-w-6xl bg-gray-950/90 border border-cyan-900/60 rounded-lg px-5 py-2.5 backdrop-blur-sm shadow-xl">
       <div className="flex items-start gap-3">
-        <span className="flex-shrink-0 mt-0.5 text-[10px] font-bold text-cyan-600 uppercase tracking-widest">
+        <span className="flex-shrink-0 mt-0.5 text-[13px] font-bold text-cyan-600 uppercase tracking-widest">
           Narration
         </span>
-        <p className="text-[13px] text-gray-200 leading-relaxed flex-1">{text}</p>
+        <p className="text-[15px] text-gray-200 leading-relaxed flex-1">{text}</p>
         <div className="flex items-center gap-2 flex-shrink-0 h-4">
           {speaking && (
             <span className="flex gap-0.5 items-end h-3">

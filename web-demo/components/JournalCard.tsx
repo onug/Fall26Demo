@@ -33,13 +33,13 @@ export default function JournalCard({ title, entries, facts }: JournalCardProps)
     >
       <div className="flex items-end justify-between gap-6 flex-shrink-0">
         <div>
-          <p className="text-[11px] tracking-[0.35em] font-bold text-cyan-500/80 mb-1">BEAT 5 · TWO BATTLEGROUNDS, ONE CONTROL PLANE</p>
+          <p className="text-[14px] tracking-[0.35em] font-bold text-cyan-500/80 mb-1">BEAT 5 · TWO BATTLEGROUNDS, ONE CONTROL PLANE</p>
           <h1 className="text-3xl font-bold text-cyan-300 tracking-tight whitespace-nowrap">{title}</h1>
           <p className="text-gray-400 mt-1 text-sm">
             Every gate check, every write and the evidence-vault snapshot, from both fights, hash-chained in one journal no agent can read or alter.
           </p>
         </div>
-        <div className="text-right text-[11px] font-mono text-gray-500 leading-relaxed flex-shrink-0">
+        <div className="text-right text-[14px] font-mono text-gray-500 leading-relaxed flex-shrink-0">
           <div>{entries.length} entries · {plane} by the plane</div>
           <div>append-only · hash-chained · agents have no read/write path</div>
         </div>
@@ -47,9 +47,9 @@ export default function JournalCard({ title, entries, facts }: JournalCardProps)
 
       <div className="flex-1 min-h-0 rounded-xl border border-cyan-500/30 bg-gray-900/70 overflow-hidden">
         <div className="h-full overflow-auto">
-          <table className="w-full text-[12px] font-mono">
+          <table className="w-full text-[13px] font-mono">
             <thead>
-              <tr className="text-gray-500 text-[10px] uppercase tracking-widest border-b border-gray-800">
+              <tr className="text-gray-500 text-[13px] uppercase tracking-widest border-b border-gray-800">
                 <th className="px-4 py-1.5 text-left sticky top-0 bg-gray-900 z-10">T+</th>
                 <th className="px-4 py-1.5 text-left sticky top-0 bg-gray-900 z-10">Actor</th>
                 <th className="px-4 py-1.5 text-left sticky top-0 bg-gray-900 z-10">Action</th>
@@ -68,11 +68,11 @@ export default function JournalCard({ title, entries, facts }: JournalCardProps)
                     transition={{ delay: 0.2 + i * 0.04 }}
                     className={`border-b border-gray-800/50 ${byPlane ? 'bg-orange-500/5 border-l-2 border-l-orange-500' : ''}`}
                   >
-                    <td className="px-4 py-[3px] text-gray-500 whitespace-nowrap">{e.ts}</td>
-                    <td className={`px-4 py-[3px] font-bold whitespace-nowrap ${byPlane ? 'text-orange-300' : 'text-gray-300'}`}>{e.actor}</td>
-                    <td className="px-4 py-[3px] text-gray-300">{e.action}</td>
-                    <td className={`px-4 py-[3px] font-bold ${resultColor(e.result)}`}>{e.result}</td>
-                    <td className="px-4 py-[3px] text-gray-600 whitespace-nowrap">{e.hash}</td>
+                    <td className="px-4 py-[2px] text-gray-500 whitespace-nowrap">{e.ts}</td>
+                    <td className={`px-4 py-[2px] font-bold whitespace-nowrap ${byPlane ? 'text-orange-300' : 'text-gray-300'}`}>{e.actor}</td>
+                    <td className="px-4 py-[2px] text-gray-300">{e.action}</td>
+                    <td className={`px-4 py-[2px] font-bold ${resultColor(e.result)}`}>{e.result}</td>
+                    <td className="px-4 py-[2px] text-gray-600 whitespace-nowrap">{e.hash}</td>
                   </motion.tr>
                 );
               })}
@@ -89,7 +89,7 @@ export default function JournalCard({ title, entries, facts }: JournalCardProps)
           className="grid grid-cols-3 gap-3 flex-shrink-0"
         >
           {facts.map((f, i) => (
-            <div key={i} className="rounded-lg border border-gray-800 bg-gray-900/50 px-4 py-1.5 text-[12px] text-gray-200 leading-snug">{f}</div>
+            <div key={i} className="rounded-lg border border-gray-800 bg-gray-900/50 px-4 py-1 text-[14px] text-gray-200 leading-snug">{f}</div>
           ))}
         </motion.div>
       )}

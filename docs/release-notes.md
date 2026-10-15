@@ -1,5 +1,15 @@
 # Release Notes
 
+## v0.3.11 — Readable from the back of the room (October 15, 2026)
+
+Nick, reviewing on 15 October for a stage screen of about 8 by 12 feet, 16:9, floor to ceiling under a low ceiling: "white text against black is not white enough" and the small labels could not be read. Every step was walked at 1920×1080 afterwards.
+
+- **The grey text scale is lifted in one place.** `app/globals.css` now overrides Tailwind's gray-100 to gray-600 so that "secondary" text renders near-white on a projector (gray-400, the workhorse for detail lines, went from #9ca3af to #d3d7de). Borders and backgrounds use gray-700 and darker and are untouched. The two smallest named sizes are raised too: `text-xs` is 14 px, `text-sm` 16 px.
+- **A size floor for the pixel-sized labels.** Every `text-[8px]` to `text-[13px]` across the components moved up by two to three pixels (13 px is now the smallest on screen). The topology's SVG labels moved up a notch as well. The right-hand dashboard column widened from 288 to 320 px and the control-plane panel tightened so the impact figures no longer scroll out of view; the Beat 5 journal rows settled at 13 px so all 24 still fit.
+- **Two cards scaled by hand.** The Beat 1 gap card: title 48 px, rows 22 px, closing line 36 px, table 1600 px wide. The Beat 6 business-units card: box lines 16 px in near-white, agent names 24 px, stat figures 48 px with 17 px captions.
+- **"The pivot" was said twice** across the Beat 5 close and the Beat 6 opening. The Beat 6 clip now starts "Everything so far was the seatbelt." One clip re-recorded; runtime 12.0 minutes measured.
+- `pages/demo` rebuilt in this version.
+
 ## After v0.3.10 — published (October 15, 2026)
 
 - **Merged and tagged on 15 October** after ten days in review as onug/Fall26Demo#14, with Peter's Drive package (a narrated MP4 of all 41 steps, the stills and the before-and-after script) in the Demo Fall 26 folder. No review comments arrived; Nick said "merge".

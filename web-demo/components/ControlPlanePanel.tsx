@@ -20,23 +20,23 @@ export default function ControlPlanePanel({ controls, enforcing, autonomyLevel, 
       <div className="px-3 py-2 border-b border-gray-800 flex items-center gap-2">
         <h2 className="text-xs font-bold uppercase tracking-widest text-gray-500">Control Plane</h2>
         {anyOn ? (
-          <motion.span initial={{ scale: 0 }} animate={{ scale: 1 }} className="text-[10px] bg-orange-500/20 text-orange-400 px-1.5 py-0.5 rounded-full font-bold">
+          <motion.span initial={{ scale: 0 }} animate={{ scale: 1 }} className="text-[13px] bg-orange-500/20 text-orange-400 px-1.5 py-0.5 rounded-full font-bold">
             ONLINE
           </motion.span>
         ) : (
-          <span className="text-[10px] bg-red-500/15 text-red-400 px-1.5 py-0.5 rounded-full font-bold">ABSENT</span>
+          <span className="text-[13px] bg-red-500/15 text-red-400 px-1.5 py-0.5 rounded-full font-bold">ABSENT</span>
         )}
       </div>
 
-      <div className="p-2 space-y-2">
+      <div className="p-2 space-y-1.5">
         {LANES.map(lane => {
           const laneControls = CONTROLS.filter(c => c.lane === lane.key);
           const laneLit = activeLanes.has(lane.key);
           return (
             <div key={lane.key} className={`rounded transition-opacity ${laneLit ? 'opacity-100' : anyOn ? 'opacity-50' : 'opacity-70'}`}>
               <div className="flex items-center gap-1.5 px-1 mb-1">
-                <span className="text-[9px] font-bold px-1.5 py-0.5 rounded text-white" style={{ backgroundColor: lane.color }}>{lane.wg}</span>
-                <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: lane.color }}>{lane.name}</span>
+                <span className="text-[12px] font-bold px-1.5 py-0.5 rounded text-white" style={{ backgroundColor: lane.color }}>{lane.wg}</span>
+                <span className="text-[13px] font-bold uppercase tracking-wider" style={{ color: lane.color }}>{lane.name}</span>
               </div>
               <div className="space-y-1">
                 {laneControls.map(ctrl => {
@@ -59,10 +59,10 @@ export default function ControlPlanePanel({ controls, enforcing, autonomyLevel, 
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-1">
-                          <span className={`text-[11px] font-bold ${on ? 'text-green-400' : 'text-gray-500'}`}>{ctrl.number}</span>
-                          <span className={`text-[11px] font-medium truncate ${on ? 'text-green-300' : 'text-gray-400'}`}>{ctrl.name}</span>
+                          <span className={`text-[14px] font-bold ${on ? 'text-green-400' : 'text-gray-500'}`}>{ctrl.number}</span>
+                          <span className={`text-[14px] font-medium truncate ${on ? 'text-green-300' : 'text-gray-400'}`}>{ctrl.name}</span>
                         </div>
-                        <div className="text-[9px] text-gray-600 truncate">{ctrl.detail}</div>
+                        <div className="text-[11px] text-gray-500 truncate leading-tight">{ctrl.detail}</div>
                       </div>
                       {on && (
                         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="text-green-400 text-xs flex-shrink-0">{'✓'}</motion.div>
@@ -78,7 +78,7 @@ export default function ControlPlanePanel({ controls, enforcing, autonomyLevel, 
         {/* Autonomy ladder */}
         {ladderOn && (
           <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="pt-1 border-t border-gray-800">
-            <div className="text-[10px] font-bold uppercase tracking-wider text-blue-400 px-1 mb-1">Autonomy Level</div>
+            <div className="text-[13px] font-bold uppercase tracking-wider text-blue-400 px-1 mb-1">Autonomy Level</div>
             <div className="grid grid-cols-4 gap-1 px-1">
               {AUTONOMY_LADDER.map(l => {
                 const current = l.level === autonomyLevel;
@@ -95,8 +95,8 @@ export default function ControlPlanePanel({ controls, enforcing, autonomyLevel, 
                         : 'bg-gray-800/40 border-gray-800 text-gray-600'
                     }`}
                   >
-                    <div className="text-[10px] font-bold font-mono">{l.level}</div>
-                    <div className="text-[8px] leading-tight">{l.label}</div>
+                    <div className="text-[13px] font-bold font-mono">{l.level}</div>
+                    <div className="text-[11px] leading-tight">{l.label}</div>
                   </div>
                 );
               })}

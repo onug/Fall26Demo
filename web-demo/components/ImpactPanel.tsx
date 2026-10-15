@@ -47,7 +47,7 @@ function Stat({ value, label, tone }: { value: number | string; label: string; t
       <div className={`text-base font-bold font-mono leading-tight ${zero ? 'text-gray-600' : color} ${pulsing ? 'animate-count-pulse' : ''}`}>
         {typeof displayed === 'number' ? displayed.toLocaleString() : displayed}
       </div>
-      <div className="text-[9px] text-gray-500 uppercase leading-tight">{label}</div>
+      <div className="text-[12px] text-gray-500 uppercase leading-tight">{label}</div>
     </div>
   );
 }
@@ -69,7 +69,7 @@ export default function ImpactPanel({ metrics, outcomeList, outcomeTone, isSumma
       <div className="p-3 space-y-3">
         {(fearActive || !defenseActive) && (
           <div>
-            <div className="text-[9px] font-bold uppercase tracking-wider text-red-500/70 mb-1.5">Without the plane</div>
+            <div className="text-[12px] font-bold uppercase tracking-wider text-red-500/70 mb-1.5">Without the plane</div>
             <div className="grid grid-cols-3 gap-2 mb-2">
               <Stat value={metrics.devicesReconfigured} label="Devices Hit" tone="fear" />
               <Stat value={metrics.routesPoisoned} label="Routes Poisoned" tone="fear" />
@@ -85,7 +85,7 @@ export default function ImpactPanel({ metrics, outcomeList, outcomeTone, isSumma
 
         {defenseActive && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            <div className="text-[9px] font-bold uppercase tracking-wider text-green-500/70 mb-1.5">With the plane</div>
+            <div className="text-[12px] font-bold uppercase tracking-wider text-green-500/70 mb-1.5">With the plane</div>
             <div className="grid grid-cols-3 gap-2 mb-2">
               <Stat value={metrics.detectToDecide} label="Detect→Decide" tone="defense" />
               <Stat value={metrics.writesGated} label="Writes Gated" tone="defense" />
@@ -113,7 +113,7 @@ export default function ImpactPanel({ metrics, outcomeList, outcomeTone, isSumma
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.12 }}
-                className={`text-[11px] font-mono flex items-start gap-1.5 ${tone === 'fear' ? 'text-red-400' : 'text-green-400'}`}
+                className={`text-[14px] font-mono flex items-start gap-1.5 ${tone === 'fear' ? 'text-red-400' : 'text-green-400'}`}
               >
                 <span className="flex-shrink-0 mt-0.5">{tone === 'fear' ? '•' : '✓'}</span>
                 <span>{item}</span>
