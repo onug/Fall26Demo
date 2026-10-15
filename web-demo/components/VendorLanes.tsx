@@ -17,7 +17,7 @@ export default function VendorLanes({ title }: VendorLanesProps) {
       <div className="text-center">
         <p className="text-xs tracking-[0.35em] font-bold text-green-400/80 mb-3">THE CLOSE · BEAT 7</p>
         <h1 className="text-4xl font-bold text-green-400 tracking-tight">{title}</h1>
-        <p className="text-gray-400 mt-3">Pick your lane. No vendor is expected to cover all three. Specialize where you&apos;re strong.</p>
+        <p className="text-gray-400 mt-3">The challenge went out in September. Some twenty responses came back, each in one lane; nobody was asked to cover all three.</p>
       </div>
 
       <div className="grid grid-cols-3 gap-6 w-full">
@@ -36,7 +36,7 @@ export default function VendorLanes({ title }: VendorLanesProps) {
             </div>
             <div className="text-2xl font-bold mb-3" style={{ color: lane.color }}>{lane.name}</div>
             <div className="text-sm text-gray-200 mb-4 leading-relaxed">{lane.challenge}</div>
-            <div className="text-[13px] uppercase tracking-widest text-gray-500 mb-2">Prove it</div>
+            <div className="text-[13px] uppercase tracking-widest text-gray-500 mb-2">What they had to show</div>
             <ul className="space-y-1.5">
               {lane.proveIt.map((p, j) => (
                 <li key={j} className="text-[14px] text-gray-400 flex items-start gap-2">

@@ -837,7 +837,7 @@ export const STEPS: Step[] = [
     beat: 7,
     phase: 'lanes',
     title: 'THE VENDOR CHALLENGE — THREE LANES',
-    narration: "To the vendor community. The reference implementation is in Git. Three lanes, matching the working groups. Pick your lane; nobody covers all three. Every control on the card carries its requirement number. Submit a five-to-ten-minute screen capture. It plays on loop, with office hours, and members vote best in show per lane.",
+    narration: "To the vendor community: thank you. The reference implementation went to every sponsor in September, with three lanes matching the working groups, and nobody was asked to cover all three. Some twenty responses came back: five-to-ten-minute screen captures in the working groups' own terminology, every control tagged with its requirement number. They play on loop all Summit long, with office hours at the booths. Watch them. Ask to see the mechanism. Then vote best in show in each lane.",
     events: [],
     topologyChanges: [],
   },

@@ -5,8 +5,8 @@ _Generated from `web-demo/lib/steps.ts` by `scripts/export-script.mjs`. Do not e
 | | |
 |---|---|
 | Steps with narration | 41 |
-| Words | 1669 (~11.1 min at 150 wpm) |
-| Recorded audio | 12 min |
+| Words | 1696 (~11.3 min at 150 wpm) |
+| Recorded audio | 12.1 min |
 | Voice | Nick Lippis (cloned) · ElevenLabs `16VamcPQIJBvVLoE1Zss` · eleven_v4 · speed 1.2 |
 | Presenter pauses | 0 |
 
@@ -272,9 +272,9 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 40. THE VENDOR CHALLENGE — THREE LANES
 
-`b7-lanes` · lanes · 52 words · audio 21s
+`b7-lanes` · lanes · 79 words · audio 30s
 
-> To the vendor community. The reference implementation is in Git. Three lanes, matching the working groups. Pick your lane; nobody covers all three. Every control on the card carries its requirement number. Submit a five-to-ten-minute screen capture. It plays on loop, with office hours, and members vote best in show per lane.
+> To the vendor community: thank you. The reference implementation went to every sponsor in September, with three lanes matching the working groups, and nobody was asked to cover all three. Some twenty responses came back: five-to-ten-minute screen captures in the working groups' own terminology, every control tagged with its requirement number. They play on loop all Summit long, with office hours at the booths. Watch them. Ask to see the mechanism. Then vote best in show in each lane.
 
 ### 41. GO WATCH. GO VOTE.
 
@@ -288,10 +288,10 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 | Step | Words | Audio |
 |---|---:|---:|
 | 38. THIS IS ALREADY HAPPENING (`b6-proof`) | 73 | 32s |
+| 40. THE VENDOR CHALLENGE — THREE LANES (`b7-lanes`) | 79 | 30s |
 | 39. ONE PATH SHOWN. FIFTY-NINE CATALOGUED. (`b7-threats`) | 67 | 29s |
 | 22. WG2 AND WG3 · ONE SKELETON, TWO FIGHTS (`b3-ra-wg23`) | 63 | 25s |
 | 31. T+00:58 — The second stage is an agent. It gets out. (`b5-escalate`) | 65 | 25s |
 | 32. T+01:02 — 1 · Detect → 2 · Investigate → 3 · Propose, in 4.2 seconds (`b5-detect`) | 61 | 23s |
 | 13. AGENTIC CONTROL PLANE ONLINE (`b2-enable`) | 55 | 23s |
 | 26. 4 · Verify — the Verify Gate, writes #1–#3 (`b4-gate-pass`) | 44 | 23s |
-| 16. T+00:04 — Loads in the sandbox · self-attests healthy (`b2-load`) | 41 | 22s |

@@ -8,9 +8,9 @@
     "speed": 1.2,
     "notes": "Segment ids match Step.id in lib/steps.ts; audio is served from public/narration/<id>.mp3",
     "segments": 41,
-    "total_words": 1669,
-    "estimated_minutes": 11.1,
-    "recorded_minutes": 12
+    "total_words": 1696,
+    "estimated_minutes": 11.3,
+    "recorded_minutes": 12.1
   },
   "segments": [
     {
@@ -449,9 +449,9 @@
       "phase": "lanes",
       "title": "THE VENDOR CHALLENGE — THREE LANES",
       "pause": null,
-      "text": "To the vendor community. The reference implementation is in Git. Three lanes, matching the working groups. Pick your lane; nobody covers all three. Every control on the card carries its requirement number. Submit a five-to-ten-minute screen capture. It plays on loop, with office hours, and members vote best in show per lane.",
-      "words": 52,
-      "audio_seconds": 20.767347
+      "text": "To the vendor community: thank you. The reference implementation went to every sponsor in September, with three lanes matching the working groups, and nobody was asked to cover all three. Some twenty responses came back: five-to-ten-minute screen captures in the working groups' own terminology, every control tagged with its requirement number. They play on loop all Summit long, with office hours at the booths. Watch them. Ask to see the mechanism. Then vote best in show in each lane.",
+      "words": 79,
+      "audio_seconds": 30.040816
     },
     {
       "id": "finale",
