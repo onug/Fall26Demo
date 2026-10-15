@@ -1,6 +1,13 @@
 # Release Notes
 
-## v0.3.10 — The cuts, with a QR tile; the gap card speaks in the 25; Beat 5 closes on the whole journal (October 5, 2026)
+## After v0.3.10 — published (October 15, 2026)
+
+- **Merged and tagged on 15 October** after ten days in review as onug/Fall26Demo#14, with Peter's Drive package (a narrated MP4 of all 41 steps, the stills and the before-and-after script) in the Demo Fall 26 folder. No review comments arrived; Nick said "merge".
+- **Sponsor page rebuilt and live.** `pages/demo` was rebuilt from the merge with the public base path; the Pages deploy succeeded and the new clip is served while the retired ones return 404.
+- **Portal import open** as onug/collaborative#24 with the keynote config at v0.3.10 and two changed-because rows; suite green locally. Nick deploys after merge.
+- **Peter's drawing fixes ride along.** His caption corrections to the WG2 and WG3 drawings (merged on main between the 5th and the 15th) are the files the pair card shows.
+
+## v0.3.10 — The cuts, the WG2/WG3 pair card and a QR tile; the gap card speaks in controls; Beat 5 closes on the whole journal (October 5, 2026; merged October 15)
 
 From Nick and Peter's review call of 5 October (the recording is programme-internal and stays out of this repo).
 
@@ -8,8 +15,6 @@ From Nick and Peter's review call of 5 October (the recording is programme-inter
 - **The gap card names controls.** The control column now carries the control's name as the Beat 2 panel shows it (Artifact Provenance, Runtime Monitoring, Verify Gate, Detect → Decide, Identity Attestation, Kill Switch · Audit Journal) with one line on what it does in this story. Each row's place in the 25 (REG-2 · REG-5, RS-2, RS-1 with WG2's LOOP-4, RS-2 · RS-4, TF-1 · TF-4, RS-4 · RS-3) is recorded in `GAP_ROWS` for the WG1 reviewers but not shown: Nick cut the third column on seeing it. [Peter and Nick, 5 Oct: "those should be just controls, the name of the control"; Nick, later that evening: "remove the far right column"]
 - **Beat 5 closes on the full audit journal, full screen.** The summary step was a dashboard with the journal in a 240-pixel strip under the topology, which scrolled; it is now a card: all 24 entries from both battlegrounds at a size the back of the room can read, three facts beneath, and "One set of nine controls. One plane. Both fights." New phase `journal`, component `JournalCard`. [Peter, 5 Oct: "have the whole audit journal come up and replace this"; Nick: "let's do that"]
 - 36 clips re-recorded and one new (eleven_v4, stability 0.5, style 0.15), two deleted. New component `RAPairCard`, step field `raPair`. Illustrative numbers unchanged. The two retired drawings stay in `public/ra/` and `RA_CARDS` so a card can come back.
-- `pages/demo` is **not** rebuilt in this version; whoever merges it rebuilds the public copy, and the portal import follows.
-
 ## After v0.3.9 — published everywhere (October 5, 2026)
 
 - **All three copies say v0.3.9.** `pages/demo` was rebuilt from the merge and the Pages deploy succeeded; the live sponsor page carries the new Beat 7 card. The portal import (onug/collaborative #18) merged after its CI jobs twice died at exactly fifteen minutes with nothing failing and passed on the third run; Nick deployed revision 00220 and it carries all traffic.
