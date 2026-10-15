@@ -55,7 +55,7 @@ Two presenters: Nick plus one co-presenter. The demo narrates itself. You advanc
 | 38 | THIS IS ALREADY HAPPENING | EY · Cisco · Salesforce. Personal agent vs company agentic workflow. | **Pause 6** — greed, "don't be left behind" |
 | 39 | ONE PATH SHOWN. FIFTY-NINE CATALOGUED. | Baird's catalogue on one card: seven scenarios the room just watched, by beat; the eleven families the same controls address; the six only partly closed. Land the line: when a vendor claims full coverage, ask to see the mechanism. |  |
 | 40 | THE VENDOR CHALLENGE — THREE LANES | Three lanes, told as what happened: the challenge went out in September, some twenty responses came back, one lane each, 5–10 minute captures on loop with office hours. Ask to see the mechanism; vote in Whova. |  |
-| 41 | GO WATCH. GO VOTE. | GO WATCH. GO VOTE. Logo wall: practitioner members and founding members. Reviewers credited with marks. On screen and in narration: the Challenge Walks take you to the booths that built the demos; schedule in Slack. |  |
+| 41 | GO WATCH. GO VOTE. | GO WATCH. GO VOTE. Logo wall: practitioner members and founding members. Reviewers credited with marks. On screen and in narration: the Challenge Walks take you to the booths that built the demos; schedule and voting in the Whova app; the hope that this puts the room on the road to a secure agentic infrastructure and its own controlled autonomy. |  |
 
 ## Talking points at each pause
 

@@ -9,6 +9,7 @@ Nick, reviewing on 15 October for a stage screen of about 8 by 12 feet, 16:9, fl
 - **Two cards scaled by hand.** The Beat 1 gap card: title 48 px, rows 22 px, closing line 36 px, table 1600 px wide. The Beat 6 business-units card: box lines 16 px in near-white, agent names 24 px, stat figures 48 px with 17 px captions.
 - **"The pivot" was said twice** across the Beat 5 close and the Beat 6 opening. The Beat 6 clip now starts "Everything so far was the seatbelt." One clip re-recorded; runtime 12.0 minutes measured.
 - **The vendor-challenge card speaks in the past tense.** It had read as instructions to vendors, which went out weeks ago; now it tells the room what happened (the reference went to every sponsor in September, some twenty responses came back, one lane each) and what to expect (5–10 minute captures on loop, office hours at the booths, ask to see the mechanism, vote per lane). Narration, subtitle and the four mechanics tiles; one clip re-recorded. [Nick, 15 Oct]
+- **The finale points at Whova for both the schedule and the vote**, and closes on the hope: that this puts the room on the road to a secure agentic infrastructure and its own controlled autonomy. One clip re-recorded. [Nick, 15 Oct]
 - `pages/demo` rebuilt in this version.
 
 ## After v0.3.10 — published (October 15, 2026)

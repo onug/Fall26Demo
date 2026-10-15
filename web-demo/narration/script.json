@@ -8,9 +8,9 @@
     "speed": 1.2,
     "notes": "Segment ids match Step.id in lib/steps.ts; audio is served from public/narration/<id>.mp3",
     "segments": 41,
-    "total_words": 1696,
-    "estimated_minutes": 11.3,
-    "recorded_minutes": 12.1
+    "total_words": 1731,
+    "estimated_minutes": 11.5,
+    "recorded_minutes": 12.3
   },
   "segments": [
     {
@@ -460,9 +460,9 @@
       "phase": "title",
       "title": "GO WATCH. GO VOTE.",
       "pause": null,
-      "text": "One control plane, every domain. The vendor demos play in the networking areas and the Collaborative Center all Summit long, and the Challenge Walks take you to the booths that built them. Vote for best in show in each lane. To the founding members and the practitioners who shaped this: thank you.",
-      "words": 52,
-      "audio_seconds": 17.867755
+      "text": "One control plane, every domain. The vendor demos play in the networking areas and the Collaborative Center all Summit long, and the Challenge Walks take you to the booths that built them. The schedule is in the Whova app, and that is where you vote for best in show in each lane. Our hope is that this puts you on the road to a secure agentic infrastructure, so you can build your own controlled autonomy. To the founding members and the practitioners who shaped this: thank you.",
+      "words": 87,
+      "audio_seconds": 28.107755
     }
   ]
 }
