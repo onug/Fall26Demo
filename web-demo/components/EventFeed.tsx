@@ -39,9 +39,9 @@ function eventIcon(type: EventEntry['type']): string {
 function trustBadge(trusted?: boolean): React.ReactNode {
   if (trusted === undefined) return null;
   return trusted ? (
-    <span className="text-[10px] font-bold text-blue-400 bg-blue-400/10 px-1 rounded mr-1">TRUSTED</span>
+    <span className="text-[13px] font-bold text-blue-400 bg-blue-400/10 px-1 rounded mr-1">TRUSTED</span>
   ) : (
-    <span className="text-[10px] font-bold text-fuchsia-400 bg-fuchsia-400/10 px-1 rounded mr-1">UNTRUSTED</span>
+    <span className="text-[13px] font-bold text-fuchsia-400 bg-fuchsia-400/10 px-1 rounded mr-1">UNTRUSTED</span>
   );
 }
 
@@ -56,9 +56,9 @@ export default function EventFeed({ events }: EventFeedProps) {
     <div className="h-full flex flex-col bg-gray-900/50 rounded-lg border border-gray-800">
       <div className="px-3 py-2 border-b border-gray-800 flex-shrink-0 flex items-center justify-between">
         <h2 className="text-xs font-bold uppercase tracking-widest text-gray-500">Event Feed</h2>
-        <span className="text-[10px] text-gray-600 font-mono">{events.length}</span>
+        <span className="text-[13px] text-gray-600 font-mono">{events.length}</span>
       </div>
-      <div className="flex-1 overflow-y-auto px-2 py-1 font-mono text-[11px] leading-relaxed space-y-0.5">
+      <div className="flex-1 overflow-y-auto px-2 py-1 font-mono text-[14px] leading-relaxed space-y-0.5">
         <AnimatePresence initial={false}>
           {events.map((e) => (
             <motion.div

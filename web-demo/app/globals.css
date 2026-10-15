@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
+/* Stage legibility (Nick, 15 Oct 2026): the keynote screen is about 8 by 12 feet, floor to
+   ceiling, 16:9. Two overrides so every card inherits them: the grey text scale is lifted so
+   "secondary" text still reads white-ish on a projector, and the two smallest named sizes are
+   raised. Borders and backgrounds use gray-700 and darker, which are untouched. */
+@theme {
+  --color-gray-100: #ffffff;
+  --color-gray-200: #f5f6f8;
+  --color-gray-300: #e8eaee;
+  --color-gray-400: #d3d7de;
+  --color-gray-500: #b9bfc9;
+  --color-gray-600: #9aa1ad;
+  --text-xs: 0.875rem;
+  --text-xs--line-height: 1.25rem;
+  --text-sm: 1rem;
+  --text-sm--line-height: 1.5rem;
+}
+
 :root {
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --color-rogue: #ef4444;

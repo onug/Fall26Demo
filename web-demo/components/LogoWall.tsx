@@ -36,11 +36,11 @@ export default function LogoWall({ mode, delay = 0.8 }: LogoWallProps) {
   if (mode === 'strip') {
     return (
       <div className="space-y-2.5">
-        <p className="text-[10px] uppercase tracking-[0.3em] text-gray-500">ONUG Collaborative · practitioner members</p>
+        <p className="text-[13px] uppercase tracking-[0.3em] text-gray-500">ONUG Collaborative · practitioner members</p>
         <div className="flex flex-wrap items-center justify-center gap-2 max-w-6xl mx-auto">
           {PRACTITIONER_MEMBERS.map((m, i) => <Tile key={m.name} m={m} size="sm" i={i} delay={delay} />)}
         </div>
-        <p className="text-[10px] uppercase tracking-[0.3em] text-gray-500 pt-1">founding members</p>
+        <p className="text-[13px] uppercase tracking-[0.3em] text-gray-500 pt-1">founding members</p>
         <div className="flex flex-wrap items-center justify-center gap-2 max-w-6xl mx-auto">
           {FOUNDING_MEMBERS.map((m, i) => <Tile key={m.name} m={m} size="sm" i={i} delay={delay + PRACTITIONER_MEMBERS.length * 0.06} />)}
         </div>
@@ -50,13 +50,13 @@ export default function LogoWall({ mode, delay = 0.8 }: LogoWallProps) {
   return (
     <div className="space-y-5">
       <div className="space-y-2">
-        <p className="text-[11px] uppercase tracking-[0.3em] text-gray-400">Practitioner members</p>
+        <p className="text-[14px] uppercase tracking-[0.3em] text-gray-400">Practitioner members</p>
         <div className="flex flex-wrap items-center justify-center gap-3 max-w-6xl mx-auto">
           {PRACTITIONER_MEMBERS.map((m, i) => <Tile key={m.name} m={m} size="lg" i={i} delay={delay} />)}
         </div>
       </div>
       <div className="space-y-2">
-        <p className="text-[11px] uppercase tracking-[0.3em] text-gray-400">Founding members</p>
+        <p className="text-[14px] uppercase tracking-[0.3em] text-gray-400">Founding members</p>
         <div className="flex flex-wrap items-center justify-center gap-3 max-w-6xl mx-auto">
           {FOUNDING_MEMBERS.map((m, i) => <Tile key={m.name} m={m} size="lg" i={i} delay={delay + PRACTITIONER_MEMBERS.length * 0.06} />)}
         </div>

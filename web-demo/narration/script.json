@@ -8,9 +8,9 @@
     "speed": 1.2,
     "notes": "Segment ids match Step.id in lib/steps.ts; audio is served from public/narration/<id>.mp3",
     "segments": 41,
-    "total_words": 1671,
-    "estimated_minutes": 11.1,
-    "recorded_minutes": 12
+    "total_words": 1726,
+    "estimated_minutes": 11.5,
+    "recorded_minutes": 12.3
   },
   "segments": [
     {
@@ -405,9 +405,9 @@
       "phase": "title",
       "title": "FROM SEATBELT TO ACCELERATOR",
       "pause": null,
-      "text": "The pivot. Everything so far was the seatbelt. Once the control plane exists, business units stop asking permission and start building their own agentic systems on top of it, safely. Infrastructure and security become the enabler.",
-      "words": 36,
-      "audio_seconds": 14.994286
+      "text": "Everything so far was the seatbelt. Once the control plane exists, business units stop asking permission and start building their own agentic systems on top of it, safely. Infrastructure and security become the enabler.",
+      "words": 34,
+      "audio_seconds": 14.106122
     },
     {
       "id": "b6-build",
@@ -449,9 +449,9 @@
       "phase": "lanes",
       "title": "THE VENDOR CHALLENGE — THREE LANES",
       "pause": null,
-      "text": "To the vendor community. The reference implementation is in Git. Three lanes, matching the working groups. Pick your lane; nobody covers all three. Every control on the card carries its requirement number. Submit a five-to-ten-minute screen capture. It plays on loop, with office hours, and members vote best in show per lane.",
-      "words": 52,
-      "audio_seconds": 20.767347
+      "text": "To the vendor community: thank you. The reference implementation went to every sponsor in September, with three lanes matching the working groups, and nobody was asked to cover all three. Some twenty responses came back: five-to-ten-minute screen captures in the working groups' own terminology, every control tagged with its requirement number. That is what is waiting for you on the floor.",
+      "words": 61,
+      "audio_seconds": 23.719184
     },
     {
       "id": "finale",
@@ -460,9 +460,9 @@
       "phase": "title",
       "title": "GO WATCH. GO VOTE.",
       "pause": null,
-      "text": "One control plane, every domain. The vendor demos play in the networking areas and the Collaborative Center all Summit long, and the Challenge Walks take you to the booths that built them. Vote for best in show in each lane. To the founding members and the practitioners who shaped this: thank you.",
-      "words": 52,
-      "audio_seconds": 17.867755
+      "text": "One control plane, every domain. The vendor demos play on loop in the networking areas and the Collaborative Center all Summit long, and the Challenge Walks take you to the booths that built them, with office hours. The schedule is in the Whova app, and that is where you vote for best in show in each lane. Watch them, and ask to see the mechanism. Our hope is that this puts you on the road to a secure agentic infrastructure, so you can build your own controlled autonomy. To the founding members and the practitioners who shaped this: thank you.",
+      "words": 100,
+      "audio_seconds": 32.992653
     }
   ]
 }

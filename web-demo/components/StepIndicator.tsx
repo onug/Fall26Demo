@@ -33,7 +33,7 @@ export default function StepIndicator({ currentStep, totalSteps, beat, stepTitle
 
   return (
     <div className="h-full flex items-center gap-4 px-4 bg-gray-900/50 rounded-lg border border-gray-800">
-      <div className="hidden lg:flex items-center gap-2 text-gray-600 text-[10px] font-mono flex-shrink-0">
+      <div className="hidden lg:flex items-center gap-2 text-gray-600 text-[13px] font-mono flex-shrink-0">
         <kbd className="px-1.5 py-0.5 bg-gray-800 rounded text-gray-400 border border-gray-700">&larr;</kbd>
         <kbd className="px-1.5 py-0.5 bg-gray-800 rounded text-gray-400 border border-gray-700">&rarr;</kbd>
         <span>navigate</span>
@@ -73,7 +73,7 @@ export default function StepIndicator({ currentStep, totalSteps, beat, stepTitle
       </div>
 
       {label && (
-        <span className={`hidden sm:inline text-[10px] font-bold uppercase tracking-wider ${text} flex-shrink-0`}>{label}</span>
+        <span className={`hidden sm:inline text-[13px] font-bold uppercase tracking-wider ${text} flex-shrink-0`}>{label}</span>
       )}
 
       <span className="hidden sm:block text-xs text-gray-400 truncate flex-1 min-w-0">{stepTitle}</span>
@@ -87,7 +87,7 @@ export default function StepIndicator({ currentStep, totalSteps, beat, stepTitle
             transition={{ duration: 0.3 }}
           />
         </div>
-        <span className="text-[11px] font-mono text-gray-500 w-10 text-right">
+        <span className="text-[14px] font-mono text-gray-500 w-10 text-right">
           {currentStep + 1}/{totalSteps}
         </span>
       </div>

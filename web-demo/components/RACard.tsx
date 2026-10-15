@@ -28,7 +28,7 @@ export default function RACard({ ra, title }: RACardProps) {
         </div>
         <div className="text-right">
           <div className="text-sm font-bold text-gray-300">{card.title}</div>
-          <div className="text-[11px] font-mono text-gray-500">{card.version}</div>
+          <div className="text-[14px] font-mono text-gray-500">{card.version}</div>
         </div>
       </div>
 
@@ -51,15 +51,15 @@ export default function RACard({ ra, title }: RACardProps) {
           className="flex-[1.15] min-w-[300px] max-w-[440px] flex flex-col gap-3"
         >
           <div className="rounded-xl border border-gray-800 bg-gray-900/60 p-4">
-            <div className="text-[10px] uppercase tracking-widest text-gray-500 mb-1">Planning phase</div>
+            <div className="text-[13px] uppercase tracking-widest text-gray-500 mb-1">Planning phase</div>
             <div className="text-sm text-gray-200 leading-snug">{card.planning}</div>
           </div>
           <div className="rounded-xl border border-gray-800 bg-gray-900/60 p-4">
-            <div className="text-[10px] uppercase tracking-widest text-gray-500 mb-1">Execution phase</div>
+            <div className="text-[13px] uppercase tracking-widest text-gray-500 mb-1">Execution phase</div>
             <div className="text-sm text-gray-200 leading-snug">{card.execution}</div>
           </div>
           <div className="rounded-xl border p-4" style={{ borderColor: `${card.color}90`, backgroundColor: `${card.color}12` }}>
-            <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: card.color }}>The gate</div>
+            <div className="text-[13px] uppercase tracking-widest mb-1" style={{ color: card.color }}>The gate</div>
             <div className="text-sm font-bold text-gray-100 leading-snug">{card.gate}</div>
           </div>
           {card.qr && (
@@ -72,9 +72,9 @@ export default function RACard({ ra, title }: RACardProps) {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={asset(card.qr.file)} alt={`QR code: ${card.qr.url}`} className="w-24 h-24 flex-shrink-0" />
               <div className="min-w-0">
-                <div className="text-[10px] uppercase tracking-widest text-gray-500 mb-1">The report pack</div>
-                <div className="text-[13px] font-bold text-gray-900 leading-snug">{card.qr.label}</div>
-                <div className="text-[12px] font-mono text-gray-600 mt-1">{card.qr.url}</div>
+                <div className="text-[13px] uppercase tracking-widest text-gray-500 mb-1">The report pack</div>
+                <div className="text-[15px] font-bold text-gray-900 leading-snug">{card.qr.label}</div>
+                <div className="text-[14px] font-mono text-gray-600 mt-1">{card.qr.url}</div>
               </div>
             </motion.div>
           )}
@@ -85,7 +85,7 @@ export default function RACard({ ra, title }: RACardProps) {
                 initial={{ opacity: 0, x: 10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.7 + i * 0.25 }}
-                className="text-[12.5px] text-gray-400 leading-snug flex gap-2"
+                className="text-[15px] text-gray-400 leading-snug flex gap-2"
               >
                 <span style={{ color: card.color }}>▸</span><span>{l}</span>
               </motion.li>

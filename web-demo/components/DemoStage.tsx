@@ -308,7 +308,7 @@ export default function DemoStage() {
             <span className="hidden lg:inline">ONUG Fall 2026 · One Control Plane, Every Domain</span>
           </h1>
           {beatLabel && (
-            <span className={`text-[11px] font-bold px-2 py-0.5 rounded tracking-wider ${
+            <span className={`text-[14px] font-bold px-2 py-0.5 rounded tracking-wider ${
               beatTone === 'fear' ? 'bg-red-500/20 text-red-400'
                 : beatTone === 'greed' ? 'bg-purple-500/20 text-purple-300'
                 : 'bg-orange-500/20 text-orange-300'
@@ -413,7 +413,7 @@ export default function DemoStage() {
           </div>
 
           {/* Right: control plane + impact */}
-          <div className="w-full order-2 lg:order-none lg:w-72 flex-shrink-0 flex flex-col gap-2 min-h-0">
+          <div className="w-full order-2 lg:order-none lg:w-80 flex-shrink-0 flex flex-col gap-2 min-h-0">
             <ControlPlanePanel
               controls={state.controls}
               enforcing={state.enforcingControls}

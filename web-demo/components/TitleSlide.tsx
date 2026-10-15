@@ -87,7 +87,7 @@ export default function TitleSlide({ title, subtitle, beat, contributors, logos,
                 transition={{ delay: logos === 'wall' ? 2.4 : 1.6, duration: 0.5 }}
                 className={logos === 'wall' ? 'mb-4' : 'mb-6'}
               >
-                <p className="text-[10px] uppercase tracking-[0.3em] text-gray-500 mb-2">Reviewed by the practitioners</p>
+                <p className="text-[13px] uppercase tracking-[0.3em] text-gray-500 mb-2">Reviewed by the practitioners</p>
                 <div className="flex flex-wrap items-center justify-center gap-3">
                   {REVIEWERS.map(r => (
                     <div key={r.name} className="flex items-center gap-2.5 rounded-md border border-gray-800 bg-gray-900/60 pl-1.5 pr-3 py-1.5">
@@ -97,7 +97,7 @@ export default function TitleSlide({ title, subtitle, beat, contributors, logos,
                       </span>
                       <span className="text-left leading-tight">
                         <span className="block text-sm text-gray-200">{r.name}</span>
-                        <span className="block text-[10px] uppercase tracking-wider text-gray-500">{r.org}</span>
+                        <span className="block text-[13px] uppercase tracking-wider text-gray-500">{r.org}</span>
                       </span>
                     </div>
                   ))}

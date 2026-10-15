@@ -431,8 +431,8 @@ export const REVIEWERS: { name: string; org: string; file: string }[] = [
 ];
 
 export const VENDOR_MECHANICS = [
-  { k: '1', t: 'Fork the reference', d: 'github.com/onug/Fall26Demo · use the working-group terminology' },
-  { k: '2', t: 'Pick your lane', d: 'one lane is the structure, not a concession' },
-  { k: '3', t: 'Submit a 5–10 minute MP4', d: 'screen capture · on loop in the showcase theatre · presentation schedule · office hours' },
-  { k: '4', t: 'Best in Show, per lane', d: 'attending members vote in the Whova app' },
+  { k: '1', t: 'They forked the reference', d: 'github.com/onug/Fall26Demo · the working groups\' own terminology' },
+  { k: '2', t: 'Each picked a lane', d: 'one lane is the structure, not a concession' },
+  { k: '3', t: 'Some 20 responses', d: '5–10 minute screen captures of a working implementation' },
+  { k: '4', t: 'Every control numbered', d: 'tagged to its requirement in the 25, so you can compare like with like' },
 ];

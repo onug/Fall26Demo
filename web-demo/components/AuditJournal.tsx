@@ -36,11 +36,11 @@ export default function AuditJournal({ entries, visible }: AuditJournalProps) {
           <div className="px-3 py-2 border-b border-gray-800 flex items-center gap-2">
             <span className="text-base">{'📋'}</span>
             <h2 className="text-xs font-bold uppercase tracking-widest text-cyan-400">Immutable Audit Journal</h2>
-            <span className="text-[10px] text-gray-500 font-mono">append-only · hash-chained · agents have no read/write path</span>
-            <span className="text-[10px] text-gray-500 ml-auto">{entries.length} entries</span>
+            <span className="text-[13px] text-gray-500 font-mono">append-only · hash-chained · agents have no read/write path</span>
+            <span className="text-[13px] text-gray-500 ml-auto">{entries.length} entries</span>
           </div>
           <div className="overflow-auto max-h-[240px]">
-            <table className="w-full text-[11px] font-mono">
+            <table className="w-full text-[14px] font-mono">
               <thead>
                 <tr className="text-gray-500 border-b border-gray-800">
                   <th className="px-3 py-1.5 text-left sticky top-0 bg-gray-900 z-10">T+</th>

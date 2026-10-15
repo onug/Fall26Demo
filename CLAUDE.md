@@ -107,6 +107,7 @@ web-demo/
 - **Ten minutes of audio.** Nick's target (15 Sep 2026). `npm run narration:export` reports recorded minutes; keep it near 10. Measured from the clips it was 13.8 minutes from v0.3.6 (eleven_v4 plus `b2-everyday`) until v0.3.10 trimmed 34 steps and replaced two cards with one: 12.0. Nick accepted that on 5 Oct 2026 rather than thin every beat. At this voice's pace, 0.43 s per word, ten minutes is about 1,390 words. A new narration line comes with a cut elsewhere.
 - **Illustrative numbers.** Device counts, dollar exposure, dwell time, ransom figures, detect-to-decide seconds are demo-defined. Keep them consistent across `steps.ts`, the presenter guide, and the release notes when changing one.
 - **Presentation-first code.** Readability during a live demo beats production patterns.
+- **Stage legibility (v0.3.11, 15 Oct 2026).** The keynote screen is about 8 by 12 feet, floor to ceiling. `app/globals.css` overrides Tailwind's gray-100 to gray-600 (lighter) and raises `text-xs`/`text-sm` to 14/16 px, so every component inherits the fix; the smallest pixel size in any component is 13 px. Do not reintroduce `text-[10px]`-class labels or gray-500 body text; if a panel no longer fits, tighten padding or widen the column (the dashboard's right column is 320 px for this reason) rather than shrinking the type. Walk every step at 1920×1080 after a type change: the Beat 5 journal must show all 24 rows, the dashboard's impact figures must not scroll.
 
 ## Working agreements
 

@@ -37,14 +37,14 @@ export default function VerifyGatePanel({ proposal }: VerifyGatePanelProps) {
       <div className="px-3 py-2 border-b border-gray-800 flex items-center gap-3">
         <span className="text-orange-400 text-base">{'◈'}</span>
         <h2 className="text-xs font-bold uppercase tracking-widest text-orange-300">Verify Gate</h2>
-        <span className="text-[11px] text-gray-300 truncate flex-1">{proposal.title}</span>
-        <span className="text-[10px] text-gray-500 font-mono">requested by {proposal.requestedBy}</span>
+        <span className="text-[14px] text-gray-300 truncate flex-1">{proposal.title}</span>
+        <span className="text-[13px] text-gray-500 font-mono">requested by {proposal.requestedBy}</span>
         {proposal.verdict && (
           <motion.span
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: proposal.checks.length * 0.35 + 0.2, type: 'spring', stiffness: 400, damping: 20 }}
-            className={`text-[11px] font-bold px-2.5 py-0.5 rounded border ${verdictStyle(proposal.verdict)}`}
+            className={`text-[14px] font-bold px-2.5 py-0.5 rounded border ${verdictStyle(proposal.verdict)}`}
           >
             {proposal.verdict}
           </motion.span>
@@ -70,9 +70,9 @@ export default function VerifyGatePanel({ proposal }: VerifyGatePanelProps) {
                 >
                   {s.icon}
                 </motion.span>
-                <span className={`text-[11px] font-bold uppercase tracking-wide ${s.color}`}>{c.label}</span>
+                <span className={`text-[14px] font-bold uppercase tracking-wide ${s.color}`}>{c.label}</span>
               </div>
-              <div className="text-[10px] text-gray-400 font-mono leading-snug">{c.detail}</div>
+              <div className="text-[13px] text-gray-400 font-mono leading-snug">{c.detail}</div>
             </motion.div>
           );
         })}

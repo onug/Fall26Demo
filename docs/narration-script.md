@@ -5,8 +5,8 @@ _Generated from `web-demo/lib/steps.ts` by `scripts/export-script.mjs`. Do not e
 | | |
 |---|---|
 | Steps with narration | 41 |
-| Words | 1671 (~11.1 min at 150 wpm) |
-| Recorded audio | 12 min |
+| Words | 1726 (~11.5 min at 150 wpm) |
+| Recorded audio | 12.3 min |
 | Voice | Nick Lippis (cloned) · ElevenLabs `16VamcPQIJBvVLoE1Zss` · eleven_v4 · speed 1.2 |
 | Presenter pauses | 0 |
 
@@ -245,9 +245,9 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 36. FROM SEATBELT TO ACCELERATOR
 
-`b6-title` · title · 36 words · audio 15s
+`b6-title` · title · 34 words · audio 14s
 
-> The pivot. Everything so far was the seatbelt. Once the control plane exists, business units stop asking permission and start building their own agentic systems on top of it, safely. Infrastructure and security become the enabler.
+> Everything so far was the seatbelt. Once the control plane exists, business units stop asking permission and start building their own agentic systems on top of it, safely. Infrastructure and security become the enabler.
 
 ### 37. BUSINESS UNITS BUILD ON THE CONTROL PLANE
 
@@ -272,26 +272,26 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 40. THE VENDOR CHALLENGE — THREE LANES
 
-`b7-lanes` · lanes · 52 words · audio 21s
+`b7-lanes` · lanes · 61 words · audio 24s
 
-> To the vendor community. The reference implementation is in Git. Three lanes, matching the working groups. Pick your lane; nobody covers all three. Every control on the card carries its requirement number. Submit a five-to-ten-minute screen capture. It plays on loop, with office hours, and members vote best in show per lane.
+> To the vendor community: thank you. The reference implementation went to every sponsor in September, with three lanes matching the working groups, and nobody was asked to cover all three. Some twenty responses came back: five-to-ten-minute screen captures in the working groups' own terminology, every control tagged with its requirement number. That is what is waiting for you on the floor.
 
 ### 41. GO WATCH. GO VOTE.
 
-`finale` · title · 52 words · audio 18s
+`finale` · title · 100 words · audio 33s
 
-> One control plane, every domain. The vendor demos play in the networking areas and the Collaborative Center all Summit long, and the Challenge Walks take you to the booths that built them. Vote for best in show in each lane. To the founding members and the practitioners who shaped this: thank you.
+> One control plane, every domain. The vendor demos play on loop in the networking areas and the Collaborative Center all Summit long, and the Challenge Walks take you to the booths that built them, with office hours. The schedule is in the Whova app, and that is where you vote for best in show in each lane. Watch them, and ask to see the mechanism. Our hope is that this puts you on the road to a secure agentic infrastructure, so you can build your own controlled autonomy. To the founding members and the practitioners who shaped this: thank you.
 
 
 ## Longest segments
 
 | Step | Words | Audio |
 |---|---:|---:|
+| 41. GO WATCH. GO VOTE. (`finale`) | 100 | 33s |
 | 38. THIS IS ALREADY HAPPENING (`b6-proof`) | 73 | 32s |
 | 39. ONE PATH SHOWN. FIFTY-NINE CATALOGUED. (`b7-threats`) | 67 | 29s |
 | 22. WG2 AND WG3 · ONE SKELETON, TWO FIGHTS (`b3-ra-wg23`) | 63 | 25s |
 | 31. T+00:58 — The second stage is an agent. It gets out. (`b5-escalate`) | 65 | 25s |
+| 40. THE VENDOR CHALLENGE — THREE LANES (`b7-lanes`) | 61 | 24s |
 | 32. T+01:02 — 1 · Detect → 2 · Investigate → 3 · Propose, in 4.2 seconds (`b5-detect`) | 61 | 23s |
 | 13. AGENTIC CONTROL PLANE ONLINE (`b2-enable`) | 55 | 23s |
-| 26. 4 · Verify — the Verify Gate, writes #1–#3 (`b4-gate-pass`) | 44 | 23s |
-| 16. T+00:04 — Loads in the sandbox · self-attests healthy (`b2-load`) | 41 | 22s |
