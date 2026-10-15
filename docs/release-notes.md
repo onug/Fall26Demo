@@ -1,5 +1,12 @@
 # Release Notes
 
+## After v0.3.11 — published (October 15, 2026)
+
+- **Merged and tagged on 15 October** as onug/Fall26Demo#17 after Nick walked the preview; the sponsor page deployed from the merge and serves the new finale clip.
+- **Portal import merged** as onug/collaborative#24 (which began as the v0.3.10 import and carries both versions): keynote config at v0.3.11 with three changed-because rows, CI green on the first run. Nick deploys; until then members see v0.3.9, because the morning's deploy ran before any import had merged.
+- **On the day:** press F for full screen and T to hide the narration text, which gives the content the whole frame on a floor-to-ceiling screen.
+- **Open:** the vendor count ("some twenty") against the tracker's 19 intents and the videos due 19 October; Baird's catalogue expansion; eBay's and Huntington's artwork.
+
 ## v0.3.11 — Readable from the back of the room (October 15, 2026)
 
 Nick, reviewing on 15 October for a stage screen of about 8 by 12 feet, 16:9, floor to ceiling under a low ceiling: "white text against black is not white enough" and the small labels could not be read. Every step was walked at 1920×1080 afterwards.
