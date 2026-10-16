@@ -1,5 +1,10 @@
 # Release Notes
 
+## After v0.3.12 — published everywhere (October 16, 2026)
+
+- **All three copies say v0.3.12.** onug/Fall26Demo#18 merged and tagged; the sponsor page rebuilt from the merge and serves the re-recorded finale (517,058 bytes, the same file as the source). The portal import merged as onug/collaborative#25 with CI green on the first run, and the portal's revision collab-feed-00234 now carries all traffic.
+- **Open:** the vendor count ("some twenty") against the tracker's 19 intents and the videos due 19 October; Baird's catalogue expansion; eBay's and Huntington's artwork.
+
 ## v0.3.12 — Governed autonomy (October 16, 2026)
 
 - **The finale's closing idea is "governed autonomy"**, on screen and in the clip, where v0.3.11 said "controlled autonomy". Nick's word, the morning after the legibility pass shipped. One clip re-recorded; runtime unchanged at 12.3 minutes. `pages/demo` rebuilt in this version. [Nick, 16 Oct]
