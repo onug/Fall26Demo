@@ -278,17 +278,17 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ### 41. GO WATCH. GO VOTE.
 
-`finale` · title · 100 words · audio 33s
+`finale` · title · 100 words · audio 32s
 
-> One control plane, every domain. The vendor demos play on loop in the networking areas and the Collaborative Center all Summit long, and the Challenge Walks take you to the booths that built them, with office hours. The schedule is in the Whova app, and that is where you vote for best in show in each lane. Watch them, and ask to see the mechanism. Our hope is that this puts you on the road to a secure agentic infrastructure, so you can build your own controlled autonomy. To the founding members and the practitioners who shaped this: thank you.
+> One control plane, every domain. The vendor demos play on loop in the networking areas and the Collaborative Center all Summit long, and the Challenge Walks take you to the booths that built them, with office hours. The schedule is in the Whova app, and that is where you vote for best in show in each lane. Watch them, and ask to see the mechanism. Our hope is that this puts you on the road to a secure agentic infrastructure, so you can build your own governed autonomy. To the founding members and the practitioners who shaped this: thank you.
 
 
 ## Longest segments
 
 | Step | Words | Audio |
 |---|---:|---:|
-| 41. GO WATCH. GO VOTE. (`finale`) | 100 | 33s |
 | 38. THIS IS ALREADY HAPPENING (`b6-proof`) | 73 | 32s |
+| 41. GO WATCH. GO VOTE. (`finale`) | 100 | 32s |
 | 39. ONE PATH SHOWN. FIFTY-NINE CATALOGUED. (`b7-threats`) | 67 | 29s |
 | 22. WG2 AND WG3 · ONE SKELETON, TWO FIGHTS (`b3-ra-wg23`) | 63 | 25s |
 | 31. T+00:58 — The second stage is an agent. It gets out. (`b5-escalate`) | 65 | 25s |
