@@ -1,5 +1,9 @@
 # Release Notes
 
+## v0.3.12 — Governed autonomy (October 16, 2026)
+
+- **The finale's closing idea is "governed autonomy"**, on screen and in the clip, where v0.3.11 said "controlled autonomy". Nick's word, the morning after the legibility pass shipped. One clip re-recorded; runtime unchanged at 12.3 minutes. `pages/demo` rebuilt in this version. [Nick, 16 Oct]
+
 ## After v0.3.11 — published (October 15, 2026)
 
 - **Merged and tagged on 15 October** as onug/Fall26Demo#17 after Nick walked the preview; the sponsor page deployed from the merge and serves the new finale clip.
