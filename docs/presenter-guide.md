@@ -1,6 +1,6 @@
 # Presenter Guide — "One Control Plane, Every Domain"
 
-ONUG Fall AI Networking Summit · New York City · October 28, 2026 · Keynote demo, about 12 minutes of recorded narration plus the pauses.
+ONUG Fall AI Networking Summit · New York City · October 28, 2026 · Keynote demo, about 12 minutes of recorded narration plus the pauses; the threat card (step 39) has no voice and is talked to live.
 
 Two presenters: Nick plus one co-presenter. The demo narrates itself. You advance it with `Space` and stop at the six marked pause points to talk to the room. Nothing auto-advances.
 
@@ -53,7 +53,7 @@ Two presenters: Nick plus one co-presenter. The demo narrates itself. You advanc
 | 36 | FROM SEATBELT TO ACCELERATOR | The pivot. |  |
 | 37 | BUSINESS UNITS BUILD ON THE CONTROL PLANE | Four BU agents plug in with persona + identity. 6 weeks → 4 days. |  |
 | 38 | THIS IS ALREADY HAPPENING | EY · Cisco · Salesforce. Personal agent vs company agentic workflow. | **Pause 6** — greed, "don't be left behind" |
-| 39 | ONE PATH SHOWN. FIFTY-NINE CATALOGUED. | Baird's catalogue on one card: seven scenarios the room just watched, by beat; the eleven families the same controls address; the six only partly closed. Land the line: when a vendor claims full coverage, ask to see the mechanism. |  |
+| 39 | ONE PATH SHOWN. FIFTY-NINE CATALOGUED. | No recorded voice: Nick and Peter talk to this card. Baird's catalogue on one card: seven scenarios the room just watched, by beat; the eleven families the same controls address; the six only partly closed. Land the line: when a vendor claims full coverage, ask to see the mechanism. |  |
 | 40 | THE VENDOR CHALLENGE — THREE LANES | Three lanes, told as what happened: the challenge went out in September, some twenty responses came back, one lane each, 5–10 minute captures, every control numbered. No directions here; they are on the finale. |  |
 | 41 | GO WATCH. GO VOTE. | GO WATCH. GO VOTE. Logo wall: practitioner members and founding members. Reviewers credited with marks. On screen and in narration: the demos on loop all Summit long, the Challenge Walks with office hours, ask to see the mechanism, schedule and voting in the Whova app; the hope that this puts the room on the road to a secure agentic infrastructure and its own governed autonomy. |  |
 

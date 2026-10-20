@@ -1,5 +1,10 @@
 # Release Notes
 
+## v0.3.13 — The threat card goes silent (October 20, 2026)
+
+- **No recorded voice on the Beat 7 threat card.** Nick and Peter talk to it live. The step carries `silent: true`, its clip is gone, and QA knows a silent step is deliberate. 40 narrated steps, 11.8 minutes measured (was 41 and 12.3). [Nick, 20 Oct]
+- `pages/demo` rebuilt in this version.
+
 ## After v0.3.12 — published everywhere (October 16, 2026)
 
 - **All three copies say v0.3.12.** onug/Fall26Demo#18 merged and tagged; the sponsor page rebuilt from the merge and serves the re-recorded finale (517,058 bytes, the same file as the source). The portal import merged as onug/collaborative#25 with CI green on the first run, and the portal's revision collab-feed-00234 now carries all traffic.

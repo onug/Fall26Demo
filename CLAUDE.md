@@ -77,7 +77,7 @@ web-demo/
 
 **Controls.** Nine capabilities, not the Dallas six. WG1: identity, artifact provenance, runtime monitoring, audit journal, kill switch. WG2: verify gate, autonomy levels. WG3: detect→decide, deliberate containment. The demo never enumerates the 25 WG1 requirements on stage (25: Nick's decision, 18 Sep 2026, and Peter's published report pack calls them "The 25"; the demo said 24 from v0.3.2 to v0.3.7 after Peter's note of 16 Sep. The on-stage number is Nick's to set; do not change it again without him); AOMC is the vehicle, not the checklist.
 
-**Narration.** Every step has `narration` text. Playback (`lib/audio.ts`) tries the MP3 for the step id and falls back to `speechSynthesis`. The `id` is therefore a contract: renaming a step id orphans its audio.
+**Narration.** Every step has `narration` text, except a step marked `silent: true` (the Beat 7 threat card since v0.3.13: the presenters talk to it, and QA accepts the missing clip only because of the flag). Playback (`lib/audio.ts`) tries the MP3 for the step id and falls back to `speechSynthesis`. The `id` is therefore a contract: renaming a step id orphans its audio.
 
 ## Common tasks
 

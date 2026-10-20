@@ -828,7 +828,7 @@ export const STEPS: Step[] = [
     beat: 7,
     phase: 'threats',
     title: 'ONE PATH SHOWN. FIFTY-NINE CATALOGUED.',
-    narration: "The demo showed one path in. Working group one has catalogued fifty-nine. You just watched seven of them: a poisoned component, standing privilege, self-attestation, a tamperable audit trail, an irreversible action with no human, token replay, and the consumer-delegated agent. The same controls address the rest, eleven families in all. And six stay only partly closed. When a vendor claims full coverage, ask to see the mechanism.",
+    silent: true,   // Nick and Peter talk to this card (Nick, 20 Oct 2026); no clip
     events: [],
     topologyChanges: [],
   },

@@ -4,9 +4,9 @@ _Generated from `web-demo/lib/steps.ts` by `scripts/export-script.mjs`. Do not e
 
 | | |
 |---|---|
-| Steps with narration | 41 |
-| Words | 1726 (~11.5 min at 150 wpm) |
-| Recorded audio | 12.3 min |
+| Steps with narration | 40 |
+| Words | 1659 (~11.1 min at 150 wpm) |
+| Recorded audio | 11.8 min |
 | Voice | Nick Lippis (cloned) · ElevenLabs `16VamcPQIJBvVLoE1Zss` · eleven_v4 · speed 1.2 |
 | Presenter pauses | 0 |
 
@@ -264,12 +264,6 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 
 ## BEAT 7 · THE CHALLENGE
 
-### 39. ONE PATH SHOWN. FIFTY-NINE CATALOGUED.
-
-`b7-threats` · threats · 67 words · audio 29s
-
-> The demo showed one path in. Working group one has catalogued fifty-nine. You just watched seven of them: a poisoned component, standing privilege, self-attestation, a tamperable audit trail, an irreversible action with no human, token replay, and the consumer-delegated agent. The same controls address the rest, eleven families in all. And six stay only partly closed. When a vendor claims full coverage, ask to see the mechanism.
-
 ### 40. THE VENDOR CHALLENGE — THREE LANES
 
 `b7-lanes` · lanes · 61 words · audio 24s
@@ -289,9 +283,9 @@ The target is ten minutes of recorded narration plus live pauses (Nick, 15 Septe
 |---|---:|---:|
 | 38. THIS IS ALREADY HAPPENING (`b6-proof`) | 73 | 32s |
 | 41. GO WATCH. GO VOTE. (`finale`) | 100 | 32s |
-| 39. ONE PATH SHOWN. FIFTY-NINE CATALOGUED. (`b7-threats`) | 67 | 29s |
 | 22. WG2 AND WG3 · ONE SKELETON, TWO FIGHTS (`b3-ra-wg23`) | 63 | 25s |
 | 31. T+00:58 — The second stage is an agent. It gets out. (`b5-escalate`) | 65 | 25s |
 | 40. THE VENDOR CHALLENGE — THREE LANES (`b7-lanes`) | 61 | 24s |
 | 32. T+01:02 — 1 · Detect → 2 · Investigate → 3 · Propose, in 4.2 seconds (`b5-detect`) | 61 | 23s |
 | 13. AGENTIC CONTROL PLANE ONLINE (`b2-enable`) | 55 | 23s |
+| 26. 4 · Verify — the Verify Gate, writes #1–#3 (`b4-gate-pass`) | 44 | 23s |
