@@ -113,5 +113,5 @@
 
       <text x="30" y="850" font-size="11.5" fill="#585858">One generic template, pluggable per domain (network, server, WAN, SOC). Cross-silo correlation happens through governed agent/MCP access —</text>
       <text x="30" y="868" font-size="11.5" fill="#585858">"we've automated the silos" is the problem this box exists to fix.</text>
-      <text x="30" y="890" font-size="11" font-style="italic" fill="#b0894a">Draft v0.6 · WG2 — vendor sessions upcoming · redrawn in ONUG design language for this report set.</text>
+      <text x="30" y="890" font-size="11" font-style="italic" fill="#b0894a">Ratified v0.6 (2026-10-15) · WG2 · redrawn in ONUG design language for this report set.</text>
     </svg>

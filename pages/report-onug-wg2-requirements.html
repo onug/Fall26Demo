@@ -157,7 +157,7 @@
     <div class="kind">Collaborative Working Groups<br>WG2 &middot; AI Networking &amp; Autonomous Operations</div>
   </div>
 
-  <div class="eyebrow">Requirements Document &middot; Draft v0.6</div>
+  <div class="eyebrow">Requirements Document &middot; Ratified v0.6 Architecture</div>
   <h1>Requirements for the <span class="hl">Autonomous NOC</span> Persona</h1>
   <div class="byline">
     <span>WG2 &mdash; Autonomous Infrastructure Reference Architecture</span><span>&middot;</span>
@@ -216,7 +216,7 @@
   <div class="req"><div class="id">RES-1<span class="src">item #8</span></div><div class="body"><b class="title">Telemetry / Logs</b><p>Governed resource, reachable only as policy allows, under either access pattern.</p><span class="note">The raw feed WG1 item #8's Observability and Monitoring is built on.</span></div></div>
   <div class="req"><div class="id">RES-2<span class="src">item #8<br>rel. #9</span></div><div class="body"><b class="title">Sources of Truth</b><p>Governed resource, reachable only as policy allows, under either access pattern.</p><span class="note">The baseline data item #8's anomaly detection compares against. Related: item #9, Audit and Traceability.</span></div></div>
   <div class="req"><div class="id">RES-3<span class="src">item #7</span></div><div class="body"><b class="title">Rulesets</b><p>Governed resource, reachable only as policy allows. An agent reads its own rules but can never modify them.</p><span class="note">The ruleset <em>is</em> WG1 item #7's technical guardrails (allowed/restricted/denied) &mdash; read-only enforcement of it is what keeps it a guardrail and not a suggestion.</span></div></div>
-  <div class="req"><div class="id">RES-4<span class="src">item #16<br>rel. #21, #22</span></div><div class="body"><b class="title">Agents / MCPs</b><p>Other agents and MCP servers are themselves a governed resource, reachable only under explicit reachability control of which agents may talk to which. New in this draft, and the direct fix for "we've automated the silos" &mdash; a cloud symptom whose root cause is a NIC only gets correlated if agents can reach across domains, under control.</p><span class="note">This is WG1 item #16, Multi-Vendor Control Plane Interoperability, applied within one enterprise's domains rather than across vendors. Related: item #21 (the per-hop authentication that makes reachability enforceable) and item #22 (the aggregate risk of many agents reaching many other agents).</span></div></div>
+  <div class="req"><div class="id">RES-4<span class="src">item #16<br>rel. #21, #22</span></div><div class="body"><b class="title">Agents / MCPs</b><p>Other agents and MCP servers are themselves a governed resource, reachable only under explicit reachability control of which agents may talk to which. New in v0.6, and the direct fix for "we've automated the silos" &mdash; a cloud symptom whose root cause is a NIC only gets correlated if agents can reach across domains, under control.</p><span class="note">This is WG1 item #16, Multi-Vendor Control Plane Interoperability, applied within one enterprise's domains rather than across vendors. Related: item #21 (the per-hop authentication that makes reachability enforceable) and item #22 (the aggregate risk of many agents reaching many other agents).</span></div></div>
 
   <h2>Agent Operations Loop 1&ndash;6</h2>
   <div class="quote-strip">"the autonomy level chosen above decides whether steps 4&ndash;6 ever fire" &middot; "only one box in the whole loop can mutate state, and it's visually unmistakable"</div>
@@ -256,7 +256,6 @@
     <li><b>Economics of log-scale intelligence</b> &mdash; a dedicated log agent and behavioral baselining, evaluated before "burning tokens on a million logs a minute."</li>
     <li><b>Delegation and decomposition are not specified.</b> Pattern A and Pattern B describe how agents reach resources and each other &mdash; not how authority flows when one agent delegates work to a subagent. Authority-subsetting, audience-bound delegated tokens, and audit-chain provenance across a delegation appear in neither this drawing nor the WG1 unified control-plane architecture.</li>
     <li>Companion drill-downs (persona-creation detail, enforcement-and-audit detail, orchestrator-vs-direct comparison, a combined NOC+SOC shared-enforcement sketch) are referenced but not yet produced.</li>
-    <li>This is a v0.6 working draft prepared for vendor sessions &mdash; not a ratified reference architecture.</li>
   </ul>
 
   <div class="tag-row">
@@ -267,11 +266,11 @@
 
   <div class="callout">
     <h3>Status &amp; next step</h3>
-    <p>Draft v0.6 &middot; owner ONUG Collaborative.</p>
+    <p>Ratified v0.6 architecture (2026-10-15) &middot; owner ONUG Collaborative.</p>
     <ol>
       <li><b>Now</b> &mdash; circulate alongside the WG2 drawing so vendor sessions can be scoped against a numbered checklist instead of a diagram walkthrough.</li>
       <li><b>Next session</b> &mdash; defines the vendor asks (per the drawing's own note); this document is the basis for what gets asked.</li>
-      <li><b>Before ratification</b> &mdash; resolve the six open questions above, or explicitly defer each one rather than leave it open by default.</li>
+      <li><b>Next revision</b> &mdash; resolve the six open questions above, or explicitly defer each one rather than leave it open by default.</li>
     </ol>
   </div>
 
