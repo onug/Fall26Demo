@@ -238,7 +238,7 @@
         <div class="body">
           <p><strong>Keeping distributed AI safe across edge, on-prem, and multi-cloud:</strong></p>
           <p>Provides architecture and operational guidance for cross-gateway key residency, automated rotation of short-lived agent credentials, and <strong>fail-closed recovery</strong> when a regional KMS, HSM, or identity provider becomes unreachable&mdash;plus a potential <strong>PQC Readiness Tabletop Exercise</strong>.</p>
-          <div class="meta">Anchored by UC #16 (Denis Mandich &middot; 9 votes, Rank #5 overall)</div>
+          <div class="meta">Anchored by UC #16 (9 votes, Rank #5 overall)</div>
         </div>
       </div>
     </div>
@@ -254,7 +254,6 @@
         <thead>
           <tr>
             <th>Use Case</th>
-            <th>Board Submitter</th>
             <th class="votes">Votes</th>
             <th>Enterprise Problem Statement</th>
             <th>How It Shapes WG5&rsquo;s 2027 Deliverables</th>
@@ -263,35 +262,30 @@
         <tbody>
           <tr>
             <td>UC #16 <span class="sub">Maintaining Cryptographic Protection Across Distributed AI Infra</span></td>
-            <td>Denis Mandich</td>
             <td class="votes">9</td>
             <td>Rank #5 board use case overall. Distributed AI pipelines span edge, on-prem, colocation, and multiple clouds; fragmented KMS/HSM estates cause key-residency drift, rotation failures, and unsafe fallback when a key service degrades.</td>
             <td><strong>Deliverable 4 Anchor:</strong> Defines cross-gateway key residency, automated PQC-ready key rotation, and deterministic fail-closed recovery across distributed AI infrastructure.</td>
           </tr>
           <tr>
             <td>UC #10 <span class="sub">Secure &amp; Autonomous 24/7 Infra Ops Against AI &amp; PQC Risks (PQC Half)</span></td>
-            <td>Satish Natarajan</td>
             <td class="votes">10<span class="sub">(5 to WG5)</span></td>
             <td>Rank #4 board use case overall (split with WG2). Enterprises need continuous, automated verification that 24/7 infrastructure and autonomous agents remain resilient against emerging cryptographic and PQC risks.</td>
             <td><strong>Joint WG5 &harr; WG2 Bridge:</strong> Supplies the deterministic PQC readiness and cryptographic validation criteria tested inside WG2&rsquo;s Digital Twin &amp; Pre-Change Verify Gate.</td>
           </tr>
           <tr>
             <td>UC #8 <span class="sub">PQC Migration Is Too Big for Humans Alone</span></td>
-            <td>John Buselli</td>
             <td class="votes">1</td>
             <td>Discovering and remediating quantum-vulnerable cryptography across thousands of enterprise applications, network devices, and CI/CD pipelines before the EO 14412 deadlines exceeds human engineering capacity.</td>
             <td><strong>Deliverable 3 Anchor (<em>AI for PQC</em>):</strong> Defines the governed <strong>Crypto-Discovery &amp; Migration Agent Persona</strong> that runs on WG1&rsquo;s control plane to produce CISA-aligned CBOMs and staged migration PRs for human review.</td>
           </tr>
           <tr>
             <td>UC #20 <span class="sub">Proving Control Over Autonomous AI in Sovereign &amp; Regulated Environments (PQC Half)</span></td>
-            <td>Travis Ewert</td>
             <td class="votes">2<span class="sub">(1 to WG5)</span></td>
-            <td>Submitted by Travis Ewert (Digital Realty; split with WG1). Regulated and sovereign workloads require verifiable proof that agent-to-agent and agent-to-data traffic is protected by quantum-safe transport within approved jurisdictions.</td>
+            <td>Split with WG1. Regulated and sovereign workloads require verifiable proof that agent-to-agent and agent-to-data traffic is protected by quantum-safe transport within approved jurisdictions.</td>
             <td><strong>Deliverable 2 &amp; Sovereign Profile:</strong> Specifies quantum-safe agent transport (ML-KEM mTLS/IPsec) and cryptographic posture attestation logged into WG1&rsquo;s compliance journal.</td>
           </tr>
           <tr>
             <td>UC #7 <span class="sub">AI Agents Trust Each Other with Quantum-Vulnerable Crypto</span></td>
-            <td>John Buselli</td>
             <td class="votes">0</td>
             <td>Today&rsquo;s agent identities (SPIFFE SVIDs, JWTs, OAuth tokens, mTLS certs, signed A2A Cards, and model signatures) rely on RSA/ECDSA/ECDH, exposing agent fleets and model supply chains to forgery and harvest-now-decrypt-later attacks.</td>
             <td><strong>Deliverable 2 Anchor (<em>PQC for AI</em>):</strong> Defines the Post-Quantum Profile for Agent Identity &amp; Trust (ML-DSA/SLH-DSA signed SVIDs, A2A Cards, and AIBOMs).</td>
@@ -363,7 +357,7 @@
           </tr>
           <tr>
             <td>WG2 <span class="pill wg2">Continue</span><br><span class="sub">Autonomous Operations (NOC + SOC Personas)</span></td>
-            <td><strong>Joint Split of UC #10 (Satish Natarajan, 10 votes):</strong> Rolling out post-quantum certificates and larger ML-DSA/ML-KEM keys across production networks risks MTU packet fragmentation, handshake timeouts, and KMS throttling.</td>
+            <td><strong>Joint Split of UC #10 (10 votes):</strong> Rolling out post-quantum certificates and larger ML-DSA/ML-KEM keys across production networks risks MTU packet fragmentation, handshake timeouts, and KMS throttling.</td>
             <td>WG2&rsquo;s <strong>Digital Twin &amp; Pre-Change Verify Gate (UC #12/#18)</strong> serves as the pre-deployment proving ground to simulate WG5&rsquo;s PQC migrations and KMS fail-closed recovery scenarios before Step 5 production execution.</td>
           </tr>
           <tr>
@@ -413,7 +407,7 @@
           </tr>
           <tr>
             <td>4. Engaging the 4 Board Submitters as Founding Authors</td>
-            <td>Four board members sponsored WG5&rsquo;s five use cases: <strong>Denis Mandich</strong> (UC #16, 9v), <strong>Satish Natarajan</strong> (UC #10, 10v split), <strong>John Buselli</strong> (UC #7 &amp; #8), and <strong>Travis Ewert</strong> (UC #20, 2v split).</td>
+            <td>Four board members sponsored WG5&rsquo;s five use cases: <strong>UC #16</strong> (9v), <strong>UC #10</strong> (10v, split with WG2), <strong>UC #7 &amp; #8</strong> (1v combined), and <strong>UC #20</strong> (2v, split with WG1).</td>
             <td>How should we structure drafting sub-teams across these four enterprise board sponsors and incoming PQC/PKI/KMS vendor participants?</td>
           </tr>
           <tr>

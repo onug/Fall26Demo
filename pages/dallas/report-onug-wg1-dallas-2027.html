@@ -197,9 +197,9 @@
           <h3>The Agentic Control Plane (2027 Charter)</h3>
         </div>
         <div class="body">
-          <p><strong>1. Agent Identity &amp; Revocable Authority Stay in WG1:</strong> Led by <strong>UC #15</strong> (Denis Mandich, 18 votes&mdash;the #1 voted use case on the board) and <strong>UC #13</strong> (Vesko Pehlivanov, 2 votes), task-scoped, revocable agent identity and fleet-wide stop remain WG1&rsquo;s core <strong>Agent Trust Fabric</strong> (Component #1), rather than spinning out a separate identity working group.</p>
-          <p><strong>2. Assurance &amp; Autonomy Ladder Promotion Fold Into WG1:</strong> <strong>UC #19</strong> (Parantap Lahiri, 5-SLI &ldquo;Nutrition Labels,&rdquo; 4 votes), <strong>UC #14</strong> (Vesko Pehlivanov, control-bypass test harness, 1 vote), and <strong>UC #4</strong> (James Walker, signed compliance evidence, 8 votes) stay inside WG1 rather than forming a separate assurance group. Because promotion SLIs and regulator proofs are computed directly from WG1&rsquo;s gateway-written journal (<code>immudb</code> + <code>MinIO</code> WORM), separating assurance from the journal would split the control loop.</p>
-          <p><strong>3. Sovereign Network Enforcement Profile Added (UC #20 Split):</strong> From <strong>UC #20</strong> (Travis Ewert, Digital Realty, 2 votes), WG1 adds a sovereign network enforcement profile where <strong>jurisdiction</strong> is evaluated as a per-call attribute at the gateway and network/encryption state is recorded in the compliance journal (while quantum-safe transport goes to WG5).</p>
+          <p><strong>1. Agent Identity &amp; Revocable Authority Stay in WG1:</strong> Led by <strong>UC #15</strong> (18 votes&mdash;the #1 voted use case on the board) and <strong>UC #13</strong> (2 votes), task-scoped, revocable agent identity and fleet-wide stop remain WG1&rsquo;s core <strong>Agent Trust Fabric</strong> (Component #1), rather than spinning out a separate identity working group.</p>
+          <p><strong>2. Assurance &amp; Autonomy Ladder Promotion Fold Into WG1:</strong> <strong>UC #19</strong> (5-SLI &ldquo;Nutrition Labels,&rdquo; 4 votes), <strong>UC #14</strong> (control-bypass test harness, 1 vote), and <strong>UC #4</strong> (signed compliance evidence, 8 votes) stay inside WG1 rather than forming a separate assurance group. Because promotion SLIs and regulator proofs are computed directly from WG1&rsquo;s gateway-written journal (<code>immudb</code> + <code>MinIO</code> WORM), separating assurance from the journal would split the control loop.</p>
+          <p><strong>3. Sovereign Network Enforcement Profile Added (UC #20 Split):</strong> From <strong>UC #20</strong> (2 votes), WG1 adds a sovereign network enforcement profile where <strong>jurisdiction</strong> is evaluated as a per-call attribute at the gateway and network/encryption state is recorded in the compliance journal (while quantum-safe transport goes to WG5).</p>
           <p><strong>Full 2027 WG1 Deliverable Scope:</strong> Task-scoped, revocable agent identity and fleet-wide stop; per-step Rights-BOM and composite authority checks; the gateway-written signed compliance journal; Autonomy Ladder promotion evidence (five-SLI Nutrition Label and control-bypass harness); the Private Open Router (routing, residency, budgets); sector regulatory mappings (Financial Services + Aerospace &amp; Defense + DORA); and the sovereign network enforcement profile.</p>
           <div class="meta">Board backing: 42 votes across 9 use cases &middot; Delivery schedule: to be proposed by WG1 leaders</div>
         </div>
@@ -217,7 +217,6 @@
         <thead>
           <tr>
             <th>Use Case</th>
-            <th>Board Submitter</th>
             <th class="votes">Votes</th>
             <th>Why It Belongs in WG1</th>
             <th>Exact WG1 Component, Item &amp; <code>onug-plane</code> Mapping</th>
@@ -226,63 +225,54 @@
         <tbody>
           <tr>
             <td>UC #15 <span class="sub">Binding Agent Identity to Limited, Revocable Authority</span></td>
-            <td>Denis Mandich</td>
             <td class="votes">18</td>
             <td>The board&rsquo;s #1 priority. Defines execution-scoped identity, per-action permission checks, and measured revocation SLAs&mdash;the heart of WG1&rsquo;s Agent Trust Fabric and Runtime Supervision.</td>
             <td>Component #1 &amp; #3 &middot; Focus Area #2 &amp; #4 &middot; AOMC-1/2 &middot; <code>onug-plane</code> Proof P3 (<code>5&ndash;8s</code> drift quarantine, <code>1&ndash;4s</code> <code>stop-all</code>).</td>
           </tr>
           <tr>
             <td>UC #4 <span class="sub">Proving Agent Controls Held: Signed Compliance Evidence</span></td>
-            <td>James Walker</td>
             <td class="votes">8</td>
             <td>Directly matches WG1&rsquo;s gateway-written immutable journal. Pairs with UC #14 and #19 so one journal yields both regulator-ready compliance proofs and Autonomy Ladder promotion SLIs.</td>
             <td>Component #3 &middot; Focus Area #4 &middot; WG1 Item #9 &middot; <code>journal-writer</code> &rarr; <code>immudb</code> Merkle inclusion proofs + <code>MinIO</code> 30-day WORM lock (Proof P2).</td>
           </tr>
           <tr>
             <td>UC #3 <span class="sub">Governed Routing of AI Inference Across Models</span></td>
-            <td>James Walker</td>
             <td class="votes">4</td>
             <td>This <em>is</em> WG1&rsquo;s fourth component (<strong>Private Open Router</strong>). Splitting model routing from the plane would separate spend, residency, and safety policy from agent identity and the audit journal.</td>
             <td>Component #4 &middot; Focus Area #7 &middot; WG1 Item #17 &middot; <code>LiteLLM</code> SVID-to-virtual-key mapping, hard budgets, and signed routing spans in <code>immudb</code>.</td>
           </tr>
           <tr>
             <td>UC #19 <span class="sub">Agentic Controls &amp; Guardrails &mdash; SLI &ldquo;Nutrition Labels&rdquo;</span></td>
-            <td>Parantap Lahiri</td>
             <td class="votes">4</td>
-            <td>Focus Area #9 requires measured journal evidence before promoting an agent up the Autonomy Ladder. Lahiri&rsquo;s five SLIs (<code>M1 VTSR</code>, <code>M2 CSIR</code>, <code>M3 RFR</code>, <code>M4 EQ</code>, <code>M5 CPVS</code>) provide that exact quantitative scorecard.</td>
+            <td>Focus Area #9 requires measured journal evidence before promoting an agent up the Autonomy Ladder. The five SLIs (<code>M1 VTSR</code>, <code>M2 CSIR</code>, <code>M3 RFR</code>, <code>M4 EQ</code>, <code>M5 CPVS</code>) provide that exact quantitative scorecard.</td>
             <td>Component #2 &amp; #3 &middot; Focus Area #9 &middot; Autonomy Ladder promotion criteria computed from <code>immudb</code>/<code>MinIO</code> journal and <code>LiteLLM</code> cost spans.</td>
           </tr>
           <tr>
             <td>UC #9 <span class="sub">Unified Operational Framework for Agentic Guardrails</span></td>
-            <td>Satish Natarajan</td>
             <td class="votes">3</td>
-            <td>Matches WG1&rsquo;s core governance charter. Inviting Satish extends WG1 Item #14&rsquo;s regulatory crosswalk into Aerospace &amp; Defense (A&amp;D) alongside Financial Services.</td>
+            <td>Matches WG1&rsquo;s core governance charter and extends WG1 Item #14&rsquo;s regulatory crosswalk into Aerospace &amp; Defense (A&amp;D) alongside Financial Services.</td>
             <td>WG1 Reference Architecture v0.2 + AOMC 6 Controls + WG1 Item #14 (Sector Regulatory Map).</td>
           </tr>
           <tr>
             <td>UC #13 <span class="sub">Task-Scoped Entitlements &amp; Access Controls for AI Agents</span></td>
-            <td>Vesko Pehlivanov</td>
             <td class="votes">2</td>
             <td>Prevents agents from inheriting ambient human OAuth/IAM entitlements by minting short-lived, task-scoped tokens outside the agent.</td>
             <td>Component #1 (<code>Agent Trust Fabric</code>) &middot; Focus Area #2 &middot; WG1 Items #5 &amp; #20 &middot; <code>SPIRE</code> 5-min JWT-SVIDs + <code>OpenBao</code> injection (Proof P1).</td>
           </tr>
           <tr>
             <td>UC #20 <span class="sub">Proving Control in Sovereign &amp; Regulated Environments (Core Half)</span></td>
-            <td>Travis Ewert</td>
             <td class="votes">2<span class="sub">(1 to WG1)</span></td>
             <td>Binds agent identity to independent enforcement outside the agent and records action, traffic, and encryption state in one trail. Adds <strong>jurisdiction</strong> as a per-call gateway policy attribute.</td>
             <td>Component #1, #3 &amp; #4 &middot; WG1 Items #17 (residency extended to tools/data) &amp; #21 (Next-Hop Auth) &middot; Journal schema extended with jurisdiction &amp; encryption fields.</td>
           </tr>
           <tr>
             <td>UC #6 <span class="sub">Sanctioned Business-Process Agents Exceeding Authority</span></td>
-            <td>Baird Kaake</td>
             <td class="votes">1</td>
             <td>Describes <strong>composite authority</strong> and per-step <strong>Rights-BOM reconciliation</strong> word-for-word from WG1&rsquo;s scoping doc and <a href="report-onug-governed-autonomy-board-paper-2026.html#accelerate">Section 6 Bullet 1 of the board paper</a>.</td>
             <td>Component #2 &amp; #3 &middot; Focus Area #4 &amp; #5 &middot; WG1 Items #19, #22, #23 (BPMN per-step scope), #24 (Rights-BOM).</td>
           </tr>
           <tr>
             <td>UC #14 <span class="sub">Testing &amp; Verification Framework for Agentic Safety Controls</span></td>
-            <td>Vesko Pehlivanov</td>
             <td class="votes">1</td>
             <td>Defines the control-bypass test harness and productivity-impact benchmark an agent must pass before promotion up the Autonomy Ladder (pairs directly with UC #19 and UC #4).</td>
             <td>Component #3 &middot; Focus Area #9 &middot; Adversarial/bypass harness run against WG1 enforcement gates; results logged to the journal.</td>
@@ -310,37 +300,37 @@
           <tr>
             <td>1. Rights &amp; Normal-Behavior Spec</td>
             <td>Close WG1&rsquo;s open Registry/BOM gap: machine-readable per-step Rights-BOM, BPMN 2.0 scope notation, composite-authority bounds, and normal-behavior baseline schema.</td>
-            <td><strong>UC #6</strong> (Baird Kaake), <strong>UC #13</strong> (Vesko Pehlivanov), <strong>UC #15</strong> (Denis Mandich)</td>
+            <td><strong>UC #6</strong>, <strong>UC #13</strong>, <strong>UC #15</strong></td>
           </tr>
           <tr>
             <td>2. Unified Vocabulary &amp; Decision-Rights Matrix</td>
             <td>Standardize <em>Agent Class</em> (what it is, 1&ndash;5), <em>Risk Tier</em> (what it could break, 1&ndash;4), and <em>Autonomy Rung</em> (<code>L0&ndash;L3</code>), plus the promotion evidence required to advance a rung.</td>
-            <td><strong>UC #9</strong> (Satish Natarajan), <strong>UC #14</strong> (Vesko Pehlivanov), <strong>UC #19</strong> (Parantap Lahiri)</td>
+            <td><strong>UC #9</strong>, <strong>UC #14</strong>, <strong>UC #19</strong></td>
           </tr>
           <tr>
             <td>3. Policy-as-Code Standard Changes</td>
             <td>Count a pre-approved, policy-as-code standard change enforced at the gateway as human approval (ITIL standard-change model), and track approval latency as a KPI.</td>
-            <td><strong>UC #15</strong> (Denis Mandich), <strong>UC #19</strong> (Parantap Lahiri)</td>
+            <td><strong>UC #15</strong>, <strong>UC #19</strong></td>
           </tr>
           <tr>
             <td>4. Gateway-Held Secrets &amp; Gateway-Written Journal</td>
             <td>Codify that secret rotation (Item #5) applies to gateway-held credentials and compliance evidence (Item #9) must be written by the gateway outside agent reach, including portable Merkle proofs.</td>
-            <td><strong>UC #4</strong> (James Walker), <strong>UC #13</strong> (Vesko Pehlivanov), <strong>UC #20</strong> (Travis Ewert)</td>
+            <td><strong>UC #4</strong>, <strong>UC #13</strong>, <strong>UC #20</strong></td>
           </tr>
           <tr>
             <td>5. Bringing Vendor-Embedded Agents Under the Plane</td>
             <td>Common procurement and onboarding requirements so third-party SaaS and infrastructure vendors&rsquo; embedded agents authenticate, route, and journal through the enterprise plane.</td>
-            <td><strong>UC #9</strong> (Satish Natarajan), <strong>UC #15</strong> (Denis Mandich), <strong>UC #20</strong> (Travis Ewert)</td>
+            <td><strong>UC #9</strong>, <strong>UC #15</strong>, <strong>UC #20</strong></td>
           </tr>
           <tr>
             <td>6. Fleet-Wide Stop, Federation &amp; Sovereign Profile</td>
             <td>Specify the fleet-wide <code>stop-all</code> SLA, federated multi-plane operation (&ldquo;no &uuml;ber-controller&rdquo;), the plane&rsquo;s own security baseline, and per-call jurisdiction enforcement.</td>
-            <td><strong>UC #15</strong> (Denis Mandich), <strong>UC #20</strong> (Travis Ewert)</td>
+            <td><strong>UC #15</strong>, <strong>UC #20</strong></td>
           </tr>
           <tr>
             <td>7. Private Open Router &amp; Regulatory Crosswalk</td>
             <td>Specify governed model routing (cost, risk, sovereignty, certification) and extend Item #14&rsquo;s regulatory mappings to DORA, US interagency third-party guidance, and Aerospace &amp; Defense.</td>
-            <td><strong>UC #3</strong> (James Walker), <strong>UC #9</strong> (Satish Natarajan), <strong>UC #20</strong> (Travis Ewert)</td>
+            <td><strong>UC #3</strong>, <strong>UC #9</strong>, <strong>UC #20</strong></td>
           </tr>
         </tbody>
       </table>
@@ -409,7 +399,7 @@
           </tr>
           <tr>
             <td>2. Onboarding Board Submitters as Spec Co-Authors</td>
-            <td>Seven board members submitted use cases absorbed into WG1: <strong>Denis Mandich</strong> (#15), <strong>James Walker</strong> (#3, #4), <strong>Parantap Lahiri</strong> (#19), <strong>Satish Natarajan</strong> (#9), <strong>Vesko Pehlivanov</strong> (#13, #14), <strong>Travis Ewert</strong> (#20), and <strong>Baird Kaake</strong> (#6).</td>
+            <td>Seven board members submitted the nine use cases absorbed into WG1 (#3, #4, #6, #9, #13, #14, #15, #19, and #20).</td>
             <td>How should we structure small drafting sub-teams within WG1 so each board submitter co-authors their corresponding specification section?</td>
           </tr>
           <tr>

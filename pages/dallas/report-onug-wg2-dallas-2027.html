@@ -197,7 +197,7 @@
           <h3>Cross-Domain Telemetry &amp; Incident Attribution</h3>
         </div>
         <div class="body">
-          <p><strong>Anchored by UC #2 (Aryo Kresnadi, 15 votes &middot; Rank #2 overall):</strong></p>
+          <p><strong>Anchored by UC #2 (15 votes &middot; Rank #2 overall):</strong></p>
           <p>Correlates telemetry across <strong>carrier underlay (DWDM)</strong>, <strong>enterprise overlay (SD-WAN/EVPN)</strong>, <strong>cloud black-box gateways</strong>, and <strong>internal DNS/endpoints</strong> to end NOC &ldquo;innocence proving&rdquo; during brownouts where every silo reports green in isolation.</p>
           <div class="meta">v0.6 Fit: Steps 1&ndash;2 + Focus Area #6 (Sources of Truth)</div>
         </div>
@@ -210,7 +210,7 @@
         </div>
         <div class="body">
           <p><strong>Combines UC #17 (11v), UC #18 (4v), and UC #12 (2v) &mdash; 17 votes total:</strong></p>
-          <p><strong>UC #17</strong> (Dariusz Kmiotek) defines the Rung 1 Network Knowledge Agent explaining design intent; <strong>UC #18</strong> (Dariusz Kmiotek) defines the Step 4 Pre-Change Validation Agent (design compliance + execution-time health check); and <strong>UC #12</strong> (Richard Huddleston) extends <code>Containerlab</code> + <code>NetBox</code> into an open digital-twin validation harness.</p>
+          <p><strong>UC #17</strong> defines the Rung 1 Network Knowledge Agent explaining design intent; <strong>UC #18</strong> defines the Step 4 Pre-Change Validation Agent (design compliance + execution-time health check); and <strong>UC #12</strong> extends <code>Containerlab</code> + <code>NetBox</code> into an open digital-twin validation harness.</p>
           <div class="meta">v0.6 Fit: Rung 1 (<code>noc-observer</code>) + Step 4 (<code>Verify Gate</code>) + Focus Area #9</div>
         </div>
       </div>
@@ -239,7 +239,6 @@
         <thead>
           <tr>
             <th>Use Case</th>
-            <th>Board Submitter</th>
             <th class="votes">Votes</th>
             <th>Where It Fits in WG2&rsquo;s v0.6 Architecture</th>
             <th>2027 Deliverable &amp; <code>onug-plane</code> Mapping</th>
@@ -248,35 +247,30 @@
         <tbody>
           <tr>
             <td>UC #2 <span class="sub">Cross-Domain Telemetry &amp; Incident Attribution</span></td>
-            <td>Aryo Kresnadi</td>
             <td class="votes">15</td>
             <td><strong>Steps 1&ndash;2 (Detect &amp; Diagnose) + Focus Area #6 (Sources of Truth):</strong> Multi-domain root-cause correlation across underlay, overlay, and cloud.</td>
             <td><strong>Cross-Domain Telemetry Correlation Profile:</strong> Vendor-neutral schema correlating DWDM underlay, SD-WAN/EVPN overlay, cloud gateways, and DNS/endpoint signals to attribute brownouts without manual war rooms.</td>
           </tr>
           <tr>
             <td>UC #17 <span class="sub">Enterprise Network Knowledge Agent for Intent Analysis</span></td>
-            <td>Dariusz Kmiotek</td>
             <td class="votes">11</td>
             <td><strong>Rung 1 Persona (<code>L0/L1 Observe &amp; Recommend</code>) + Focus Area #6:</strong> Understanding <em>why</em> the network was built a specific way before proposing changes.</td>
             <td><strong>Intent &amp; Institutional Knowledge Agent (<code>noc-observer</code> evolution):</strong> Correlates design docs, tickets, recorded design sessions, and live configs to surface design intent for operators and Step 3 proposals.</td>
           </tr>
           <tr>
             <td>UC #10 <span class="sub">Secure &amp; Autonomous 24/7 Infra Ops (Infra Half)</span></td>
-            <td>Satish Natarajan</td>
             <td class="votes">10<span class="sub">(5 to WG2)</span></td>
             <td><strong>Full WG2 6-Step Closed Loop + Digital Twin:</strong> Autonomous 24/7 lifecycle at scale (PQC readiness testing half splits to WG5).</td>
             <td><strong>24/7 Autonomous Ops &amp; WG5 Handshake:</strong> End-to-end closed-loop execution with digital-twin pre-validation, including validating PQC key/cert rollouts supplied by WG5 before production execution.</td>
           </tr>
           <tr>
             <td>UC #18 <span class="sub">Automated Pre-Change Validation Agent for Infra Assurance</span></td>
-            <td>Dariusz Kmiotek</td>
             <td class="votes">4</td>
             <td><strong>Step 4 (<code>LOOP-4: Verify Gate</code>) + Focus Area #7:</strong> Context-aware pre-change assurance + execution-time environment health check.</td>
             <td><strong>Pre-Change Verify Gate Specification:</strong> Evaluates (1) design/compliance against UC #17 intent and (2) live execution-window health (CPU, power, concurrent changes) to output an evidence-based Approve/Deny before Step 5 (<code>Execute</code>).</td>
           </tr>
           <tr>
             <td>UC #12 <span class="sub">Network Validation via Agentic AI &amp; Digital Twin (Aether)</span></td>
-            <td>Richard Huddleston</td>
             <td class="votes">2</td>
             <td><strong>Step 4 (<code>LOOP-4: Verify Gate</code>) + Focus Area #9 (Open Reference Topologies):</strong> Production-replica simulation before change execution.</td>
             <td><strong>Open Digital Twin Validation Harness:</strong> Extends <code>Containerlab</code> + <code>NetBox</code> in <code>onug-plane</code> so candidate changes proposed by <code>noc-operator</code> at Step 3 are simulated before Step 5 execution.</td>
@@ -377,7 +371,7 @@
           </tr>
           <tr>
             <td>WG5 <span class="pill new">New</span><br><span class="sub">Post-Quantum Security for AI Infrastructure</span></td>
-            <td><strong>Joint split of UC #10 (Satish Natarajan, 10 votes):</strong> WG2 owns autonomous 24/7 operations and digital-twin validation; WG5 owns post-quantum readiness and key resiliency.</td>
+            <td><strong>Joint split of UC #10 (10 votes):</strong> WG2 owns autonomous 24/7 operations and digital-twin validation; WG5 owns post-quantum readiness and key resiliency.</td>
             <td>WG2&rsquo;s <strong>Digital Twin &amp; Pre-Change Verify Gate (UC #12/#18)</strong> serves as the testbed to simulate WG5&rsquo;s post-quantum certificate/key rotations (testing ML-DSA/ML-KEM packet fragmentation, handshake latency, and KMS outage recovery) before production rollout.</td>
           </tr>
         </tbody>
@@ -417,7 +411,7 @@
           </tr>
           <tr>
             <td>4. Engaging the 4 Board Submitters as Co-Authors</td>
-            <td>Four board members submitted the five use cases absorbed into WG2: <strong>Aryo Kresnadi</strong> (#2), <strong>Dariusz Kmiotek</strong> (#17, #18), <strong>Satish Natarajan</strong> (#10), and <strong>Richard Huddleston</strong> (#12).</td>
+            <td>Four board members submitted the five use cases absorbed into WG2 (#2, #10, #12, #17, and #18).</td>
             <td>How should we pair each board submitter with WG2&rsquo;s engineering leads to co-author the 2027 specifications and present on the Dallas stage?</td>
           </tr>
           <tr>
