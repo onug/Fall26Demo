@@ -196,7 +196,7 @@
     </svg>
     <h1>The NOC story: one drift, two agents, <span class="hl">one human gate</span></h1>
     <div class="byline"><span>Peter Campbell</span><span>&middot;</span><span>2026-10-08</span><span>&middot;</span><span>onug-plane v0.1</span><span>&middot;</span><span>make demo</span></div>
-    <p class="dek">The WG1 draft says an agentic control plane enforces from outside the agent. That means identity comes from the plane, gateways hold the credentials, irreversible actions wait for a human, and the audit journal is out of the agent's reach. <strong><code>make demo</code> tests those claims in ten steps on a live lab network.</strong> Two agents built on different frameworks find a misconfigured router, fix it behind an approval gate, and are then cut off by the kill path. Every step checks its own result, and the run ends with <code>Demo PASSED</code> or <code>Demo FAILED</code>.</p>
+    <p class="dek">The ratified WG1 architecture says an agentic control plane enforces from outside the agent. That means identity comes from the plane, gateways hold the credentials, irreversible actions wait for a human, and the audit journal is out of the agent's reach. <strong><code>make demo</code> tests those claims in ten steps on a live lab network.</strong> Two agents built on different frameworks find a misconfigured router, fix it behind an approval gate, and are then cut off by the kill path. Every step checks its own result, and the run ends with <code>Demo PASSED</code> or <code>Demo FAILED</code>.</p>
 
     <div class="figures" aria-label="Measured results">
       <div class="figure"><div class="n">76<small>s</small></div><div class="k">Demo runtime on a running plane</div><div class="src">Docker 12 GB</div></div>
@@ -425,7 +425,7 @@ plane resume --recertified</pre>
     </div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Proof</th><th>WG1 draft claim</th><th>Demo steps</th><th>Result</th></tr></thead>
+        <thead><tr><th>Proof</th><th>WG1 architecture claim</th><th>Demo steps</th><th>Result</th></tr></thead>
         <tbody>
           <tr><td>P1 no-secrets</td><td>&ldquo;Agents must never hold secrets.&rdquo;</td><td class="num">3, 4, 6</td><td><span class="pill">Pass</span></td></tr>
           <tr><td>P2 journal</td><td>&ldquo;An immutable audit journal the agent cannot touch.&rdquo;</td><td class="num">7</td><td><span class="pill">Pass</span></td></tr>
@@ -453,7 +453,7 @@ plane resume --recertified</pre>
     <span>onug-plane persona definitions for noc-observer and noc-operator</span>
     <span>onug-plane autonomy evidence for both personas</span>
     <span>onug-plane decision log: the clean-clone run and the kill-path latency measurements</span>
-    <span>ONUG Collaborative, &ldquo;One Control Plane, Every Domain&rdquo; (WG1 draft v0.2, 2026-08-06)</span>
+    <span>ONUG Collaborative, &ldquo;One Control Plane, Every Domain&rdquo; (WG1 v0.2, ratified 2026-07-28)</span>
   </div>
 
   <footer>

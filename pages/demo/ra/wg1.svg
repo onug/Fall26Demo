@@ -189,5 +189,5 @@
 
       <text x="30" y="856" font-size="11.5" fill="#585858">The control plane is the enabler of every agentic domain. NOC and SOC are simply the first two personas — any domain becomes agentic by</text>
       <text x="30" y="874" font-size="11.5" fill="#585858">defining a persona and plugging into the plane, inheriting identity, enforcement, audit, and model routing without rebuilding them.</text>
-      <text x="30" y="892" font-size="11" font-style="italic" fill="#b0894a">Draft v0.2 · Composite of WG1 v0.2, WG2 NOC v0.6, WG3 SOC v0.6 · redrawn in ONUG design language for this report set.</text>
+      <text x="30" y="892" font-size="11" font-style="italic" fill="#b0894a">Ratified v0.2 (2026-07-28) · Composite of WG1 v0.2, WG2 NOC v0.6, WG3 SOC v0.6 · redrawn in ONUG design language for this report set.</text>
     </svg>

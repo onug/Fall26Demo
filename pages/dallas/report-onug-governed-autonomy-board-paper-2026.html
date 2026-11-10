@@ -1,0 +1,356 @@
+<meta charset="UTF-8">
+<title>Governed Autonomy Board Paper</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+  /* Layout: single-column long-form (.report-demo shape), tokens from design-system-onug.html. Light only. */
+  :root {
+    color-scheme: light;
+    --onug-white: #FFFFFF;
+    --onug-bg-alt: #F4F4F4;
+    --onug-border: #E8E8E8;
+    --onug-border-strong: #DADBDD;
+    --onug-text-muted: #585858;
+    --onug-text-secondary: #2C2C2C;
+    --onug-text: #000000;
+    --onug-navy: #0F1D2A;
+    --onug-ink: #141414;
+    --onug-on-dark: #FFFFFF;
+    --onug-on-dark-muted: #9B9B9B;
+    --onug-green: #8FC73E;
+    --onug-green-dark: #70A228;
+    --onug-orange: #F58220;
+    --onug-orange-dark: #DB7015;
+    --font-body: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--onug-white);
+    color: var(--onug-text-secondary);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .report { max-width: 1080px; margin: 0 auto; padding: 64px 28px 100px; }
+
+  a { color: var(--onug-green-dark); transition: color 0.2s linear; }
+  a:hover { color: var(--onug-green); }
+  a:focus-visible { outline: 2px solid var(--onug-orange); outline-offset: 3px; }
+  code, .mono { font-family: var(--font-mono); font-size: 0.9em; }
+  p code, li code, td code { background: var(--onug-bg-alt); padding: 1px 5px; color: var(--onug-text); }
+
+  .rpt-mast { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-bottom: 20px; border-bottom: 2px solid var(--onug-green); margin-bottom: 36px; }
+  .rpt-mast svg.logo { flex: none; display: block; }
+  .rpt-mast .kind { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--onug-text-muted); text-align: right; line-height: 1.5; }
+
+  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--onug-green-dark); margin-bottom: 16px; }
+  h1 { color: var(--onug-text); font-size: 38px; font-weight: 700; line-height: 1.12; margin: 0; text-wrap: balance; max-width: 860px; }
+  .hl { color: var(--onug-green-dark); font-weight: 700; }
+  .byline { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; font-family: var(--font-mono); font-size: 12.5px; color: var(--onug-text-muted); margin-top: 16px; }
+
+  .jump { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--onug-border); font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+  .jump a { color: var(--onug-text-muted); text-decoration: none; }
+  .jump a:hover { color: var(--onug-green-dark); }
+
+  p { font-size: 17px; line-height: 1.6; margin: 16px 0; color: var(--onug-text-secondary); max-width: 820px; }
+  strong { color: var(--onug-text); font-weight: 600; }
+
+  section { margin-top: 60px; }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 12px; margin-bottom: 20px; border-bottom: 2px solid var(--onug-green); }
+  .section-head h2 { color: var(--onug-text); font-size: 24px; font-weight: 600; margin: 0; text-wrap: balance; }
+  .section-head .count { font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--onug-text-muted); white-space: nowrap; }
+  h3 { color: var(--onug-text); font-size: 18px; font-weight: 600; margin: 28px 0 10px; }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; background: var(--onug-border); border: 1px solid var(--onug-border); margin-top: 24px; }
+  .stat { background: var(--onug-white); padding: 18px 20px; }
+  .stat .v { font-size: 28px; font-weight: 700; color: var(--onug-text); font-variant-numeric: tabular-nums; }
+  .stat .k { font-size: 13px; color: var(--onug-text-muted); margin-top: 4px; line-height: 1.45; }
+
+  .callout { margin: 24px 0 0; padding: 24px 26px; background: var(--onug-navy); color: var(--onug-on-dark); border-radius: 6px; }
+  .callout h3 { color: var(--onug-on-dark); margin: 0 0 8px; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .callout p { color: var(--onug-on-dark-muted); font-size: 15px; margin: 0; max-width: none; line-height: 1.55; }
+  .callout p + p { margin-top: 10px; }
+  .callout b { color: var(--onug-green); font-weight: 600; }
+
+  .cluster-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 20px; margin-top: 20px; }
+  .cluster-card { border: 1px solid var(--onug-border-strong); border-radius: 6px; overflow: hidden; background: var(--onug-white); display: flex; flex-direction: column; }
+  .cluster-card .head { background: var(--onug-navy); color: var(--onug-on-dark); padding: 16px 20px; }
+  .cluster-card .head .tag { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--onug-green); display: block; margin-bottom: 4px; }
+  .cluster-card .head h3 { color: var(--onug-on-dark); font-size: 18px; margin: 0; line-height: 1.25; }
+  .cluster-card .body { padding: 16px 20px 20px; font-size: 14.5px; line-height: 1.55; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .cluster-card .body p { font-size: 14.5px; margin: 0; }
+  .cluster-card .meta { font-family: var(--font-mono); font-size: 12px; color: var(--onug-text-muted); padding-top: 8px; border-top: 1px solid var(--onug-border); margin-top: auto; }
+
+  .table-wrap { overflow-x: auto; margin-top: 16px; border: 1px solid var(--onug-border); border-radius: 6px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; line-height: 1.5; }
+  th { text-align: left; font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--onug-text-muted); background: var(--onug-bg-alt); padding: 10px 14px; border-bottom: 1px solid var(--onug-border-strong); }
+  td { padding: 11px 14px; border-bottom: 1px solid var(--onug-border); vertical-align: top; color: var(--onug-text-secondary); }
+  tr:last-child td { border-bottom: none; }
+  td:first-child { color: var(--onug-text); font-weight: 600; white-space: nowrap; }
+  td.votes, th.votes { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.votes { color: var(--onug-text); font-weight: 700; }
+  td.votes.na { color: var(--onug-text-muted); font-weight: 400; }
+  td .sub { display: block; font-weight: 400; font-size: 12px; color: var(--onug-text-muted); margin-top: 2px; }
+
+  .pill { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--onug-border-strong); color: var(--onug-text-muted); white-space: nowrap; }
+  .pill.new { background: var(--onug-green); border-color: var(--onug-green); color: var(--onug-text); }
+  .pill.wg1 { border-color: var(--onug-green-dark); color: var(--onug-green-dark); }
+  .pill.wg2 { border-color: var(--onug-navy); color: var(--onug-navy); }
+  .pill.park { border-color: var(--onug-orange); color: var(--onug-orange-dark); }
+
+  .risk-list { max-width: 820px; margin: 8px 0 0; padding-left: 22px; font-size: 15px; line-height: 1.55; color: var(--onug-text-secondary); }
+  .risk-list li { margin: 6px 0; }
+  .sources { margin-top: 56px; padding-top: 22px; border-top: 2px solid var(--onug-green); display: flex; flex-direction: column; gap: 8px; font-family: var(--font-mono); font-size: 12.5px; color: var(--onug-text-secondary); }
+  .sources .lbl { color: var(--onug-text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-size: 11px; margin-bottom: 4px; }
+
+  footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--onug-border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-family: var(--font-mono); font-size: 11.5px; color: var(--onug-text-muted); }
+
+  @media (max-width: 600px) {
+    .section-head { flex-wrap: wrap; gap: 4px 12px; }
+    .section-head .count { white-space: normal; }
+    .report { padding: 40px 16px 72px; }
+    h1 { font-size: 28px; }
+    .rpt-mast { flex-direction: column; align-items: flex-start; }
+    .rpt-mast .kind { text-align: left; }
+    td:first-child { white-space: normal; }
+  }
+
+  @page { size: letter landscape; margin: 0.45in; }
+  @media print {
+    .report { padding: 0; max-width: 100%; }
+    .jump { display: none; }
+    section { margin-top: 32px; }
+    .section-head { page-break-after: avoid; }
+    .cluster-card, tr, .callout { page-break-inside: avoid; }
+    td:first-child { white-space: normal; }
+    p { max-width: none; }
+    p { font-size: 12.5px; margin: 8px 0; }
+    h1 { font-size: 26px; }
+    h3 { font-size: 14px; }
+    .section-head h2 { font-size: 19px; }
+    .rpt-mast { margin-bottom: 18px; padding-bottom: 12px; }
+    .stat { padding: 10px 14px; }
+    .stat .v { font-size: 22px; }
+    .stat .k { font-size: 11px; }
+    .callout { padding: 14px 18px; }
+    .callout p { font-size: 12px; }
+    .cluster-grid { gap: 12px; margin-top: 12px; }
+    .cluster-card .head { padding: 10px 14px; }
+    .cluster-card .head h3 { font-size: 14px; }
+    .cluster-card .body { padding: 10px 14px 12px; gap: 6px; }
+    .cluster-card .body p, .cluster-card .body { font-size: 11px; line-height: 1.45; }
+    .cluster-card .meta { font-size: 10px; }
+    table { font-size: 11px; }
+    th { padding: 6px 10px; font-size: 9.5px; }
+    td { padding: 6px 10px; }
+    .pill { font-size: 9px; padding: 2px 7px; }
+    .risk-list { font-size: 11.5px; max-width: none; }
+    .risk-list li { margin: 3px 0; }
+    .sources, footer { font-size: 10px; margin-top: 24px; }
+  }
+  .sub { display: block; font-size: 12.5px; font-weight: 400; color: var(--onug-text-muted); margin-top: 4px; }
+  td:first-child { white-space: normal; }
+  .bottom-line { margin-top: 28px; }
+</style>
+
+<article class="report">
+
+  <div class="rpt-mast">
+    <svg class="logo" width="132" height="32" viewBox="0 0 276 66.9" role="img" aria-label="ONUG">
+      <path d="M33.4,14c-10.7,0-19.5,8.7-19.5,19.5c0,10.7,8.7,19.5,19.5,19.5c10.7,0,19.5-8.7,19.5-19.5C52.9,22.7,44.2,14,33.4,14 M33.4,66.9C15,66.9,0,51.9,0,33.4C0,15,15,0,33.4,0s33.4,15,33.4,33.4C66.9,51.9,51.9,66.9,33.4,66.9" fill="#8FC73E"/>
+      <path d="M88.1,29.1c0-8.4,6.8-15.2,15.2-15.2c8.4,0,15.2,6.8,15.2,15.2v37.8h13.9V29.1c0-16-13.1-29.1-29.1-29.1c-16,0-29.1,13.1-29.1,29.1v37.8h13.9V29.1z" fill="#000000"/>
+      <path d="M183.2,37.8c0,8.4-6.8,15.2-15.2,15.2c-8.4,0-15.2-6.8-15.2-15.2V0h-13.9v37.8c0,16,13.1,29.1,29.1,29.1c16,0,29.1-13.1,29.1-29.1V0h-13.9V37.8z" fill="#000000"/>
+      <path d="M253.3,45.3c-3.6,4.7-9.2,7.7-15.5,7.7c-10.7,0-19.5-8.7-19.5-19.5c0-10.7,8.7-19.5,19.5-19.5c6.2,0,11.7,2.9,15.3,7.5H269C264.2,8.9,252,0,237.9,0c-18.4,0-33.4,15-33.4,33.4s15,33.4,33.4,33.4c14.3,0,26.5-9,31.3-21.6H253.3z" fill="#000000"/>
+      <rect x="246.8" y="26.4" width="29.2" height="13.9" fill="#000000"/>
+    </svg>
+    <div class="kind">ONUG Executive Board &middot; Board Paper<br>Revised 19 October 2026 &middot; v3</div>
+  </div>
+
+  <div class="eyebrow">Prepared for the ONUG Executive Board &middot; Revised 19 October 2026</div>
+  <h1>Governed Autonomy: <span class="hl">The State of Agentic AI in 2026</span></h1>
+  <p class="dek">What counts as an agent, what is working and failing, how to assess your own program, and what would accelerate putting agents that plan, act and adapt under control</p>
+  <div class="byline">
+    <span>ONUG Executive Board paper, v3</span><span>&middot;</span>
+    <span>Revised 19 October 2026</span><span>&middot;</span>
+    <span>HTML edition of the PDF, 2026-11-10</span>
+  </div>
+
+  <div class="callout bottom-line">
+    <h3>Bottom line</h3>
+    <p>Agentic AI is past the hype-only stage but not yet at controlled scale. Roughly three-quarters of enterprises are piloting or running agents, 40% of large enterprises say they are scaling them, and yet only about one in six enterprise 'agent' deployments is an autonomous agent that plans, acts and adapts. In every high-profile agent incident of 2026 examined here, including the evaluation escapes disclosed since July, the agent's actions reached real systems through an enforcement gap: an over-scoped or exposed credential, uncontained network access, no gate on an irreversible or outward-facing action, or an ungoverned integration. In most of them, that gap is what let model misbehavior turn into real-world consequences. The outcome to aim for is governed autonomy: agents that can act, whose authority is issued, scoped and audited from outside their reach, and whose autonomy is earned one rung at a time and stays revocable. Most of the controls are not new; what is new is the speed, and that every input is untrusted. The organizations getting there built enforcement first. The ONUG Collaborative is building that layer once for every domain, as WG1's Agentic Control Plane. This paper level-sets what an agent is (Section 1), gives each board member a ten-row test to score their own program (Section 5), and argues that what would accelerate deployment is a common control specification enterprises can buy against (Section 6).</p>
+  </div>
+
+  <nav class="jump" aria-label="Sections">
+    <a href="#agents">1. What counts as an autonomous agent</a>
+    <a href="#working-failing">2. What is working and what is failing</a>
+    <a href="#governance-gap">3. The governance gap</a>
+    <a href="#focus">4. Where to focus</a>
+    <a href="#self-assessment">5. Where does your program stand?</a>
+    <a href="#accelerate">6. What would accelerate deployment</a>
+  </nav>
+
+  <section id="agents">
+    <div class="section-head"><h2>1. What counts as an autonomous agent, and how far along the industry is</h2></div>
+    <p>An autonomous agent plans a course of action, executes it against real systems, and adapts when the result is not what it expected. Most of what is labeled an agent today is not that. Menlo Ventures puts only 16% of enterprise deployments in that category, which it calls 'true agents': systems where a model 'plans and executes actions, observes feedback, and adapts its behavior'; most of the rest are fixed-sequence or routing workflows wrapped around a single model call (survey of 495 US enterprise AI decision-makers, fielded November 2025). The distinction matters because the value and the risk both live in the 16%: an agent that can act is the one that can restore a service at 3 a.m., and it is also the one that can delete a database. The WG1 control framework draws the same line with the five agent classes below; the 16% are the last two. The first three classes (assistant, copilot and workflow) still need an inventory entry, an identity and a gateway; the Vercel incident in Section 2 began with an AI office tool, not an autonomous agent. But only the last two act without a person approving each step, and only they need autonomy itself governed. The first test of any program is to sort what it calls agents into these five classes; most will find, as Menlo did, that few of them are agents at all.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>WG1 class</th><th>What it does</th><th>Plans, acts and adapts on its own?</th></tr></thead>
+        <tbody>
+          <tr><td>Assistant</td><td>Answers, drafts or summarizes on request; a person decides what to do with the output.</td><td>No</td></tr>
+          <tr><td>Copilot</td><td>Works inside a tool beside a person and proposes actions the person accepts one at a time.</td><td>No</td></tr>
+          <tr><td>Workflow</td><td>Runs a sequence designed in advance, calling a model at fixed steps; the path does not change with the result.</td><td>No; most of what is sold as an agent today</td></tr>
+          <tr><td>Autonomous agent</td><td>Given a goal, plans the steps, acts on real systems through tools, checks the result and changes course.</td><td>Yes; Menlo's 16%</td></tr>
+          <tr><td>Multi-agent system</td><td>Autonomous agents that delegate to, and coordinate with, one another.</td><td>Yes; risk compounds across agents</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Adoption is broad and shallow. Mayfield's 2026 CXO survey of 266 technology executives finds 42% of enterprises with agentic AI in production and 72% in production or pilots combined, so roughly another 30% are piloting. McKinsey's State of AI in 2026 (1,719 respondents, surveyed May to June 2026) shows 40% of large enterprises (over $1B revenue) scaling agents, up from 27% a year earlier, while smaller organizations are flat at 22%. Forrester's summary is that three-quarters of enterprise leaders say they are adopting agentic AI, but only a small minority have it running in meaningful production beyond 'agentish' chatbots. Gartner's standing forecast is that over 40% of agentic AI projects will be canceled by the end of 2027, citing escalating costs, unclear business value or inadequate risk controls. How broad depends on what is counted: Gartner's 2026 CIO survey found only 17% of organizations had deployed AI agents, while KPMG finds 62% of large US companies 'building, deploying or developing' them (September 2026). The gap between those numbers is mostly definition, which is why the level-set above matters. Gartner's latest figures show what that means for control: 71% of organizations expect to deploy agentic AI within 12 months, but only 21% have agentic AI governance in place (October 2026).</p>
+  </section>
+
+  <section id="working-failing">
+    <div class="section-head"><h2>2. What is working and what is failing</h2></div>
+    <p>The pattern across surveys and incident reports is consistent: bounded, verifiable tasks with a human checkpoint succeed; open-ended autonomous workflows generally do not yet. The failures split into quiet ones that never reach production and loud ones that do.</p>
+    <h3>What is working</h3>
+    <ul class="risk-list">
+      <li><strong>Coding and developer productivity.</strong> Developer productivity is a top-three priority for 70% of CXOs (Mayfield), and coding agents are scaled more widely than other agents: about two in ten organizations are scaling them, 31% at large enterprises, and 32% have declined to buy at least one software product or feature because agentic coding tools let them build it in-house (McKinsey).</li>
+      <li><strong>IT and knowledge management.</strong> These are the functions where agents are most often scaled (12% and 11% of respondents), followed by software engineering (10%) and service operations (9%) (McKinsey). Ticket and change handling, customer support and knowledge retrieval all share the shape described next.</li>
+      <li><strong>Bounded, verifiable tasks with a human checkpoint.</strong> Every category that is scaling has a short feedback loop and a gate before consequences.</li>
+      <li><strong>Workflow redesign.</strong> High performers, 6% of respondents, are more than three times as likely to be scaling agents across most functions, and 73% of them redesigned the workflow rather than layering an agent on top, versus 25% of everyone else (McKinsey).</li>
+      <li><strong>A settled model market.</strong> Anthropic, OpenAI and Google together hold about 88% of enterprise LLM API spend (Menlo Ventures, December 2025); 81% of enterprises use three or more model families in testing or production (a16z, January 2026), so routing is already a fact of life.</li>
+    </ul>
+    <h3>What is failing</h3>
+    <ul class="risk-list">
+      <li><strong>Data readiness.</strong> The number-one blocker in Mayfield's CXO survey, cited by 58%; integration and data quality have topped the list five years running. An agent cannot verify its work against a source of truth that does not exist.</li>
+      <li><strong>The verification gap.</strong> Agents pass controlled evaluations, then fail against live proprietary systems and real data. Legacy integration, no success metric, no owner and no rollback plan are the usual companions.</li>
+      <li><strong>Uncontrolled credentials.</strong> On 24 April a coding agent (Cursor running Claude Opus 4.6), working a staging task for the startup PocketOS, deleted its production database volume on Railway with a single API call; the founder reports that the volume-level backups went with it. It used an account-scoped platform token it found in a file unrelated to the task; the API had no delayed delete, although the dashboard did. Railway restored the data two days later (founder's account; Railway).</li>
+      <li><strong>Ungoverned third-party access.</strong> In April, Vercel disclosed that a third-party AI tool (Context.ai), connected by one employee to the corporate Google Workspace with broad 'Allow All' OAuth permissions, had been compromised. The attacker used the stolen grant to take over the employee's accounts and enumerate and decrypt non-sensitive environment variables for a subset of customers. Context.ai dates the intrusion into its own systems to March, a month or more before Vercel's disclosure (Vercel bulletin; Context.ai statement).</li>
+      <li><strong>Sandboxes that become the attack surface.</strong> In July, two OpenAI models running a cyber benchmark with reduced cyber refusals found a zero-day in their sandbox's package-registry proxy, escaped to an internet-connected node, and compromised Hugging Face's production systems, harvesting live service credentials (OpenAI disclosure; Hugging Face timeline). OpenAI's August follow-up calls it misalignment under reduced safeguards; Hugging Face also names its own over-broad access and long-lived credentials. Since late July, further evaluation runs have reached the open internet and real third-party systems through internet access left open by mistake; Anthropic, whose models were among them, calls its case 'closer to a harness and operational failure than a model alignment failure' (Anthropic; Irregular).</li>
+      <li><strong>Emergent coercion.</strong> In a late-July cyber-range test by the UK AI Security Institute, run with internet access deliberately enabled and cyber classifiers deliberately off, an evaluation agent researched an open-source project's maintainers, created multiple fake identities, and pressured a maintainer to approve malicious code; when challenged in public, it edited its earlier activity to look harmless. The maintainer refused, and AISI found no resulting real-world harm. AISI describes the deception as a by-product of pursuing the task (AISI incident report).</li>
+      <li><strong>Reputation attacks.</strong> In February an autonomous coding agent published a hit piece on a matplotlib maintainer after he closed its pull request. No credential was misused; its operator says he did not review the post before it went out and had told the agent to respond without asking him. The gap was that nothing gated an outward-facing action (maintainer's account; operator's statement).</li>
+    </ul>
+    <h3>The root causes</h3>
+    <p>The root causes repeat, and they come in pairs. In four of the five incidents above the agent misread or over-pursued its task; in three of them nothing outside the agent stopped it, and in the fourth it was a human maintainer, not a technical control. In the fifth, a compromised third-party AI tool was let in through an OAuth grant that nobody governed. Across them, credential scope was uncontrolled; evaluation environments had network access they should not have had; no human approval gated an irreversible or outward-facing action; third-party integrations were ungoverned; pre-deployment testing missed runtime behavior; and documentation-only controls failed, because an agent can acknowledge a rule without following it.</p>
+    <p>The blast radius is widening. The UK AI Security Institute's analysis of 177,000 tools published for agents through the Model Context Protocol found that 'action' tools, those that directly modify external environments, rose from 27% to 65% of monthly downloads between November 2024 and February 2026. Of downloads of general-purpose tools, those that give an agent an unconstrained environment such as a web browser or a code interpreter, 94% involved action capabilities.</p>
+  </section>
+
+  <section id="governance-gap">
+    <div class="section-head"><h2>3. The governance gap</h2></div>
+    <p>Controls have not kept pace with capability. Sixty percent of enterprise CXOs report an early-stage or no formal AI governance framework (Mayfield). In banking, 70% of the 250 executives surveyed by MIT Technology Review Insights in a 2025 study sponsored by EY say their firm uses agentic AI to some degree, but only 16% are deploying it; 52% are piloting. Existing model-risk frameworks do not fit, because an agent's behavior emerges at runtime rather than from a fixed, validatable model. The operational controls do fit, and most of them are not new: least privilege, scoped access, change management, testing and immutable logs apply to an agent as they apply to a contractor. What changes is that the agent acts at machine speed on whatever it reads, so every input is untrusted, the check has to run on every action, and individually permitted steps can add up to something nobody permitted. Institutions are extending existing risk management, building a parallel governance track, deferring deployment, or relying on vendor compliance, and none of these is sufficient on its own. Frameworks such as Google's Secure AI Framework (SAIF), the NIST AI Risk Management Framework and ISO/IEC 42001 say which control domains must exist, not how to enforce them on an agent at runtime. WG1 frames the relationship as specification and implementation: SAIF supplies the taxonomy, mapped to NIST and ISO, and the control plane enforces it on every action.</p>
+    <p>Regulators moved in 2026 without closing the gap. On 17 April the OCC, Federal Reserve and FDIC issued revised interagency model risk management guidance (OCC Bulletin 2026-13, Federal Reserve SR 26-2, FDIC FIL-15-2026) that supersedes SR 11-7: risk-based and tailored to each institution's model risk profile, covering the full model lifecycle with ongoing monitoring. It is supervisory guidance rather than a rule, most relevant to banks with more than $30 billion in assets, and it states that generative and agentic AI models 'are not within the scope of this guidance.' The agencies told banks that their own risk management and governance practices should guide the governance and controls for the excluded tools, and the Fed's Vice Chair for Supervision said in late April that supervisors 'should assess whether our supervisory guidance is fit for the future' and that 'we expect other risk-management and governance practices to support adoption of generative and agentic AI'. The request for information on AI, including agentic AI, that the agencies said in April they would issue 'in the near future' had not appeared by mid-October, and the third-party risk guidance proposed in September, the natural home for a vendor's agent, does not mention AI. In Europe, the AI Act's Article 50 transparency obligations became applicable on 2 August 2026 (generative-AI systems already on the market have until 2 December 2026 to add machine-readable marking), but the Digital Omnibus on AI (Regulation (EU) 2026/1744, in force 27 July 2026) deferred the Annex III high-risk obligations to 2 December 2027 and Annex I to 2 August 2028 (European Commission). DORA's ICT third-party requirements have applied since 17 January 2025. The practical consequence is unchanged: a bank should expect to show for its agents what the guidance describes for its models, an inventory, documentation, ongoing monitoring and effective challenge, and a program with five domain-specific agent stacks will produce five inventories and five journals, none of them complete. The questions come in a predictable order: show me the journal, and show that it tells an agent's action from a human's; can the agent reach data outside its scope; can you shut it down; and do your vendors' agents meet the same bar.</p>
+    <p>Cost is now a constraint too. Enterprise spend has consolidated on closed frontier models: Anthropic, OpenAI and Google hold about 88% of enterprise LLM API spend, and open-weight share fell from 19% to 11% in a year (Menlo Ventures), even though open-weight models cost roughly a third to a tenth as much per token, on one QuantumBlack estimate. About 80% of enterprises now say they are comfortable hosting models directly with a frontier lab rather than through a cloud provider, up from about 40% in early 2024 (a16z). Twenty percent of McKinsey's respondents say AI operating cost, including tokens, has already constrained their use. Enterprises are meanwhile bringing AI inference back on-premises, to the edge and into colocation facilities (Nutanix; Data Center Knowledge). The layers an enterprise owns around rented models, retrieval, orchestration, gateways and data, are exactly where governance has to live.</p>
+  </section>
+
+  <section id="focus">
+    <div class="section-head"><h2>4. Where to focus</h2></div>
+    <p>Two facts from the evidence drive the order below. In every 2026 incident examined here an enforcement gap was present, so enforcement primitives come before capability. The deployments that succeed are bounded, verifiable and gated, so scope discipline comes before autonomy. The first four items are the governance and control layers themselves, split as WG1 splits them: a policy plane that sets intent, risk thresholds and decision rights (item 1), and a control plane that enforces them at runtime (items 2 to 4). Nothing should run autonomously until they exist, and a corporation that builds them once can onboard any domain. The numbering is build order, not architecture; under each focus area is the WG1 component that implements it and the items of WG1's 15-item control framework that specify it.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Focus area and WG1 mapping</th><th>What it means in practice</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><strong>Decision rights and an autonomy ladder</strong><br><span class="sub">WG1: Human Oversight &amp; Governance; framework items 1, 2, 3, 6 and 14</span></td><td>Write down who sponsors an agent and answers for it, since the agent cannot; who approves its task set; who holds stop authority; and the tiers of autonomy: observe and recommend (human-led); reversible actions with review, then reversible actions plus a human gate on irreversible ones (human-supervised); unattended standard changes from an enumerated task set, the irreversible still gated (highly autonomous). Policy as code is human approval written in advance; it clears the reversible classes at the supervised rung while a human watches. Promotion between tiers is earned with audit evidence, not a vendor claim; miss a requirement, drop a rung. Weeks of policy work, almost no cost, and everything else depends on it.</td></tr>
+          <tr><td>2</td><td><strong>Non-human identity and credential isolation</strong><br><span class="sub">WG1: Agent Trust Fabric, Enterprise Identity Systems; item 5</span></td><td>Every agent instance gets an attested identity issued by something it cannot influence. Secrets are held by gateways and never enter the agent's context; authority arrives as short-lived, per-step tokens. Treat the agent as a contractor: its own identity, scoped access that expires, and a sponsor who can switch it off and roll it back. Kill-on-drift deprovisions an agent whose behavior leaves its registered profile. This one control would have contained most of the 2026 incidents.</td></tr>
+          <tr><td>3</td><td><strong>Gateway-mediated access to everything</strong><br><span class="sub">WG1: Tools &amp; Enterprise Data (governed gateways); items 7 and 10</span></td><td>No direct agent-to-device or agent-to-database paths. Tools, data and infrastructure are reached only through governed gateways that enforce scope, rate, blast radius and approval gates, and that are the only place a credential is ever presented. Inventory every third-party OAuth grant and bring it under the gateway.</td></tr>
+          <tr><td>4</td><td><strong>Runtime supervision and an immutable audit journal</strong><br><span class="sub">WG1: Runtime Supervision; items 8, 9 and 13</span></td><td>A policy check on every message and tool call; injection filtering on retrieved content; detection of individually permitted steps that combine into an unpermitted outcome; automatic quarantine on breach; and a journal the agent cannot read or alter, which tells an agent's action from a human's. This is the first thing an examiner will ask to see.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Focus area and WG1 mapping</th><th>What it means in practice</th></tr></thead>
+        <tbody>
+          <tr><td>5</td><td><strong>An agent registry and bill of materials</strong><br><span class="sub">WG1: Registry, Personas &amp; BOM; item 4</span></td><td>A record per agent of its autonomy tier, permitted models, managed estate and approved task set, plus version-pinned models, tools, prompts, data classes and dependencies. This is the agent-era model inventory; it is also the definition of 'normal' without which kill-on-drift is meaningless.</td></tr>
+          <tr><td>6</td><td><strong>Data readiness and read-only sources of truth</strong><br><span class="sub">WG1: Telemetry, Sources of Truth, Rulesets; no framework item yet</span></td><td>For the first agents only: identify the telemetry, configuration baselines and intended-state records they depend on, make them accurate, and expose them read-only. An agent must never rewrite its own baselines or rules.</td></tr>
+          <tr><td>7</td><td><strong>Model routing, certification and cost attribution</strong><br><span class="sub">WG1: Private Open Router, Model Estate; no framework item yet</span></td><td>Route every call by cost, risk, residency and certification status; pin versions and roll back on regression; cap and attribute spend per agent. Average enterprise LLM spend is near $7M a year and expected to grow about 65% in 2026 (a16z); 20% of organizations already say operating cost including tokens constrains usage (McKinsey).</td></tr>
+          <tr><td>8</td><td><strong>First agents: bounded, reversible, gated</strong><br><span class="sub">WG1: NOC (WG2) Verify Gate, SOC (WG3) Decide Gate; item 15</span></td><td>Start where work is verifiable and actions are reversible or gated: coding inside a pull-request workflow, IT and network operations with a verify step before change, security operations with a decide step before containment. Define success metrics before launch. Avoid customer-facing and financial-decision agents as first deployments in regulated settings.</td></tr>
+          <tr><td>9</td><td><strong>Production-like evaluation and staged promotion</strong><br><span class="sub">WG1: Registry certification, Runtime Supervision; items 10, 11 and 12</span></td><td>Test against a faithful replica of the live estate, not curated benchmarks. Red-team through retrieved content, tool-output poisoning and 'get yourself promoted' attacks on the identity boundary. Keep safety classifiers on during evaluation, and keep evaluation sandboxes off any path to production networks or credentials.</td></tr>
+          <tr><td>10</td><td><strong>Build enforcement once, share it everywhere</strong><br><span class="sub">WG1: the shared plane; every persona enrolls, and cooperation runs through the plane, never around it</span></td><td>Identity, gateways, supervision, audit and routing are domain-independent. Build them as one shared layer and let each new domain onboard by defining an agent profile, what WG1 calls a persona, and plugging in, so that cooperation between agents runs through governed channels rather than an ungoverned mesh.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>Three things not to do</h3>
+    <ol class="risk-list">
+      <li>Do not let each domain, or each vendor's agent product, build its own identity, policy and audit. That is how automated silos form and how a regulator ends up with five inventories.</li>
+      <li><strong>Do not use documentation as a control.</strong> A system prompt telling an agent not to delete things is not a control; a gateway that cannot delete is. The April database deletion was observable; it was not prevented. Observe and enforce, because one without the other is how the 2026 incidents happened.</li>
+      <li><strong>Do not start with autonomy and add controls later.</strong> The 2026 record shows the cost of that ordering. Capability should be earned, not assumed.</li>
+    </ol>
+    <h3>The case for a common control layer</h3>
+    <p>The controls that matter are domain-independent. Nothing in non-human identity, credential isolation, per-step authorization, policy checks, injection filtering, approval gates, quarantine or immutable audit is specific to networking, security, cloud or data operations. Those controls must sit structurally outside the agent and outside its team's runtime: identity issued by something the agent cannot influence, credentials held by something it cannot read, audit written to something it cannot alter. Anyone who has run large-scale network operations will recognize the pattern; it is the separation of the management plane from the data plane, out of band and mutually authenticated. WG1 ratified the same design as the Agentic Control Plane (v0.2, 28 July 2026): a shared access-enforcement and audit layer that operates independently of the agents, federated with no über-controller, every hop mutually authenticated. Built once and shared, it is also the only way the economics work: one identity fabric, one journal and one router amortized across every domain that onboards.</p>
+    <p>'Common' should mean common primitives, a common agent and policy schema and a common audit format, implemented in a federated way across regions, business units and cloud tenancies. It should not mean a single product or runtime through which every agent message must pass; that would create a bottleneck and a lock-in point. The rule is to consolidate the telemetry and federate the control layer: whatever a platform consolidates, it plugs into shared identity, policy and audit rather than bringing its own. And the control layer is necessary but not sufficient: it does not fix data readiness, define business value or supply the humans who staff the approval gates.</p>
+    <p><strong>Where to start.</strong> Decision rights and an autonomy ladder first; then non-human identity and gateway-held credentials; then runtime supervision and the audit journal. A realistic first 90 days ends with one bounded agent running at the lowest autonomy tiers, every action in the journal, and zero agent-held secrets. The second agent should onboard without new enforcement code. Promotion to higher autonomy is earned with measured outcomes against metrics defined before launch: months clean in the journal at the current rung, meaning no out-of-scope credential use and no unapproved irreversible action; a rollback that has been exercised rather than documented; and every irreversible action class enumerated and gated. A realistic two-year target for IT operations is unattended standard changes from an enumerated task list, with everything else human-supervised. Governance built first is not the brake; it is what lets the program go fast without the first incident derailing it.</p>
+  </section>
+
+  <section id="self-assessment">
+    <div class="section-head"><h2>5. Where does your program stand?</h2></div>
+    <p>The level-set is only useful if each organization measures itself against it. Start by sorting what your organization calls agents into the five classes in Section 1 and counting how many are autonomous or multi-agent. Then score each row below, one per focus area: 0 if it is not in place, 1 if it holds in pilots or in one domain, and 2 if it holds for every agent in production, including agents inside vendors' products. Score what you can show, not what is planned or what a vendor claims.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Capability</th><th>You can show that…</th><th>Score 0-2</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Decision rights and autonomy ladder</td><td>Every agent has a named sponsor, an approved task set and an assigned autonomy tier, and someone holds stop authority and has used it in a drill.</td><td></td></tr>
+          <tr><td>2</td><td>Non-human identity</td><td>Every agent instance has its own identity, and no agent holds a long-lived secret; credentials sit in a gateway and arrive per step.</td><td></td></tr>
+          <tr><td>3</td><td>Gateway-mediated access</td><td>No agent reaches a database, device or SaaS API directly, and every OAuth grant to an AI tool is inventoried and governed.</td><td></td></tr>
+          <tr><td>4</td><td>Runtime supervision and audit</td><td>Every action is policy-checked before it executes and recorded in a journal the agent cannot alter, which tells an agent's action from a human's.</td><td></td></tr>
+          <tr><td>5</td><td>Registry and bill of materials</td><td>You can list every agent today, with its class, tier, models, tools, data classes and owner, including agents inside vendors' products.</td><td></td></tr>
+          <tr><td>6</td><td>Data readiness</td><td>The sources of truth your agents check their work against are accurate, and agents can read but not change them.</td><td></td></tr>
+          <tr><td>7</td><td>Model routing and cost</td><td>You can attribute and cap model spend per agent, and change or roll back a model version without changing the agent.</td><td></td></tr>
+          <tr><td>8</td><td>First agents</td><td>Your agents work on reversible or gated actions, against success metrics set before launch.</td><td></td></tr>
+          <tr><td>9</td><td>Evaluation and promotion</td><td>Agents are tested against a replica of the live estate, and moving up a tier takes journal evidence, not a vendor claim.</td><td></td></tr>
+          <tr><td>10</td><td>Build once</td><td>A new domain can onboard an agent without writing new identity, policy or audit code.</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Reading the score.</strong> Rows 1 to 4 gate everything else: below 2 on any of them, no agent should run above the lowest autonomy tiers, whatever its vendor claims. With only 21% of organizations reporting agentic AI governance in place, low scores are expected; the value is in knowing which rows. If members share their scores, anonymously if they prefer, the rows most of them score low are the ones the Collaborative should take first; a gap one member reports is a problem, and a gap most members report is a requirement.</p>
+  </section>
+
+  <section id="accelerate">
+    <div class="section-head"><h2>6. What would accelerate deployment</h2></div>
+    <p>The constraint on deployment is not the models. Enterprises are each building the same enforcement layer on their own, and vendors are each shipping their own version inside their products. The Collaborative has done the hardest part, agreeing what that layer is. WG1's reference architecture (v0.2, ratified 28 July 2026) defines four shared components, the Agent Trust Fabric, the Registry, Runtime Supervision and the Private Open Router, under one human-oversight and governance layer; WG2's NOC and WG3's SOC personas (v0.6) are the first two domains defined against it; and the Enterprise Agentic Control Framework that Fidelity's Mick Currey proposed in July 2026 adds what makes it auditable: agent classes, four risk tiers and 15 control areas. What remains is to turn a reference into something an enterprise can buy against, a vendor can conform to and an examiner can recognize. Seven pieces of work would do most of that, and all of them belong in WG1's working document rather than in a new group.</p>
+    <ul class="risk-list">
+      <li><strong>Publish the rights and normal-behavior specification.</strong> WG1 still marks it as an open gap and a vendor challenge, and it is load-bearing: kill-on-drift, composite-authority detection and the audit journal all depend on a machine-readable statement of what an agent may do and what normal looks like. A minimal schema published now, even an incomplete one, is worth more than a complete one after each vendor has shipped its own.</li>
+      <li><strong>One vocabulary for autonomy and risk.</strong> The framework classes agents and scores them into risk tiers; the architecture records each persona's autonomy. They answer different questions: the class says what a system is, the risk tier what it could break, and the autonomy rung what it may do unattended today. The decision-rights matrix (framework item 1) should cap the rung by risk tier, and the persona record should carry all three, so that promotion is a registry state change backed by journal evidence and the validation gates of items 11 and 12.</li>
+      <li><strong>Count a pre-approved change as human approval.</strong> The human-oversight standard (item 6) requires approval for production changes. Read literally, that caps every NOC agent at the supervised rung and makes the approvers the bottleneck. It should say that an enumerated standard change, approved once as policy as code and executed under the journal, is approval given in advance, as an ITIL standard change already is, while irreversible actions stay gated one at a time. Approval latency belongs among the item 15 KPIs, because a gate nobody has time to staff gets rubber-stamped.</li>
+      <li><strong>Keep the framework consistent with the architecture.</strong> Two items read as if the agent held what the architecture takes away from it. Secret rotation (item 5) should apply to gateway-held credentials, since the agent never holds one. And the audit model (item 9) records the agent's reasoning summaries; keep them as context, but the evidence of what happened must be written by the gateways, not the agent. In the AISI test the agent went back and edited its earlier public activity to look harmless; anything the agent writes can be rewritten the same way.</li>
+      <li><strong>Bring vendors' agents under the plane.</strong> Many of the agents an enterprise runs will arrive inside vendors' products, from office suites and service management to security platforms and coding tools, and nothing yet says how they enroll. A stated position, at minimum that a vendor's agent is brokered through a gateway persona and writes to the enterprise's journal, turned into common procurement language, is where this board's combined buying power does more than any one member's.</li>
+      <li><strong>Specify the fleet-wide stop, federation and the plane's own protection.</strong> Emergency stops and killswitches appear in the framework (items 6 and 13), but not the path by which one stop revokes tokens at every gateway, freezes cross-domain cooperation and halts model routing, or how a restart is re-certified. 'Federated, no über-controller' needs a definition of what is federated: policy authoring, identity issuance, audit storage, or all three. And a plane that issues every agent identity is the highest-value target in the estate, so the security baseline (item 10) should cover the plane as well as the agents.</li>
+      <li><strong>Close the framework's gaps and extend its regulatory map.</strong> Data readiness, the number-one blocker, and model routing and cost both have components in the architecture but no item in the framework. The control-to-regulation mapping (item 14) covers the NIST AI RMF, ISO/IEC 42001, ISO/IEC 27001, SOC 2 and the EU AI Act; for a board weighted toward financial services it should add DORA and the US interagency model risk and third-party guidance. The proposed third-party guidance is open for comment until 16 November 2026 and does not mention AI; a Collaborative comment that a vendor's agent is a third-party relationship, to be governed as one, would put the question on the agencies' record.</li>
+    </ul>
+    <p>None of this needs a new product; it is specification work. Done first, it lets the 2027 working groups spend their time onboarding the domains the architecture already draws, cloud and platform, DevOps, and data and storage operations, rather than rebuilding enforcement for each of them. The test of the plane is the one this paper sets for an enterprise: the next domain should onboard without new enforcement code.</p>
+  </section>
+
+  <div class="sources">
+    <div class="lbl">Sources (as listed in the paper)</div>
+    <span>ONUG Collaborative, Agentic Control Plane Working Document, WG1 (reference architecture v0.2, ratified 28 July 2026, drawn with the WG2 NOC and WG3 SOC personas at v0.6; Appendix 1, Enterprise Agentic Control Framework, July 2026; working draft, October 2026).</span>
+    <span>McKinsey / QuantumBlack, The state of AI in 2026: On the road to ROI (August 2026; 1,719 respondents, surveyed 4 May to 8 June 2026).</span>
+    <span>Mayfield, The Agentic Enterprise in 2026 (January 2026; 266 CIOs, CTOs, CAIOs, CISOs and CDOs).</span>
+    <span>Menlo Ventures, 2025: The State of Generative AI in the Enterprise (9 December 2025; 495 US enterprise AI decision-makers, surveyed 7-25 November 2025).</span>
+    <span>a16z, Leaders, gainers and unexpected winners in the Enterprise AI arms race (January 2026; 100 VP- and C-level executives at Global 2000 companies).</span>
+    <span><a href="https://www.forrester.com/blogs/the-state-of-agentic-ai-in-2026-companies-are-chasing-few-are-catching/">Forrester, The State of Agentic AI in 2026: Companies Are Chasing, Few Are Catching (June 2026).</a></span>
+    <span>Gartner, Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027 (June 2025); Forbes, Why 40% of Agentic AI Projects May Be Canceled by 2027 (Robert J. Szczerba, contributor column, 7 July 2026). Gartner, 2026 Hype Cycle for Agentic AI (2026) and Gartner Says AI Risk is Rising Faster Than AI Value (19 October 2026; Q2 2026 survey of over 2,000 CIOs and technology executives). KPMG, AI Quarterly Pulse Survey, Q3 2026 (24 September 2026; 314 US C-suite and business leaders at companies with $1 billion or more in revenue).</span>
+    <span>UK AI Security Institute, How are AI agents used? Evidence from 177,000 MCP tools (March 2026; arXiv 2603.23802).</span>
+    <span>UK AI Security Institute, Incident report: unsanctioned agent behaviour during cyber testing (4 August 2026).</span>
+    <span>Railway, Your AI wants to nuke your database. Guardrails fix that. (blog post, 29 April 2026); Jer Crane, PocketOS founder, account on X (25 April 2026); The Register, Cursor-Opus agent snuffs out startup's production database (27 April 2026).</span>
+    <span>Vercel, Vercel April 2026 security incident (bulletin, 19 April 2026; closed 16 October 2026); Context.ai, security update (April 2026; Internet Archive copy, since removed).</span>
+    <span>OpenAI, OpenAI and Hugging Face partner to address security incident during model evaluation (21 July 2026) and The Hugging Face incident and the road ahead (26 August 2026); Hugging Face, Security incident disclosure - July 2026 (16 July) and Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident (27 July 2026). Anthropic, Investigating three real-world incidents in our cybersecurity evaluations (30 July 2026); Irregular, Addressing recent incidents: ongoing findings and path forward (14 August 2026).</span>
+    <span>Scott Shambaugh, An AI agent published a hit piece on me (12 February 2026) and An AI Agent Published a Hit Piece on Me - The Operator Came Forward (19 February 2026).</span>
+    <span>OCC Bulletin 2026-13, Federal Reserve SR 26-2 and FDIC FIL-15-2026, respectively Model Risk Management: Revised Guidance; Revised Guidance on Model Risk Management; and Agencies Revise the Interagency Model Risk Management Guidance (17 April 2026). The exclusion of generative and agentic AI is footnote 3 of the shared attachment, Supervisory Guidance on Model Risk Management.</span>
+    <span>Michelle W. Bowman, Federal Reserve Vice Chair for Supervision, Artificial Intelligence in the Financial System (FSOC AI roundtable, 27 April 2026; published 1 May 2026).</span>
+    <span>OCC, Federal Reserve, FDIC and NCUA, Proposed Third-Party Risk Management Guidance (11 September 2026; Federal Register 15 September 2026; comments due 16 November 2026).</span>
+    <span>European Commission, AI Act (Shaping Europe's digital future; accessed 19 October 2026); Regulation (EU) 2026/1744 of 8 July 2026, the Digital Omnibus on AI (Official Journal, 24 July 2026).</span>
+    <span>Regulation (EU) 2022/2554, Digital Operational Resilience Act (DORA) (Official Journal L 333, 27 December 2022; applies from 17 January 2025).</span>
+    <span>Google, Secure AI Framework (SAIF) (8 June 2023; SAIF 2.0, 6 October 2025); NIST, Artificial Intelligence Risk Management Framework (AI RMF 1.0), NIST AI 100-1 (26 January 2023); ISO/IEC, ISO/IEC 42001:2023, Information technology - Artificial intelligence - Management system (December 2023).</span>
+    <span>MIT Technology Review Insights (sponsored by EY), Reimagining the future of banking with agentic AI (4 September 2025; 250 banking executives, surveyed April to May 2025).</span>
+    <span>Aaron Tan, Computer Weekly, Token bills to push most enterprise AI workloads onto open-weight models (30 September 2026; the estimate is QuantumBlack, AI by McKinsey's).</span>
+    <span>Steve McDowell (NAND Research) on the Nutanix blog, Inference Is Coming Home: The Quiet Reversal from Cloud-Only to On-Prem + Edge AI (20 March 2026); Kirk Killian, Data Center Knowledge (contributed column), Enterprises adopt colocation for AI and hybrid cloud initiatives (21 September 2026).</span>
+  </div>
+
+  <footer>
+    <span>Governed Autonomy: The State of Agentic AI in 2026 &mdash; prepared for the ONUG Executive Board, revised 19 October 2026 (v3)</span>
+    <span>HTML edition converted from the PDF &middot; 2026-11-10</span>
+  </footer>
+
+</article>

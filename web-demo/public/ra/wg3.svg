@@ -110,5 +110,5 @@
 
       <text x="30" y="850" font-size="11.5" fill="#585858">For the SOC, the Agents/MCPs tile is how detection gets fused across silos — endpoint, identity, cloud, and edge agents correlating under</text>
       <text x="30" y="868" font-size="11.5" fill="#585858">control, including SOC ⇔ NOC coordination such as quarantining a host without tipping off the intruder.</text>
-      <text x="30" y="890" font-size="11" font-style="italic" fill="#b0894a">Draft v0.6 · WG3 — prepared for vendor sessions · redrawn in ONUG design language for this report set.</text>
+      <text x="30" y="890" font-size="11" font-style="italic" fill="#b0894a">Ratified v0.6 (2026-10-15) · WG3 · redrawn in ONUG design language for this report set.</text>
     </svg>
