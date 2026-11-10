@@ -176,7 +176,7 @@
     <span>Peter Campbell</span>
   </div>
 
-  <p>Twenty use cases are on the floor for Tuesday's board meeting (UC #20, from Travis Ewert of Digital Realty, arrived as a separate handout after the 1&ndash;19 packet). Nine of them describe enforcement primitives or promotion evidence already scoped in <strong>WG1 (Agentic Control Plane)</strong>; five belong inside <strong>WG2 (Autonomous NOC)</strong>. Spawning separate working groups for those fourteen would fragment the shared control plane the <a href="report-onug-governed-autonomy-board-paper-2026.html">board paper</a> argues for. The play is to absorb those fourteen into WG1/WG2, make UC #5 the anchor for WG3, refocused on AI agents as insider threats (Section 4), park one outlier, and channel the rest into <strong>two net-new Working Group candidates</strong>: <strong>WG4, AI WAN</strong>, and <strong>WG5, Post-Quantum Security for AI Infrastructure</strong>. Delivery schedules for all five groups are left to each group&rsquo;s leaders to propose once leadership is confirmed.</p>
+  <p>Twenty use cases are on the floor for Tuesday's board meeting (UC #20 arrived as a separate handout after the 1&ndash;19 packet). Nine of them describe enforcement primitives or promotion evidence already scoped in <strong>WG1 (Agentic Control Plane)</strong>; five belong inside <strong>WG2 (Autonomous NOC)</strong>. Spawning separate working groups for those fourteen would fragment the shared control plane the <a href="report-onug-governed-autonomy-board-paper-2026.html">board paper</a> argues for. The play is to absorb those fourteen into WG1/WG2, make UC #5 the anchor for WG3, refocused on AI agents as insider threats (Section 4), park one outlier, and channel the rest into <strong>two net-new Working Group candidates</strong>: <strong>WG4, AI WAN</strong>, and <strong>WG5, Post-Quantum Security for AI Infrastructure</strong>. Delivery schedules for all five groups are left to each group&rsquo;s leaders to propose once leadership is confirmed.</p>
 
   <div class="stats">
     <div class="stat"><div class="v">2</div><div class="k">Net-new WG candidates: AI WAN (UC #1) and PQC (UC #7, #8, #16 + PQC slices of #10, #20)</div></div>
@@ -211,7 +211,7 @@
           <h3>AI WAN: Transport for Distributed AI</h3>
         </div>
         <div class="body">
-          <p><strong>Anchored by:</strong> <strong>UC #1</strong> (Aryo Kresnadi), Distributed AI &amp; Semantic Networking.</p>
+          <p><strong>Anchored by:</strong> <strong>UC #1</strong>, Distributed AI &amp; Semantic Networking.</p>
           <p><strong>The problem:</strong> AI is changing what crosses the enterprise WAN. Training and fine-tuning data has to reach wherever GPU capacity is (a cloud region, a GPU cloud, or a colocation cluster), and egress fees and transfer time are now a budget line. Inference and agent traffic means every site, application, and agent calling model endpoints, which is latency-sensitive and hard to inspect. Where enterprises run models at the edge to avoid hauling video and sensor data back, they need dependable model rollout and a way to return curated data for retraining. Traditional WAN design wasn&rsquo;t sized or priced for these traffic patterns. The result is cost, latency, and unpredictable performance.</p>
           <p><strong>Who it brings together:</strong> Enterprise network architects with carriers, service providers, and networking vendors, to define what an AI-ready WAN must do.</p>
           <p><strong>First deliverable:</strong> A traffic study drawn from member enterprises: what AI workloads actually put on their networks today.</p>
@@ -229,7 +229,7 @@
           <h3>Post-Quantum Security for AI Infrastructure</h3>
         </div>
         <div class="body">
-          <p><strong>Combines:</strong> <strong>UC #7</strong> (John Buselli), <strong>UC #8</strong> (John Buselli), <strong>UC #16</strong> (Denis Mandich), plus PQC scope of <strong>UC #10</strong> (Satish Natarajan) and quantum-safe scope of <strong>UC #20</strong> (Travis Ewert).</p>
+          <p><strong>Combines:</strong> <strong>UC #7</strong>, <strong>UC #8</strong>, and <strong>UC #16</strong>, plus the PQC scope of <strong>UC #10</strong> and the quantum-safe scope of <strong>UC #20</strong>.</p>
           <p><strong>The problem:</strong> AI agents, signed models, and agent-to-agent traffic depend on public-key cryptography that quantum computers are expected to break, and adversaries are already harvesting encrypted data today to decrypt later. Agents raise the stakes because their security runs on signatures, the hardest part of the migration: certificates, tokens, and Agent Cards prove who an agent is and whom it acts for, and post-quantum signatures are up to 50 times larger. Agent protocols are being written now, so they can be built quantum-safe from the start.</p>
           <p><strong>The deadlines are set:</strong> Executive Order 14412 moves federal high-value and high-impact systems to post-quantum key establishment by the end of 2030 and digital signatures by the end of 2031, and directs a rule requiring federal contractors to meet post-quantum FIPS standards by the end of 2030. CISA and NIST will publish minimum elements for a cryptographic bill of materials by March 19, 2027, and the EU&rsquo;s PQC roadmap targets high-risk systems by 2030.</p>
           <p><strong>Who it brings together:</strong> Enterprise security and cryptography leaders with PQC, key-management, PKI, and network and security vendors. For most enterprises, vendor roadmaps set the timeline, because the hard part is cryptography inside products they don&rsquo;t control. Scope is post-quantum cryptography, not quantum key distribution.</p>
@@ -250,67 +250,58 @@
 
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Use Case</th><th>Submitter</th><th class="votes">Votes</th><th>Why It Stays in WG1</th><th>Exact WG1 &amp; <code>onug-plane</code> Mapping</th></tr></thead>
+        <thead><tr><th>Use Case</th><th class="votes">Votes</th><th>Why It Stays in WG1</th><th>Exact WG1 &amp; <code>onug-plane</code> Mapping</th></tr></thead>
         <tbody>
           <tr>
             <td>UC #3 <span class="sub">Governed Inference Routing</span></td>
-            <td>James Walker</td>
             <td class="votes">4</td>
             <td>This <em>is</em> WG1's fourth component (<strong>Private Open Router</strong>). Splitting model routing from the control plane would separate spend/sovereignty policy from agent identity and the audit journal.</td>
             <td>Focus Area #7 &middot; WG1 Item #17 &middot; <code>LiteLLM</code> SVID-to-virtual-key mapping, hard budgets, and signed routing spans in <code>immudb</code>.</td>
           </tr>
           <tr>
             <td>UC #6 <span class="sub">Business-Process Agents Exceeding Authority</span></td>
-            <td>Baird Kaake</td>
             <td class="votes">1</td>
             <td>Describes <strong>composite authority</strong> and per-step <strong>Rights-BOM reconciliation</strong> word-for-word from WG1's scoping doc and <a href="report-onug-governed-autonomy-board-paper-2026.html#accelerate">Section 6 Bullet 1 of the board paper</a>.</td>
             <td>Focus Area #4 &amp; #5 &middot; WG1 Items #19, #22, #23 (BPMN per-step scope), #24 (Rights-BOM) &middot; Section 6 Bullet 1 schema.</td>
           </tr>
           <tr>
             <td>UC #9 <span class="sub">Unified Framework for Agentic Guardrails</span></td>
-            <td>Satish Natarajan</td>
             <td class="votes">3</td>
-            <td>Matches WG1's core charter. Invite Satish to add Aerospace &amp; Defense (A&amp;D) regulatory mappings alongside Financial Services in WG1 Item #14.</td>
+            <td>Matches WG1's core charter and extends WG1 Item #14 with Aerospace &amp; Defense (A&amp;D) regulatory mappings alongside Financial Services.</td>
             <td>WG1 Reference Architecture v0.2 + AOMC 6 Controls + Item #14 (Regulatory Map).</td>
           </tr>
           <tr>
             <td>UC #13 <span class="sub">Task-Scoped Entitlements for Agents</span></td>
-            <td>Vesko Pehlivanov</td>
             <td class="votes">2</td>
             <td>Solves agents inheriting human OAuth/IAM entitlements by issuing short-lived, task-scoped tokens from outside the agent.</td>
             <td>Focus Area #2 &middot; WG1 Component #1 (<code>Agent Trust Fabric</code>), Items #5 &amp; #20 &middot; <code>SPIRE</code> 5-min JWT-SVIDs + <code>OpenBao</code> (Proof P1).</td>
           </tr>
           <tr>
             <td>UC #15 <span class="sub">Binding Identity to Limited, Revocable Authority</span></td>
-            <td>Denis Mandich</td>
             <td class="votes">18</td>
             <td>Same architectural requirement as UC #13 + Focus Area #2/#4: execution-scoped identity, per-action permission check, and measured revocation SLA.</td>
             <td>Focus Area #2 &amp; #4 &middot; AOMC-1 &amp; AOMC-2 &middot; <code>onug-plane</code> Proof P3 (5&ndash;8s drift quarantine, 1&ndash;4s <code>stop-all</code>).</td>
           </tr>
           <tr>
             <td>UC #4 <span class="sub">Signed, Verifiable Compliance Evidence</span></td>
-            <td>James Walker</td>
             <td class="votes">8</td>
             <td>Directly maps to WG1's gateway-written immutable journal (Focus Area #4 &amp; Section 6 Bullet 4). Pairs with UC #14 and #19: the same journal yields both the regulator proof and the promotion SLIs.</td>
             <td>Focus Area #4 &middot; WG1 Item #9 &middot; <code>journal-writer</code> &rarr; <code>immudb</code> Merkle inclusion proofs + <code>MinIO</code> 30-day WORM lock (Proof P2).</td>
           </tr>
           <tr>
             <td>UC #19 <span class="sub">SLI &ldquo;Nutrition Labels&rdquo; for Agentic Controls</span></td>
-            <td>Parantap Lahiri</td>
             <td class="votes">4</td>
-            <td>Section 4 (Focus #9) says promotion up the Autonomy Ladder requires measured journal evidence, not vendor claims. Lahiri's five SLIs (<code>M1 VTSR</code>, <code>M2 CSIR</code> with honeytoken floor, <code>M3 Report Fidelity</code>, <code>M4 Escalation Recall/Precision</code>, <code>M5 Cost per Verified Success</code>) are that evidence.</td>
+            <td>Section 4 (Focus #9) says promotion up the Autonomy Ladder requires measured journal evidence, not vendor claims. The five SLIs (<code>M1 VTSR</code>, <code>M2 CSIR</code> with honeytoken floor, <code>M3 Report Fidelity</code>, <code>M4 Escalation Recall/Precision</code>, <code>M5 Cost per Verified Success</code>) are that evidence.</td>
             <td>Focus Area #9 &middot; Autonomy Ladder promotion criteria &middot; SLIs computed from the <code>immudb</code>/<code>MinIO</code> journal and <code>LiteLLM</code> cost spans.</td>
           </tr>
           <tr>
             <td>UC #14 <span class="sub">Testing &amp; Verification of Agentic Safety Controls</span></td>
-            <td>Vesko Pehlivanov</td>
             <td class="votes">1</td>
             <td>The control-bypass test harness and productivity-impact benchmark an agent must pass before it is promoted a rung. Same promotion gate as UC #19, so it belongs with it.</td>
             <td>Focus Area #9 &middot; adversarial/bypass harness run against WG1 enforcement points; results written to the journal alongside UC #19's SLIs.</td>
           </tr>
           <tr>
             <td>UC #20 <span class="sub">Proving Control in Sovereign &amp; Regulated Environments (Infra Half)</span></td>
-            <td>Travis Ewert</td>
             <td class="votes">2</td>
             <td>Asks for agent identity bound to independent enforcement outside the agent, plus one evidence trail of action, traffic, and encryption status. That is WG1's identity air-gap and gateway journal. New: enforcement at the network layer and <strong>jurisdiction</strong> as a per-call policy attribute (split quantum-safe transport to new working group WG5).</td>
             <td>Focus Area #2 &amp; #4 &middot; Agent Trust Fabric + Item #21 (Agent-to-Next-Hop Authentication) &middot; Item #17 residency extended from model routing to all tool/data calls &middot; journal adds traffic + encryption fields (pairs with UC #4).</td>
@@ -327,35 +318,30 @@
 
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Use Case</th><th>Submitter</th><th class="votes">Votes</th><th>Where It Fits in WG2's v0.6 Architecture</th></tr></thead>
+        <thead><tr><th>Use Case</th><th class="votes">Votes</th><th>Where It Fits in WG2's v0.6 Architecture</th></tr></thead>
         <tbody>
           <tr>
             <td>UC #2 <span class="sub">Cross-Domain Telemetry &amp; Incident Attribution</span></td>
-            <td>Aryo Kresnadi</td>
             <td class="votes">15</td>
             <td><strong>Steps 1&ndash;2 (Detect &amp; Diagnose) + Focus Area #6 (Sources of Truth):</strong> Correlating carrier underlay (DWDM), enterprise overlay (SD-WAN/EVPN), and cloud black-box gateways to end NOC &ldquo;innocence proving.&rdquo;</td>
           </tr>
           <tr>
             <td>UC #10 <span class="sub">Autonomous 24/7 Infra Ops (Infra Half)</span></td>
-            <td>Satish Natarajan</td>
             <td class="votes">10</td>
             <td><strong>Full WG2 Loop + Digital Twin:</strong> Combines WG1's autonomy lifecycle with WG2's digital-twin validation at scale (split PQC testing to new working group WG5).</td>
           </tr>
           <tr>
             <td>UC #12 <span class="sub">Network Validation via Agentic AI &amp; Digital Twin</span></td>
-            <td>Richard Huddleston</td>
             <td class="votes">2</td>
             <td><strong>Step 4 (<code>LOOP-4: Verify Gate</code>) &amp; Focus Area #9:</strong> Building an open digital-twin validation harness (extending <code>Containerlab</code> + <code>NetBox</code> in <code>onug-plane</code>) for pre-change simulation.</td>
           </tr>
           <tr>
             <td>UC #17 <span class="sub">Enterprise Network Knowledge Agent</span></td>
-            <td>Dariusz Kmiotek</td>
             <td class="votes">11</td>
             <td><strong>Rung 1 Persona (<code>L0/L1 Observe &amp; Recommend</code>):</strong> Correlating design docs, tickets, recorded design sessions, and live configs to explain <em>design intent</em> before proposing changes.</td>
           </tr>
           <tr>
             <td>UC #18 <span class="sub">Automated Pre-Change Validation Agent</span></td>
-            <td>Dariusz Kmiotek</td>
             <td class="votes">4</td>
             <td><strong>Step 4 (<code>LOOP-4: Verify Gate</code>):</strong> Context-aware pre-change assurance + execution-time environment check (CPU, power, concurrent changes) producing an evidence-based Approve/Deny recommendation before <code>LOOP-5 (Execute)</code>.</td>
           </tr>
@@ -377,7 +363,7 @@
           <h3>AI Agents as Insider Threats</h3>
         </div>
         <div class="body">
-          <p><strong>Anchored by:</strong> <strong>UC #5</strong> (Baird Kaake), Unsanctioned Agents Acting for Employees. Employee-launched agents acting under human credentials are insiders by definition. Agent incident attribution (UC #20 scenario 5, the agent side of UC #2) supports it.</p>
+          <p><strong>Anchored by:</strong> <strong>UC #5</strong>, Unsanctioned Agents Acting for Employees. Employee-launched agents acting under human credentials are insiders by definition. Agent incident attribution (UC #20 scenario 5, the agent side of UC #2) supports it.</p>
           <p><strong>The problem:</strong> AI agents hold real access and act on their own. When they misuse that access, through compromise, manipulation, or their own behavior, the action can stay within policy, so gateway enforcement doesn't catch it. Anthropic&rsquo;s S-1 shows this happening with no attacker involved (evidence below).</p>
           <p><strong>2027 scope:</strong> Agents misusing legitimate access (the four risks below); unsanctioned and shadow agents on endpoints, browsers, and VMs acting under human credentials; agent incident attribution (which agent, which path, which policy); agent forensics, investigation, and incident response; and extending enterprise insider-risk programs to non-human insiders.</p>
           <p><strong>How it relates to WG1/WG2:</strong> WG1 decides what an agent is allowed to do and blocks violations at the gateway. WG3 takes the cases WG1's enforcement doesn't catch: harmful behavior that stays within policy. The SOC persona design moves to WG2.</p>
@@ -469,12 +455,11 @@
 
     <div class="table-wrap">
       <table>
-        <thead><tr><th>#</th><th>Use Case Title</th><th>Submitter</th><th class="votes">Votes</th><th>Recommendation</th><th>Room Response / Talking Point</th></tr></thead>
+        <thead><tr><th>#</th><th>Use Case Title</th><th class="votes">Votes</th><th>Recommendation</th><th>Room Response / Talking Point</th></tr></thead>
         <tbody>
           <tr>
             <td>#1</td>
             <td>Distributed AI &amp; Semantic Networking</td>
-            <td>Aryo Kresnadi</td>
             <td class="votes">7</td>
             <td><span class="pill new">New WG4</span></td>
             <td>Anchor for <strong>new working group WG4 (AI WAN)</strong>. Genuine transport gap: data moving to GPU capacity, inference and agent traffic to model endpoints, and model rollout to edge sites. Starts with a member traffic study.</td>
@@ -482,7 +467,6 @@
           <tr>
             <td>#2</td>
             <td>Cross-Domain Telemetry &amp; Incident Attribution</td>
-            <td>Aryo Kresnadi</td>
             <td class="votes">15</td>
             <td><span class="pill wg2">Absorb &rarr; WG2</span></td>
             <td>Core WG2 NOC problem (underlay vs. overlay vs. cloud correlation). Make it a flagship WG2 2027 scenario.</td>
@@ -490,7 +474,6 @@
           <tr>
             <td>#3</td>
             <td>Governed Routing of AI Inference Across Models</td>
-            <td>James Walker</td>
             <td class="votes">4</td>
             <td><span class="pill wg1">Absorb &rarr; WG1</span></td>
             <td>This is WG1's <strong>Private Open Router</strong> (Focus Area #7, Item #17). Already running in <code>onug-plane</code> via LiteLLM + immudb spans; keep inside WG1.</td>
@@ -498,7 +481,6 @@
           <tr>
             <td>#4</td>
             <td>Proving Agent Controls Held: Signed Compliance Evidence</td>
-            <td>James Walker</td>
             <td class="votes">8</td>
             <td><span class="pill wg1">Absorb &rarr; WG1</span></td>
             <td>Directly matches WG1's gateway-written journal (<code>immudb</code> Merkle proofs + WORM lock). Pairs with UC #14 &amp; #19 in WG1 to standardize the portable regulator proof format.</td>
@@ -506,7 +488,6 @@
           <tr>
             <td>#5</td>
             <td>Unsanctioned Agents Acting for Employees</td>
-            <td>Baird Kaake</td>
             <td class="votes">8</td>
             <td><span class="pill">WG3 Anchor</span></td>
             <td>True blind spot: employee-launched laptop/browser/VM agents acting under human credentials and leaking task intent. Anchors WG3, refocused on AI agents as insider threats (Section 4).</td>
@@ -514,7 +495,6 @@
           <tr>
             <td>#6</td>
             <td>Sanctioned Business-Process Agents Exceeding Authority</td>
-            <td>Baird Kaake</td>
             <td class="votes">1</td>
             <td><span class="pill wg1">Absorb &rarr; WG1</span></td>
             <td>Exact match for WG1 Items #22 (Composite Authority), #23 (BPMN Per-Step Scope), #24 (Rights-BOM), and <a href="report-onug-governed-autonomy-board-paper-2026.html#accelerate">Section 6 Bullet 1 of the board paper</a>.</td>
@@ -522,7 +502,6 @@
           <tr>
             <td>#7</td>
             <td>AI Agents Trust Each Other with Quantum-Vulnerable Crypto</td>
-            <td>John Buselli</td>
             <td class="votes">0</td>
             <td><span class="pill new">New WG5</span></td>
             <td>Combine with UC #8 &amp; #16 in <strong>WG5 (Post-Quantum Security for AI Infrastructure)</strong> to define the post-quantum profile for agent identity and trust: PQ SPIFFE SVIDs, signed A2A cards, and model provenance.</td>
@@ -530,7 +509,6 @@
           <tr>
             <td>#8</td>
             <td>PQC Migration Is Too Big for Humans Alone</td>
-            <td>John Buselli</td>
             <td class="votes">1</td>
             <td><span class="pill new">New WG5</span></td>
             <td>Core of WG5's crypto-migration playbook: make the <strong>PQC Discovery &amp; Remediation Agent</strong> an official domain persona that onboards onto WG1's Control Plane.</td>
@@ -538,15 +516,13 @@
           <tr>
             <td>#9</td>
             <td>Unified Operational Framework for Agentic Guardrails</td>
-            <td>Satish Natarajan</td>
             <td class="votes">3</td>
             <td><span class="pill wg1">Absorb &rarr; WG1</span></td>
-            <td>This <em>is</em> WG1's Agentic Control Plane + AOMC. Bring Satish in to extend Item #14's regulatory map to Aerospace &amp; Defense (A&amp;D).</td>
+            <td>This <em>is</em> WG1's Agentic Control Plane + AOMC. Extends Item #14's regulatory map to Aerospace &amp; Defense (A&amp;D).</td>
           </tr>
           <tr>
             <td>#10</td>
             <td>Secure &amp; Autonomous 24/7 Infra Ops Against AI &amp; PQC Risks</td>
-            <td>Satish Natarajan</td>
             <td class="votes">10</td>
             <td><span class="pill wg2">Split &rarr; WG2 &amp; WG5</span></td>
             <td>Umbrella ask: autonomous lifecycle + digital twin belongs in WG1/WG2; deterministic PQC readiness joins WG5.</td>
@@ -554,7 +530,6 @@
           <tr>
             <td>#11</td>
             <td>Standardizing Agentic Communication via Structured Registers (<code>ainglish</code>)</td>
-            <td>Richard Huddleston</td>
             <td class="votes">8</td>
             <td><span class="pill park">Park / Briefing Only</span></td>
             <td>Do not form a WG. Modifying English inside prompts conflicts with WG1's core rule that prompts are untrusted and governance must be enforced via deterministic schemas outside the context window.</td>
@@ -562,7 +537,6 @@
           <tr>
             <td>#12</td>
             <td>Network Validation via Agentic AI &amp; Digital Twin (Aether)</td>
-            <td>Richard Huddleston</td>
             <td class="votes">2</td>
             <td><span class="pill wg2">Absorb &rarr; WG2</span></td>
             <td>Strong fit for WG2's <strong>Step 4 Verify Gate</strong> and Focus Area #9 (production-replica evaluation). Pair with UC #17 &amp; #18 inside WG2.</td>
@@ -570,7 +544,6 @@
           <tr>
             <td>#13</td>
             <td>Task-Scoped Entitlements &amp; Access Controls for AI Agents</td>
-            <td>Vesko Pehlivanov</td>
             <td class="votes">2</td>
             <td><span class="pill wg1">Absorb &rarr; WG1</span></td>
             <td>Core WG1 <strong>Agent Trust Fabric</strong> (Focus Area #2, Items #5 &amp; #20). Proven in <code>onug-plane</code> (5-min SPIRE SVIDs + OpenBao gateway injection).</td>
@@ -578,7 +551,6 @@
           <tr>
             <td>#14</td>
             <td>Testing &amp; Verification Framework for Agentic Safety Controls</td>
-            <td>Vesko Pehlivanov</td>
             <td class="votes">1</td>
             <td><span class="pill wg1">Absorb &rarr; WG1</span></td>
             <td>Pair with UC #19 &amp; #4 in WG1: defines the adversarial/bypass test harness and productivity-impact benchmark required before promoting an agent a rung.</td>
@@ -586,7 +558,6 @@
           <tr>
             <td>#15</td>
             <td>Binding AI Agent Identity to Limited, Revocable Authority</td>
-            <td>Denis Mandich</td>
             <td class="votes">18</td>
             <td><span class="pill wg1">Absorb &rarr; WG1</span></td>
             <td>Core WG1 Trust Fabric + Runtime Supervision (AOMC-1/2). Already measured in <code>onug-plane</code> Proof P3 (5&ndash;8s drift quarantine, 1&ndash;4s <code>stop-all</code>).</td>
@@ -594,7 +565,6 @@
           <tr>
             <td>#16</td>
             <td>Maintaining Cryptographic Protection Across Distributed AI Infra</td>
-            <td>Denis Mandich</td>
             <td class="votes">9</td>
             <td><span class="pill new">New WG5</span></td>
             <td>Combine with UC #7 &amp; #8 in WG5: drives its key-management guidance (cross-gateway key residency, automated rotation, and fail-closed recovery across edge, on-prem, and cloud).</td>
@@ -602,7 +572,6 @@
           <tr>
             <td>#17</td>
             <td>Enterprise Network Knowledge Agent for Intent Analysis</td>
-            <td>Dariusz Kmiotek</td>
             <td class="votes">11</td>
             <td><span class="pill wg2">Absorb &rarr; WG2</span></td>
             <td>Textbook <strong>Rung 1 NOC Persona</strong> (read-only synthesis of design intent, configs, and tickets). Direct evolution of <code>noc-observer</code> in WG2.</td>
@@ -610,7 +579,6 @@
           <tr>
             <td>#18</td>
             <td>Automated Pre-Change Validation Agent for Infra Assurance</td>
-            <td>Dariusz Kmiotek</td>
             <td class="votes">4</td>
             <td><span class="pill wg2">Absorb &rarr; WG2</span></td>
             <td>Defines the exact logic of WG2's <strong>Verify Gate (Step 4)</strong>: pre-change design compliance + execution-time health check before Step 5 (Execute).</td>
@@ -618,7 +586,6 @@
           <tr>
             <td>#19</td>
             <td>Agentic Controls &amp; Guardrails &mdash; SLI &ldquo;Nutrition Labels&rdquo;</td>
-            <td>Parantap Lahiri</td>
             <td class="votes">4</td>
             <td><span class="pill wg1">Absorb &rarr; WG1</span></td>
             <td>The 5 SLIs (<code>VTSR</code>, <code>CSIR</code>, <code>RFR</code>, <code>EQ</code>, <code>CPVS</code>) provide the exact quantitative evidence needed for WG1's Autonomy Ladder promotions, computed from WG1's own journal.</td>
@@ -626,7 +593,6 @@
           <tr>
             <td>#20</td>
             <td>Proving Control Over Autonomous AI in Sovereign &amp; Regulated Environments</td>
-            <td>Travis Ewert</td>
             <td class="votes">2</td>
             <td><span class="pill wg1">Split &rarr; WG1 &amp; WG5</span></td>
             <td>The network sees every agent action but not which agent or under whose authority. Identity, policy, and evidence binding stays in WG1 (network enforcement profile + jurisdiction attribute); quantum-safe agent transport joins WG5. Incident-attribution scenario links to UC #2 in WG2.</td>
@@ -639,7 +605,7 @@
   <div class="sources">
     <div class="lbl">Sources</div>
     <span>ONUG Board Meeting October 2026 &mdash; Use Cases #1&ndash;#19 (Use Cases NY 26.pdf)</span>
-    <span>ONUG Board Meeting October 2026 &mdash; Use Case #20 handout, Travis Ewert, Digital Realty (raw/use-case-20.jpeg)</span>
+    <span>ONUG Board Meeting October 2026 &mdash; Use Case #20 handout (raw/use-case-20.jpeg)</span>
     <span>Anthropic, PBC &mdash; Form S-1 Registration Statement, Risk Factors (filed 2026-10-26; raw/anthropic-pbc-s1-2026-10-26.htm)</span>
     <span>ONUG 2027 starting-point descriptions &mdash; WG4 (AI WAN) and WG5 (Post-Quantum Security for AI Infrastructure), 2026-11-09; revised per the WG4 and WG5 Charter Review, 2026-11-10</span>
     <span>Executive Order 14412, &ldquo;Securing the Nation Against Advanced Cryptographic Attacks&rdquo; (91 FR 38483, 2026-06-25; whitehouse.gov, June 2026)</span>
