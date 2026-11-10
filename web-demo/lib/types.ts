@@ -161,6 +161,7 @@ export interface Step {
   title: string;
   subtitle?: string;
   narration?: string;
+  silent?: boolean;               // no recorded voice on purpose: the presenters talk to this card
   pausePoint?: string;            // presenter pause marker (shown as a badge)
   events: EventEntry[];
   topologyChanges: TopologyChange[];

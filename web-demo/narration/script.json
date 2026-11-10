@@ -7,10 +7,10 @@
     "model_id": "eleven_v4",
     "speed": 1.2,
     "notes": "Segment ids match Step.id in lib/steps.ts; audio is served from public/narration/<id>.mp3",
-    "segments": 41,
-    "total_words": 1726,
-    "estimated_minutes": 11.5,
-    "recorded_minutes": 12.3
+    "segments": 40,
+    "total_words": 1659,
+    "estimated_minutes": 11.1,
+    "recorded_minutes": 11.8
   },
   "segments": [
     {
@@ -430,17 +430,6 @@
       "text": "This is not a forecast. EY Canvas: one point four trillion lines of audit data a year, governed for a hundred thirty thousand professionals. Cisco: a personal agent for every one of ninety thousand employees this year. Salesforce Agentforce at Reddit, vendor-reported: eighty-four percent faster resolution. One distinction. A personal agent is easy to interrupt. A company's agentic workflow, with its own identity and rights, is what the control plane exists to govern.",
       "words": 73,
       "audio_seconds": 32.444082
-    },
-    {
-      "id": "b7-threats",
-      "step": 39,
-      "beat": 7,
-      "phase": "threats",
-      "title": "ONE PATH SHOWN. FIFTY-NINE CATALOGUED.",
-      "pause": null,
-      "text": "The demo showed one path in. Working group one has catalogued fifty-nine. You just watched seven of them: a poisoned component, standing privilege, self-attestation, a tamperable audit trail, an irreversible action with no human, token replay, and the consumer-delegated agent. The same controls address the rest, eleven families in all. And six stay only partly closed. When a vendor claims full coverage, ask to see the mechanism.",
-      "words": 67,
-      "audio_seconds": 28.525714
     },
     {
       "id": "b7-lanes",

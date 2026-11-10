@@ -49,7 +49,7 @@ for (const s of STEPS) {
   if (ids.has(s.id)) fail(`duplicate step id ${s.id}`);
   ids.add(s.id);
   if (!/^[a-z0-9-]+$/.test(s.id)) fail(`step id ${s.id} is not a safe filename`);
-  if (!s.narration) fail(`step ${s.id} has no narration`);
+  if (!s.narration && !s.silent) fail(`step ${s.id} has no narration (set silent: true if that is deliberate)`);
   if (!s.title) fail(`step ${s.id} has no title`);
   if (s.beat < 0 || s.beat > 7) fail(`step ${s.id} beat ${s.beat} out of range`);
   if (s.phase === 'gate' && !s.gateProposal) fail(`step ${s.id} is phase gate but has no gateProposal`);
@@ -160,6 +160,7 @@ for (const s of STEPS) {
 // ─── Audio ─────────────────────────────────────────────
 const audioDir = resolve(root, 'public/narration');
 for (const s of STEPS) {
+  if (s.silent && !s.narration) continue;
   const f = resolve(audioDir, `${s.id}.mp3`);
   if (!existsSync(f)) fail(`missing audio ${s.id}.mp3`);
   else if (statSync(f).size < 20_000) fail(`audio ${s.id}.mp3 is suspiciously small (${statSync(f).size} bytes)`);
@@ -174,6 +175,7 @@ if (existsSync(scriptJson)) {
   const sj = JSON.parse(readFileSync(scriptJson, 'utf8'));
   const byId = new Map(sj.segments.map(x => [x.id, x.text]));
   for (const s of STEPS) {
+    if (s.silent && !s.narration) continue;
     if (!byId.has(s.id)) fail(`script.json missing ${s.id} (run npm run narration:export)`);
     else if (byId.get(s.id) !== s.narration) fail(`script.json text for ${s.id} is stale (run npm run narration:export, then regenerate audio)`);
   }
