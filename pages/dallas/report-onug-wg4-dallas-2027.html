@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>WG4 2027 Scope &amp; Road to Dallas: AI WAN — Prospective Working Group Leads Review</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+  /* Layout: single-column long-form (.report-demo shape), tokens from design-system-onug.html. Light only. */
+  :root {
+    color-scheme: light;
+    --onug-white: #FFFFFF;
+    --onug-bg-alt: #F4F4F4;
+    --onug-border: #E8E8E8;
+    --onug-border-strong: #DADBDD;
+    --onug-text-muted: #585858;
+    --onug-text-secondary: #2C2C2C;
+    --onug-text: #000000;
+    --onug-navy: #0F1D2A;
+    --onug-ink: #141414;
+    --onug-on-dark: #FFFFFF;
+    --onug-on-dark-muted: #9B9B9B;
+    --onug-green: #8FC73E;
+    --onug-green-dark: #70A228;
+    --onug-orange: #F58220;
+    --onug-orange-dark: #DB7015;
+    --font-body: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--onug-white);
+    color: var(--onug-text-secondary);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .report { max-width: 1080px; margin: 0 auto; padding: 64px 28px 100px; }
+
+  a { color: var(--onug-green-dark); transition: color 0.2s linear; }
+  a:hover { color: var(--onug-green); }
+  a:focus-visible { outline: 2px solid var(--onug-orange); outline-offset: 3px; }
+  code, .mono { font-family: var(--font-mono); font-size: 0.9em; }
+  p code, li code, td code { background: var(--onug-bg-alt); padding: 1px 5px; color: var(--onug-text); }
+
+  .rpt-mast { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-bottom: 20px; border-bottom: 2px solid var(--onug-green); margin-bottom: 36px; }
+  .rpt-mast svg.logo { flex: none; display: block; }
+  .rpt-mast .kind { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--onug-text-muted); text-align: right; line-height: 1.5; }
+
+  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--onug-green-dark); margin-bottom: 16px; }
+  h1 { color: var(--onug-text); font-size: 38px; font-weight: 700; line-height: 1.12; margin: 0; text-wrap: balance; max-width: 880px; }
+  .hl { color: var(--onug-green-dark); font-weight: 700; }
+  .byline { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; font-family: var(--font-mono); font-size: 12.5px; color: var(--onug-text-muted); margin-top: 16px; }
+
+  .jump { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--onug-border); font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+  .jump a { color: var(--onug-text-muted); text-decoration: none; }
+  .jump a:hover { color: var(--onug-green-dark); }
+
+  p { font-size: 17px; line-height: 1.6; margin: 16px 0; color: var(--onug-text-secondary); max-width: 820px; }
+  strong { color: var(--onug-text); font-weight: 600; }
+
+  section { margin-top: 56px; }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 12px; margin-bottom: 20px; border-bottom: 2px solid var(--onug-green); }
+  .section-head h2 { color: var(--onug-text); font-size: 24px; font-weight: 600; margin: 0; text-wrap: balance; }
+  .section-head .count { font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--onug-text-muted); white-space: nowrap; }
+  h3 { color: var(--onug-text); font-size: 18px; font-weight: 600; margin: 28px 0 10px; }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; background: var(--onug-border); border: 1px solid var(--onug-border); margin-top: 24px; }
+  .stat { background: var(--onug-white); padding: 18px 20px; }
+  .stat .v { font-size: 28px; font-weight: 700; color: var(--onug-text); font-variant-numeric: tabular-nums; }
+  .stat .k { font-size: 13px; color: var(--onug-text-muted); margin-top: 4px; line-height: 1.45; }
+
+  .callout { margin: 24px 0 0; padding: 24px 26px; background: var(--onug-navy); color: var(--onug-on-dark); border-radius: 6px; }
+  .callout h3 { color: var(--onug-on-dark); margin: 0 0 8px; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .callout p { color: var(--onug-on-dark-muted); font-size: 15px; margin: 0; max-width: none; line-height: 1.55; }
+  .callout p + p { margin-top: 10px; }
+  .callout b { color: var(--onug-green); font-weight: 600; }
+
+  .cluster-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 20px; margin-top: 20px; }
+  .cluster-card { border: 1px solid var(--onug-border-strong); border-radius: 6px; overflow: hidden; background: var(--onug-white); display: flex; flex-direction: column; }
+  .cluster-card .head { background: var(--onug-navy); color: var(--onug-on-dark); padding: 16px 20px; }
+  .cluster-card .head .tag { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--onug-green); display: block; margin-bottom: 4px; }
+  .cluster-card .head h3 { color: var(--onug-on-dark); font-size: 18px; margin: 0; line-height: 1.25; }
+  .cluster-card .body { padding: 16px 20px 20px; font-size: 14.5px; line-height: 1.55; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .cluster-card .body p { font-size: 14.5px; margin: 0; max-width: none; }
+  .cluster-card .meta { font-family: var(--font-mono); font-size: 12px; color: var(--onug-text-muted); padding-top: 8px; border-top: 1px solid var(--onug-border); margin-top: auto; }
+
+  .table-wrap { overflow-x: auto; margin-top: 16px; border: 1px solid var(--onug-border); border-radius: 6px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; line-height: 1.5; }
+  th { text-align: left; font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--onug-text-muted); background: var(--onug-bg-alt); padding: 10px 14px; border-bottom: 1px solid var(--onug-border-strong); }
+  td { padding: 11px 14px; border-bottom: 1px solid var(--onug-border); vertical-align: top; color: var(--onug-text-secondary); }
+  tr:last-child td { border-bottom: none; }
+  td:first-child { color: var(--onug-text); font-weight: 600; white-space: nowrap; }
+  td.votes, th.votes { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.votes { color: var(--onug-text); font-weight: 700; }
+  td .sub { display: block; font-weight: 400; font-size: 12px; color: var(--onug-text-muted); margin-top: 2px; }
+
+  .pill { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--onug-border-strong); color: var(--onug-text-muted); white-space: nowrap; }
+  .pill.new { background: var(--onug-green); border-color: var(--onug-green); color: var(--onug-text); }
+  .pill.wg1 { border-color: var(--onug-green-dark); color: var(--onug-green-dark); }
+  .pill.wg2 { border-color: var(--onug-navy); color: var(--onug-navy); }
+
+  .sources { margin-top: 56px; padding-top: 22px; border-top: 2px solid var(--onug-green); display: flex; flex-direction: column; gap: 8px; font-family: var(--font-mono); font-size: 12.5px; color: var(--onug-text-secondary); }
+  .sources .lbl { color: var(--onug-text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-size: 11px; margin-bottom: 4px; }
+
+  footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--onug-border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-family: var(--font-mono); font-size: 11.5px; color: var(--onug-text-muted); }
+
+  @media (max-width: 600px) {
+    .section-head { flex-wrap: wrap; gap: 4px 12px; }
+    .section-head .count { white-space: normal; }
+    .report { padding: 40px 16px 72px; }
+    h1 { font-size: 28px; }
+    .rpt-mast { flex-direction: column; align-items: flex-start; }
+    .rpt-mast .kind { text-align: left; }
+    td:first-child { white-space: normal; }
+  }
+
+  @page { size: letter; margin: 0.5in; }
+  @media print {
+    .report { padding: 0; max-width: 100%; }
+    .jump { display: none; }
+    section { margin-top: 24px; }
+    .section-head { page-break-after: avoid; }
+    .cluster-card, tr, .callout { page-break-inside: avoid; }
+    td:first-child { white-space: normal; }
+    p { max-width: none; font-size: 11.5px; margin: 6px 0; }
+    h1 { font-size: 24px; }
+    .stats { margin-top: 12px; }
+    .stat { padding: 10px 14px; }
+    .stat .v { font-size: 20px; }
+    .stat .k { font-size: 10.5px; }
+    table { font-size: 10.5px; }
+    th { padding: 6px 9px; font-size: 9.5px; }
+    td { padding: 6px 9px; }
+    .sources, footer { font-size: 10px; margin-top: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<article class="report">
+
+  <div class="rpt-mast">
+    <svg class="logo" width="132" height="32" viewBox="0 0 276 66.9" role="img" aria-label="ONUG">
+      <path d="M33.4,14c-10.7,0-19.5,8.7-19.5,19.5c0,10.7,8.7,19.5,19.5,19.5c10.7,0,19.5-8.7,19.5-19.5C52.9,22.7,44.2,14,33.4,14 M33.4,66.9C15,66.9,0,51.9,0,33.4C0,15,15,0,33.4,0s33.4,15,33.4,33.4C66.9,51.9,51.9,66.9,33.4,66.9" fill="#8FC73E"/>
+      <path d="M88.1,29.1c0-8.4,6.8-15.2,15.2-15.2c8.4,0,15.2,6.8,15.2,15.2v37.8h13.9V29.1c0-16-13.1-29.1-29.1-29.1c-16,0-29.1,13.1-29.1,29.1v37.8h13.9V29.1z" fill="#000000"/>
+      <path d="M183.2,37.8c0,8.4-6.8,15.2-15.2,15.2c-8.4,0-15.2-6.8-15.2-15.2V0h-13.9v37.8c0,16,13.1,29.1,29.1,29.1c16,0,29.1-13.1,29.1-29.1V0h-13.9V37.8z" fill="#000000"/>
+      <path d="M253.3,45.3c-3.6,4.7-9.2,7.7-15.5,7.7c-10.7,0-19.5-8.7-19.5-19.5c0-10.7,8.7-19.5,19.5-19.5c6.2,0,11.7,2.9,15.3,7.5H269C264.2,8.9,252,0,237.9,0c-18.4,0-33.4,15-33.4,33.4s15,33.4,33.4,33.4c14.3,0,26.5-9,31.3-21.6H253.3z" fill="#000000"/>
+      <rect x="246.8" y="26.4" width="29.2" height="13.9" fill="#000000"/>
+    </svg>
+    <div class="kind">ONUG Collaborative &middot; Prospective Working Group Leads Review<br>WG4 2027 Scope &amp; Road to Dallas (May 12&ndash;13, 2027) &middot; November 10, 2026</div>
+  </div>
+
+  <div class="eyebrow">New Working Group for 2027 &middot; WG4 &middot; AI WAN</div>
+  <h1>WG4 for 2027: <span class="hl">AI WAN &mdash; Transport for Distributed AI</span> on the Road to Dallas</h1>
+  <div class="byline">
+    <span>For review with Prospective WG4 Leads</span><span>&middot;</span>
+    <span>Anchored by Board UC #1 (Aryo Kresnadi &middot; 7 Votes)</span><span>&middot;</span>
+    <span>Peter Campbell, Head of Collaborative Working Groups</span>
+  </div>
+
+  <p>AI is changing what crosses the enterprise WAN. Training and fine-tuning data has to reach wherever GPU capacity is (a cloud region, a GPU cloud, or a colocation cluster), and egress fees and transfer time are now a budget line. Inference and agent traffic means every site, application, and agent calling model endpoints, which is latency-sensitive and hard to inspect. Where enterprises run models at the edge to avoid hauling video and sensor data back, they need dependable model rollout and a way to return curated data for retraining. Traditional WAN design wasn&rsquo;t sized or priced for these traffic patterns. The result is cost, latency, and unpredictable performance, and it&rsquo;s a problem enterprise network teams are running into now.</p>
+
+  <p>WG4 brings enterprise network architects together with carriers, service providers, and networking vendors to define what an AI-ready WAN must do. Its first deliverable is a traffic study drawn from member enterprises: what AI workloads actually put on their networks today. In 2027 it will produce enterprise requirements and a reference architecture for AI transport, covering bulk data movement to compute, inference and agent traffic, and model distribution to edge sites. For members, that means a direct line to the enterprise buyers defining their AI networking requirements, and a hand in the framework the industry builds to.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="v">New WG4</div><div class="k">Net-new 2027 working group for AI transport: capacity, performance, and cost</div></div>
+    <div class="stat"><div class="v">UC #1</div><div class="k">Anchored by Aryo Kresnadi&rsquo;s <em>Distributed AI &amp; Semantic Networking</em> (7 board votes, Rank T-8)</div></div>
+    <div class="stat"><div class="v">3 Traffic Patterns</div><div class="k">Data moving to GPU capacity, inference and agent traffic to model endpoints, and model distribution to edge sites</div></div>
+    <div class="stat"><div class="v">400+ Carriers</div><div class="k">Natural alignment with ONUG Connect&rsquo;s buyer-driven WAN marketplace</div></div>
+  </div>
+
+  <div class="callout">
+    <h3>Why AI WAN Is a Dedicated Working Group (Not Inside WG1 or WG2)</h3>
+    <p>WG4 covers <b>transport: capacity, performance, and cost</b>. It uses WG1&rsquo;s identity, gateway policy, and audit journal rather than redefining them, and it sits <b>beside WG2</b>, which owns autonomous NOC operations on the same networks, rather than inside it&mdash;bringing carriers, colocation/DCI providers, optical/routing vendors, and enterprise WAN architects into a dedicated table.</p>
+  </div>
+
+  <nav class="jump" aria-label="Sections">
+    <a href="#charter">1. 2027 Charter &amp; Core Deliverables</a>
+    <a href="#use-case">2. The Anchoring Board Use Case (UC #1)</a>
+    <a href="#ecosystem">3. Target Ecosystem &amp; ONUG Connect</a>
+    <a href="#alignment">4. Complementarity Across WG1&ndash;WG5</a>
+    <a href="#leads-agenda">5. Decisions &amp; Input from Prospective WG4 Leads</a>
+  </nav>
+
+  <!-- ===================================================== -->
+  <section id="charter">
+    <div class="section-head"><h2>1. WG4&rsquo;s 2027 Charter &amp; Core Deliverables</h2><span class="count">New Working Group</span></div>
+    <p>Traditional enterprise WANs (MPLS, SD-WAN, internet underlays) were sized and priced for human-to-cloud sessions and predictable branch traffic. AI adds three patterns: bulk training and fine-tuning data moving to wherever GPU capacity is; inference and agent calls from every site, application, and agent to model endpoints; and, where models run at the edge, model rollout to edge sites with curated data returned for retraining. Because no one yet has good data on how much of each crosses enterprise networks, WG4 starts by measuring it. Its 2027 work has three deliverables:</p>
+
+    <div class="cluster-grid">
+      <div class="cluster-card">
+        <div class="head">
+          <span class="tag">2027 Deliverable 1 &middot; Traffic Study (First)</span>
+          <h3>What AI Workloads Put on Enterprise Networks</h3>
+        </div>
+        <div class="body">
+          <p><strong>Drawn from member enterprises:</strong></p>
+          <p>Measures what AI workloads actually put on member networks today: volume, direction, and timing of data moving to GPU capacity, inference and agent traffic to model endpoints, and edge model distribution, plus the egress fees and transfer times enterprises are paying.</p>
+          <div class="meta">Output: Member traffic study that grounds the requirements and reference architecture</div>
+        </div>
+      </div>
+
+      <div class="cluster-card">
+        <div class="head">
+          <span class="tag">2027 Deliverable 2 &middot; Buyer Specification</span>
+          <h3>Enterprise Requirements for an AI-Ready WAN</h3>
+        </div>
+        <div class="body">
+          <p><strong>Written by enterprise network architects with carrier and vendor input:</strong></p>
+          <p>Defines measurable SLA, bandwidth-efficiency, tail-latency, jitter, loss-recovery, and sovereign-routing requirements for AI traffic: bulk data movement to GPU capacity in cloud regions, GPU clouds, and colocation clusters; inference and agent traffic to model endpoints; and model distribution to edge sites, sized against the traffic study.</p>
+          <div class="meta">Output: Buyer-driven RFP/procurement criteria &amp; workload traffic taxonomy</div>
+        </div>
+      </div>
+
+      <div class="cluster-card">
+        <div class="head">
+          <span class="tag">2027 Deliverable 3 &middot; Technical Blueprint</span>
+          <h3>AI Transport Reference Architecture</h3>
+        </div>
+        <div class="body">
+          <p><strong>End-to-end architecture for AI transport:</strong></p>
+          <p>Covers <strong>bulk data movement to compute</strong> (capacity, transfer time, and egress cost), <strong>inference and agent traffic</strong> to model endpoints (latency and visibility), and <strong>model distribution to edge sites</strong> with curated data returned for retraining. UC #1&rsquo;s edge data reduction is evaluated here as one option where models run at the edge.</p>
+          <div class="meta">Output: Reference architecture + Dallas Summit validation showcase</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <section id="use-case">
+    <div class="section-head"><h2>2. The Anchoring Board Use Case: UC #1</h2><span class="count">7 Board Votes &middot; Rank T-8</span></div>
+    <p>WG4 was born directly from <strong>Use Case #1</strong> presented at the October 27, 2026 ONUG Board Meeting in New York. The WG4 and WG5 Charter Review (2026-11-10) revised the traffic pattern UC #1 describes: edge inference generally reduces WAN traffic, and model weights are comparatively small and move infrequently. The larger enterprise load is data moving to GPU capacity plus inference and agent traffic. WG4&rsquo;s traffic study will test both views:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Use Case</th>
+            <th>Board Submitter</th>
+            <th class="votes">Votes</th>
+            <th>Enterprise Problem Statement</th>
+            <th>How WG4 Takes It Forward</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>UC #1 <span class="sub">Distributed AI &amp; Semantic Networking</span></td>
+            <td>Aryo Kresnadi</td>
+            <td class="votes">7</td>
+            <td><em>As submitted:</em> Enterprises are deploying AI inference at the edge (factories, retail branches, clinics, regional hubs, sovereign metros) while keeping training and foundation-model curation centralized. Moving raw sensor/application streams upstream and multi-gigabyte model weights downstream across traditional WAN links causes prohibitive bandwidth cost, tail latency, and model-state drift.</td>
+            <td>
+                <strong>1. Edge Data Reduction:</strong> Where enterprises run models at the edge to avoid hauling video and sensor data back, filtering or summarizing at the edge so the WAN carries what the AI workload needs.<br>
+                <strong>2. Edge Model Rollout &amp; Data Return:</strong> Dependable rollout of models to edge sites and a way to return curated data for retraining.<br>
+                <strong>3. Application-Aware WAN Signaling:</strong> Exposing AI workload urgency and tolerance classes to optical, carrier, and SD-WAN/SRv6 transport layers.
+              </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <section id="ecosystem">
+    <div class="section-head"><h2>3. Who WG4 Brings Together &amp; The ONUG Connect Tie-In</h2><span class="count">Member Ecosystem</span></div>
+    <p>WG4 expands the ONUG Collaborative into the carrier, DCI/colocation, and wide-area transport ecosystem&mdash;pairing enterprise network buyers directly with the providers building AI transport fabrics:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Participant Category</th>
+            <th>Role in WG4</th>
+            <th>Representative Target Organizations</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Enterprise Network Architects</td>
+            <td>Contribute data to the traffic study; define AI traffic profiles, cost/latency pain points, and procurement requirements; validate reference architectures against production WAN topologies.</td>
+            <td>ONUG Enterprise Board members &amp; enterprise network architecture teams across financial services, retail, healthcare, manufacturing, energy, and defense.</td>
+          </tr>
+          <tr>
+            <td>Carriers &amp; NaaS Providers</td>
+            <td>Define optical/wavelength, low-latency IP/MPLS/SRv6, and NaaS service tiers for bulk data movement to GPU capacity, inference and agent traffic, and edge model distribution; align offerings with <strong>ONUG Connect</strong> (spanning 400+ carriers).</td>
+            <td>Lumen, AT&amp;T, Verizon, Zayo, Megaport, Colt, Comcast Business, NTT, Orange Business.</td>
+          </tr>
+          <tr>
+            <td>Colocation &amp; DCI Providers</td>
+            <td>Specify the interconnect where enterprise data meets GPU capacity in colocation clusters and cloud regions (private fabric cross-connects, metro inference hubs, sovereign data residency handoffs).</td>
+            <td>Digital Realty, Equinix, CoreSite, QTS, CyrusOne.</td>
+          </tr>
+          <tr>
+            <td>WAN, Optical &amp; Routing Vendors</td>
+            <td>Specify routing, SD-WAN, optical transport, RoCE-over-WAN / ultra-ethernet WAN extensions, and traffic-engineering primitives for AI workload classes.</td>
+            <td>Cisco, Arista, Juniper/HPE, Ciena, Nokia/Infinera, Palo Alto Networks, Versa Networks, Aviatrix, Fortinet.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <section id="alignment">
+    <div class="section-head"><h2>4. How WG4 Aligns With &amp; Complements WG1, WG2, WG3, and WG5</h2><span class="count">Cross-Group Architecture</span></div>
+    <p>WG4 has crisp architectural boundaries with the rest of the 2027 ONUG portfolio, avoiding overlap while giving enterprise network leaders a complete picture across transport, operations, governance, and security:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Sibling Group</th>
+            <th>Boundary &amp; Relationship with WG4</th>
+            <th>Concrete Touchpoint / Handoff</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>WG1 <span class="pill wg1">Continue</span><br><span class="sub">Agentic Control Plane</span></td>
+            <td><strong>Control Plane vs. Transport:</strong> WG4 covers transport (capacity, performance, and cost). It uses WG1&rsquo;s agent identity (SPIRE), MCP gateway policy, and compliance journal (<code>immudb</code>) rather than redefining them.</td>
+            <td>When WG1 enforces per-call data residency and sovereign jurisdiction rules (<strong>UC #20</strong>) or routes inference across distributed models via the Private Open Router (<strong>UC #3</strong>), WG4 provides the underlying WAN transport SLA and path attributes. Inference and agent traffic to model endpoints passes through WG1&rsquo;s gateway; WG4 sizes and engineers the paths it takes.</td>
+          </tr>
+          <tr>
+            <td>WG2 <span class="pill wg2">Continue</span><br><span class="sub">Autonomous Operations (NOC + SOC Personas)</span></td>
+            <td><strong>Transport Data Plane vs. Autonomous Operations Plane:</strong> WG4 and WG2 share a network-operator audience, with a clean layer split: <strong>WG4 designs the AI WAN</strong>; <strong>WG2 autonomously operates it</strong>.</td>
+            <td>Aryo Kresnadi submitted both <strong>UC #1</strong> (WG4 anchor, 7v) and <strong>UC #2</strong> (WG2 flagship, 15v). WG4 defines the AI WAN transport architecture; WG2&rsquo;s autonomous NOC correlates DWDM underlay, SD-WAN overlay, and cloud gateway telemetry (UC #2) across those WAN links.</td>
+          </tr>
+          <tr>
+            <td>WG3 <span class="pill">Updated</span><br><span class="sub">AI Security: AI Agents as Insider Threats</span></td>
+            <td><strong>WAN Transport vs. Insider Risk &amp; Behavioral Forensics:</strong> Orthogonal layers. WG3 investigates sanctioned and shadow AI agents misusing access under human or agent credentials (UC #5).</td>
+            <td>AI traffic visibility from WG4 and cross-domain attribution from WG2 help distinguish legitimate bulk transfers to GPU capacity from anomalous bulk data exfiltration by a compromised or shadow agent.</td>
+          </tr>
+          <tr>
+            <td>WG5 <span class="pill new">New</span><br><span class="sub">Post-Quantum Security for AI Infrastructure</span></td>
+            <td><strong>AI Transport Performance vs. Quantum-Safe Encryption in Transit:</strong> Adversaries are already harvesting WAN traffic today to decrypt later (&ldquo;harvest now, decrypt later&rdquo;), and training data moving to GPU capacity and inference traffic to model endpoints are high-value targets.</td>
+            <td>WG5 defines post-quantum key establishment (ML-KEM) and distributed key resiliency across edge, on-prem, and cloud (<strong>UC #16</strong> &amp; <strong>UC #20</strong>); WG4 evaluates the WAN throughput, MTU/fragmentation, and optical/IPsec/MACsec encryption impact on high-volume AI transport links.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <section id="leads-agenda">
+    <div class="section-head"><h2>5. Input Needed from Prospective WG4 Leads for the Road to Dallas</h2><span class="count">May 12&ndash;13, 2027 Target</span></div>
+    <p>At the <strong>AI Networking Summit Dallas (May 12&ndash;13, 2027, Hyatt Regency Frisco)</strong>, the AI Networking track focuses on <em>&ldquo;redesigning the network itself for agent-to-agent traffic and controlled autonomy.&rdquo;</em> To launch WG4 and shape its Dallas deliverables, we are collecting input from prospective WG4 enterprise and vendor/carrier leads on five questions:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Decision Area</th>
+            <th>Context &amp; Options</th>
+            <th>Question for Prospective WG4 Leads</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1. Scoping the First Dallas Deliverable (May 2027)</td>
+            <td>WG4&rsquo;s 2027 charter calls for (A) a <strong>member traffic study</strong> first, then (B) <strong>Enterprise Requirements for an AI-Ready WAN</strong> and (C) an <strong>AI Transport Reference Architecture</strong> covering bulk data movement to compute, inference and agent traffic, and model distribution to edge sites.</td>
+            <td>Should WG4 present the <strong>Traffic Study</strong> as its Dallas deliverable in May 2027, with the Requirements and Reference Architecture following in H2 2027?</td>
+          </tr>
+          <tr>
+            <td>2. Scoping the Traffic Study</td>
+            <td>AI puts several distinct flows on the WAN: (1) training and fine-tuning data moving to GPU capacity, (2) inference and agent calls to model endpoints, (3) model rollout to edge sites and curated data returned for retraining, and (4) agent-to-agent (A2A) calls across regions.</td>
+            <td>Which flows should the traffic study measure first, and what traffic, egress-cost, and transfer-time data can member enterprises share?</td>
+          </tr>
+          <tr>
+            <td>3. Edge Data Reduction vs. Transport Engineering</td>
+            <td>UC #1 highlights application/edge-level reduction (filtering, quantization, delta sync) where models run at the edge; the Charter Review adds network-layer capacity and transport engineering (optical waves, SRv6 traffic engineering, QoS classes, NaaS) for data moving to compute.</td>
+            <td>Where should WG4 draw the line between edge data-pipeline optimization and carrier/WAN transport capabilities in the reference architecture?</td>
+          </tr>
+          <tr>
+            <td>4. Founding Member Roster Balance</td>
+            <td>To make WG4&rsquo;s output actionable for procurement, the group needs balanced leadership across <strong>Enterprise Network Architects</strong> (buyers), <strong>Carriers / DCI Providers</strong>, and <strong>Networking Vendors</strong>.</td>
+            <td>Which enterprise network architects and which carrier/vendor technical leads should we invite as founding members?</td>
+          </tr>
+          <tr>
+            <td>5. Connecting WG4 with WG2 (NOC) and ONUG Connect</td>
+            <td>WG4 defines the AI WAN transport layer while WG2 defines cross-domain NOC telemetry attribution (UC #2), and ONUG Connect connects enterprise buyers with 400+ carriers.</td>
+            <td>What shared telemetry metrics (e.g., optical/overlay path health, transfer completion SLAs) should WG4 expose to WG2&rsquo;s autonomous NOC, and how can WG4 requirements inform ONUG Connect carrier profiles?</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="sources">
+    <div class="lbl">Sources</div>
+    <span>WG4 and WG5 Charter Review (2026-11-10): WG4 rewrite</span>
+    <span>ONUG 2027 Starting-Point Description &mdash; WG4: AI WAN (verified 2026-11-09)</span>
+    <span>ONUG Board Use Cases &mdash; 2027 Working Group Triage (report-onug-board-use-cases-triage-2026-10-27.html, revised 2026-11-10)</span>
+    <span>ONUG Board Use Cases Ranked by Vote &mdash; UC #1, Aryo Kresnadi, Distributed AI &amp; Semantic Networking (report-onug-board-use-cases-ranked-2026-11-02.html)</span>
+    <span>ONUG Sales Team Guide &mdash; New Working Groups for 2027 (report-onug-sales-guide-new-working-groups-2026-11-09.html)</span>
+  </div>
+
+  <footer>
+    <span>ONUG Collaborative &mdash; WG4 (AI WAN) 2027 Scope &amp; Road to Dallas (Prospective Leads Review)</span>
+    <span>Prepared by Peter Campbell &middot; 2026-11-10</span>
+  </footer>
+
+</article>
+
+</body>
+</html>

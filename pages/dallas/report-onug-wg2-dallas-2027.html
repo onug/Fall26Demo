@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>WG2 2027 Scope &amp; Road to Dallas: Autonomous Operations (NOC + SOC Personas) — Working Group Leads Review</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+  /* Layout: single-column long-form (.report-demo shape), tokens from design-system-onug.html. Light only. */
+  :root {
+    color-scheme: light;
+    --onug-white: #FFFFFF;
+    --onug-bg-alt: #F4F4F4;
+    --onug-border: #E8E8E8;
+    --onug-border-strong: #DADBDD;
+    --onug-text-muted: #585858;
+    --onug-text-secondary: #2C2C2C;
+    --onug-text: #000000;
+    --onug-navy: #0F1D2A;
+    --onug-ink: #141414;
+    --onug-on-dark: #FFFFFF;
+    --onug-on-dark-muted: #9B9B9B;
+    --onug-green: #8FC73E;
+    --onug-green-dark: #70A228;
+    --onug-orange: #F58220;
+    --onug-orange-dark: #DB7015;
+    --font-body: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--onug-white);
+    color: var(--onug-text-secondary);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .report { max-width: 1080px; margin: 0 auto; padding: 64px 28px 100px; }
+
+  a { color: var(--onug-green-dark); transition: color 0.2s linear; }
+  a:hover { color: var(--onug-green); }
+  a:focus-visible { outline: 2px solid var(--onug-orange); outline-offset: 3px; }
+  code, .mono { font-family: var(--font-mono); font-size: 0.9em; }
+  p code, li code, td code { background: var(--onug-bg-alt); padding: 1px 5px; color: var(--onug-text); }
+
+  .rpt-mast { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-bottom: 20px; border-bottom: 2px solid var(--onug-green); margin-bottom: 36px; }
+  .rpt-mast svg.logo { flex: none; display: block; }
+  .rpt-mast .kind { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--onug-text-muted); text-align: right; line-height: 1.5; }
+
+  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--onug-green-dark); margin-bottom: 16px; }
+  h1 { color: var(--onug-text); font-size: 38px; font-weight: 700; line-height: 1.12; margin: 0; text-wrap: balance; max-width: 880px; }
+  .hl { color: var(--onug-green-dark); font-weight: 700; }
+  .byline { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; font-family: var(--font-mono); font-size: 12.5px; color: var(--onug-text-muted); margin-top: 16px; }
+
+  .jump { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--onug-border); font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+  .jump a { color: var(--onug-text-muted); text-decoration: none; }
+  .jump a:hover { color: var(--onug-green-dark); }
+
+  p { font-size: 17px; line-height: 1.6; margin: 16px 0; color: var(--onug-text-secondary); max-width: 820px; }
+  strong { color: var(--onug-text); font-weight: 600; }
+
+  section { margin-top: 56px; }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 12px; margin-bottom: 20px; border-bottom: 2px solid var(--onug-green); }
+  .section-head h2 { color: var(--onug-text); font-size: 24px; font-weight: 600; margin: 0; text-wrap: balance; }
+  .section-head .count { font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--onug-text-muted); white-space: nowrap; }
+  h3 { color: var(--onug-text); font-size: 18px; font-weight: 600; margin: 28px 0 10px; }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; background: var(--onug-border); border: 1px solid var(--onug-border); margin-top: 24px; }
+  .stat { background: var(--onug-white); padding: 18px 20px; }
+  .stat .v { font-size: 28px; font-weight: 700; color: var(--onug-text); font-variant-numeric: tabular-nums; }
+  .stat .k { font-size: 13px; color: var(--onug-text-muted); margin-top: 4px; line-height: 1.45; }
+
+  .callout { margin: 24px 0 0; padding: 24px 26px; background: var(--onug-navy); color: var(--onug-on-dark); border-radius: 6px; }
+  .callout h3 { color: var(--onug-on-dark); margin: 0 0 8px; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .callout p { color: var(--onug-on-dark-muted); font-size: 15px; margin: 0; max-width: none; line-height: 1.55; }
+  .callout p + p { margin-top: 10px; }
+  .callout b { color: var(--onug-green); font-weight: 600; }
+
+  .cluster-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 20px; margin-top: 20px; }
+  .cluster-card { border: 1px solid var(--onug-border-strong); border-radius: 6px; overflow: hidden; background: var(--onug-white); display: flex; flex-direction: column; }
+  .cluster-card .head { background: var(--onug-navy); color: var(--onug-on-dark); padding: 16px 20px; }
+  .cluster-card .head .tag { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--onug-green); display: block; margin-bottom: 4px; }
+  .cluster-card .head h3 { color: var(--onug-on-dark); font-size: 18px; margin: 0; line-height: 1.25; }
+  .cluster-card .body { padding: 16px 20px 20px; font-size: 14.5px; line-height: 1.55; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .cluster-card .body p { font-size: 14.5px; margin: 0; max-width: none; }
+  .cluster-card .meta { font-family: var(--font-mono); font-size: 12px; color: var(--onug-text-muted); padding-top: 8px; border-top: 1px solid var(--onug-border); margin-top: auto; }
+
+  .table-wrap { overflow-x: auto; margin-top: 16px; border: 1px solid var(--onug-border); border-radius: 6px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; line-height: 1.5; }
+  th { text-align: left; font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--onug-text-muted); background: var(--onug-bg-alt); padding: 10px 14px; border-bottom: 1px solid var(--onug-border-strong); }
+  td { padding: 11px 14px; border-bottom: 1px solid var(--onug-border); vertical-align: top; color: var(--onug-text-secondary); }
+  tr:last-child td { border-bottom: none; }
+  td:first-child { color: var(--onug-text); font-weight: 600; white-space: nowrap; }
+  td.votes, th.votes { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.votes { color: var(--onug-text); font-weight: 700; }
+  td .sub { display: block; font-weight: 400; font-size: 12px; color: var(--onug-text-muted); margin-top: 2px; }
+
+  .pill { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--onug-border-strong); color: var(--onug-text-muted); white-space: nowrap; }
+  .pill.new { background: var(--onug-green); border-color: var(--onug-green); color: var(--onug-text); }
+  .pill.wg1 { border-color: var(--onug-green-dark); color: var(--onug-green-dark); }
+  .pill.wg2 { border-color: var(--onug-navy); color: var(--onug-navy); }
+
+  .sources { margin-top: 56px; padding-top: 22px; border-top: 2px solid var(--onug-green); display: flex; flex-direction: column; gap: 8px; font-family: var(--font-mono); font-size: 12.5px; color: var(--onug-text-secondary); }
+  .sources .lbl { color: var(--onug-text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-size: 11px; margin-bottom: 4px; }
+
+  footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--onug-border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-family: var(--font-mono); font-size: 11.5px; color: var(--onug-text-muted); }
+
+  @media (max-width: 600px) {
+    .section-head { flex-wrap: wrap; gap: 4px 12px; }
+    .section-head .count { white-space: normal; }
+    .report { padding: 40px 16px 72px; }
+    h1 { font-size: 28px; }
+    .rpt-mast { flex-direction: column; align-items: flex-start; }
+    .rpt-mast .kind { text-align: left; }
+    td:first-child { white-space: normal; }
+  }
+
+  @page { size: letter; margin: 0.5in; }
+  @media print {
+    .report { padding: 0; max-width: 100%; }
+    .jump { display: none; }
+    section { margin-top: 24px; }
+    .section-head { page-break-after: avoid; }
+    .cluster-card, tr, .callout { page-break-inside: avoid; }
+    td:first-child { white-space: normal; }
+    p { max-width: none; font-size: 11.5px; margin: 6px 0; }
+    h1 { font-size: 24px; }
+    .stats { margin-top: 12px; }
+    .stat { padding: 10px 14px; }
+    .stat .v { font-size: 20px; }
+    .stat .k { font-size: 10.5px; }
+    table { font-size: 10.5px; }
+    th { padding: 6px 9px; font-size: 9.5px; }
+    td { padding: 6px 9px; }
+    .sources, footer { font-size: 10px; margin-top: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<article class="report">
+
+  <div class="rpt-mast">
+    <svg class="logo" width="132" height="32" viewBox="0 0 276 66.9" role="img" aria-label="ONUG">
+      <path d="M33.4,14c-10.7,0-19.5,8.7-19.5,19.5c0,10.7,8.7,19.5,19.5,19.5c10.7,0,19.5-8.7,19.5-19.5C52.9,22.7,44.2,14,33.4,14 M33.4,66.9C15,66.9,0,51.9,0,33.4C0,15,15,0,33.4,0s33.4,15,33.4,33.4C66.9,51.9,51.9,66.9,33.4,66.9" fill="#8FC73E"/>
+      <path d="M88.1,29.1c0-8.4,6.8-15.2,15.2-15.2c8.4,0,15.2,6.8,15.2,15.2v37.8h13.9V29.1c0-16-13.1-29.1-29.1-29.1c-16,0-29.1,13.1-29.1,29.1v37.8h13.9V29.1z" fill="#000000"/>
+      <path d="M183.2,37.8c0,8.4-6.8,15.2-15.2,15.2c-8.4,0-15.2-6.8-15.2-15.2V0h-13.9v37.8c0,16,13.1,29.1,29.1,29.1c16,0,29.1-13.1,29.1-29.1V0h-13.9V37.8z" fill="#000000"/>
+      <path d="M253.3,45.3c-3.6,4.7-9.2,7.7-15.5,7.7c-10.7,0-19.5-8.7-19.5-19.5c0-10.7,8.7-19.5,19.5-19.5c6.2,0,11.7,2.9,15.3,7.5H269C264.2,8.9,252,0,237.9,0c-18.4,0-33.4,15-33.4,33.4s15,33.4,33.4,33.4c14.3,0,26.5-9,31.3-21.6H253.3z" fill="#000000"/>
+      <rect x="246.8" y="26.4" width="29.2" height="13.9" fill="#000000"/>
+    </svg>
+    <div class="kind">ONUG Collaborative &middot; Working Group Leads Review<br>WG2 2027 Scope &amp; Road to Dallas (May 12&ndash;13, 2027) &middot; November 9, 2026</div>
+  </div>
+
+  <div class="eyebrow">WG2 2027 Scope &amp; Alignment &middot; Autonomous Operations (NOC + SOC Personas)</div>
+  <h1>WG2 for 2027: <span class="hl">Autonomous NOC, Digital Twin &amp; SOC Persona</span> on the Road to Dallas</h1>
+  <div class="byline">
+    <span>For review with WG2 Leads</span><span>&middot;</span>
+    <span>5 Board Use Cases Absorbed (37 Votes)</span><span>&middot;</span>
+    <span>Peter Campbell, Head of Collaborative Working Groups</span>
+  </div>
+
+  <p>This briefing prepares <strong>WG2 (Autonomous Operations)</strong> leaders for 2027 planning and the road to the <strong>AI Networking Summit Dallas (May 12&ndash;13, 2027, Hyatt Regency Frisco)</strong>. WG2 enters 2027 with the <strong>second-highest board vote concentration (37 of 118 votes cast, 31%)</strong> across five absorbed board use cases&mdash;including two of the top four proposals on the entire ONUG Board: <strong>UC #2 (Cross-Domain Telemetry &amp; Incident Attribution, 15 votes, Rank #2)</strong> and <strong>UC #17 (Enterprise Network Knowledge Agent, 11 votes, Rank #3)</strong>. In parallel, as WG3 refocuses on <em>AI Agents as Insider Threats</em>, WG2 onboards the ratified <strong>v0.6 SOC Persona (<code>Decide Gate</code>)</strong> alongside its <strong>v0.6 NOC Persona (<code>Verify Gate</code>)</strong> on the shared v0.6 skeleton ratified October 15, 2026.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="v">37 Votes</div><div class="k">2nd-highest board vote total across all groups (31% of all votes cast)</div></div>
+    <div class="stat"><div class="v">5 Use Cases</div><div class="k">Absorbed into WG2 (#2, #10 [infra half], #12, #17, and #18)</div></div>
+    <div class="stat"><div class="v">15 Votes</div><div class="k">Rank #2 board use case overall: UC #2 (Cross-Domain Telemetry &amp; Incident Attribution)</div></div>
+    <div class="stat"><div class="v">NOC + SOC</div><div class="k">Both v0.6 personas (<code>Verify Gate</code> &amp; <code>Decide Gate</code>) housed on the shared v0.6 skeleton</div></div>
+  </div>
+
+  <div class="callout">
+    <h3>Why the SOC Persona Joins the NOC Persona Inside WG2</h3>
+    <p>None of the 20 October board submissions asked for an AI-assisted SOC, and WG3 is refocusing on <b>AI Agents as Insider Threats</b> (anchored by UC #5). Because WG2 and WG3 built their ratified v0.6 reference architectures (October 15, 2026) on the <b>exact same two-wrapper, 6-step loop skeleton</b>, moving the v0.6 SOC Persona into WG2 preserves the <a href="report-onug-governed-autonomy-board-paper-2026.html"><em>Governed Autonomy v3</em> board paper&rsquo;s</a> two-domain proof: <b>&ldquo;the next domain should onboard without new enforcement code&rdquo;</b> (Focus Area #8: Verify Gate alongside Decide Gate).</p>
+  </div>
+
+  <nav class="jump" aria-label="Sections">
+    <a href="#charter">1. 2027 WG2 Scope &amp; Three Workstreams</a>
+    <a href="#use-cases">2. The 5 Absorbed Board Use Cases</a>
+    <a href="#personas">3. NOC &amp; SOC Personas on One Skeleton</a>
+    <a href="#alignment">4. Complementarity Across WG1&ndash;WG5</a>
+    <a href="#leads-agenda">5. Decisions &amp; Input from WG2 Leads</a>
+  </nav>
+
+  <!-- ===================================================== -->
+  <section id="charter">
+    <div class="section-head"><h2>1. WG2&rsquo;s Updated 2027 Scope: What Continues &amp; What Folds In</h2><span class="count">Continuing Working Group</span></div>
+    <p>WG2&rsquo;s ratified <strong>v0.6 Autonomous Infrastructure Reference Architecture (October 15, 2026)</strong> remains the spine of the group: two outer wrappers (<strong>Strategic Intent &amp; Policy</strong> on top; WG1&rsquo;s <strong>Access Enforcement &amp; Audit</strong> below) framing the 6-step closed loop (<code>1 Detect &rarr; 2 Diagnose &rarr; 3 Propose &rarr; 4 Verify Gate &rarr; 5 Execute &rarr; 6 Observe &amp; Learn</code>). For 2027, WG2 organizes around three concrete tracks:</p>
+
+    <div class="cluster-grid">
+      <div class="cluster-card">
+        <div class="head">
+          <span class="tag">Workstream 1 &middot; Steps 1&ndash;2 (Detect &amp; Diagnose)</span>
+          <h3>Cross-Domain Telemetry &amp; Incident Attribution</h3>
+        </div>
+        <div class="body">
+          <p><strong>Anchored by UC #2 (Aryo Kresnadi, 15 votes &middot; Rank #2 overall):</strong></p>
+          <p>Correlates telemetry across <strong>carrier underlay (DWDM)</strong>, <strong>enterprise overlay (SD-WAN/EVPN)</strong>, <strong>cloud black-box gateways</strong>, and <strong>internal DNS/endpoints</strong> to end NOC &ldquo;innocence proving&rdquo; during brownouts where every silo reports green in isolation.</p>
+          <div class="meta">v0.6 Fit: Steps 1&ndash;2 + Focus Area #6 (Sources of Truth)</div>
+        </div>
+      </div>
+
+      <div class="cluster-card">
+        <div class="head">
+          <span class="tag">Workstream 2 &middot; Rung 1 + Step 4 (Verify Gate)</span>
+          <h3>Network Digital Twin &amp; Pre-Change Verify Gate</h3>
+        </div>
+        <div class="body">
+          <p><strong>Combines UC #17 (11v), UC #18 (4v), and UC #12 (2v) &mdash; 17 votes total:</strong></p>
+          <p><strong>UC #17</strong> (Dariusz Kmiotek) defines the Rung 1 Network Knowledge Agent explaining design intent; <strong>UC #18</strong> (Dariusz Kmiotek) defines the Step 4 Pre-Change Validation Agent (design compliance + execution-time health check); and <strong>UC #12</strong> (Richard Huddleston) extends <code>Containerlab</code> + <code>NetBox</code> into an open digital-twin validation harness.</p>
+          <div class="meta">v0.6 Fit: Rung 1 (<code>noc-observer</code>) + Step 4 (<code>Verify Gate</code>) + Focus Area #9</div>
+        </div>
+      </div>
+
+      <div class="cluster-card">
+        <div class="head">
+          <span class="tag">Workstream 3 &middot; Focus Area #8 Convergence</span>
+          <h3>Onboarding the Ratified v0.6 SOC Persona</h3>
+        </div>
+        <div class="body">
+          <p><strong>Preserving the Two-Domain Proof (<code>Verify Gate</code> + <code>Decide Gate</code>):</strong></p>
+          <p>Brings the ratified v0.6 SOC Persona (<code>1 Detect &rarr; 2 Investigate &rarr; 3 Propose &rarr; 4 Decide Gate &rarr; 5 Respond &rarr; 6 Validate &amp; Learn</code>, plus the <code>observe-mode honored</code> invariant) into WG2 alongside the NOC Persona, directly operationalizing Focus Area #8 (NOC + SOC convergence).</p>
+          <div class="meta">v0.6 Fit: Shared v0.6 Skeleton + Focus Area #8</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <section id="use-cases">
+    <div class="section-head"><h2>2. The Five Board Use Cases Absorbed into WG2</h2><span class="count">37 Board Votes &middot; Ranked Order</span></div>
+    <p>Each of the five October 27 board submissions assigned to WG2 maps directly into the ratified v0.6 6-step loop and the <code>onug-plane</code> reference implementation:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Use Case</th>
+            <th>Board Submitter</th>
+            <th class="votes">Votes</th>
+            <th>Where It Fits in WG2&rsquo;s v0.6 Architecture</th>
+            <th>2027 Deliverable &amp; <code>onug-plane</code> Mapping</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>UC #2 <span class="sub">Cross-Domain Telemetry &amp; Incident Attribution</span></td>
+            <td>Aryo Kresnadi</td>
+            <td class="votes">15</td>
+            <td><strong>Steps 1&ndash;2 (Detect &amp; Diagnose) + Focus Area #6 (Sources of Truth):</strong> Multi-domain root-cause correlation across underlay, overlay, and cloud.</td>
+            <td><strong>Cross-Domain Telemetry Correlation Profile:</strong> Vendor-neutral schema correlating DWDM underlay, SD-WAN/EVPN overlay, cloud gateways, and DNS/endpoint signals to attribute brownouts without manual war rooms.</td>
+          </tr>
+          <tr>
+            <td>UC #17 <span class="sub">Enterprise Network Knowledge Agent for Intent Analysis</span></td>
+            <td>Dariusz Kmiotek</td>
+            <td class="votes">11</td>
+            <td><strong>Rung 1 Persona (<code>L0/L1 Observe &amp; Recommend</code>) + Focus Area #6:</strong> Understanding <em>why</em> the network was built a specific way before proposing changes.</td>
+            <td><strong>Intent &amp; Institutional Knowledge Agent (<code>noc-observer</code> evolution):</strong> Correlates design docs, tickets, recorded design sessions, and live configs to surface design intent for operators and Step 3 proposals.</td>
+          </tr>
+          <tr>
+            <td>UC #10 <span class="sub">Secure &amp; Autonomous 24/7 Infra Ops (Infra Half)</span></td>
+            <td>Satish Natarajan</td>
+            <td class="votes">10<span class="sub">(5 to WG2)</span></td>
+            <td><strong>Full WG2 6-Step Closed Loop + Digital Twin:</strong> Autonomous 24/7 lifecycle at scale (PQC readiness testing half splits to WG5).</td>
+            <td><strong>24/7 Autonomous Ops &amp; WG5 Handshake:</strong> End-to-end closed-loop execution with digital-twin pre-validation, including validating PQC key/cert rollouts supplied by WG5 before production execution.</td>
+          </tr>
+          <tr>
+            <td>UC #18 <span class="sub">Automated Pre-Change Validation Agent for Infra Assurance</span></td>
+            <td>Dariusz Kmiotek</td>
+            <td class="votes">4</td>
+            <td><strong>Step 4 (<code>LOOP-4: Verify Gate</code>) + Focus Area #7:</strong> Context-aware pre-change assurance + execution-time environment health check.</td>
+            <td><strong>Pre-Change Verify Gate Specification:</strong> Evaluates (1) design/compliance against UC #17 intent and (2) live execution-window health (CPU, power, concurrent changes) to output an evidence-based Approve/Deny before Step 5 (<code>Execute</code>).</td>
+          </tr>
+          <tr>
+            <td>UC #12 <span class="sub">Network Validation via Agentic AI &amp; Digital Twin (Aether)</span></td>
+            <td>Richard Huddleston</td>
+            <td class="votes">2</td>
+            <td><strong>Step 4 (<code>LOOP-4: Verify Gate</code>) + Focus Area #9 (Open Reference Topologies):</strong> Production-replica simulation before change execution.</td>
+            <td><strong>Open Digital Twin Validation Harness:</strong> Extends <code>Containerlab</code> + <code>NetBox</code> in <code>onug-plane</code> so candidate changes proposed by <code>noc-operator</code> at Step 3 are simulated before Step 5 execution.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <section id="personas">
+    <div class="section-head"><h2>3. Two Personas on One Skeleton: NOC (<code>Verify Gate</code>) + SOC (<code>Decide Gate</code>)</h2><span class="count">Unified v0.6 Architecture</span></div>
+    <p>Housing both ratified v0.6 personas inside WG2 keeps the two-domain architecture intact and demonstrates how two operational domains share the same 6-step loop while differing only at Step 4 (physics vs. adversary):</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>v0.6 Loop Stage</th>
+            <th>WG2 NOC Persona (Infrastructure Operations)</th>
+            <th>WG2 SOC Persona (Security Operations &middot; Onboarded from WG3 v0.6)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Top Wrapper</td>
+            <td><strong>Strategic Intent &amp; Policy:</strong> Availability SLOs, change windows, design intent (UC #17).</td>
+            <td><strong>Strategic Intent &amp; Policy:</strong> Risk appetite, containment policy, <code>observe-mode</code> rules.</td>
+          </tr>
+          <tr>
+            <td>Step 1</td>
+            <td><code>1 Detect</code> &mdash; Ingest wire, flow, BGP/EVPN, DWDM, and cloud gateway telemetry (UC #2).</td>
+            <td><code>1 Detect</code> &mdash; Ingest SIEM/XDR, DNS, identity, and WG3 insider-threat behavioral detections.</td>
+          </tr>
+          <tr>
+            <td>Step 2</td>
+            <td><code>2 Diagnose</code> &mdash; Cross-domain root-cause attribution across underlay/overlay/cloud (UC #2, #17).</td>
+            <td><code>2 Investigate</code> &mdash; Correlate blast radius, credential lineage, and MITRE ATT&amp;CK / ATLAS chain.</td>
+          </tr>
+          <tr>
+            <td>Step 3</td>
+            <td><code>3 Propose</code> &mdash; Draft candidate config diff, traffic drain, or failover plan + rollback plan.</td>
+            <td><code>3 Propose</code> &mdash; Draft containment action (quarantine host, revoke SVID/token, or continue observing).</td>
+          </tr>
+          <tr>
+            <td>Step 4 (The Gate)</td>
+            <td><strong><code>4 Verify Gate</code> (Physics &amp; Topology Gate):</strong> Validate in Digital Twin (UC #12) + pre-change compliance &amp; health check (UC #18). <em>Question: Will this break the network?</em></td>
+            <td><strong><code>4 Decide Gate</code> (Adversarial &amp; Intelligence Gate):</strong> Weigh containment against intelligence value. Enforces the <strong><code>observe-mode honored</code> invariant</strong> (watching an intruder can outweigh tipping them off).</td>
+          </tr>
+          <tr>
+            <td>Step 5</td>
+            <td><code>5 Execute</code> &mdash; Push bounded change via MCP gateway with ephemeral OpenBao credentials (<code>noc-operator</code>).</td>
+            <td><code>5 Respond</code> &mdash; Execute bounded containment or SVID/credential revocation via WG1 control plane.</td>
+          </tr>
+          <tr>
+            <td>Step 6</td>
+            <td><code>6 Observe &amp; Learn</code> &mdash; Verify post-change SLOs; record outcome to WG1 <code>immudb</code> journal and 5-SLI scorecard.</td>
+            <td><code>6 Validate &amp; Learn</code> &mdash; Confirm containment efficacy; feed post-incident learning into WG1 scorecard.</td>
+          </tr>
+          <tr>
+            <td>Bottom Wrapper</td>
+            <td colspan="2"><strong>WG1 Access Enforcement &amp; Audit Substrate:</strong> SPIFFE/SPIRE SVIDs, OpenBao credential injection, MCP tool gateway, <code>immudb</code> WORM audit journal, and the 5-SLI Rung Promotion Scorecard.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <section id="alignment">
+    <div class="section-head"><h2>4. How WG2 Aligns With &amp; Complements WG1, WG3, WG4, and WG5</h2><span class="count">Cross-Group Architecture</span></div>
+    <p>WG2 sits at the operational center of the 2027 ONUG portfolio, consuming WG1&rsquo;s governance substrate and coordinating directly with WG3, WG4, and WG5:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Sibling Group</th>
+            <th>How WG2 &amp; That Group Complement Each Other</th>
+            <th>Concrete Technical Handoff</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>WG1 <span class="pill wg1">Continue</span><br><span class="sub">Agentic Control Plane</span></td>
+            <td><strong>WG1 owns the Bottom Wrapper; WG2 owns the Operational Personas &amp; 6-Step Loop.</strong> WG2 does not rebuild agent identity, secret storage, or audit logging; it runs on WG1.</td>
+            <td>WG2&rsquo;s <code>noc-observer</code> (Rung 1), <code>noc-operator</code> (Rung 2), and SOC personas authenticate via WG1 SPIRE SVIDs, execute through WG1&rsquo;s MCP gateway, and emit Step 4/Step 6 outcomes into WG1&rsquo;s <code>immudb</code> journal to compute the 5-SLI promotion scorecard.</td>
+          </tr>
+          <tr>
+            <td>WG3 <span class="pill">Updated</span><br><span class="sub">AI Security: AI Agents as Insider Threats</span></td>
+            <td><strong>WG2 operates and defends infrastructure; WG3 investigates AI agents themselves as insider threats.</strong></td>
+            <td><strong>1. Attribution (UC #2 &harr; UC #20 Scenario 5):</strong> WG2 isolates whether an anomaly is an underlay/overlay/cloud fault vs. an agent-induced incident.<br><strong>2. Containment:</strong> When WG3 detects an in-policy misused or shadow agent (UC #5), it feeds the alert into WG2&rsquo;s SOC <code>Decide Gate</code>.</td>
+          </tr>
+          <tr>
+            <td>WG4 <span class="pill new">New</span><br><span class="sub">AI WAN</span></td>
+            <td><strong>Shared network-operator audience, clean layer split: WG2 = Operations Plane; WG4 = Transport Data Plane.</strong></td>
+            <td>WG4 defines AI WAN transport requirements and reference architecture (semantic data reduction in flight and deterministic sync between edge inference and central training, UC #1). WG2 runs autonomous NOC operations and telemetry attribution (UC #2) over those WAN links.</td>
+          </tr>
+          <tr>
+            <td>WG5 <span class="pill new">New</span><br><span class="sub">Post-Quantum Security for AI Infrastructure</span></td>
+            <td><strong>Joint split of UC #10 (Satish Natarajan, 10 votes):</strong> WG2 owns autonomous 24/7 operations and digital-twin validation; WG5 owns post-quantum readiness and key resiliency.</td>
+            <td>WG2&rsquo;s <strong>Digital Twin &amp; Pre-Change Verify Gate (UC #12/#18)</strong> serves as the testbed to simulate WG5&rsquo;s post-quantum certificate/key rotations (testing ML-DSA/ML-KEM packet fragmentation, handshake latency, and KMS outage recovery) before production rollout.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <section id="leads-agenda">
+    <div class="section-head"><h2>5. Input Needed from WG2 Leads for the Road to Dallas</h2><span class="count">May 12&ndash;13, 2027 Target</span></div>
+    <p>To prepare WG2&rsquo;s 2027 deliverables and demonstrations for the <strong>AI Networking Summit Dallas (May 12&ndash;13, 2027, Hyatt Regency Frisco)</strong>, we need WG2 leadership input on five questions:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Decision Area</th>
+            <th>Context &amp; Options</th>
+            <th>Question for WG2 Leads</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1. Structuring the Two Flagship 2027 NOC Workstreams</td>
+            <td>The five absorbed board use cases cluster naturally into (A) <strong>Cross-Domain Telemetry &amp; Incident Attribution</strong> (UC #2, 15 votes, Steps 1&ndash;2) and (B) <strong>Network Knowledge Agent, Pre-Change Verify Gate &amp; Digital Twin</strong> (UC #17 + #18 + #12 = 17 votes, Rung 1 + Step 4).</td>
+            <td>Should WG2 organize into these two drafting/demo sub-teams for Dallas, and which current WG2 vendor leads (e.g., CodiLime, cPacket, NetBrain, BlueCat, Aviatrix, Cisco, PalC, Zentera) will anchor each?</td>
+          </tr>
+          <tr>
+            <td>2. Extending <code>onug-plane</code> for UC #17 &amp; UC #18</td>
+            <td>Today <code>onug-plane</code> runs a 3-node Arista cEOS topology in <code>Containerlab</code> with <code>NetBox</code> and two agents (<code>noc-observer</code> at Rung 1, <code>noc-operator</code> at Rung 2).</td>
+            <td>What inputs should we add to <code>noc-observer</code> to demonstrate UC #17 (design intent analysis) and to Step 4 to demonstrate UC #18 (pre-change compliance + execution-window health gate) live at Dallas?</td>
+          </tr>
+          <tr>
+            <td>3. Onboarding the v0.6 SOC Persona &amp; Focus Area #8</td>
+            <td>Moving the ratified v0.6 SOC Persona (<code>Decide Gate</code> + <code>observe-mode honored</code>) into WG2 puts NOC and SOC side by side on the same v0.6 skeleton.</td>
+            <td>How should WG2 structure the SOC Persona track and resolve the open v0.6 design question on <strong>cross-domain NOC&harr;SOC read-access authority</strong>?</td>
+          </tr>
+          <tr>
+            <td>4. Engaging the 4 Board Submitters as Co-Authors</td>
+            <td>Four board members submitted the five use cases absorbed into WG2: <strong>Aryo Kresnadi</strong> (#2), <strong>Dariusz Kmiotek</strong> (#17, #18), <strong>Satish Natarajan</strong> (#10), and <strong>Richard Huddleston</strong> (#12).</td>
+            <td>How should we pair each board submitter with WG2&rsquo;s engineering leads to co-author the 2027 specifications and present on the Dallas stage?</td>
+          </tr>
+          <tr>
+            <td>5. Defining the WG2 &harr; WG4 and WG2 &harr; WG5 Handshakes</td>
+            <td>WG2 shares a network-operator audience with WG4 (AI WAN) and splits UC #10 with WG5 (PQC).</td>
+            <td>Who from WG2 will serve as liaison to WG4 (to keep the Ops Plane vs. WAN Data Plane boundary crisp) and to WG5 (to run PQC migration dry-runs in WG2&rsquo;s Digital Twin)?</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="sources">
+    <div class="lbl">Sources</div>
+    <span>ONUG Board Use Cases &mdash; 2027 Working Group Triage (report-onug-board-use-cases-triage-2026-10-27.html, revised 2026-11-09)</span>
+    <span>ONUG Board Use Cases Ranked by Vote (report-onug-board-use-cases-ranked-2026-11-02.html, updated 2026-11-09)</span>
+    <span>ONUG WG2 Autonomous Infrastructure Reference Architecture v0.6 &amp; WG3 SOC Reference Architecture v0.6 (ratified 2026-10-15)</span>
+    <span>ONUG WG2 Explainer &amp; Vendor Roster (report-onug-wg2-explainer.html)</span>
+    <span>ONUG WG1/WG2 Reference Implementation &mdash; <code>onug-plane @ 21a80f2</code> (report-onug-wg1-reference-implementation.html)</span>
+  </div>
+
+  <footer>
+    <span>ONUG Collaborative &mdash; WG2 2027 Scope &amp; Road to Dallas (Leads Review)</span>
+    <span>Prepared by Peter Campbell &middot; 2026-11-09</span>
+  </footer>
+
+</article>
+
+</body>
+</html>
