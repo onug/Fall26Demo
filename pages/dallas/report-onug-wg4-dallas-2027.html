@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>WG4 2027 Scope &amp; Road to Dallas: AI WAN — Prospective Working Group Leads Review</title>
+<title>WG4 2027: Charter, Board Priorities &amp; Paths Forward</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
@@ -152,236 +152,156 @@
       <path d="M253.3,45.3c-3.6,4.7-9.2,7.7-15.5,7.7c-10.7,0-19.5-8.7-19.5-19.5c0-10.7,8.7-19.5,19.5-19.5c6.2,0,11.7,2.9,15.3,7.5H269C264.2,8.9,252,0,237.9,0c-18.4,0-33.4,15-33.4,33.4s15,33.4,33.4,33.4c14.3,0,26.5-9,31.3-21.6H253.3z" fill="#000000"/>
       <rect x="246.8" y="26.4" width="29.2" height="13.9" fill="#000000"/>
     </svg>
-    <div class="kind">ONUG Collaborative &middot; Prospective Working Group Leads Review<br>WG4 2027 Scope &amp; Road to Dallas (May 12&ndash;13, 2027) &middot; November 10, 2026</div>
+    <div class="kind">ONUG Collaborative &middot; Prospective Working Group Leads Review<br>WG4 2027: Charter, Board Priorities &amp; Paths Forward &middot; November 11, 2026</div>
   </div>
 
-  <div class="eyebrow">New Working Group for 2027 &middot; WG4 &middot; AI WAN</div>
-  <h1>WG4 for 2027: <span class="hl">AI WAN &mdash; Transport for Distributed AI</span> on the Road to Dallas</h1>
+  <div class="eyebrow">WG4 2027 &middot; AI WAN &middot; New Working Group</div>
+  <h1>WG4 for 2027: <span class="hl">Charter, Board Priorities</span> &amp; Paths Forward</h1>
   <div class="byline">
     <span>For review with Prospective WG4 Leads</span><span>&middot;</span>
-    <span>Anchored by Board UC #1 (7 Votes)</span><span>&middot;</span>
+    <span>Road to Dallas, May 12&ndash;13, 2027</span><span>&middot;</span>
     <span>Peter Campbell, Head of Collaborative Working Groups</span>
   </div>
 
-  <p>AI is changing what crosses the enterprise WAN. Training and fine-tuning data has to reach wherever GPU capacity is (a cloud region, a GPU cloud, or a colocation cluster), and egress fees and transfer time are now a budget line. Inference and agent traffic means every site, application, and agent calling model endpoints, which is latency-sensitive and hard to inspect. Where enterprises run models at the edge to avoid hauling video and sensor data back, they need dependable model rollout and a way to return curated data for retraining. Traditional WAN design wasn&rsquo;t sized or priced for these traffic patterns. The result is cost, latency, and unpredictable performance, and it&rsquo;s a problem enterprise network teams are running into now.</p>
-
-  <p>WG4 brings enterprise network architects together with carriers, service providers, and networking vendors to define what an AI-ready WAN must do. Its first deliverable is a traffic study drawn from member enterprises: what AI workloads actually put on their networks today. In 2027 it will produce enterprise requirements and a reference architecture for AI transport, covering bulk data movement to compute, inference and agent traffic, and model distribution to edge sites. For members, that means a direct line to the enterprise buyers defining their AI networking requirements, and a hand in the framework the industry builds to.</p>
+  <p>This brief covers what WG4 is chartered to do, what the Board prioritized in NYC on October 27, and what the Dallas summit is asking for. It ends with the choice WG4&rsquo;s founding leads need to make: which path WG4 takes to Dallas.</p>
 
   <div class="stats">
-    <div class="stat"><div class="v">New WG4</div><div class="k">Net-new 2027 working group for AI transport: capacity, performance, and cost</div></div>
-    <div class="stat"><div class="v">UC #1</div><div class="k">Anchored by <em>Distributed AI &amp; Semantic Networking</em> (7 board votes, Rank T-8)</div></div>
-    <div class="stat"><div class="v">3 Traffic Patterns</div><div class="k">Data moving to GPU capacity, inference and agent traffic to model endpoints, and model distribution to edge sites</div></div>
-    <div class="stat"><div class="v">400+ Carriers</div><div class="k">Natural alignment with ONUG Connect&rsquo;s buyer-driven WAN marketplace</div></div>
-  </div>
-
-  <div class="callout">
-    <h3>Why AI WAN Is a Dedicated Working Group (Not Inside WG1 or WG2)</h3>
-    <p>WG4 covers <b>transport: capacity, performance, and cost</b>. It uses WG1&rsquo;s identity, gateway policy, and audit journal rather than redefining them, and it sits <b>beside WG2</b>, which owns autonomous NOC operations on the same networks, rather than inside it&mdash;bringing carriers, colocation/DCI providers, optical/routing vendors, and enterprise WAN architects into a dedicated table.</p>
+    <div class="stat"><div class="v">New</div><div class="k">Working group for 2027, focused on AI transport: capacity, performance, and cost</div></div>
+    <div class="stat"><div class="v">7 Votes</div><div class="k">UC #1, Distributed AI &amp; Semantic Networking, tied for eighth of 20 overall</div></div>
+    <div class="stat"><div class="v">400+</div><div class="k">Carriers in ONUG Connect&rsquo;s buyer-driven WAN marketplace</div></div>
   </div>
 
   <nav class="jump" aria-label="Sections">
-    <a href="#charter">1. 2027 Charter &amp; Core Deliverables</a>
-    <a href="#use-case">2. The Anchoring Board Use Case (UC #1)</a>
-    <a href="#ecosystem">3. Target Ecosystem &amp; ONUG Connect</a>
-    <a href="#alignment">4. Complementarity Across WG1&ndash;WG5</a>
-    <a href="#leads-agenda">5. Decisions &amp; Input from Prospective WG4 Leads</a>
+    <a href="#charter">1. Charter</a>
+    <a href="#priorities">2. Board Priorities</a>
+    <a href="#dallas">3. The Road to Dallas</a>
+    <a href="#paths">4. Paths Forward</a>
   </nav>
 
   <!-- ===================================================== -->
   <section id="charter">
-    <div class="section-head"><h2>1. WG4&rsquo;s 2027 Charter &amp; Core Deliverables</h2><span class="count">New Working Group</span></div>
-    <p>Traditional enterprise WANs (MPLS, SD-WAN, internet underlays) were sized and priced for human-to-cloud sessions and predictable branch traffic. AI adds three patterns: bulk training and fine-tuning data moving to wherever GPU capacity is; inference and agent calls from every site, application, and agent to model endpoints; and, where models run at the edge, model rollout to edge sites with curated data returned for retraining. Because no one yet has good data on how much of each crosses enterprise networks, WG4 starts by measuring it. Its 2027 work has three deliverables:</p>
+    <div class="section-head"><h2>1. WG4 Charter</h2><span class="count">New Working Group</span></div>
+    <p>WG4 defines what an AI-ready enterprise WAN must do. Enterprise WANs were sized and priced for people using cloud apps and predictable branch traffic. AI adds three traffic patterns they weren&rsquo;t built for, and the result is cost, latency, and unpredictable performance:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Traffic Pattern</th><th>What Crosses the WAN</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Data to compute</td><td>Training and fine-tuning data moving to wherever GPU capacity is: a cloud region, a GPU cloud, or a colocation cluster. Egress fees and transfer time are now a budget line.</td></tr>
+          <tr><td>Inference &amp; agent traffic</td><td>Every site, application, and agent calling model endpoints. Latency-sensitive and hard to inspect.</td></tr>
+          <tr><td>Edge model rollout</td><td>Where models run at the edge, rolling them out to sites dependably and returning curated data for retraining.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>WG4 brings enterprise network architects together with carriers, colocation providers, and networking vendors. Its 2027 work has three deliverables, in order: a <strong>traffic study</strong> of what AI workloads put on member networks today, <strong>enterprise requirements</strong> for an AI-ready WAN, and an <strong>AI transport reference architecture</strong>. WG4 uses WG1&rsquo;s identity, gateway, and journal rather than redefining them, and sits beside WG2, which operates the same networks.</p>
+  </section>
+
+  <!-- ===================================================== -->
+  <section id="priorities">
+    <div class="section-head"><h2>2. What the Board Prioritized in NYC (October 27)</h2><span class="count">7 Votes &middot; 1 Use Case</span></div>
+    <p>WG4 was created from one Board use case. The UC #1 submitter will be invited to co-author or serve as a Board Advisor to WG4.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Use Case</th><th class="votes">Votes</th><th>What It Asks</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>UC #1 <span class="sub">Distributed AI &amp; Semantic Networking</span></td><td class="votes">7</td><td>Enterprises run inference at the edge (factories, branches, clinics) and train centrally. Moving raw data up and model weights down over traditional WAN links causes high bandwidth cost, tail latency, and models drifting out of sync.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <h3>The Charter Review Reframed UC #1</h3>
+      <p>The WG4 and WG5 Charter Review (November 10) found that <b>edge inference generally reduces WAN traffic</b>, and model weights are comparatively small and move infrequently. The larger enterprise load is data moving to GPU capacity, plus inference and agent traffic. The traffic study will test both views.</p>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <section id="dallas">
+    <div class="section-head"><h2>3. The Road to Dallas</h2><span class="count">May 12&ndash;13, 2027 &middot; Hyatt Regency Frisco</span></div>
+    <p>The <a href="https://onug.net/ai-networking-summit-dallas-spring-2027/">AI Networking Summit Dallas 2027</a> runs May 12&ndash;13 at the Hyatt Regency Frisco. Its AI Networking track makes WG4&rsquo;s case in a single sentence.</p>
+
+    <div class="callout">
+      <h3>Proving the AI Infrastructure Fabric</h3>
+      <p><b>&ldquo;Build the Foundation. Enable the Fabric. Power the AI Future.&rdquo;</b></p>
+      <p>The AI Networking track explores how &ldquo;the network, not the GPU, is now the binding constraint on what an enterprise can build.&rdquo; WG4 is where enterprise buyers and the carriers who serve them measure that constraint and define what fixes it.</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="v">1,000+</div><div class="k">Attendees</div></div>
+      <div class="stat"><div class="v">45+</div><div class="k">Sponsors</div></div>
+      <div class="stat"><div class="v">40+</div><div class="k">Vendor presentations on tools, technologies &amp; techniques</div></div>
+      <div class="stat"><div class="v">Invitation-Only</div><div class="k">Sessions led by ONUG Executive Board members</div></div>
+    </div>
+
+    <h3>Five Summit Tracks and Where WG4 Shows Up</h3>
+    <p>Quotes are from the summit page. The WG4 column is our mapping.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Summit Track</th><th>From the Summit Page</th><th>Where WG4 Shows Up</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>AI Networking</td><td>&ldquo;Redesigning the network itself for agent-to-agent traffic and controlled autonomy.&rdquo;</td><td>Directly. Inference and agent traffic is one of WG4&rsquo;s three patterns.</td></tr>
+          <tr><td>AI Infrastructure</td><td>&ldquo;For infrastructure leaders dealing with the reality of present day constraints: GPU scarcity, power and cooling limits.&rdquo;</td><td>Directly. When GPUs are scarce, data has to travel to wherever capacity is. That is WG4&rsquo;s data-to-compute pattern.</td></tr>
+          <tr><td>AI Automation</td><td>&ldquo;Getting agentic operations out of pilot and into everyday production use.&rdquo;</td><td>Through WG2. WG4 designs the AI WAN; WG2&rsquo;s agents operate it.</td></tr>
+          <tr><td>Post-Quantum Cryptography</td><td>&ldquo;PQC has stopped being a future mandate and become a present-day procurement requirement.&rdquo;</td><td>Through WG5. WG4 measures what post-quantum encryption costs in throughput on high-volume AI links.</td></tr>
+          <tr><td>AI Security</td><td>&ldquo;Protecting autonomous systems and the operators who now run them.&rdquo;</td><td>Through WG1 and WG3. Inference traffic passes WG1&rsquo;s gateway; WG4&rsquo;s traffic baselines help WG3 tell a legitimate bulk transfer from exfiltration.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <section id="paths">
+    <div class="section-head"><h2>4. Potential Paths Forward</h2><span class="count">Decision for Founding Leads</span></div>
+    <p>The charter puts the traffic study first. The choice is how much more WG4 brings to Dallas, five months after forming, and what moves to the second half of 2027.</p>
+    <p>ONUG leadership is considering another working demo for Dallas. WG4 has no lab or reference implementation, so each card says what it could show instead.</p>
 
     <div class="cluster-grid">
       <div class="cluster-card">
-        <div class="head">
-          <span class="tag">2027 Deliverable 1 &middot; Traffic Study (First)</span>
-          <h3>What AI Workloads Put on Enterprise Networks</h3>
-        </div>
+        <div class="head"><span class="tag">Path 1 &middot; Charter default</span><h3>Traffic Study</h3></div>
         <div class="body">
-          <p><strong>Drawn from member enterprises:</strong></p>
-          <p>Measures what AI workloads actually put on member networks today: volume, direction, and timing of data moving to GPU capacity, inference and agent traffic to model endpoints, and edge model distribution, plus the egress fees and transfer times enterprises are paying.</p>
-          <div class="meta">Output: Member traffic study that grounds the requirements and reference architecture</div>
+          <p><strong>Dallas:</strong> Present the member traffic study. Requirements and reference architecture follow in the second half.</p>
+          <p><strong>For:</strong> Follows the charter. Real data from member enterprises is something no vendor can offer, and it settles the question the Charter Review raised about UC #1.</p>
+          <p><strong>Against:</strong> Depends on enterprises sharing traffic, egress-cost, and transfer-time data within months. A study is not a spec buyers can procure against.</p>
+          <p><strong>Demo:</strong> No live demo. Findings presented on stage.</p>
         </div>
       </div>
-
       <div class="cluster-card">
-        <div class="head">
-          <span class="tag">2027 Deliverable 2 &middot; Buyer Specification</span>
-          <h3>Enterprise Requirements for an AI-Ready WAN</h3>
-        </div>
+        <div class="head"><span class="tag">Path 2 &middot; Study + buyer spec</span><h3>Study + Requirements</h3></div>
         <div class="body">
-          <p><strong>Written by enterprise network architects with carrier and vendor input:</strong></p>
-          <p>Defines measurable SLA, bandwidth-efficiency, tail-latency, jitter, loss-recovery, and sovereign-routing requirements for AI traffic: bulk data movement to GPU capacity in cloud regions, GPU clouds, and colocation clusters; inference and agent traffic to model endpoints; and model distribution to edge sites, sized against the traffic study.</p>
-          <div class="meta">Output: Buyer-driven RFP/procurement criteria &amp; workload traffic taxonomy</div>
+          <p><strong>Dallas:</strong> The traffic study plus a first draft of enterprise requirements for an AI-ready WAN.</p>
+          <p><strong>For:</strong> Gives buyers procurement criteria at the summit and gives ONUG Connect something carriers can respond to.</p>
+          <p><strong>Against:</strong> Requirements drafted alongside the study, rather than after it, may rest on assumptions the data later overturns.</p>
+          <p><strong>Demo:</strong> No live demo. Findings and draft requirements presented on stage.</p>
         </div>
       </div>
-
       <div class="cluster-card">
-        <div class="head">
-          <span class="tag">2027 Deliverable 3 &middot; Technical Blueprint</span>
-          <h3>AI Transport Reference Architecture</h3>
-        </div>
+        <div class="head"><span class="tag">Path 3 &middot; UC #1 as submitted</span><h3>Edge Showcase</h3></div>
         <div class="body">
-          <p><strong>End-to-end architecture for AI transport:</strong></p>
-          <p>Covers <strong>bulk data movement to compute</strong> (capacity, transfer time, and egress cost), <strong>inference and agent traffic</strong> to model endpoints (latency and visibility), and <strong>model distribution to edge sites</strong> with curated data returned for retraining. UC #1&rsquo;s edge data reduction is evaluated here as one option where models run at the edge.</p>
-          <div class="meta">Output: Reference architecture + Dallas Summit validation showcase</div>
+          <p><strong>Dallas:</strong> A reference architecture slice for edge model rollout and data reduction, shown with carrier and vendor members.</p>
+          <p><strong>For:</strong> Closest to what the Board submitter asked for, and the most visual of the three paths.</p>
+          <p><strong>Against:</strong> The Charter Review found this may be the smaller WAN problem. It also skips the study the charter puts first.</p>
+          <p><strong>Demo:</strong> Carrier and vendor members show a model rolled out to an edge site and curated data returned over the WAN. Not built; it depends on members supplying the environment.</p>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- ===================================================== -->
-  <section id="use-case">
-    <div class="section-head"><h2>2. The Anchoring Board Use Case: UC #1</h2><span class="count">7 Board Votes &middot; Rank T-8</span></div>
-    <p>WG4 was born directly from <strong>Use Case #1</strong> presented at the October 27, 2026 ONUG Board Meeting in New York. The WG4 and WG5 Charter Review (2026-11-10) revised the traffic pattern UC #1 describes: edge inference generally reduces WAN traffic, and model weights are comparatively small and move infrequently. The larger enterprise load is data moving to GPU capacity plus inference and agent traffic. WG4&rsquo;s traffic study will test both views:</p>
-
+    <h3>Questions for Prospective WG4 Leads</h3>
     <div class="table-wrap">
       <table>
-        <thead>
-          <tr>
-            <th>Use Case</th>
-            <th class="votes">Votes</th>
-            <th>Enterprise Problem Statement</th>
-            <th>How WG4 Takes It Forward</th>
-          </tr>
-        </thead>
         <tbody>
-          <tr>
-            <td>UC #1 <span class="sub">Distributed AI &amp; Semantic Networking</span></td>
-            <td class="votes">7</td>
-            <td><em>As submitted:</em> Enterprises are deploying AI inference at the edge (factories, retail branches, clinics, regional hubs, sovereign metros) while keeping training and foundation-model curation centralized. Moving raw sensor/application streams upstream and multi-gigabyte model weights downstream across traditional WAN links causes prohibitive bandwidth cost, tail latency, and model-state drift.</td>
-            <td>
-                <strong>1. Edge Data Reduction:</strong> Where enterprises run models at the edge to avoid hauling video and sensor data back, filtering or summarizing at the edge so the WAN carries what the AI workload needs.<br>
-                <strong>2. Edge Model Rollout &amp; Data Return:</strong> Dependable rollout of models to edge sites and a way to return curated data for retraining.<br>
-                <strong>3. Application-Aware WAN Signaling:</strong> Exposing AI workload urgency and tolerance classes to optical, carrier, and SD-WAN/SRv6 transport layers.
-              </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- ===================================================== -->
-  <section id="ecosystem">
-    <div class="section-head"><h2>3. Who WG4 Brings Together &amp; The ONUG Connect Tie-In</h2><span class="count">Member Ecosystem</span></div>
-    <p>WG4 expands the ONUG Collaborative into the carrier, DCI/colocation, and wide-area transport ecosystem&mdash;pairing enterprise network buyers directly with the providers building AI transport fabrics:</p>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Participant Category</th>
-            <th>Role in WG4</th>
-            <th>Representative Target Organizations</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Enterprise Network Architects</td>
-            <td>Contribute data to the traffic study; define AI traffic profiles, cost/latency pain points, and procurement requirements; validate reference architectures against production WAN topologies.</td>
-            <td>ONUG Enterprise Board members &amp; enterprise network architecture teams across financial services, retail, healthcare, manufacturing, energy, and defense.</td>
-          </tr>
-          <tr>
-            <td>Carriers &amp; NaaS Providers</td>
-            <td>Define optical/wavelength, low-latency IP/MPLS/SRv6, and NaaS service tiers for bulk data movement to GPU capacity, inference and agent traffic, and edge model distribution; align offerings with <strong>ONUG Connect</strong> (spanning 400+ carriers).</td>
-            <td>Lumen, AT&amp;T, Verizon, Zayo, Megaport, Colt, Comcast Business, NTT, Orange Business.</td>
-          </tr>
-          <tr>
-            <td>Colocation &amp; DCI Providers</td>
-            <td>Specify the interconnect where enterprise data meets GPU capacity in colocation clusters and cloud regions (private fabric cross-connects, metro inference hubs, sovereign data residency handoffs).</td>
-            <td>Digital Realty, Equinix, CoreSite, QTS, CyrusOne.</td>
-          </tr>
-          <tr>
-            <td>WAN, Optical &amp; Routing Vendors</td>
-            <td>Specify routing, SD-WAN, optical transport, RoCE-over-WAN / ultra-ethernet WAN extensions, and traffic-engineering primitives for AI workload classes.</td>
-            <td>Cisco, Arista, Juniper/HPE, Ciena, Nokia/Infinera, Palo Alto Networks, Versa Networks, Aviatrix, Fortinet.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- ===================================================== -->
-  <section id="alignment">
-    <div class="section-head"><h2>4. How WG4 Aligns With &amp; Complements WG1, WG2, WG3, and WG5</h2><span class="count">Cross-Group Architecture</span></div>
-    <p>WG4 has crisp architectural boundaries with the rest of the 2027 ONUG portfolio, avoiding overlap while giving enterprise network leaders a complete picture across transport, operations, governance, and security:</p>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Sibling Group</th>
-            <th>Boundary &amp; Relationship with WG4</th>
-            <th>Concrete Touchpoint / Handoff</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>WG1 <span class="pill wg1">Continue</span><br><span class="sub">Agentic Control Plane</span></td>
-            <td><strong>Control Plane vs. Transport:</strong> WG4 covers transport (capacity, performance, and cost). It uses WG1&rsquo;s agent identity (SPIRE), MCP gateway policy, and compliance journal (<code>immudb</code>) rather than redefining them.</td>
-            <td>When WG1 enforces per-call data residency and sovereign jurisdiction rules (<strong>UC #20</strong>) or routes inference across distributed models via the Private Open Router (<strong>UC #3</strong>), WG4 provides the underlying WAN transport SLA and path attributes. Inference and agent traffic to model endpoints passes through WG1&rsquo;s gateway; WG4 sizes and engineers the paths it takes.</td>
-          </tr>
-          <tr>
-            <td>WG2 <span class="pill wg2">Continue</span><br><span class="sub">Autonomous Operations (NOC + SOC Personas)</span></td>
-            <td><strong>Transport Data Plane vs. Autonomous Operations Plane:</strong> WG4 and WG2 share a network-operator audience, with a clean layer split: <strong>WG4 designs the AI WAN</strong>; <strong>WG2 autonomously operates it</strong>.</td>
-            <td>The same board member submitted both <strong>UC #1</strong> (WG4 anchor, 7v) and <strong>UC #2</strong> (WG2 flagship, 15v). WG4 defines the AI WAN transport architecture; WG2&rsquo;s autonomous NOC correlates DWDM underlay, SD-WAN overlay, and cloud gateway telemetry (UC #2) across those WAN links.</td>
-          </tr>
-          <tr>
-            <td>WG3 <span class="pill">Updated</span><br><span class="sub">AI Security: AI Agents as Insider Threats</span></td>
-            <td><strong>WAN Transport vs. Insider Risk &amp; Behavioral Forensics:</strong> Orthogonal layers. WG3 investigates sanctioned and shadow AI agents misusing access under human or agent credentials (UC #5).</td>
-            <td>AI traffic visibility from WG4 and cross-domain attribution from WG2 help distinguish legitimate bulk transfers to GPU capacity from anomalous bulk data exfiltration by a compromised or shadow agent.</td>
-          </tr>
-          <tr>
-            <td>WG5 <span class="pill new">New</span><br><span class="sub">Post-Quantum Security for AI Infrastructure</span></td>
-            <td><strong>AI Transport Performance vs. Quantum-Safe Encryption in Transit:</strong> Adversaries are already harvesting WAN traffic today to decrypt later (&ldquo;harvest now, decrypt later&rdquo;), and training data moving to GPU capacity and inference traffic to model endpoints are high-value targets.</td>
-            <td>WG5 defines post-quantum key establishment (ML-KEM) and distributed key resiliency across edge, on-prem, and cloud (<strong>UC #16</strong> &amp; <strong>UC #20</strong>); WG4 evaluates the WAN throughput, MTU/fragmentation, and optical/IPsec/MACsec encryption impact on high-volume AI transport links.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- ===================================================== -->
-  <section id="leads-agenda">
-    <div class="section-head"><h2>5. Input Needed from Prospective WG4 Leads for the Road to Dallas</h2><span class="count">May 12&ndash;13, 2027 Target</span></div>
-    <p>At the <strong>AI Networking Summit Dallas (May 12&ndash;13, 2027, Hyatt Regency Frisco)</strong>, the AI Networking track focuses on <em>&ldquo;redesigning the network itself for agent-to-agent traffic and controlled autonomy.&rdquo;</em> To launch WG4 and shape its Dallas deliverables, we are collecting input from prospective WG4 enterprise and vendor/carrier leads on five questions:</p>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Decision Area</th>
-            <th>Context &amp; Options</th>
-            <th>Question for Prospective WG4 Leads</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1. Scoping the First Dallas Deliverable (May 2027)</td>
-            <td>WG4&rsquo;s 2027 charter calls for (A) a <strong>member traffic study</strong> first, then (B) <strong>Enterprise Requirements for an AI-Ready WAN</strong> and (C) an <strong>AI Transport Reference Architecture</strong> covering bulk data movement to compute, inference and agent traffic, and model distribution to edge sites.</td>
-            <td>Should WG4 present the <strong>Traffic Study</strong> as its Dallas deliverable in May 2027, with the Requirements and Reference Architecture following in H2 2027?</td>
-          </tr>
-          <tr>
-            <td>2. Scoping the Traffic Study</td>
-            <td>AI puts several distinct flows on the WAN: (1) training and fine-tuning data moving to GPU capacity, (2) inference and agent calls to model endpoints, (3) model rollout to edge sites and curated data returned for retraining, and (4) agent-to-agent (A2A) calls across regions.</td>
-            <td>Which flows should the traffic study measure first, and what traffic, egress-cost, and transfer-time data can member enterprises share?</td>
-          </tr>
-          <tr>
-            <td>3. Edge Data Reduction vs. Transport Engineering</td>
-            <td>UC #1 highlights application/edge-level reduction (filtering, quantization, delta sync) where models run at the edge; the Charter Review adds network-layer capacity and transport engineering (optical waves, SRv6 traffic engineering, QoS classes, NaaS) for data moving to compute.</td>
-            <td>Where should WG4 draw the line between edge data-pipeline optimization and carrier/WAN transport capabilities in the reference architecture?</td>
-          </tr>
-          <tr>
-            <td>4. Founding Member Roster Balance</td>
-            <td>To make WG4&rsquo;s output actionable for procurement, the group needs balanced leadership across <strong>Enterprise Network Architects</strong> (buyers), <strong>Carriers / DCI Providers</strong>, and <strong>Networking Vendors</strong>.</td>
-            <td>Which enterprise network architects and which carrier/vendor technical leads should we invite as founding members?</td>
-          </tr>
-          <tr>
-            <td>5. Connecting WG4 with WG2 (NOC) and ONUG Connect</td>
-            <td>WG4 defines the AI WAN transport layer while WG2 defines cross-domain NOC telemetry attribution (UC #2), and ONUG Connect connects enterprise buyers with 400+ carriers.</td>
-            <td>What shared telemetry metrics (e.g., optical/overlay path health, transfer completion SLAs) should WG4 expose to WG2&rsquo;s autonomous NOC, and how can WG4 requirements inform ONUG Connect carrier profiles?</td>
-          </tr>
+          <tr><td>1. Path</td><td>Which path does WG4 take to Dallas, and does it show anything live or present findings only?</td></tr>
+          <tr><td>2. Traffic Study</td><td>Which traffic patterns does the study measure first, and what traffic, egress-cost, and transfer-time data can member enterprises share?</td></tr>
+          <tr><td>3. Board Advisor</td><td>The UC #1 submitter will be invited to co-author or serve as a Board Advisor to WG4. The same Board member submitted UC #2, WG2&rsquo;s top use case, so they could advise both groups. Who on the leads team makes the invitation, and how often do Board Advisors meet with the group?</td></tr>
+          <tr><td>4. Founding Members</td><td>Which enterprise network architects (buyers), carriers and colocation providers, and networking vendors do we invite, keeping the three balanced so the output is useful for procurement?</td></tr>
+          <tr><td>5. Liaisons</td><td>Who from WG4 works with WG2 on shared path-health telemetry, and with ONUG Connect so WG4&rsquo;s requirements inform carrier profiles?</td></tr>
         </tbody>
       </table>
     </div>
@@ -389,16 +309,16 @@
 
   <div class="sources">
     <div class="lbl">Sources</div>
+    <span>ONUG &mdash; <a href="https://onug.net/ai-networking-summit-dallas-spring-2027/">AI Networking Summit Dallas 2027</a> event page (retrieved 2026-11-11)</span>
     <span>WG4 and WG5 Charter Review (2026-11-10): WG4 rewrite</span>
-    <span>ONUG 2027 Starting-Point Description &mdash; WG4: AI WAN (verified 2026-11-09)</span>
-    <span>ONUG Board Use Cases &mdash; 2027 Working Group Triage (report-onug-board-use-cases-triage-2026-10-27.html, revised 2026-11-10)</span>
+    <span>ONUG NYC Board Summary &mdash; 20 Use Cases on the Road to Dallas (report-onug-board-nyc-summary-2026-10-27.html, 2026-11-11)</span>
     <span>ONUG Board Use Cases Ranked by Vote &mdash; UC #1, Distributed AI &amp; Semantic Networking (report-onug-board-use-cases-ranked-2026-11-02.html)</span>
     <span>ONUG Sales Team Guide &mdash; New Working Groups for 2027 (report-onug-sales-guide-new-working-groups-2026-11-09.html)</span>
   </div>
 
   <footer>
-    <span>ONUG Collaborative &mdash; WG4 (AI WAN) 2027 Scope &amp; Road to Dallas (Prospective Leads Review)</span>
-    <span>Prepared by Peter Campbell &middot; 2026-11-10</span>
+    <span>ONUG Collaborative &mdash; WG4 2027: Charter, Board Priorities &amp; Paths Forward</span>
+    <span>Prepared by Peter Campbell &middot; 2026-11-11</span>
   </footer>
 
 </article>

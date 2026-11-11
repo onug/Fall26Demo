@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>WG2 2027 Scope &amp; Road to Dallas: Autonomous Operations (NOC + SOC Personas) — Working Group Leads Review</title>
+<title>WG2 2027: Charter, Board Priorities &amp; Paths Forward</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
@@ -152,273 +152,172 @@
       <path d="M253.3,45.3c-3.6,4.7-9.2,7.7-15.5,7.7c-10.7,0-19.5-8.7-19.5-19.5c0-10.7,8.7-19.5,19.5-19.5c6.2,0,11.7,2.9,15.3,7.5H269C264.2,8.9,252,0,237.9,0c-18.4,0-33.4,15-33.4,33.4s15,33.4,33.4,33.4c14.3,0,26.5-9,31.3-21.6H253.3z" fill="#000000"/>
       <rect x="246.8" y="26.4" width="29.2" height="13.9" fill="#000000"/>
     </svg>
-    <div class="kind">ONUG Collaborative &middot; Working Group Leads Review<br>WG2 2027 Scope &amp; Road to Dallas (May 12&ndash;13, 2027) &middot; November 9, 2026</div>
+    <div class="kind">ONUG Collaborative &middot; Working Group Leads Review<br>WG2 2027: Charter, Board Priorities &amp; Paths Forward &middot; November 11, 2026</div>
   </div>
 
-  <div class="eyebrow">WG2 2027 Scope &amp; Alignment &middot; Autonomous Operations (NOC + SOC Personas)</div>
-  <h1>WG2 for 2027: <span class="hl">Autonomous NOC, Digital Twin &amp; SOC Persona</span> on the Road to Dallas</h1>
+  <div class="eyebrow">WG2 2027 &middot; Autonomous Operations</div>
+  <h1>WG2 for 2027: <span class="hl">Charter, Board Priorities</span> &amp; Paths Forward</h1>
   <div class="byline">
     <span>For review with WG2 Leads</span><span>&middot;</span>
-    <span>5 Board Use Cases Absorbed (37 Votes)</span><span>&middot;</span>
+    <span>Road to Dallas, May 12&ndash;13, 2027</span><span>&middot;</span>
     <span>Peter Campbell, Head of Collaborative Working Groups</span>
   </div>
 
-  <p>This briefing prepares <strong>WG2 (Autonomous Operations)</strong> leaders for 2027 planning and the road to the <strong>AI Networking Summit Dallas (May 12&ndash;13, 2027, Hyatt Regency Frisco)</strong>. WG2 enters 2027 with the <strong>second-highest board vote concentration (37 of 118 votes cast, 31%)</strong> across five absorbed board use cases&mdash;including two of the top four proposals on the entire ONUG Board: <strong>UC #2 (Cross-Domain Telemetry &amp; Incident Attribution, 15 votes, Rank #2)</strong> and <strong>UC #17 (Enterprise Network Knowledge Agent, 11 votes, Rank #3)</strong>. In parallel, as WG3 refocuses on <em>AI Agents as Insider Threats</em>, WG2 onboards the ratified <strong>v0.6 SOC Persona (<code>Decide Gate</code>)</strong> alongside its <strong>v0.6 NOC Persona (<code>Verify Gate</code>)</strong> on the shared v0.6 skeleton ratified October 15, 2026.</p>
+  <p>This brief covers what WG2 is chartered to do, what the Board prioritized in NYC on October 27, and what the Dallas summit is asking for. It ends with the choice WG2 leads need to make: which path WG2 takes to Dallas.</p>
 
   <div class="stats">
-    <div class="stat"><div class="v">37 Votes</div><div class="k">2nd-highest board vote total across all groups (31% of all votes cast)</div></div>
-    <div class="stat"><div class="v">5 Use Cases</div><div class="k">Absorbed into WG2 (#2, #10 [infra half], #12, #17, and #18)</div></div>
-    <div class="stat"><div class="v">15 Votes</div><div class="k">Rank #2 board use case overall: UC #2 (Cross-Domain Telemetry &amp; Incident Attribution)</div></div>
-    <div class="stat"><div class="v">NOC + SOC</div><div class="k">Both v0.6 personas (<code>Verify Gate</code> &amp; <code>Decide Gate</code>) housed on the shared v0.6 skeleton</div></div>
-  </div>
-
-  <div class="callout">
-    <h3>Why the SOC Persona Joins the NOC Persona Inside WG2</h3>
-    <p>None of the 20 October board submissions asked for an AI-assisted SOC, and WG3 is refocusing on <b>AI Agents as Insider Threats</b> (anchored by UC #5). Because WG2 and WG3 built their ratified v0.6 reference architectures (October 15, 2026) on the <b>exact same two-wrapper, 6-step loop skeleton</b>, moving the v0.6 SOC Persona into WG2 preserves the <a href="report-onug-governed-autonomy-board-paper-2026.html"><em>Governed Autonomy v3</em> board paper&rsquo;s</a> two-domain proof: <b>&ldquo;the next domain should onboard without new enforcement code&rdquo;</b> (Focus Area #8: Verify Gate alongside Decide Gate).</p>
+    <div class="stat"><div class="v">5 Use Cases</div><div class="k">Board use cases assigned to WG2 on October 27</div></div>
+    <div class="stat"><div class="v">37 of 118</div><div class="k">Board votes behind them, the second most of any working group</div></div>
+    <div class="stat"><div class="v">#2 and #3</div><div class="k">UC #2 (15 votes) and UC #17 (11 votes) are the Board&rsquo;s second- and third-ranked use cases overall</div></div>
   </div>
 
   <nav class="jump" aria-label="Sections">
-    <a href="#charter">1. 2027 WG2 Scope &amp; Three Workstreams</a>
-    <a href="#use-cases">2. The 5 Absorbed Board Use Cases</a>
-    <a href="#personas">3. NOC &amp; SOC Personas on One Skeleton</a>
-    <a href="#alignment">4. Complementarity Across WG1&ndash;WG5</a>
-    <a href="#leads-agenda">5. Decisions &amp; Input from WG2 Leads</a>
+    <a href="#charter">1. Charter</a>
+    <a href="#priorities">2. Board Priorities</a>
+    <a href="#dallas">3. The Road to Dallas</a>
+    <a href="#paths">4. Paths Forward</a>
   </nav>
 
   <!-- ===================================================== -->
   <section id="charter">
-    <div class="section-head"><h2>1. WG2&rsquo;s Updated 2027 Scope: What Continues &amp; What Folds In</h2><span class="count">Continuing Working Group</span></div>
-    <p>WG2&rsquo;s ratified <strong>v0.6 Autonomous Infrastructure Reference Architecture (October 15, 2026)</strong> remains the spine of the group: two outer wrappers (<strong>Strategic Intent &amp; Policy</strong> on top; WG1&rsquo;s <strong>Access Enforcement &amp; Audit</strong> below) framing the 6-step closed loop (<code>1 Detect &rarr; 2 Diagnose &rarr; 3 Propose &rarr; 4 Verify Gate &rarr; 5 Execute &rarr; 6 Observe &amp; Learn</code>). For 2027, WG2 organizes around three concrete tracks:</p>
+    <div class="section-head"><h2>1. WG2 Charter</h2><span class="count">Continuing Working Group</span></div>
+    <p>WG2 defines how AI agents run enterprise operations safely. Every agent follows the same six-step loop: Detect, Diagnose, Propose, a gate check, Execute, and Observe &amp; Learn. No change goes ahead until it passes the gate. WG2 does not rebuild identity, credentials, or audit logging; its agents run on WG1&rsquo;s control plane. The v0.6 reference architecture was ratified October 15, 2026.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Persona</th><th>The Gate Question</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>NOC (network operations)</td><td><strong>Verify Gate:</strong> Will this change break the network?</td></tr>
+          <tr><td>SOC (security operations)</td><td><strong>Decide Gate:</strong> Contain the threat now, or keep watching? New to WG2 in 2027, moved from WG3.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Two operational domains sharing one loop is the Board paper&rsquo;s test in practice: the next domain onboards without new enforcement code.</p>
+  </section>
+
+  <!-- ===================================================== -->
+  <section id="priorities">
+    <div class="section-head"><h2>2. What the Board Prioritized in NYC (October 27)</h2><span class="count">37 Votes &middot; Ranked</span></div>
+    <p>The Board assigned five use cases to WG2. They group into three tracks. Each Board submitter will be invited to co-author their track or serve on it as a Board Advisor to WG2.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Use Case</th><th class="votes">Votes</th><th>Track</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>UC #2 <span class="sub">Cross-Domain Telemetry &amp; Incident Attribution</span></td><td class="votes">15</td><td>A. Cross-Domain Attribution</td></tr>
+          <tr><td>UC #17 <span class="sub">Enterprise Network Knowledge Agent for Intent Analysis</span></td><td class="votes">11</td><td>B. Safe Change</td></tr>
+          <tr><td>UC #10 <span class="sub">Secure &amp; Autonomous 24/7 Infra Ops (operations half; PQC half to WG5)</span></td><td class="votes">5</td><td>C. 24/7 Closed Loop</td></tr>
+          <tr><td>UC #18 <span class="sub">Automated Pre-Change Validation Agent for Infra Assurance</span></td><td class="votes">4</td><td>B. Safe Change</td></tr>
+          <tr><td>UC #12 <span class="sub">Network Validation via Agentic AI &amp; Digital Twin</span></td><td class="votes">2</td><td>B. Safe Change</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="v">15 Votes</div><div class="k">A. Cross-Domain Attribution: UC #2. Find the root cause when every domain reports green.</div></div>
+      <div class="stat"><div class="v">17 Votes</div><div class="k">B. Safe Change: UC #17, #18, #12. Know why the network was built, then test a change in a digital twin first.</div></div>
+      <div class="stat"><div class="v">5 Votes</div><div class="k">C. 24/7 Closed Loop: UC #10. Run the full loop around the clock.</div></div>
+    </div>
+    <p>No Board use case asked for an AI-assisted SOC. The SOC persona moves into WG2 to keep the second domain on the shared loop, not because the Board voted for it.</p>
+  </section>
+
+  <!-- ===================================================== -->
+  <section id="dallas">
+    <div class="section-head"><h2>3. The Road to Dallas</h2><span class="count">May 12&ndash;13, 2027 &middot; Hyatt Regency Frisco</span></div>
+    <p>The <a href="https://onug.net/ai-networking-summit-dallas-spring-2027/">AI Networking Summit Dallas 2027</a> runs May 12&ndash;13 at the Hyatt Regency Frisco. One of its five tracks describes WG2&rsquo;s charter almost word for word.</p>
+
+    <div class="callout">
+      <h3>Proving the AI Infrastructure Fabric</h3>
+      <p><b>&ldquo;Build the Foundation. Enable the Fabric. Power the AI Future.&rdquo;</b></p>
+      <p>The AI Automation track is about &ldquo;getting agentic operations out of pilot and into everyday production use,&rdquo; and &ldquo;explores the Agentic Operations Center.&rdquo; A NOC and a SOC running on one governed loop is that operations center.</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="v">1,000+</div><div class="k">Attendees</div></div>
+      <div class="stat"><div class="v">45+</div><div class="k">Sponsors</div></div>
+      <div class="stat"><div class="v">40+</div><div class="k">Vendor presentations on tools, technologies &amp; techniques</div></div>
+      <div class="stat"><div class="v">Invitation-Only</div><div class="k">Sessions led by ONUG Executive Board members</div></div>
+    </div>
+
+    <h3>Five Summit Tracks and Where WG2 Shows Up</h3>
+    <p>Quotes are from the summit page. The WG2 column is our mapping.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Summit Track</th><th>From the Summit Page</th><th>Where WG2 Shows Up</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>AI Automation</td><td>&ldquo;Getting agentic operations out of pilot and into everyday production use.&rdquo;</td><td>Directly. The NOC and SOC personas on one loop, with every change gated before it runs.</td></tr>
+          <tr><td>AI Networking</td><td>&ldquo;Enterprises that have already rebuilt their fabrics for AI are sharing what works and what broke first.&rdquo;</td><td>Directly. Track A finds what broke across domains; Track B tests a change before it can break anything.</td></tr>
+          <tr><td>AI Security</td><td>&ldquo;Protecting autonomous systems and the operators who now run them.&rdquo;</td><td>Through the SOC persona and its Decide Gate, running on WG1&rsquo;s control plane.</td></tr>
+          <tr><td>Post-Quantum Cryptography</td><td>&ldquo;PQC has stopped being a future mandate and become a present-day procurement requirement.&rdquo;</td><td>Through WG5. WG2&rsquo;s digital twin can test WG5&rsquo;s post-quantum key and certificate rollouts before production (UC #10).</td></tr>
+          <tr><td>AI Infrastructure</td><td>&ldquo;The physical and architectural foundation an AI-native enterprise runs on.&rdquo;</td><td>Limited. WG2 operates the infrastructure; it does not design it.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <section id="paths">
+    <div class="section-head"><h2>4. Potential Paths Forward</h2><span class="count">Decision for WG2 Leads</span></div>
+    <p>All three tracks are 2027 work. The choice is what WG2 publishes and demonstrates in Dallas, and what moves to the second half of 2027.</p>
+    <p>ONUG leadership is considering another working demo for Dallas. A demo can go with any of the first three paths, and each card shows what it would demonstrate. Path 4 is a demo-led option proposed by a WG2 member. &ldquo;Running today&rdquo; means already running in the reference implementation: a three-switch lab network with a network source of truth and two NOC agents, one that observes and recommends and one that makes bounded changes.</p>
 
     <div class="cluster-grid">
       <div class="cluster-card">
-        <div class="head">
-          <span class="tag">Workstream 1 &middot; Steps 1&ndash;2 (Detect &amp; Diagnose)</span>
-          <h3>Cross-Domain Telemetry &amp; Incident Attribution</h3>
-        </div>
+        <div class="head"><span class="tag">Path 1 &middot; 17 of 37 votes</span><h3>Safe Change First</h3></div>
         <div class="body">
-          <p><strong>Anchored by UC #2 (15 votes &middot; Rank #2 overall):</strong></p>
-          <p>Correlates telemetry across <strong>carrier underlay (DWDM)</strong>, <strong>enterprise overlay (SD-WAN/EVPN)</strong>, <strong>cloud black-box gateways</strong>, and <strong>internal DNS/endpoints</strong> to end NOC &ldquo;innocence proving&rdquo; during brownouts where every silo reports green in isolation.</p>
-          <div class="meta">v0.6 Fit: Steps 1&ndash;2 + Focus Area #6 (Sources of Truth)</div>
+          <p><strong>Dallas:</strong> Track B only. Publish the design-intent agent and pre-change Verify Gate specs.</p>
+          <p><strong>For:</strong> The most Board votes of any track, and it builds on the agents and lab already running.</p>
+          <p><strong>Against:</strong> Leaves the Board&rsquo;s #2 use case (UC #2) without a Dallas deliverable.</p>
+          <p><strong>Demo:</strong> An agent explains why the network was built as it was, proposes a change, and the change is tested in a digital twin and checked against the live change window before it runs. The agents and lab run today; intent analysis and twin validation need to be built.</p>
         </div>
       </div>
-
       <div class="cluster-card">
-        <div class="head">
-          <span class="tag">Workstream 2 &middot; Rung 1 + Step 4 (Verify Gate)</span>
-          <h3>Network Digital Twin &amp; Pre-Change Verify Gate</h3>
-        </div>
+        <div class="head"><span class="tag">Path 2 &middot; 15 of 37 votes</span><h3>Attribution First</h3></div>
         <div class="body">
-          <p><strong>Combines UC #17 (11v), UC #18 (4v), and UC #12 (2v) &mdash; 17 votes total:</strong></p>
-          <p><strong>UC #17</strong> defines the Rung 1 Network Knowledge Agent explaining design intent; <strong>UC #18</strong> defines the Step 4 Pre-Change Validation Agent (design compliance + execution-time health check); and <strong>UC #12</strong> extends <code>Containerlab</code> + <code>NetBox</code> into an open digital-twin validation harness.</p>
-          <div class="meta">v0.6 Fit: Rung 1 (<code>noc-observer</code>) + Step 4 (<code>Verify Gate</code>) + Focus Area #9</div>
+          <p><strong>Dallas:</strong> Track A only. Publish a vendor-neutral profile for correlating telemetry across carrier, enterprise, and cloud networks.</p>
+          <p><strong>For:</strong> Leads with the Board&rsquo;s #2 use case. Brownouts with no clear owner are a familiar NOC problem.</p>
+          <p><strong>Against:</strong> Needs telemetry the lab doesn&rsquo;t have today: carrier optical, cloud gateways, and DNS. That depends on vendor members supplying it.</p>
+          <p><strong>Demo:</strong> A brownout where every domain reports green, attributed to its root cause in minutes. Not built.</p>
         </div>
       </div>
-
       <div class="cluster-card">
-        <div class="head">
-          <span class="tag">Workstream 3 &middot; Focus Area #8 Convergence</span>
-          <h3>Onboarding the Ratified v0.6 SOC Persona</h3>
-        </div>
+        <div class="head"><span class="tag">Path 3 &middot; 32 of 37 votes</span><h3>Attribution + Safe Change</h3></div>
         <div class="body">
-          <p><strong>Preserving the Two-Domain Proof (<code>Verify Gate</code> + <code>Decide Gate</code>):</strong></p>
-          <p>Brings the ratified v0.6 SOC Persona (<code>1 Detect &rarr; 2 Investigate &rarr; 3 Propose &rarr; 4 Decide Gate &rarr; 5 Respond &rarr; 6 Validate &amp; Learn</code>, plus the <code>observe-mode honored</code> invariant) into WG2 alongside the NOC Persona, directly operationalizing Focus Area #8 (NOC + SOC convergence).</p>
-          <div class="meta">v0.6 Fit: Shared v0.6 Skeleton + Focus Area #8</div>
+          <p><strong>Dallas:</strong> Tracks A and B, joined into one end-to-end story.</p>
+          <p><strong>For:</strong> Covers 86% of WG2&rsquo;s votes and shows the whole loop, from finding the fault to fixing it safely. Track C follows naturally in the second half.</p>
+          <p><strong>Against:</strong> The most build work of the three, split across two sub-teams.</p>
+          <p><strong>Demo:</strong> Path 2&rsquo;s brownout is diagnosed, a fix is proposed, tested in the twin, and executed. Only the agents and lab run today.</p>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- ===================================================== -->
-  <section id="use-cases">
-    <div class="section-head"><h2>2. The Five Board Use Cases Absorbed into WG2</h2><span class="count">37 Board Votes &middot; Ranked Order</span></div>
-    <p>Each of the five October 27 board submissions assigned to WG2 maps directly into the ratified v0.6 6-step loop and the <code>onug-plane</code> reference implementation:</p>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Use Case</th>
-            <th class="votes">Votes</th>
-            <th>Where It Fits in WG2&rsquo;s v0.6 Architecture</th>
-            <th>2027 Deliverable &amp; <code>onug-plane</code> Mapping</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>UC #2 <span class="sub">Cross-Domain Telemetry &amp; Incident Attribution</span></td>
-            <td class="votes">15</td>
-            <td><strong>Steps 1&ndash;2 (Detect &amp; Diagnose) + Focus Area #6 (Sources of Truth):</strong> Multi-domain root-cause correlation across underlay, overlay, and cloud.</td>
-            <td><strong>Cross-Domain Telemetry Correlation Profile:</strong> Vendor-neutral schema correlating DWDM underlay, SD-WAN/EVPN overlay, cloud gateways, and DNS/endpoint signals to attribute brownouts without manual war rooms.</td>
-          </tr>
-          <tr>
-            <td>UC #17 <span class="sub">Enterprise Network Knowledge Agent for Intent Analysis</span></td>
-            <td class="votes">11</td>
-            <td><strong>Rung 1 Persona (<code>L0/L1 Observe &amp; Recommend</code>) + Focus Area #6:</strong> Understanding <em>why</em> the network was built a specific way before proposing changes.</td>
-            <td><strong>Intent &amp; Institutional Knowledge Agent (<code>noc-observer</code> evolution):</strong> Correlates design docs, tickets, recorded design sessions, and live configs to surface design intent for operators and Step 3 proposals.</td>
-          </tr>
-          <tr>
-            <td>UC #10 <span class="sub">Secure &amp; Autonomous 24/7 Infra Ops (Infra Half)</span></td>
-            <td class="votes">10<span class="sub">(5 to WG2)</span></td>
-            <td><strong>Full WG2 6-Step Closed Loop + Digital Twin:</strong> Autonomous 24/7 lifecycle at scale (PQC readiness testing half splits to WG5).</td>
-            <td><strong>24/7 Autonomous Ops &amp; WG5 Handshake:</strong> End-to-end closed-loop execution with digital-twin pre-validation, including validating PQC key/cert rollouts supplied by WG5 before production execution.</td>
-          </tr>
-          <tr>
-            <td>UC #18 <span class="sub">Automated Pre-Change Validation Agent for Infra Assurance</span></td>
-            <td class="votes">4</td>
-            <td><strong>Step 4 (<code>LOOP-4: Verify Gate</code>) + Focus Area #7:</strong> Context-aware pre-change assurance + execution-time environment health check.</td>
-            <td><strong>Pre-Change Verify Gate Specification:</strong> Evaluates (1) design/compliance against UC #17 intent and (2) live execution-window health (CPU, power, concurrent changes) to output an evidence-based Approve/Deny before Step 5 (<code>Execute</code>).</td>
-          </tr>
-          <tr>
-            <td>UC #12 <span class="sub">Network Validation via Agentic AI &amp; Digital Twin (Aether)</span></td>
-            <td class="votes">2</td>
-            <td><strong>Step 4 (<code>LOOP-4: Verify Gate</code>) + Focus Area #9 (Open Reference Topologies):</strong> Production-replica simulation before change execution.</td>
-            <td><strong>Open Digital Twin Validation Harness:</strong> Extends <code>Containerlab</code> + <code>NetBox</code> in <code>onug-plane</code> so candidate changes proposed by <code>noc-operator</code> at Step 3 are simulated before Step 5 execution.</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="cluster-grid">
+      <div class="cluster-card">
+        <div class="head"><span class="tag">Path 4 &middot; 26 of 37 votes &middot; Proposed by a WG2 member</span><h3>Demo-Led: Slow Bank Teller Transaction</h3></div>
+        <div class="body">
+          <p><strong>Dallas:</strong> A 10-minute live demo of one incident, from customer complaint to fix. A teller transaction that normally takes about 2 seconds takes 9 to 12. Application, database, network, SD-WAN, and cloud agents work together to find the cause: the database is healthy, but a network path change added latency between application services. The network operations agent proposes moving teller traffic to the preferred SD-WAN path. WG1&rsquo;s control plane runs the Verify Gate (agent identity, least privilege, policy, digital-twin validation, impact analysis), then issues 60-second credentials for the change. Transaction time drops back to about 2 seconds, and the outcome is logged. The demo ends with one or two failure scenarios, such as a wrong diagnosis or an agent reaching outside its scope, to show the controls stopping it. Specs follow in the second half of 2027.</p>
+          <p><strong>For:</strong> A customer-facing story any executive understands, from a member&rsquo;s real environment. It shows UC #2 (finding the cause across domains), UC #12 and #18 (testing the change before it runs), and UC #10 (the full loop) in one sequence. It is also a joint demo with WG1: application and network agents collaborate, but the control plane stays the source of authority. That fits the summit&rsquo;s &ldquo;Proving&rdquo; theme and the AI Automation track.</p>
+          <p><strong>Against:</strong> The most build work of the four paths. <code>onug-plane</code> needs an application stack (teller UI, API, account service, database), two SD-WAN paths, and application, database, and cloud agents. Today it has three switches and two NOC agents. The scenario&rsquo;s eight steps also need to map to the v0.6 six-step loop. UC #17 (design intent) is not in the scenario yet; adding a step where an agent explains why the preferred path is preferred would bring it in.</p>
+          <p><strong>Demo:</strong> This path is the demo, run on the <code>onug-plane</code> reference implementation. Its WG1 controls (agent identity, short-lived credentials, the gateway, the signed journal, and fleet-wide stop) and its network lab and NOC agents run today. The application stack, SD-WAN paths, and the new agents are extensions to build. The proposal suggests a four-panel live dashboard: customer experience, cross-domain evidence, the control plane, and the incident timeline.</p>
+        </div>
+      </div>
     </div>
-  </section>
 
-  <!-- ===================================================== -->
-  <section id="personas">
-    <div class="section-head"><h2>3. Two Personas on One Skeleton: NOC (<code>Verify Gate</code>) + SOC (<code>Decide Gate</code>)</h2><span class="count">Unified v0.6 Architecture</span></div>
-    <p>Housing both ratified v0.6 personas inside WG2 keeps the two-domain architecture intact and demonstrates how two operational domains share the same 6-step loop while differing only at Step 4 (physics vs. adversary):</p>
-
+    <h3>Questions for WG2 Leads</h3>
     <div class="table-wrap">
       <table>
-        <thead>
-          <tr>
-            <th>v0.6 Loop Stage</th>
-            <th>WG2 NOC Persona (Infrastructure Operations)</th>
-            <th>WG2 SOC Persona (Security Operations &middot; Onboarded from WG3 v0.6)</th>
-          </tr>
-        </thead>
         <tbody>
-          <tr>
-            <td>Top Wrapper</td>
-            <td><strong>Strategic Intent &amp; Policy:</strong> Availability SLOs, change windows, design intent (UC #17).</td>
-            <td><strong>Strategic Intent &amp; Policy:</strong> Risk appetite, containment policy, <code>observe-mode</code> rules.</td>
-          </tr>
-          <tr>
-            <td>Step 1</td>
-            <td><code>1 Detect</code> &mdash; Ingest wire, flow, BGP/EVPN, DWDM, and cloud gateway telemetry (UC #2).</td>
-            <td><code>1 Detect</code> &mdash; Ingest SIEM/XDR, DNS, identity, and WG3 insider-threat behavioral detections.</td>
-          </tr>
-          <tr>
-            <td>Step 2</td>
-            <td><code>2 Diagnose</code> &mdash; Cross-domain root-cause attribution across underlay/overlay/cloud (UC #2, #17).</td>
-            <td><code>2 Investigate</code> &mdash; Correlate blast radius, credential lineage, and MITRE ATT&amp;CK / ATLAS chain.</td>
-          </tr>
-          <tr>
-            <td>Step 3</td>
-            <td><code>3 Propose</code> &mdash; Draft candidate config diff, traffic drain, or failover plan + rollback plan.</td>
-            <td><code>3 Propose</code> &mdash; Draft containment action (quarantine host, revoke SVID/token, or continue observing).</td>
-          </tr>
-          <tr>
-            <td>Step 4 (The Gate)</td>
-            <td><strong><code>4 Verify Gate</code> (Physics &amp; Topology Gate):</strong> Validate in Digital Twin (UC #12) + pre-change compliance &amp; health check (UC #18). <em>Question: Will this break the network?</em></td>
-            <td><strong><code>4 Decide Gate</code> (Adversarial &amp; Intelligence Gate):</strong> Weigh containment against intelligence value. Enforces the <strong><code>observe-mode honored</code> invariant</strong> (watching an intruder can outweigh tipping them off).</td>
-          </tr>
-          <tr>
-            <td>Step 5</td>
-            <td><code>5 Execute</code> &mdash; Push bounded change via MCP gateway with ephemeral OpenBao credentials (<code>noc-operator</code>).</td>
-            <td><code>5 Respond</code> &mdash; Execute bounded containment or SVID/credential revocation via WG1 control plane.</td>
-          </tr>
-          <tr>
-            <td>Step 6</td>
-            <td><code>6 Observe &amp; Learn</code> &mdash; Verify post-change SLOs; record outcome to WG1 <code>immudb</code> journal and 5-SLI scorecard.</td>
-            <td><code>6 Validate &amp; Learn</code> &mdash; Confirm containment efficacy; feed post-incident learning into WG1 scorecard.</td>
-          </tr>
-          <tr>
-            <td>Bottom Wrapper</td>
-            <td colspan="2"><strong>WG1 Access Enforcement &amp; Audit Substrate:</strong> SPIFFE/SPIRE SVIDs, OpenBao credential injection, MCP tool gateway, <code>immudb</code> WORM audit journal, and the 5-SLI Rung Promotion Scorecard.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- ===================================================== -->
-  <section id="alignment">
-    <div class="section-head"><h2>4. How WG2 Aligns With &amp; Complements WG1, WG3, WG4, and WG5</h2><span class="count">Cross-Group Architecture</span></div>
-    <p>WG2 sits at the operational center of the 2027 ONUG portfolio, consuming WG1&rsquo;s governance substrate and coordinating directly with WG3, WG4, and WG5:</p>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Sibling Group</th>
-            <th>How WG2 &amp; That Group Complement Each Other</th>
-            <th>Concrete Technical Handoff</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>WG1 <span class="pill wg1">Continue</span><br><span class="sub">Agentic Control Plane</span></td>
-            <td><strong>WG1 owns the Bottom Wrapper; WG2 owns the Operational Personas &amp; 6-Step Loop.</strong> WG2 does not rebuild agent identity, secret storage, or audit logging; it runs on WG1.</td>
-            <td>WG2&rsquo;s <code>noc-observer</code> (Rung 1), <code>noc-operator</code> (Rung 2), and SOC personas authenticate via WG1 SPIRE SVIDs, execute through WG1&rsquo;s MCP gateway, and emit Step 4/Step 6 outcomes into WG1&rsquo;s <code>immudb</code> journal to compute the 5-SLI promotion scorecard.</td>
-          </tr>
-          <tr>
-            <td>WG3 <span class="pill">Updated</span><br><span class="sub">AI Security: AI Agents as Insider Threats</span></td>
-            <td><strong>WG2 operates and defends infrastructure; WG3 investigates AI agents themselves as insider threats.</strong></td>
-            <td><strong>1. Attribution (UC #2 &harr; UC #20 Scenario 5):</strong> WG2 isolates whether an anomaly is an underlay/overlay/cloud fault vs. an agent-induced incident.<br><strong>2. Containment:</strong> When WG3 detects an in-policy misused or shadow agent (UC #5), it feeds the alert into WG2&rsquo;s SOC <code>Decide Gate</code>.</td>
-          </tr>
-          <tr>
-            <td>WG4 <span class="pill new">New</span><br><span class="sub">AI WAN</span></td>
-            <td><strong>Shared network-operator audience, clean layer split: WG2 = Operations Plane; WG4 = Transport Data Plane.</strong></td>
-            <td>WG4 defines AI WAN transport requirements and reference architecture (semantic data reduction in flight and deterministic sync between edge inference and central training, UC #1). WG2 runs autonomous NOC operations and telemetry attribution (UC #2) over those WAN links.</td>
-          </tr>
-          <tr>
-            <td>WG5 <span class="pill new">New</span><br><span class="sub">Post-Quantum Security for AI Infrastructure</span></td>
-            <td><strong>Joint split of UC #10 (10 votes):</strong> WG2 owns autonomous 24/7 operations and digital-twin validation; WG5 owns post-quantum readiness and key resiliency.</td>
-            <td>WG2&rsquo;s <strong>Digital Twin &amp; Pre-Change Verify Gate (UC #12/#18)</strong> serves as the testbed to simulate WG5&rsquo;s post-quantum certificate/key rotations (testing ML-DSA/ML-KEM packet fragmentation, handshake latency, and KMS outage recovery) before production rollout.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- ===================================================== -->
-  <section id="leads-agenda">
-    <div class="section-head"><h2>5. Input Needed from WG2 Leads for the Road to Dallas</h2><span class="count">May 12&ndash;13, 2027 Target</span></div>
-    <p>To prepare WG2&rsquo;s 2027 deliverables and demonstrations for the <strong>AI Networking Summit Dallas (May 12&ndash;13, 2027, Hyatt Regency Frisco)</strong>, we need WG2 leadership input on five questions:</p>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Decision Area</th>
-            <th>Context &amp; Options</th>
-            <th>Question for WG2 Leads</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1. Structuring the Two Flagship 2027 NOC Workstreams</td>
-            <td>The five absorbed board use cases cluster naturally into (A) <strong>Cross-Domain Telemetry &amp; Incident Attribution</strong> (UC #2, 15 votes, Steps 1&ndash;2) and (B) <strong>Network Knowledge Agent, Pre-Change Verify Gate &amp; Digital Twin</strong> (UC #17 + #18 + #12 = 17 votes, Rung 1 + Step 4).</td>
-            <td>Should WG2 organize into these two drafting/demo sub-teams for Dallas, and which current WG2 vendor leads (e.g., CodiLime, cPacket, NetBrain, BlueCat, Aviatrix, Cisco, PalC, Zentera) will anchor each?</td>
-          </tr>
-          <tr>
-            <td>2. Extending <code>onug-plane</code> for UC #17 &amp; UC #18</td>
-            <td>Today <code>onug-plane</code> runs a 3-node Arista cEOS topology in <code>Containerlab</code> with <code>NetBox</code> and two agents (<code>noc-observer</code> at Rung 1, <code>noc-operator</code> at Rung 2).</td>
-            <td>What inputs should we add to <code>noc-observer</code> to demonstrate UC #17 (design intent analysis) and to Step 4 to demonstrate UC #18 (pre-change compliance + execution-window health gate) live at Dallas?</td>
-          </tr>
-          <tr>
-            <td>3. Onboarding the v0.6 SOC Persona &amp; Focus Area #8</td>
-            <td>Moving the ratified v0.6 SOC Persona (<code>Decide Gate</code> + <code>observe-mode honored</code>) into WG2 puts NOC and SOC side by side on the same v0.6 skeleton.</td>
-            <td>How should WG2 structure the SOC Persona track and resolve the open v0.6 design question on <strong>cross-domain NOC&harr;SOC read-access authority</strong>?</td>
-          </tr>
-          <tr>
-            <td>4. Engaging the 4 Board Submitters as Co-Authors</td>
-            <td>Four board members submitted the five use cases absorbed into WG2 (#2, #10, #12, #17, and #18).</td>
-            <td>How should we pair each board submitter with WG2&rsquo;s engineering leads to co-author the 2027 specifications and present on the Dallas stage?</td>
-          </tr>
-          <tr>
-            <td>5. Defining the WG2 &harr; WG4 and WG2 &harr; WG5 Handshakes</td>
-            <td>WG2 shares a network-operator audience with WG4 (AI WAN) and splits UC #10 with WG5 (PQC).</td>
-            <td>Who from WG2 will serve as liaison to WG4 (to keep the Ops Plane vs. WAN Data Plane boundary crisp) and to WG5 (to run PQC migration dry-runs in WG2&rsquo;s Digital Twin)?</td>
-          </tr>
+          <tr><td>1. Path</td><td>Which path does WG2 take to Dallas, and which vendor members anchor each track?</td></tr>
+          <tr><td>2. Demo</td><td>If ONUG runs a WG2 demo in Dallas, do we commit to it? Is the teller scenario (Path 4) the demo, and which vendor members supply the application stack, SD-WAN, and telemetry it needs before May?</td></tr>
+          <tr><td>3. Board Advisors</td><td>Each Board submitter will be invited to co-author their track or serve on it as a Board Advisor to WG2. Who on the leads team makes each invitation, and how often do Board Advisors meet with the group?</td></tr>
+          <tr><td>4. SOC Persona</td><td>Who leads the SOC persona inside WG2, and how do we settle the open question of how much the NOC and SOC agents can read of each other&rsquo;s data?</td></tr>
+          <tr><td>5. Liaisons</td><td>Who from WG2 works with WG4 on the line between operations and WAN transport, and with WG5 on testing post-quantum rollouts in the twin?</td></tr>
         </tbody>
       </table>
     </div>
@@ -426,16 +325,16 @@
 
   <div class="sources">
     <div class="lbl">Sources</div>
-    <span>ONUG Board Use Cases &mdash; 2027 Working Group Triage (report-onug-board-use-cases-triage-2026-10-27.html, revised 2026-11-09)</span>
+    <span>ONUG &mdash; <a href="https://onug.net/ai-networking-summit-dallas-spring-2027/">AI Networking Summit Dallas 2027</a> event page (retrieved 2026-11-11)</span>
+    <span>ONUG NYC Board Summary &mdash; 20 Use Cases on the Road to Dallas (report-onug-board-nyc-summary-2026-10-27.html, 2026-11-11)</span>
     <span>ONUG Board Use Cases Ranked by Vote (report-onug-board-use-cases-ranked-2026-11-02.html, updated 2026-11-09)</span>
     <span>ONUG WG2 Autonomous Infrastructure Reference Architecture v0.6 &amp; WG3 SOC Reference Architecture v0.6 (ratified 2026-10-15)</span>
-    <span>ONUG WG2 Explainer &amp; Vendor Roster (report-onug-wg2-explainer.html)</span>
-    <span>ONUG WG1/WG2 Reference Implementation &mdash; <code>onug-plane @ 21a80f2</code> (report-onug-wg1-reference-implementation.html)</span>
+    <span>ONUG WG1/WG2 Reference Implementation (report-onug-wg1-reference-implementation.html)</span>
   </div>
 
   <footer>
-    <span>ONUG Collaborative &mdash; WG2 2027 Scope &amp; Road to Dallas (Leads Review)</span>
-    <span>Prepared by Peter Campbell &middot; 2026-11-09</span>
+    <span>ONUG Collaborative &mdash; WG2 2027: Charter, Board Priorities &amp; Paths Forward</span>
+    <span>Prepared by Peter Campbell &middot; 2026-11-11</span>
   </footer>
 
 </article>
