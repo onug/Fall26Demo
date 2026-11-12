@@ -1,0 +1,517 @@
+<meta charset="UTF-8">
+<title>Road to Dallas Explainer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+  /* Layout: single-column long-form (.report-demo shape), tokens from design-system-onug.html. Light only. */
+  :root {
+    color-scheme: light;
+    --onug-white: #FFFFFF;
+    --onug-bg-alt: #F4F4F4;
+    --onug-border: #E8E8E8;
+    --onug-border-strong: #DADBDD;
+    --onug-text-muted: #585858;
+    --onug-text-secondary: #2C2C2C;
+    --onug-text: #000000;
+    --onug-navy: #0F1D2A;
+    --onug-ink: #141414;
+    --onug-on-dark: #FFFFFF;
+    --onug-on-dark-muted: #9B9B9B;
+    --onug-green: #8FC73E;
+    --onug-green-dark: #70A228;
+    --onug-orange: #F58220;
+    --onug-orange-dark: #DB7015;
+    --font-body: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--onug-white);
+    color: var(--onug-text-secondary);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .report { max-width: 1080px; margin: 0 auto; padding: 64px 28px 100px; }
+
+  a { color: var(--onug-green-dark); transition: color 0.2s linear; }
+  a:hover { color: var(--onug-green); }
+  a:focus-visible { outline: 2px solid var(--onug-orange); outline-offset: 3px; }
+  code, .mono { font-family: var(--font-mono); font-size: 0.9em; }
+  p code, li code, td code { background: var(--onug-bg-alt); padding: 1px 5px; color: var(--onug-text); }
+
+  .rpt-mast { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-bottom: 20px; border-bottom: 2px solid var(--onug-green); margin-bottom: 36px; }
+  .rpt-mast svg.logo { flex: none; display: block; }
+  .rpt-mast .kind { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--onug-text-muted); text-align: right; line-height: 1.5; }
+
+  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--onug-green-dark); margin-bottom: 16px; }
+  h1 { color: var(--onug-text); font-size: 38px; font-weight: 700; line-height: 1.12; margin: 0; text-wrap: balance; max-width: 860px; }
+  .hl { color: var(--onug-green-dark); font-weight: 700; }
+  .byline { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; font-family: var(--font-mono); font-size: 12.5px; color: var(--onug-text-muted); margin-top: 16px; }
+
+  .jump { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--onug-border); font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+  .jump a { color: var(--onug-text-muted); text-decoration: none; }
+  .jump a:hover { color: var(--onug-green-dark); }
+
+  p { font-size: 17px; line-height: 1.6; margin: 16px 0; color: var(--onug-text-secondary); max-width: 820px; }
+  strong { color: var(--onug-text); font-weight: 600; }
+
+  section { margin-top: 60px; }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 12px; margin-bottom: 20px; border-bottom: 2px solid var(--onug-green); }
+  .section-head h2 { color: var(--onug-text); font-size: 24px; font-weight: 600; margin: 0; text-wrap: balance; }
+  .section-head .count { font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--onug-text-muted); white-space: nowrap; }
+  h3 { color: var(--onug-text); font-size: 18px; font-weight: 600; margin: 28px 0 10px; }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; background: var(--onug-border); border: 1px solid var(--onug-border); margin-top: 24px; }
+  .stat { background: var(--onug-white); padding: 18px 20px; }
+  .stat .v { font-size: 28px; font-weight: 700; color: var(--onug-text); font-variant-numeric: tabular-nums; }
+  .stat .k { font-size: 13px; color: var(--onug-text-muted); margin-top: 4px; line-height: 1.45; }
+
+  .callout { margin: 24px 0 0; padding: 24px 26px; background: var(--onug-navy); color: var(--onug-on-dark); border-radius: 6px; }
+  .callout h3 { color: var(--onug-on-dark); margin: 0 0 8px; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .callout p { color: var(--onug-on-dark-muted); font-size: 15px; margin: 0; max-width: none; line-height: 1.55; }
+  .callout p + p { margin-top: 10px; }
+  .callout b { color: var(--onug-green); font-weight: 600; }
+
+  .cluster-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 20px; margin-top: 20px; }
+  .cluster-card { border: 1px solid var(--onug-border-strong); border-radius: 6px; overflow: hidden; background: var(--onug-white); display: flex; flex-direction: column; }
+  .cluster-card .head { background: var(--onug-navy); color: var(--onug-on-dark); padding: 16px 20px; }
+  .cluster-card .head .tag { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--onug-green); display: block; margin-bottom: 4px; }
+  .cluster-card .head h3 { color: var(--onug-on-dark); font-size: 18px; margin: 0; line-height: 1.25; }
+  .cluster-card .body { padding: 16px 20px 20px; font-size: 14.5px; line-height: 1.55; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .cluster-card .body p { font-size: 14.5px; margin: 0; }
+  .cluster-card .meta { font-family: var(--font-mono); font-size: 12px; color: var(--onug-text-muted); padding-top: 8px; border-top: 1px solid var(--onug-border); margin-top: auto; }
+
+  .table-wrap { overflow-x: auto; margin-top: 16px; border: 1px solid var(--onug-border); border-radius: 6px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; line-height: 1.5; }
+  th { text-align: left; font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--onug-text-muted); background: var(--onug-bg-alt); padding: 10px 14px; border-bottom: 1px solid var(--onug-border-strong); }
+  td { padding: 11px 14px; border-bottom: 1px solid var(--onug-border); vertical-align: top; color: var(--onug-text-secondary); }
+  tr:last-child td { border-bottom: none; }
+  td:first-child { color: var(--onug-text); font-weight: 600; white-space: nowrap; }
+  td.votes, th.votes { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.votes { color: var(--onug-text); font-weight: 700; }
+  td.votes.na { color: var(--onug-text-muted); font-weight: 400; }
+  td .sub { display: block; font-weight: 400; font-size: 12px; color: var(--onug-text-muted); margin-top: 2px; }
+
+  .pill { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--onug-border-strong); color: var(--onug-text-muted); white-space: nowrap; }
+  .pill.new { background: var(--onug-green); border-color: var(--onug-green); color: var(--onug-text); }
+  .pill.wg1 { border-color: var(--onug-green-dark); color: var(--onug-green-dark); }
+  .pill.wg2 { border-color: var(--onug-navy); color: var(--onug-navy); }
+  .pill.park { border-color: var(--onug-orange); color: var(--onug-orange-dark); }
+
+  .risk-list { max-width: 820px; margin: 8px 0 0; padding-left: 22px; font-size: 15px; line-height: 1.55; color: var(--onug-text-secondary); }
+  .risk-list li { margin: 6px 0; }
+  .sources { margin-top: 56px; padding-top: 22px; border-top: 2px solid var(--onug-green); display: flex; flex-direction: column; gap: 8px; font-family: var(--font-mono); font-size: 12.5px; color: var(--onug-text-secondary); }
+  .sources .lbl { color: var(--onug-text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-size: 11px; margin-bottom: 4px; }
+
+  footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--onug-border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-family: var(--font-mono); font-size: 11.5px; color: var(--onug-text-muted); }
+
+  @media (max-width: 600px) {
+    .section-head { flex-wrap: wrap; gap: 4px 12px; }
+    .section-head .count { white-space: normal; }
+    .report { padding: 40px 16px 72px; }
+    h1 { font-size: 28px; }
+    .rpt-mast { flex-direction: column; align-items: flex-start; }
+    .rpt-mast .kind { text-align: left; }
+    td:first-child { white-space: normal; }
+  }
+
+  @page { size: letter landscape; margin: 0.45in; }
+  @media print {
+    .report { padding: 0; max-width: 100%; }
+    .jump { display: none; }
+    section { margin-top: 32px; }
+    .section-head { page-break-after: avoid; }
+    .cluster-card, tr, .callout { page-break-inside: avoid; }
+    td:first-child { white-space: normal; }
+    p { max-width: none; }
+    p { font-size: 12.5px; margin: 8px 0; }
+    h1 { font-size: 26px; }
+    h3 { font-size: 14px; }
+    .section-head h2 { font-size: 19px; }
+    .rpt-mast { margin-bottom: 18px; padding-bottom: 12px; }
+    .stat { padding: 10px 14px; }
+    .stat .v { font-size: 22px; }
+    .stat .k { font-size: 11px; }
+    .callout { padding: 14px 18px; }
+    .callout p { font-size: 12px; }
+    .cluster-grid { gap: 12px; margin-top: 12px; }
+    .cluster-card .head { padding: 10px 14px; }
+    .cluster-card .head h3 { font-size: 14px; }
+    .cluster-card .body { padding: 10px 14px 12px; gap: 6px; }
+    .cluster-card .body p, .cluster-card .body { font-size: 11px; line-height: 1.45; }
+    .cluster-card .meta { font-size: 10px; }
+    table { font-size: 11px; }
+    th { padding: 6px 10px; font-size: 9.5px; }
+    td { padding: 6px 10px; }
+    .pill { font-size: 9px; padding: 2px 7px; }
+    .risk-list { font-size: 11.5px; max-width: none; }
+    .risk-list li { margin: 3px 0; }
+    .sources, footer { font-size: 10px; margin-top: 24px; }
+  }
+</style>
+
+<style>
+  /* Explainer additions: single-column variant of .cluster-card for one-per-row WG profiles. Same tokens. */
+  .cluster-grid.one { grid-template-columns: 1fr; }
+  /* How-it-works steps: three across, or one column on narrow screens. Never 2+1. */
+  .cluster-grid.three { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 860px) { .cluster-grid.three { grid-template-columns: 1fr; } }
+  /* Four-stat rows: 4 across, then 2x2, then 1 column. Never 3+1. */
+  .stats { grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 860px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 420px) { .stats { grid-template-columns: 1fr; } }
+  /* Text fills the column like the tables and cards beside it. */
+  .report p, .report .risk-list { max-width: none; }
+  .cluster-card .head .stat-line { font-family: var(--font-mono); font-size: 12px; color: var(--onug-on-dark-muted); margin-top: 6px; display: block; }
+  .cluster-card .lbl { font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--onug-green-dark); margin-top: 6px; }
+  .cluster-card .body ul { margin: 0; padding-left: 20px; }
+  .cluster-card .body li { margin: 4px 0; }
+  @media print { .cluster-card .lbl { font-size: 9.5px; } }
+</style>
+
+<article class="report">
+
+  <div class="rpt-mast">
+    <svg class="logo" width="132" height="32" viewBox="0 0 276 66.9" role="img" aria-label="ONUG">
+      <path d="M33.4,14c-10.7,0-19.5,8.7-19.5,19.5c0,10.7,8.7,19.5,19.5,19.5c10.7,0,19.5-8.7,19.5-19.5C52.9,22.7,44.2,14,33.4,14 M33.4,66.9C15,66.9,0,51.9,0,33.4C0,15,15,0,33.4,0s33.4,15,33.4,33.4C66.9,51.9,51.9,66.9,33.4,66.9" fill="#8FC73E"/>
+      <path d="M88.1,29.1c0-8.4,6.8-15.2,15.2-15.2c8.4,0,15.2,6.8,15.2,15.2v37.8h13.9V29.1c0-16-13.1-29.1-29.1-29.1c-16,0-29.1,13.1-29.1,29.1v37.8h13.9V29.1z" fill="#000000"/>
+      <path d="M183.2,37.8c0,8.4-6.8,15.2-15.2,15.2c-8.4,0-15.2-6.8-15.2-15.2V0h-13.9v37.8c0,16,13.1,29.1,29.1,29.1c16,0,29.1-13.1,29.1-29.1V0h-13.9V37.8z" fill="#000000"/>
+      <path d="M253.3,45.3c-3.6,4.7-9.2,7.7-15.5,7.7c-10.7,0-19.5-8.7-19.5-19.5c0-10.7,8.7-19.5,19.5-19.5c6.2,0,11.7,2.9,15.3,7.5H269C264.2,8.9,252,0,237.9,0c-18.4,0-33.4,15-33.4,33.4s15,33.4,33.4,33.4c14.3,0,26.5-9,31.3-21.6H253.3z" fill="#000000"/>
+      <rect x="246.8" y="26.4" width="29.2" height="13.9" fill="#000000"/>
+    </svg>
+    <div class="kind">ONUG Collaborative &middot; Explainer<br>Road to Dallas &middot; November 2026</div>
+  </div>
+
+  <div class="eyebrow">ONUG Collaborative &middot; For Prospective Members</div>
+  <h1>The ONUG Collaborative on the <span class="hl">Road to Dallas</span></h1>
+  <div class="byline">
+    <span>v1.0</span><span>&middot;</span>
+    <span>2026-11-12</span><span>&middot;</span>
+    <span>Peter Campbell, Head of Collaborative Working Groups</span>
+  </div>
+
+  <p>The ONUG Collaborative is where large-enterprise IT leaders write down what they need from AI infrastructure, and where suppliers help shape those requirements before they reach an RFP. This explainer covers what the Collaborative is, where it came from, the five working groups chartered for 2027, and the problems each one is taking to the <strong>AI Networking Summit Dallas, May 12&ndash;13, 2027</strong>.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="v">20</div><div class="k">Use cases ONUG Executive Board members brought to the October 27 Board meeting in NYC</div></div>
+    <div class="stat"><div class="v">118</div><div class="k">Board votes cast on those use cases</div></div>
+    <div class="stat"><div class="v">5</div><div class="k">Working groups for 2027: three continue, two are new</div></div>
+    <div class="stat"><div class="v">May 12&ndash;13</div><div class="k">AI Networking Summit Dallas 2027, Hyatt Regency Frisco</div></div>
+  </div>
+
+  <nav class="jump">
+    <a href="#collaborative">1. The Collaborative</a>
+    <a href="#lineage">2. Lineage</a>
+    <a href="#problem">3. The Problem</a>
+    <a href="#groups">4. Five Working Groups</a>
+    <a href="#fit">5. How They Fit</a>
+    <a href="#dallas">6. Road to Dallas</a>
+    <a href="#involved">7. Get Involved</a>
+  </nav>
+
+  <!-- 1 -->
+  <section id="collaborative">
+    <div class="section-head"><h2>1. What the ONUG Collaborative Is</h2><span class="count">Enterprise-Driven &middot; Supplier-Enabled</span></div>
+    <p>In ONUG&rsquo;s words, the Collaborative is &ldquo;a unique, unbiased forum for driving industry change whose mission is to enable enterprise IT organizations to break through technology adoption barriers.&rdquo; It focuses on &ldquo;major challenges hindering the adoption of enterprise AI,&rdquo; in two broad categories:</p>
+    <ul class="risk-list">
+      <li><strong>Networking, IT infrastructure and security for GenAI and Agentic AI</strong></li>
+      <li><strong>GenAI, Agentic AI &amp; AIOps for networking, IT infrastructure &amp; security operations</strong></li>
+    </ul>
+
+    <h3>How it works</h3>
+    <div class="cluster-grid three">
+      <div class="cluster-card">
+        <div class="head"><span class="tag">Step 1</span><h3>Enterprises define requirements</h3></div>
+        <div class="body"><p>&ldquo;Working Groups are led by IT executive Co-Chairs who first convene a series of meetings which are exclusive to IT professionals. These IT professionals collaborate on defining requirements for critical enterprise AI use cases.&rdquo;</p></div>
+      </div>
+      <div class="cluster-card">
+        <div class="head"><span class="tag">Step 2</span><h3>Suppliers vet and build with them</h3></div>
+        <div class="body"><p>&ldquo;Suppliers interact with IT professionals to vet these requirements and then work with the Co-chairs to develop enterprise adopter Buyers Guides. These Guides can be readily factored into RFIs, RFPs and other IT decision-making processes.&rdquo;</p></div>
+      </div>
+      <div class="cluster-card">
+        <div class="head"><span class="tag">Step 3</span><h3>The Executive Board sets direction</h3></div>
+        <div class="body"><p>All of this runs &ldquo;under the ongoing oversight and guidance provided by the ONUG Collaborative Executive Board, which sets the overall direction and industry focus for the project teams.&rdquo;</p></div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <h3>Why it matters to a supplier</h3>
+      <p>The requirements written here are the ones large enterprises then buy against. ONUG puts it this way: &ldquo;Suppliers who join will gain <b>early insights into critical challenges and key requirements for enterprise AI adoption</b>, while working together with other leading suppliers in the AI infrastructure ecosystem.&rdquo;</p>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="lineage">
+    <div class="section-head"><h2>2. Lineage: From Project Teams to Five Working Groups</h2><span class="count">onug.net/collaborative</span></div>
+    <p>The Collaborative has run a series of project teams. These are the ones listed on <a href="https://onug.net/collaborative/">onug.net/collaborative</a>, and where each one sits in 2027:</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Collaborative Project</th><th>2027</th><th>What Changed</th></tr></thead>
+        <tbody>
+          <tr><td>Agentic Control Plane</td><td><span class="pill wg1">WG1</span></td><td>Continues as WG1, the shared control layer every enterprise AI agent runs through. Unified Architecture v0.2 ratified July 28, 2026.</td></tr>
+          <tr><td>AI Networking &amp; Autonomous Operations</td><td><span class="pill wg2">WG2</span></td><td>Continues as WG2, AI Networking: Autonomous Operations. Reference architecture v0.6 ratified October 15, 2026. Picks up the SOC persona from WG3 in 2027.</td></tr>
+          <tr><td>AI-Enabled SOC</td><td><span class="pill">WG3</span></td><td>Continues as WG3, AI Security, refocused on AI agents as insider threats. None of the 20 Board use cases asked for an AI-assisted SOC, so the SOC persona work moves to WG2, which shares the same v0.6 architecture.</td></tr>
+          <tr><td>ONUG Connect</td><td><span class="pill">Liaison</span></td><td>ONUG&rsquo;s buyer-driven WAN marketplace, with 400+ carriers. Pairs with the new WG4, so WG4&rsquo;s requirements can inform carrier profiles.</td></tr>
+          <tr><td>&mdash;</td><td><span class="pill new">WG4 &middot; New</span></td><td>AI Networking: WAN. Created from Board use case #1.</td></tr>
+          <tr><td>&mdash;</td><td><span class="pill new">WG5 &middot; New</span></td><td>Post-Quantum Cryptography. Created from five Board use cases submitted by four Board members.</td></tr>
+          <tr><td>CSNF &ndash; Enabled Multicloud Security<span class="sub">AI Adoption Framework: PoC to Production<br>AI Data Governance &amp; Stewardship</span></td><td><span class="pill">Prior</span></td><td>Earlier Collaborative projects listed on onug.net. They are not among the five 2027 working groups.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>2026: the year the groups started building</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Date</th><th>Milestone</th></tr></thead>
+        <tbody>
+          <tr><td>Jul 2026</td><td>WG1 scoping produces the requirements list that became &ldquo;the 25,&rdquo; later traced across WG1, WG2, and WG3.</td></tr>
+          <tr><td>Jul 28, 2026</td><td>WG1 Unified Architecture v0.2 ratified: agent trust fabric, registry, runtime supervision, private model router.</td></tr>
+          <tr><td>Oct 15, 2026</td><td>WG2 and WG3 v0.6 reference architectures ratified: one gated operations loop shared by a NOC and a SOC persona.</td></tr>
+          <tr><td>Oct 19, 2026</td><td>Executive Board paper, <em>Governed Autonomy: The State of Agentic AI in 2026</em> (v3).</td></tr>
+          <tr><td>Oct 27, 2026</td><td>Board meeting in NYC: 20 use cases presented, 118 votes cast, five working groups for 2027.</td></tr>
+          <tr><td>Oct 28&ndash;29, 2026</td><td>AI Networking Summit New York. A live demonstration closed the main-stage session &ldquo;Let Go, Now Build,&rdquo; and the agenda cited the &ldquo;25 requirements this community wrote and published.&rdquo;</td></tr>
+          <tr><td>Nov 10, 2026</td><td>WG4 and WG5 charter review.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="problem">
+    <div class="section-head"><h2>3. The Problem We Are Working On</h2><span class="count">Governed Autonomy</span></div>
+    <p>The Executive Board&rsquo;s October paper opens with this: &ldquo;Agentic AI is past the hype-only stage but not yet at controlled scale.&rdquo; Adoption is broad: Gartner finds 71% of organizations expect to deploy agentic AI within 12 months, but only 21% have agentic AI governance in place (October 2026). The paper looked at every high-profile agent incident of 2026 and found the same thing in each: the agent&rsquo;s actions reached real systems through an <strong>enforcement gap</strong>. That meant an over-scoped or exposed credential, uncontained network access, no gate on an irreversible action, or an ungoverned integration.</p>
+
+    <div class="callout">
+      <h3>The outcome the Board is aiming for</h3>
+      <p>&ldquo;<b>Governed autonomy</b>: agents that can act, whose authority is issued, scoped and audited from outside their reach, and whose autonomy is earned one rung at a time and stays revocable.&rdquo; The paper argues that what would speed up deployment is <b>a common control specification enterprises can buy against</b>.</p>
+    </div>
+
+    <p>Agents are only part of the problem. The infrastructure under them is under strain too. The Dallas summit&rsquo;s AI Networking track says &ldquo;the network, not the GPU, is now the binding constraint on what an enterprise can build.&rdquo; Its post-quantum track says &ldquo;PQC has stopped being a future mandate and become a present-day procurement requirement.&rdquo; Each of the five working groups takes one piece:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Working Group</th><th>The Problem It Takes On</th><th class="votes">Board Votes</th></tr></thead>
+        <tbody>
+          <tr><td>WG1 &middot; Agentic Control Plane</td><td>Every domain is building its own agent stack, which leaves separate identities, inventories, and audit trails. None of them is complete, and none is enforced outside the agent.</td><td class="votes">42</td></tr>
+          <tr><td>WG2 &middot; AI Networking: Autonomous Operations</td><td>Agentic operations stuck in pilot. Brownouts where every domain reports green. Network changes nobody tested before they ran.</td><td class="votes">37</td></tr>
+          <tr><td>WG3 &middot; AI Security</td><td>Agents with legitimate access, acting within policy, doing harm. Also shadow agents that employees run under their own credentials, out of sight of the gateway.</td><td class="votes">8</td></tr>
+          <tr><td>WG4 &middot; AI Networking: WAN</td><td>WANs sized and priced for people using cloud apps, now carrying data to GPUs, inference and agent traffic, and models out to the edge.</td><td class="votes">7</td></tr>
+          <tr><td>WG5 &middot; Post-Quantum Cryptography</td><td>Agent identity runs on signatures that quantum computers are expected to break, inside products enterprises don&rsquo;t control.</td><td class="votes">16</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px;color:var(--onug-text-muted)">Votes are the October 27 Board votes behind each group&rsquo;s use cases. Use cases split between two groups count half their votes toward each. Eight votes went to a use case parked as briefing-only.</p>
+  </section>
+
+  <!-- 4 -->
+  <section id="groups">
+    <div class="section-head"><h2>4. The Five Working Groups for 2027</h2><span class="count">Charters &amp; Potential Outcomes</span></div>
+    <p>Each group&rsquo;s leads are now choosing a path to Dallas: what to publish and demonstrate in May, and what moves to the second half of 2027. The outcomes below are the options under consideration, not commitments. &ldquo;Running today&rdquo; means already demonstrated in the WG1 reference implementation.</p>
+
+    <div class="cluster-grid one">
+
+      <div class="cluster-card">
+        <div class="head"><span class="tag">WG1 &middot; Continuing</span><h3>Agentic Control Plane</h3><span class="stat-line">9 Board use cases &middot; 42 of 118 votes &middot; includes the Board&rsquo;s #1 use case (18 votes)</span></div>
+        <div class="body">
+          <div class="lbl">Charter</div>
+          <p>WG1 defines the shared control layer that every enterprise AI agent runs through. It sets who the agent is, what it may do, where its model calls go, and what record it leaves. All of it is enforced outside the agent, so the next domain can onboard without new enforcement code. It rests on four components: an <strong>Agent Trust Fabric</strong> (short-lived, task-scoped, revocable identity), a <strong>Registry, Personas &amp; BOM</strong>, <strong>Runtime Supervision</strong> (gateway policy, fleet-wide stop, tamper-evident journal), and a <strong>Private Open Router</strong> for model calls under cost, residency, and safety policy.</p>
+          <div class="lbl">What the Board asked for</div>
+          <ul>
+            <li><strong>Identity &amp; Authority</strong> (21 votes): binding agent identity to limited, revocable authority; task-scoped entitlements.</li>
+            <li><strong>Evidence &amp; Promotion</strong> (13 votes): signed compliance evidence that controls held; SLI &ldquo;nutrition labels&rdquo;; a test framework for safety controls.</li>
+            <li><strong>Routing, Sovereignty &amp; Regulation</strong> (8 votes): governed inference routing across models; proving control in sovereign and regulated environments.</li>
+          </ul>
+          <div class="lbl">Potential Dallas outcomes</div>
+          <ul>
+            <li><strong>Agent identity and per-step authority specification</strong>, published.</li>
+            <li><strong>Signed compliance journal and promotion scorecard</strong> for moving agents up the autonomy ladder.</li>
+            <li><strong>Live demo (possible)</strong>: an agent&rsquo;s identity revoked mid-task and the whole fleet stopped on command, with the signed journal producing proof a regulator can check. <em>Running today.</em></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cluster-card">
+        <div class="head"><span class="tag">WG2 &middot; Continuing</span><h3>AI Networking: Autonomous Operations</h3><span class="stat-line">5 Board use cases &middot; 37 of 118 votes &middot; includes the Board&rsquo;s #2 and #3 use cases</span></div>
+        <div class="body">
+          <div class="lbl">Charter</div>
+          <p>WG2 defines how AI agents run enterprise operations safely. Every agent follows the same loop: Detect, Diagnose, Propose, a gate check, Execute, and Observe &amp; Learn. No change goes ahead until it passes the gate. The NOC persona asks &ldquo;Will this change break the network?&rdquo; The SOC persona, new to WG2 in 2027, asks &ldquo;Contain the threat now, or keep watching?&rdquo; WG2&rsquo;s agents run on WG1&rsquo;s control plane rather than rebuilding identity, credentials, or audit.</p>
+          <div class="lbl">What the Board asked for</div>
+          <ul>
+            <li><strong>Cross-Domain Attribution</strong> (15 votes): find the root cause when every domain reports green.</li>
+            <li><strong>Safe Change</strong> (17 votes): an agent that knows why the network was built as it was, plus pre-change validation in a digital twin.</li>
+            <li><strong>24/7 Closed Loop</strong> (5 votes): run the full loop around the clock.</li>
+          </ul>
+          <div class="lbl">Potential Dallas outcomes</div>
+          <ul>
+            <li><strong>Cross-domain telemetry profile</strong>: a vendor-neutral profile for correlating telemetry across carrier, enterprise, and cloud networks.</li>
+            <li><strong>Design-intent agent and Verify Gate specifications</strong> for checking changes before they run.</li>
+            <li><strong>Live demo (member-proposed)</strong>: a bank teller transaction that normally takes about 2 seconds takes 9 to 12. Application, database, network, SD-WAN, and cloud agents trace it to a network path change. The fix, moving teller traffic to the preferred SD-WAN path, passes WG1&rsquo;s Verify Gate and runs on 60-second credentials.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cluster-card">
+        <div class="head"><span class="tag">WG3 &middot; Updated</span><h3>AI Security: AI Agents as Insider Threats</h3><span class="stat-line">Anchored by Board UC #5, Unsanctioned Agents Acting for Employees &middot; 8 votes</span></div>
+        <div class="body">
+          <div class="lbl">Charter</div>
+          <p>WG3 treats AI agents as insiders: they hold real access, work inside trusted boundaries, and act on their own. WG1 blocks violations at the gateway. WG3 takes the cases enforcement doesn&rsquo;t catch: <strong>in-policy misuse</strong> (every action passes policy, the outcome is still harmful), <strong>shadow agents</strong> (employee-launched agents on laptops, browsers, or VMs that never pass the gateway), and extending <strong>insider-risk programs</strong> across Security, HR, Legal, and Privacy to cover agents.</p>
+          <p>Anthropic&rsquo;s Form S-1 (filed October 26, 2026) gives the reason: &ldquo;Four of our models gained unauthorized access to real third-party systems during sessions lasting roughly 10 to 34 hours of active work.&rdquo; No attacker was involved.</p>
+          <div class="lbl">Potential Dallas outcomes</div>
+          <ul>
+            <li><strong>Shadow agent playbook</strong> for finding unsanctioned agents on laptops, browsers, and VMs.</li>
+            <li><strong>Agent attribution and forensics standard</strong>, built on WG1&rsquo;s signed journal.</li>
+            <li><strong>Insider-risk program guide</strong> for extending enterprise programs to agents. CISA&rsquo;s 2026 guide still defines an insider as a person. Could be paired with a Security, HR, and Legal tabletop exercise.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cluster-card">
+        <div class="head"><span class="tag">WG4 &middot; New</span><h3>AI Networking: WAN</h3><span class="stat-line">Created from Board UC #1, Distributed AI &amp; Semantic Networking &middot; 7 votes</span></div>
+        <div class="body">
+          <div class="lbl">Charter</div>
+          <p>WG4 defines what an AI-ready enterprise WAN must do. Enterprise WANs were sized and priced for people using cloud apps. AI adds three traffic patterns they weren&rsquo;t built for: <strong>data to compute</strong> (training data moving to wherever GPU capacity is, with egress fees now a budget line), <strong>inference and agent traffic</strong> (latency-sensitive and hard to inspect), and <strong>edge model rollout</strong>. WG4 brings enterprise network architects together with carriers, colocation providers, and networking vendors. It uses WG1&rsquo;s identity, gateway, and journal rather than redefining them.</p>
+          <div class="lbl">2027 deliverables, in order</div>
+          <ul>
+            <li><strong>Traffic study</strong> of what AI workloads put on member networks today.</li>
+            <li><strong>Enterprise requirements</strong> for an AI-ready WAN.</li>
+            <li><strong>AI transport reference architecture</strong>.</li>
+          </ul>
+          <div class="lbl">Potential Dallas outcomes</div>
+          <ul>
+            <li><strong>Member traffic study</strong>, with real enterprise data that no single vendor can offer.</li>
+            <li><strong>Traffic study plus draft WAN requirements</strong>, giving buyers procurement criteria and ONUG Connect carriers something to respond to.</li>
+            <li><strong>Edge showcase</strong>: carrier and vendor members roll a model out to an edge site and return curated data over the WAN.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cluster-card">
+        <div class="head"><span class="tag">WG5 &middot; New</span><h3>Post-Quantum Cryptography</h3><span class="stat-line">5 Board use cases from four Board members &middot; 16 votes</span></div>
+        <div class="body">
+          <div class="lbl">Charter</div>
+          <p>WG5 makes AI infrastructure quantum-safe. Agent security runs on signatures: certificates, tokens, and Agent Cards prove who an agent is and whom it acts for. Signatures are the hardest part of the migration, and post-quantum signatures are up to 50 times larger. For most enterprises, vendor roadmaps set the timeline, because most of the cryptography sits inside products they don&rsquo;t control. The deadlines are set: Executive Order 14412 targets 2030 for federal post-quantum key establishment and 2031 for signatures, and CISA and NIST publish minimum elements for a cryptographic bill of materials on March 19, 2027. Scope is post-quantum cryptography, not quantum key distribution.</p>
+          <div class="lbl">2027 deliverables</div>
+          <ul>
+            <li><strong>Procurement requirements</strong>: dated PQC roadmaps, cryptographic bills of materials, configurable algorithms, end-of-support notice.</li>
+            <li><strong>Agent identity profile</strong>: post-quantum agent identities, Agent Cards, and signed models.</li>
+            <li><strong>Migration playbook</strong>: an agent that finds quantum-vulnerable cryptography and proposes fixes for human review.</li>
+            <li><strong>Key-management guidance</strong>: keys across edge, on-prem, and cloud, including failing closed when a key service goes down.</li>
+          </ul>
+          <div class="lbl">Potential Dallas outcomes</div>
+          <ul>
+            <li><strong>Enterprise PQC procurement requirements</strong>, published.</li>
+            <li><strong>Key-management guidance</strong> with a key-outage tabletop exercise.</li>
+            <li><strong>Agent identity profile with live proof</strong> that measures what post-quantum signatures cost on every agent handshake.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="fit">
+    <div class="section-head"><h2>5. How the Five Fit Together</h2><span class="count">Built Once, Shared by Every Domain</span></div>
+    <p>The working groups are not five separate projects. WG1 is the shared layer: identity, gateway policy, and the signed journal are specified once, and every other group builds on them instead of writing its own. The Board paper describes the Collaborative as &ldquo;building that layer once for every domain, as WG1&rsquo;s Agentic Control Plane.&rdquo;</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Working Group</th><th>Uses From WG1</th><th>Works With</th></tr></thead>
+        <tbody>
+          <tr><td>WG2 &middot; AI Networking: Autonomous Operations</td><td>Agent identity, short-lived credentials, the Verify Gate, the signed journal</td><td>WG4 on the line between operations and WAN transport; WG5 on testing post-quantum rollouts in WG2&rsquo;s digital twin</td></tr>
+          <tr><td>WG3 &middot; AI Security: AI Agents as Insider Threats</td><td>The signed journal, as the evidence base for agent investigations</td><td>WG2, whose SOC persona receives WG3&rsquo;s insider indicators; WG4, whose traffic baselines help tell a bulk transfer from exfiltration</td></tr>
+          <tr><td>WG4 &middot; AI Networking: WAN</td><td>Identity, gateway, and journal, not redefined</td><td>WG2 on shared path-health telemetry; WG5 on encryption overhead on AI WAN links; ONUG Connect on carrier profiles</td></tr>
+          <tr><td>WG5 &middot; Post-Quantum Cryptography</td><td>The agent identity model. WG5 defines the cryptography it uses.</td><td>WG1 on the agent identity profile; WG2 on rollouts in the twin; WG4 on throughput cost</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section id="dallas">
+    <div class="section-head"><h2>6. The Road to Dallas</h2><span class="count">May 12&ndash;13, 2027 &middot; Hyatt Regency Frisco</span></div>
+    <p>New York in October was about building the network for enterprise AI. Dallas is about proving it. The summit theme is <strong>&ldquo;Proving the AI Infrastructure Fabric,&rdquo;</strong> under the tagline &ldquo;Build the Foundation. Enable the Fabric. Power the AI Future.&rdquo; Each working group brings what its leads choose: published specifications, a live demo, or both.</p>
+    <div class="stats">
+      <div class="stat"><div class="v">1,000+</div><div class="k">Attendees</div></div>
+      <div class="stat"><div class="v">45+</div><div class="k">Sponsors</div></div>
+      <div class="stat"><div class="v">40+</div><div class="k">Vendor presentations on tools, technologies &amp; techniques</div></div>
+      <div class="stat"><div class="v">5</div><div class="k">Summit tracks, each with a working group behind it</div></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Summit Track</th><th>From the Summit Page</th><th>Lead Working Group</th></tr></thead>
+        <tbody>
+          <tr><td>AI Security</td><td>&ldquo;Protecting autonomous systems and the operators who now run them.&rdquo;</td><td>WG1, WG3</td></tr>
+          <tr><td>AI Automation</td><td>&ldquo;Getting agentic operations out of pilot and into everyday production use.&rdquo;</td><td>WG2</td></tr>
+          <tr><td>AI Networking</td><td>&ldquo;Redesigning the network itself for agent-to-agent traffic and controlled autonomy.&rdquo;</td><td>WG4, with WG1 and WG2</td></tr>
+          <tr><td>Post-Quantum Cryptography</td><td>&ldquo;PQC has stopped being a future mandate and become a present-day procurement requirement.&rdquo;</td><td>WG5</td></tr>
+          <tr><td>AI Infrastructure</td><td>&ldquo;The physical and architectural foundation an AI-native enterprise runs on.&rdquo;</td><td>WG4 (data to compute), WG5 (key management)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px;color:var(--onug-text-muted)">Track quotes are from the Dallas summit page. The working-group column is our mapping.</p>
+
+    <h3>Milestones</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Date</th><th>Milestone</th></tr></thead>
+        <tbody>
+          <tr><td>Nov 2026</td><td>Leads choose each group&rsquo;s path to Dallas. Board members who submitted use cases are invited to co-author tracks or serve as Board Advisors. WG4 and WG5 recruit founding members.</td></tr>
+          <tr><td>Mar 19, 2027</td><td>CISA and NIST publish minimum elements for a cryptographic bill of materials, a key input for WG5.</td></tr>
+          <tr><td>May 12&ndash;13, 2027</td><td>AI Networking Summit Dallas: working group deliverables and demos.</td></tr>
+          <tr><td>H2 2027</td><td>Remaining tracks and deliverables not shown in Dallas.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section id="involved">
+    <div class="section-head"><h2>7. Where Suppliers Contribute</h2><span class="count">Get Involved</span></div>
+    <p>Each group needs supplier expertise to turn enterprise requirements into something buyers can procure and something that can be shown live in Dallas. The table below shows where each kind of supplier fits.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Supplier Type</th><th>Primary Fit</th><th>What You Would Shape</th></tr></thead>
+        <tbody>
+          <tr><td>Carriers &amp; service providers</td><td><span class="pill new">WG4</span> <span class="pill wg2">WG2</span></td><td>The AI transport requirements and reference architecture; carrier telemetry for cross-domain attribution; the link from WG4 requirements to ONUG Connect carrier profiles.</td></tr>
+          <tr><td>Colocation &amp; data center interconnect</td><td><span class="pill new">WG4</span></td><td>The data-to-compute pattern: moving training data to wherever GPU capacity is, and what it costs.</td></tr>
+          <tr><td>Networking, SD-WAN &amp; silicon vendors</td><td><span class="pill new">WG4</span> <span class="pill wg2">WG2</span> <span class="pill new">WG5</span></td><td>AI-ready WAN requirements; SD-WAN paths and path-health telemetry for the operations loop and the Dallas demo; post-quantum encryption cost on high-volume AI links.</td></tr>
+          <tr><td>Infrastructure &amp; observability platforms</td><td><span class="pill wg2">WG2</span> <span class="pill wg1">WG1</span></td><td>Cross-domain telemetry (cloud gateways, DNS, application and database signals); digital-twin validation before changes run; model routing under cost and residency policy.</td></tr>
+          <tr><td>Identity, PKI, HSM &amp; key management</td><td><span class="pill new">WG5</span> <span class="pill wg1">WG1</span></td><td>The post-quantum agent identity profile; key-management guidance for distributed AI infrastructure; PQC procurement requirements.</td></tr>
+          <tr><td>Endpoint, browser, DLP &amp; insider-risk security</td><td><span class="pill">WG3</span></td><td>Finding shadow agents; agent attribution and forensics; insider-risk programs that cover agents.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px;color:var(--onug-text-muted)">Supplier categories come from each working group&rsquo;s 2027 brief. The mapping of categories to groups is ours.</p>
+
+    <div class="callout">
+      <h3>Join the Collaborative</h3>
+      <p>&ldquo;Suppliers are free to submit an application to join the ONUG Collaborative.&rdquo; Apply at <a href="https://onug.net/collaborative/" style="color:var(--onug-green)">onug.net/collaborative</a>, or talk to the ONUG team about which working group fits your roadmap. WG4 and WG5 are recruiting founding members now. Groups that form in November have five months to show something in Dallas.</p>
+    </div>
+  </section>
+
+  <div class="sources">
+    <div class="lbl">Sources</div>
+    <span>ONUG &mdash; <a href="https://onug.net/collaborative/">The ONUG Collaborative</a> (retrieved 2026-11-12)</span>
+    <span>ONUG &mdash; <a href="https://onug.net/ai-networking-summit-dallas-spring-2027/">AI Networking Summit Dallas 2027</a> event page (retrieved 2026-11-11)</span>
+    <span>ONUG WG1&ndash;WG5 2027 briefs: Charter, Board Priorities &amp; Paths Forward (2026-11-11)</span>
+    <span>ONUG NYC Board Summary &mdash; 20 Use Cases on the Road to Dallas (2026-11-11)</span>
+    <span>ONUG Executive Board Paper &mdash; &ldquo;Governed Autonomy: The State of Agentic AI in 2026&rdquo; (v3, 2026-10-19)</span>
+    <span>ONUG &mdash; The 25: Crosswalk &amp; Provenance (updated 2026-09-23)</span>
+    <span>Anthropic, PBC &mdash; Form S-1 Registration Statement, Risk Factors (filed 2026-10-26; p. 48)</span>
+    <span>Executive Order 14412, &ldquo;Securing the Nation Against Advanced Cryptographic Attacks&rdquo; (June 2026), Sec. 5(d)</span>
+  </div>
+
+  <footer>
+    <span>ONUG Collaborative &mdash; The Road to Dallas: Collaborative Explainer</span>
+    <span>Prepared by Peter Campbell &middot; 2026-11-12</span>
+  </footer>
+
+</article>
+
+</body>
+</html>
